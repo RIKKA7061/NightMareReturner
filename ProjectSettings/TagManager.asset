@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - weapon
+  - EnemyAttack1
+  - UI
+  - Wall
+  - Monster
+  - MonsterHP
+  - shop
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Player
+  - Enemy
+  - Object
+  - UI2
+  - Slide
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - EnemyAttack1
+  - EnemyAttack2
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: InvisibleWall
+    uniqueID: 453524833
+    locked: 0
+  - name: Wall
+    uniqueID: 151747341
+    locked: 0
+  - name: Shadow
+    uniqueID: 207830705
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 54192435
+    locked: 0
+  - name: BorderLine
+    uniqueID: 323400413
+    locked: 0
+  - name: wall2
+    uniqueID: 2135988813
+    locked: 0
+  - name: Deco
+    uniqueID: 2968288821
+    locked: 0
+  - name: Attack
+    uniqueID: 1659233345
+    locked: 0
+  - name: Enemy
+    uniqueID: 2145977891
+    locked: 0
+  - name: Object
+    uniqueID: 2162735053
+    locked: 0
+  - name: MalPuengSeon
+    uniqueID: 3229526065
+    locked: 0
+  - name: Player
+    uniqueID: 3175115681
+    locked: 0

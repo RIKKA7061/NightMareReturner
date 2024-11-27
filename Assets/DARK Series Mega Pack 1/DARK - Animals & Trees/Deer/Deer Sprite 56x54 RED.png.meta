@@ -1,0 +1,1222 @@
+fileFormatVersion: 2
+guid: e12a1ac1e1681b94fbb7e7b55e68c0f7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8658393150574020990
+    second: Deer Sprite 56x54 RED_0
+  - first:
+      213: -6924304127497474743
+    second: Deer Sprite 56x54 RED_1
+  - first:
+      213: -3093082380737347935
+    second: Deer Sprite 56x54 RED_2
+  - first:
+      213: 6079027199786092394
+    second: Deer Sprite 56x54 RED_3
+  - first:
+      213: 7352484898059907900
+    second: Deer Sprite 56x54 RED_4
+  - first:
+      213: 2517808819275128328
+    second: Deer Sprite 56x54 RED_5
+  - first:
+      213: 6910412226917235582
+    second: Deer Sprite 56x54 RED_6
+  - first:
+      213: 3223171113333270164
+    second: Deer Sprite 56x54 RED_7
+  - first:
+      213: 6317070932159265354
+    second: Deer Sprite 56x54 RED_8
+  - first:
+      213: -6028511318585022362
+    second: Deer Sprite 56x54 RED_9
+  - first:
+      213: 6117030229516440090
+    second: Deer Sprite 56x54 RED_10
+  - first:
+      213: 2824536019635488997
+    second: Deer Sprite 56x54 RED_11
+  - first:
+      213: -4373160061364299483
+    second: Deer Sprite 56x54 RED_12
+  - first:
+      213: 3214521338722438136
+    second: Deer Sprite 56x54 RED_13
+  - first:
+      213: 6799798922018596926
+    second: Deer Sprite 56x54 RED_14
+  - first:
+      213: 3730181234540662927
+    second: Deer Sprite 56x54 RED_15
+  - first:
+      213: -6111351571844592562
+    second: Deer Sprite 56x54 RED_16
+  - first:
+      213: -8344515112184767756
+    second: Deer Sprite 56x54 RED_17
+  - first:
+      213: -1784823436068923684
+    second: Deer Sprite 56x54 RED_18
+  - first:
+      213: 1803286479395086018
+    second: Deer Sprite 56x54 RED_19
+  - first:
+      213: -2537820336607451206
+    second: Deer Sprite 56x54 RED_20
+  - first:
+      213: 2096914358382756596
+    second: Deer Sprite 56x54 RED_21
+  - first:
+      213: -9184039363844241017
+    second: Deer Sprite 56x54 RED_22
+  - first:
+      213: -6485621875805537133
+    second: Deer Sprite 56x54 RED_23
+  - first:
+      213: -7857081508851591935
+    second: Deer Sprite 56x54 RED_24
+  - first:
+      213: 7293531716630674485
+    second: Deer Sprite 56x54 RED_25
+  - first:
+      213: 5840407112923005923
+    second: Deer Sprite 56x54 RED_26
+  - first:
+      213: -1602920147652733704
+    second: Deer Sprite 56x54 RED_27
+  - first:
+      213: -6539205443132166442
+    second: Deer Sprite 56x54 RED_28
+  - first:
+      213: -6477522670616080418
+    second: Deer Sprite 56x54 RED_29
+  - first:
+      213: 2200560019297989637
+    second: Deer Sprite 56x54 RED_30
+  - first:
+      213: 5304556069031831570
+    second: Deer Sprite 56x54 RED_31
+  - first:
+      213: 2492451730408432044
+    second: Deer Sprite 56x54 RED_32
+  - first:
+      213: 2407239756107763228
+    second: Deer Sprite 56x54 RED_33
+  - first:
+      213: -3509932953554334265
+    second: Deer Sprite 56x54 RED_34
+  - first:
+      213: 3488922785217567371
+    second: Deer Sprite 56x54 RED_35
+  - first:
+      213: -1763881640049029890
+    second: Deer Sprite 56x54 RED_36
+  - first:
+      213: -1360406008475732559
+    second: Deer Sprite 56x54 RED_37
+  - first:
+      213: -7875949806177242896
+    second: Deer Sprite 56x54 RED_38
+  - first:
+      213: -8230070928410081211
+    second: Deer Sprite 56x54 RED_39
+  - first:
+      213: -7711509701923719895
+    second: Deer Sprite 56x54 RED_40
+  - first:
+      213: 2082124168930390672
+    second: Deer Sprite 56x54 RED_41
+  - first:
+      213: 4636244574800485920
+    second: Deer Sprite 56x54 RED_42
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 162
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e79c3a142bac82870800000000000000
+      internalID: 8658393150574020990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_1
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 162
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94dedb3251ee7ef90800000000000000
+      internalID: -6924304127497474743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_2
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 162
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ae712b66f92315d0800000000000000
+      internalID: -3093082380737347935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_3
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 162
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a670037b70b0d5450800000000000000
+      internalID: 6079027199786092394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_4
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 162
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c33f8454f06490660800000000000000
+      internalID: 7352484898059907900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_5
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 162
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80e5d3df7cd01f220800000000000000
+      internalID: 2517808819275128328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_6
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 162
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7bfae4be47b6ef50800000000000000
+      internalID: 6910412226917235582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_7
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 162
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 496a78cec010bbc20800000000000000
+      internalID: 3223171113333270164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 108
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4a7c442b8ebaa750800000000000000
+      internalID: 6317070932159265354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_9
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 108
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 668615b65ec665ca0800000000000000
+      internalID: -6028511318585022362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_10
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 108
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1257a6959e04e450800000000000000
+      internalID: 6117030229516440090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_11
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 108
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e84ba97b84c23720800000000000000
+      internalID: 2824536019635488997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_12
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 108
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 529947c181a6f43c0800000000000000
+      internalID: -4373160061364299483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_13
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 108
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fbc67550264c9c20800000000000000
+      internalID: 3214521338722438136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 54
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e38a00bb71dbd5e50800000000000000
+      internalID: 6799798922018596926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_15
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 54
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f80df98c11444c330800000000000000
+      internalID: 3730181234540662927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_16
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 54
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4c8daeef1e103ba0800000000000000
+      internalID: -6111351571844592562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_17
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 54
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fa195377b3523c80800000000000000
+      internalID: -8344515112184767756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_18
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 54
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd6d1529a880b37e0800000000000000
+      internalID: -1784823436068923684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_19
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 54
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cedb90bf7f860910800000000000000
+      internalID: 1803286479395086018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_20
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 54
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab720cc89d9d7ccd0800000000000000
+      internalID: -2537820336607451206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_21
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 54
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f202dfbf7cb91d10800000000000000
+      internalID: 2096914358382756596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_22
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 54
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7890cd29bdcbb8080800000000000000
+      internalID: -9184039363844241017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_23
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 54
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39cbb1924417ef5a0800000000000000
+      internalID: -6485621875805537133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_24
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 54
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1055c9d0ff906f290800000000000000
+      internalID: -7857081508851591935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_25
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 54
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53cf0d71474d73560800000000000000
+      internalID: 7293531716630674485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_26
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 54
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e3c07d435b4d0150800000000000000
+      internalID: 5840407112923005923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_27
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 54
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f497db4e9841c9e0800000000000000
+      internalID: -1602920147652733704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_28
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 54
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6de6ec0bb431045a0800000000000000
+      internalID: -6539205443132166442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_29
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edf836153773b16a0800000000000000
+      internalID: -6477522670616080418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_30
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 0
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 504fe21bda5f98e10800000000000000
+      internalID: 2200560019297989637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_31
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 218e8c9d3a19d9940800000000000000
+      internalID: 5304556069031831570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_32
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 0
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca16dcaa4a7f69220800000000000000
+      internalID: 2492451730408432044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_33
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1e4008ddcb386120800000000000000
+      internalID: 2407239756107763228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_34
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 0
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cdc4fd33963a4fc0800000000000000
+      internalID: -3509932953554334265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_35
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8ad8adb9c42b6030800000000000000
+      internalID: 3488922785217567371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_36
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 0
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efc4b0b6efe6587e0800000000000000
+      internalID: -1763881640049029890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_37
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b53f7a61fdde1de0800000000000000
+      internalID: -1360406008475732559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_38
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 0
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f0bffd316103b290800000000000000
+      internalID: -7875949806177242896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_39
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54809db681ae8cd80800000000000000
+      internalID: -8230070928410081211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_40
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 0
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 925bbde88c63bf490800000000000000
+      internalID: -7711509701923719895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_41
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 0
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 092f95b66e035ec10800000000000000
+      internalID: 2082124168930390672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deer Sprite 56x54 RED_42
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 0
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02e90dc70ef375040800000000000000
+      internalID: 4636244574800485920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Deer Sprite 56x54 RED_0: 8658393150574020990
+      Deer Sprite 56x54 RED_1: -6924304127497474743
+      Deer Sprite 56x54 RED_10: 6117030229516440090
+      Deer Sprite 56x54 RED_11: 2824536019635488997
+      Deer Sprite 56x54 RED_12: -4373160061364299483
+      Deer Sprite 56x54 RED_13: 3214521338722438136
+      Deer Sprite 56x54 RED_14: 6799798922018596926
+      Deer Sprite 56x54 RED_15: 3730181234540662927
+      Deer Sprite 56x54 RED_16: -6111351571844592562
+      Deer Sprite 56x54 RED_17: -8344515112184767756
+      Deer Sprite 56x54 RED_18: -1784823436068923684
+      Deer Sprite 56x54 RED_19: 1803286479395086018
+      Deer Sprite 56x54 RED_2: -3093082380737347935
+      Deer Sprite 56x54 RED_20: -2537820336607451206
+      Deer Sprite 56x54 RED_21: 2096914358382756596
+      Deer Sprite 56x54 RED_22: -9184039363844241017
+      Deer Sprite 56x54 RED_23: -6485621875805537133
+      Deer Sprite 56x54 RED_24: -7857081508851591935
+      Deer Sprite 56x54 RED_25: 7293531716630674485
+      Deer Sprite 56x54 RED_26: 5840407112923005923
+      Deer Sprite 56x54 RED_27: -1602920147652733704
+      Deer Sprite 56x54 RED_28: -6539205443132166442
+      Deer Sprite 56x54 RED_29: -6477522670616080418
+      Deer Sprite 56x54 RED_3: 6079027199786092394
+      Deer Sprite 56x54 RED_30: 2200560019297989637
+      Deer Sprite 56x54 RED_31: 5304556069031831570
+      Deer Sprite 56x54 RED_32: 2492451730408432044
+      Deer Sprite 56x54 RED_33: 2407239756107763228
+      Deer Sprite 56x54 RED_34: -3509932953554334265
+      Deer Sprite 56x54 RED_35: 3488922785217567371
+      Deer Sprite 56x54 RED_36: -1763881640049029890
+      Deer Sprite 56x54 RED_37: -1360406008475732559
+      Deer Sprite 56x54 RED_38: -7875949806177242896
+      Deer Sprite 56x54 RED_39: -8230070928410081211
+      Deer Sprite 56x54 RED_4: 7352484898059907900
+      Deer Sprite 56x54 RED_40: -7711509701923719895
+      Deer Sprite 56x54 RED_41: 2082124168930390672
+      Deer Sprite 56x54 RED_42: 4636244574800485920
+      Deer Sprite 56x54 RED_5: 2517808819275128328
+      Deer Sprite 56x54 RED_6: 6910412226917235582
+      Deer Sprite 56x54 RED_7: 3223171113333270164
+      Deer Sprite 56x54 RED_8: 6317070932159265354
+      Deer Sprite 56x54 RED_9: -6028511318585022362
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,862 @@
+fileFormatVersion: 2
+guid: c10b647cd950d874586732fbb65c9ee6
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMasterTextureLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Hanger Dude 1_Frame_0
+    originalName: 
+    pivot: {x: 0.6818182, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 11
+      height: 93
+    spriteID: 3aa6b77a9f71cfb47b7724f366fdc6c2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: -22, y: -22}
+  - name: Hanger Dude 1_Frame_1
+    originalName: 
+    pivot: {x: 0.65, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 23
+      y: 105
+      width: 10
+      height: 93
+    spriteID: 751cc55da289dc6499324f0528562bce
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: -4, y: 79}
+  - name: Hanger Dude 1_Frame_2
+    originalName: 
+    pivot: {x: 0.65, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 42
+      y: 4
+      width: 10
+      height: 93
+    spriteID: 8e70e8290a356d34abad6879dac7fb0c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 15, y: -22}
+  - name: Hanger Dude 1_Frame_3
+    originalName: 
+    pivot: {x: 0.65, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 42
+      y: 105
+      width: 10
+      height: 93
+    spriteID: 986f631c1a7fb5441aa8faa50cf2d86c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 15, y: 79}
+  - name: Hanger Dude 1_Frame_4
+    originalName: 
+    pivot: {x: 0.55, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 4
+      width: 10
+      height: 93
+    spriteID: ffc372bf743866a4ba495ec26027adbe
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 32, y: -22}
+  - name: Hanger Dude 1_Frame_5
+    originalName: 
+    pivot: {x: 0.55, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 105
+      width: 10
+      height: 93
+    spriteID: 6968db7c7a4b7554488248da151ee30d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 32, y: 79}
+  - name: Hanger Dude 1_Frame_6
+    originalName: 
+    pivot: {x: 0.45000002, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 78
+      y: 4
+      width: 10
+      height: 93
+    spriteID: 25e2f53e175719e478da02e3a9c7fecd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 49, y: -22}
+  - name: Hanger Dude 1_Frame_7
+    originalName: 
+    pivot: {x: 0.34999996, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 78
+      y: 105
+      width: 10
+      height: 93
+    spriteID: 455f0071230ed184491c9d7e4e5dfcc6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 48, y: 79}
+  - name: Hanger Dude 1_Frame_8
+    originalName: 
+    pivot: {x: 0.34999996, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 96
+      y: 4
+      width: 10
+      height: 93
+    spriteID: e64629ea752adae42937758fb7c1cc82
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 66, y: -22}
+  - name: Hanger Dude 1_Frame_9
+    originalName: 
+    pivot: {x: 0.3181818, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 105
+      width: 11
+      height: 93
+    spriteID: 8c4ff79a2f2527a49b46a8c542324105
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: -26, y: 79}
+  - name: Hanger Dude 1_Frame_10
+    originalName: 
+    pivot: {x: 0.24999999, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 96
+      y: 105
+      width: 10
+      height: 93
+    spriteID: 6ff10bf754deff549b5ec1080aafa118
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 65, y: 79}
+  - name: Hanger Dude 1_Frame_11
+    originalName: 
+    pivot: {x: 0.24999999, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 114
+      y: 4
+      width: 10
+      height: 93
+    spriteID: 2342dd40fca55de49b88a72f73b91567
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 83, y: -22}
+  - name: Hanger Dude 1_Frame_12
+    originalName: 
+    pivot: {x: 0.24999999, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 114
+      y: 105
+      width: 10
+      height: 93
+    spriteID: faaa6ab064d93b44d8bb51a8ceb123ba
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 83, y: 79}
+  - name: Hanger Dude 1_Frame_13
+    originalName: 
+    pivot: {x: 0.3181818, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 23
+      y: 4
+      width: 11
+      height: 93
+    spriteID: 06f9106f6d5c4cf4db1ff348276d799c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: -7, y: -22}
+  - name: Hanger Dude 1_Frame_14
+    originalName: 
+    pivot: {x: 0.34999996, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 132
+      y: 4
+      width: 10
+      height: 93
+    spriteID: 3bd5fa082bc56304aaf8d3e1ea890bf7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 102, y: -22}
+  - name: Hanger Dude 1_Frame_15
+    originalName: 
+    pivot: {x: 0.34999996, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 132
+      y: 105
+      width: 10
+      height: 93
+    spriteID: 19358dc19e9ae2a45ba6473b42b010a9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 102, y: 79}
+  - name: Hanger Dude 1_Frame_16
+    originalName: 
+    pivot: {x: 0.45000002, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 150
+      y: 4
+      width: 10
+      height: 93
+    spriteID: 1cb36d0439ac9f84d9a495c02099b565
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 121, y: -22}
+  - name: Hanger Dude 1_Frame_17
+    originalName: 
+    pivot: {x: 0.45000002, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 150
+      y: 105
+      width: 10
+      height: 93
+    spriteID: c82f2cb9e83574d46b9ec02926074c04
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 121, y: 79}
+  - name: Hanger Dude 1_Frame_18
+    originalName: 
+    pivot: {x: 0.55, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 168
+      y: 4
+      width: 10
+      height: 93
+    spriteID: e04762dede552c8429617e6449d1e3e7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 140, y: -22}
+  - name: Hanger Dude 1_Frame_19
+    originalName: 
+    pivot: {x: 0.55, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 168
+      y: 105
+      width: 10
+      height: 93
+    spriteID: 05ced40424cb2ee4b83671f8113b17db
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 140, y: 79}
+  - name: Hanger Dude 1_Frame_20
+    originalName: 
+    pivot: {x: 0.55, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 186
+      y: 4
+      width: 10
+      height: 93
+    spriteID: d30902099eab27d42a129243da3feae4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 158, y: -22}
+  - name: Hanger Dude 1_Frame_21
+    originalName: 
+    pivot: {x: 0.65, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 186
+      y: 105
+      width: 10
+      height: 93
+    spriteID: c3da7ca4d217d014fa60962ce3bc8a97
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 159, y: 79}
+  - name: Hanger Dude 1_Frame_22
+    originalName: 
+    pivot: {x: 0.65, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 204
+      y: 4
+      width: 10
+      height: 93
+    spriteID: 38c3a24a68fabc646b744e8c7482bb6a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 177, y: -22}
+  - name: Hanger Dude 1_Frame_23
+    originalName: 
+    pivot: {x: 0.65, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 204
+      y: 105
+      width: 10
+      height: 93
+    spriteID: d4c4585b5dd71154f991d119225fed30
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 177, y: 79}
+  - name: Hanger Dude 1_Frame_24
+    originalName: 
+    pivot: {x: 0.65, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 222
+      y: 4
+      width: 10
+      height: 93
+    spriteID: 5ab9bc9f988774549b2b46c21da751fa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 195, y: -22}
+  - name: Hanger Dude 1_Frame_25
+    originalName: 
+    pivot: {x: 0.65, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 222
+      y: 105
+      width: 10
+      height: 93
+    spriteID: 0c97d835821cd124ca5c558736dccdcb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 195, y: 79}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -932912692
+    name: Hanger Dude 1
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Hanger Dude 1_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: -26
+        y: -26
+        width: 128
+        height: 128
+      spriteId: 3aa6b77a9f71cfb47b7724f366fdc6c2
+    - name: Hanger Dude 1_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: -26
+        y: -26
+        width: 128
+        height: 128
+      spriteId: 751cc55da289dc6499324f0528562bce
+    - name: Hanger Dude 1_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: -26
+        y: -26
+        width: 128
+        height: 128
+      spriteId: 8e70e8290a356d34abad6879dac7fb0c
+    - name: Hanger Dude 1_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: -26
+        y: -26
+        width: 128
+        height: 128
+      spriteId: 986f631c1a7fb5441aa8faa50cf2d86c
+    - name: Hanger Dude 1_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: -26
+        y: -26
+        width: 128
+        height: 128
+      spriteId: ffc372bf743866a4ba495ec26027adbe
+    - name: Hanger Dude 1_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: -26
+        y: -26
+        width: 128
+        height: 128
+      spriteId: 6968db7c7a4b7554488248da151ee30d
+    - name: Hanger Dude 1_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: -26
+        y: -26
+        width: 128
+        height: 128
+      spriteId: 25e2f53e175719e478da02e3a9c7fecd
+    - name: Hanger Dude 1_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: -26
+        y: -26
+        width: 128
+        height: 128
+      spriteId: 455f0071230ed184491c9d7e4e5dfcc6
+    - name: Hanger Dude 1_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: -26
+        y: -26
+        width: 128
+        height: 128
+      spriteId: e64629ea752adae42937758fb7c1cc82
+    - name: Hanger Dude 1_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: -26
+        y: -26
+        width: 128
+        height: 128
+      spriteId: 8c4ff79a2f2527a49b46a8c542324105
+    - name: Hanger Dude 1_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: -26
+        y: -26
+        width: 128
+        height: 128
+      spriteId: 6ff10bf754deff549b5ec1080aafa118
+    - name: Hanger Dude 1_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: -26
+        y: -26
+        width: 128
+        height: 128
+      spriteId: 2342dd40fca55de49b88a72f73b91567
+    - name: Hanger Dude 1_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: -26
+        y: -26
+        width: 128
+        height: 128
+      spriteId: faaa6ab064d93b44d8bb51a8ceb123ba
+    - name: Hanger Dude 1_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: -26
+        y: -26
+        width: 128
+        height: 128
+      spriteId: 06f9106f6d5c4cf4db1ff348276d799c
+    - name: Hanger Dude 1_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: -26
+        y: -26
+        width: 128
+        height: 128
+      spriteId: 3bd5fa082bc56304aaf8d3e1ea890bf7
+    - name: Hanger Dude 1_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: -26
+        y: -26
+        width: 128
+        height: 128
+      spriteId: 19358dc19e9ae2a45ba6473b42b010a9
+    - name: Hanger Dude 1_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: -26
+        y: -26
+        width: 128
+        height: 128
+      spriteId: 1cb36d0439ac9f84d9a495c02099b565
+    - name: Hanger Dude 1_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: -26
+        y: -26
+        width: 128
+        height: 128
+      spriteId: c82f2cb9e83574d46b9ec02926074c04
+    - name: Hanger Dude 1_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: -26
+        y: -26
+        width: 128
+        height: 128
+      spriteId: e04762dede552c8429617e6449d1e3e7
+    - name: Hanger Dude 1_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: -26
+        y: -26
+        width: 128
+        height: 128
+      spriteId: 05ced40424cb2ee4b83671f8113b17db
+    - name: Hanger Dude 1_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: -26
+        y: -26
+        width: 128
+        height: 128
+      spriteId: d30902099eab27d42a129243da3feae4
+    - name: Hanger Dude 1_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: -26
+        y: -26
+        width: 128
+        height: 128
+      spriteId: c3da7ca4d217d014fa60962ce3bc8a97
+    - name: Hanger Dude 1_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: -26
+        y: -26
+        width: 128
+        height: 128
+      spriteId: 38c3a24a68fabc646b744e8c7482bb6a
+    - name: Hanger Dude 1_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: -26
+        y: -26
+        width: 128
+        height: 128
+      spriteId: d4c4585b5dd71154f991d119225fed30
+    - name: Hanger Dude 1_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: -26
+        y: -26
+        width: 128
+        height: 128
+      spriteId: 5ab9bc9f988774549b2b46c21da751fa
+    - name: Hanger Dude 1_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: -26
+        y: -26
+        width: 128
+        height: 128
+      spriteId: 0c97d835821cd124ca5c558736dccdcb
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 15, y: 93}

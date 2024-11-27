@@ -1,0 +1,1814 @@
+fileFormatVersion: 2
+guid: 530fcd7214f12ed4abeaac986c87e25a
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMasterTextureLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Guardian SWORD_Frame_24
+    originalName: 
+    pivot: {x: 0.15929203, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 236
+      y: 196
+      width: 226
+      height: 48
+    spriteID: f93e6f1dc3ebca541b9effc2e43ab926
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 236, y: 196}
+  - name: Guardian SWORD_Frame_25
+    originalName: 
+    pivot: {x: 0.16666667, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 470
+      y: 196
+      width: 228
+      height: 47
+    spriteID: 3c82a887055c12149b1f5d75029e527f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 470, y: 196}
+  - name: Guardian SWORD_Frame_26
+    originalName: 
+    pivot: {x: 0.17391305, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 747
+      y: 135
+      width: 230
+      height: 48
+    spriteID: 4473cd1472540974b84ddb0fa9101c0e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 747, y: 135}
+  - name: Guardian SWORD_Frame_27
+    originalName: 
+    pivot: {x: 0.17672414, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 507
+      y: 135
+      width: 232
+      height: 49
+    spriteID: c54fb7de095ccc74c9a04d299275b76e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 507, y: 135}
+  - name: Guardian SWORD_Frame_28
+    originalName: 
+    pivot: {x: 0.17948718, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 265
+      y: 135
+      width: 234
+      height: 49
+    spriteID: 953159f1cc6b76848a884b105996f307
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 265, y: 135}
+  - name: Guardian SWORD_Frame_29
+    originalName: 
+    pivot: {x: 0.14285713, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 196
+      width: 224
+      height: 49
+    spriteID: 93e6df517ea08fd4489b8a3dd041509c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 196}
+  - name: Guardian SWORD_Frame_13
+    originalName: 
+    pivot: {x: 0.1787234, y: -0.027777776}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 733
+      y: 253
+      width: 235
+      height: 36
+    spriteID: 58dc1bb717144dc4ea2eb7d81d4a62c8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 733, y: 253}
+  - name: Guardian SWORD_Frame_14
+    originalName: 
+    pivot: {x: 0.1822034, y: -0.027027028}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 489
+      y: 253
+      width: 236
+      height: 37
+    spriteID: d1e03122b85954d4180160c31477fc3d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 489, y: 253}
+  - name: Guardian SWORD_Frame_15
+    originalName: 
+    pivot: {x: 0.18644069, y: -0.025641026}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 253
+      width: 236
+      height: 39
+    spriteID: fa7175cce3f445c418dd13cd27ba0514
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 253}
+  - name: Guardian SWORD_Frame_16
+    originalName: 
+    pivot: {x: 0.0904762, y: -0.025}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 236
+      y: 300
+      width: 210
+      height: 40
+    spriteID: 4f26d3ffc18c0d547932246b90f47906
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 236, y: 300}
+  - name: Guardian SWORD_Frame_17
+    originalName: 
+    pivot: {x: 0.08653847, y: -0.022222223}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 811
+      y: 69
+      width: 208
+      height: 45
+    spriteID: 8699a1dcba3fcff44bbd372ca4fdf1da
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 811, y: 69}
+  - name: Guardian SWORD_Frame_18
+    originalName: 
+    pivot: {x: 0.045226134, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 628
+      y: 587
+      width: 199
+      height: 30
+    spriteID: 9de3c26925419604589321dbee0d7279
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 628, y: 587}
+  - name: Guardian SWORD_Frame_19
+    originalName: 
+    pivot: {x: 0.030612241, y: -0.03448276}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 208
+      y: 627
+      width: 196
+      height: 29
+    spriteID: 936c4feff8223254b8e0875181dc91f7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 208, y: 627}
+  - name: Guardian SWORD_Frame_20
+    originalName: 
+    pivot: {x: 0.030612241, y: -0.03448276}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 412
+      y: 627
+      width: 196
+      height: 29
+    spriteID: 18993eed1576d2b48bbeacb6b78840f1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 412, y: 627}
+  - name: Guardian SWORD_Frame_21
+    originalName: 
+    pivot: {x: 0.030612241, y: -0.03448276}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 616
+      y: 627
+      width: 196
+      height: 29
+    spriteID: 277f910092da52c46a1352598aa160b5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 616, y: 627}
+  - name: Guardian SWORD_Frame_22
+    originalName: 
+    pivot: {x: 0.030612241, y: -0.03448276}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 820
+      y: 627
+      width: 196
+      height: 29
+    spriteID: 98e0d096319ee254396a1d4b0bf2b76e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 820, y: 627}
+  - name: Guardian SWORD_Frame_23
+    originalName: 
+    pivot: {x: 0.030612241, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 627
+      width: 196
+      height: 30
+    spriteID: 308687ee20a7ad94ab23a19ecd680bb4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 627}
+  - name: Guardian SWORD_Frame_0
+    originalName: 
+    pivot: {x: 0.13063063, y: -0.03448276}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 465
+      y: 473
+      width: 222
+      height: 29
+    spriteID: 6588734ae199a954d89cd18bc89e8fac
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 465, y: 473}
+  - name: Guardian SWORD_Frame_1
+    originalName: 
+    pivot: {x: 0.13063063, y: -0.03448276}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 695
+      y: 473
+      width: 222
+      height: 29
+    spriteID: 18ca1187c060ab74897adf543cd56b41
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 695, y: 473}
+  - name: Guardian SWORD_Frame_2
+    originalName: 
+    pivot: {x: 0.13063063, y: -0.033333335}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 687
+      y: 392
+      width: 222
+      height: 30
+    spriteID: 6c926ab9ef4f70d46926e69f32a598ce
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 687, y: 392}
+  - name: Guardian SWORD_Frame_3
+    originalName: 
+    pivot: {x: 0.13063063, y: -0.033333335}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 217
+      y: 432
+      width: 222
+      height: 30
+    spriteID: c96ab4230564fa94b8c5f00294ca67ef
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 217, y: 432}
+  - name: Guardian SWORD_Frame_4
+    originalName: 
+    pivot: {x: 0.13063063, y: -0.03448276}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 225
+      y: 511
+      width: 222
+      height: 29
+    spriteID: ed56204a4f8c6b7429b7b03602fe9476
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 225, y: 511}
+  - name: Guardian SWORD_Frame_5
+    originalName: 
+    pivot: {x: 0.13063063, y: -0.03448276}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 455
+      y: 511
+      width: 222
+      height: 29
+    spriteID: bbfe9359c28c032438f96db5d861cbe2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 455, y: 511}
+  - name: Guardian SWORD_Frame_6
+    originalName: 
+    pivot: {x: 0.13063063, y: -0.03448276}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 685
+      y: 511
+      width: 222
+      height: 29
+    spriteID: a5ade22421ec5a44b88308181c0d886a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 685, y: 511}
+  - name: Guardian SWORD_Frame_7
+    originalName: 
+    pivot: {x: 0.13063063, y: -0.03448276}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 550
+      width: 222
+      height: 29
+    spriteID: bf8b50e2ef7d2de43a28eb4b3dbef8d7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 550}
+  - name: Guardian SWORD_Frame_8
+    originalName: 
+    pivot: {x: 0.13063063, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 447
+      y: 432
+      width: 222
+      height: 30
+    spriteID: fd634e6d343d12c4a93b50734f8d139e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 447, y: 432}
+  - name: Guardian SWORD_Frame_9
+    originalName: 
+    pivot: {x: 0.13452914, y: -0.032258064}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 448
+      y: 348
+      width: 223
+      height: 31
+    spriteID: 7acc62cba8ef46d4a874cb55019228d3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 448, y: 348}
+  - name: Guardian SWORD_Frame_10
+    originalName: 
+    pivot: {x: 0.13452914, y: -0.03030303}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 217
+      y: 348
+      width: 223
+      height: 33
+    spriteID: 69853c5485b4002488ccd751cd0ed096
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 217, y: 348}
+  - name: Guardian SWORD_Frame_11
+    originalName: 
+    pivot: {x: 0.16450217, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 454
+      y: 300
+      width: 231
+      height: 35
+    spriteID: 703e31cfb614e474fadeb3bcd0e0b9cf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 454, y: 300}
+  - name: Guardian SWORD_Frame_12
+    originalName: 
+    pivot: {x: 0.17167382, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 248
+      y: 253
+      width: 233
+      height: 38
+    spriteID: 986f9ee9036a6bd4c8d2304c1baeb06c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 248, y: 253}
+  - name: Guardian SWORD_Frame_30
+    originalName: 
+    pivot: {x: 0.14285713, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 224
+      y: 392
+      width: 224
+      height: 30
+    spriteID: d8f0fe4ac2e9afe46925a3e620df1190
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 224, y: 392}
+  - name: Guardian SWORD_Frame_31
+    originalName: 
+    pivot: {x: 0.10232557, y: -0.03448276}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 234
+      y: 550
+      width: 215
+      height: 29
+    spriteID: 41c003eb36c4ae94aa81773b5ea58371
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 234, y: 550}
+  - name: Guardian SWORD_Frame_32
+    originalName: 
+    pivot: {x: 0.08962265, y: -0.03448276}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 680
+      y: 550
+      width: 212
+      height: 29
+    spriteID: 324ab3d6ffaed6e4f869158fc7767fc2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 680, y: 550}
+  - name: Guardian SWORD_Frame_33
+    originalName: 
+    pivot: {x: 0.082474224, y: -0.03125}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 587
+      width: 194
+      height: 32
+    spriteID: 9233a9ea1fa878d4584cc5f865ee9381
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 587}
+  - name: Guardian SWORD_Frame_34
+    originalName: 
+    pivot: {x: 0.058536574, y: -0.027777776}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 348
+      width: 205
+      height: 36
+    spriteID: f0251cd80ecaee84095268a8757b3d3e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 348}
+  - name: Guardian SWORD_Frame_35
+    originalName: 
+    pivot: {x: 0.080952376, y: -0.02631579}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 693
+      y: 300
+      width: 210
+      height: 38
+    spriteID: b26b2cc5a0bd5b24eb47f3d4f880bcf5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 693, y: 300}
+  - name: Guardian SWORD_Frame_36
+    originalName: 
+    pivot: {x: 0.13839285, y: -0.025}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 300
+      width: 224
+      height: 40
+    spriteID: 9ea996162d8b5b24da4fe02c74ca3f9f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 300}
+  - name: Guardian SWORD_Frame_37
+    originalName: 
+    pivot: {x: 0.18907563, y: -0.024390245}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 706
+      y: 196
+      width: 238
+      height: 41
+    spriteID: d0a8b1e0f68e41a4783dbb5bfa7d289f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 706, y: 196}
+  - name: Guardian SWORD_Frame_38
+    originalName: 
+    pivot: {x: 0.2930403, y: -0.01754386}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 273
+      height: 57
+    spriteID: db3417801bda6d14f81155a8a06aaf70
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Guardian SWORD_Frame_39
+    originalName: 
+    pivot: {x: 0.27169812, y: -0.017857144}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 285
+      y: 4
+      width: 265
+      height: 56
+    spriteID: 08c88355a588b374db9d606f836cf961
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 285, y: 4}
+  - name: Guardian SWORD_Frame_40
+    originalName: 
+    pivot: {x: 0.2576923, y: -0.01754386}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 558
+      y: 4
+      width: 260
+      height: 57
+    spriteID: 5c159ea3e21dcf544915971f853065e8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 558, y: 4}
+  - name: Guardian SWORD_Frame_41
+    originalName: 
+    pivot: {x: 0.2605364, y: -0.01724138}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 69
+      width: 261
+      height: 58
+    spriteID: defbf1447f94c7a48add6dd16dcf920a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 69}
+  - name: Guardian SWORD_Frame_42
+    originalName: 
+    pivot: {x: 0.2605364, y: -0.018518519}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 542
+      y: 69
+      width: 261
+      height: 54
+    spriteID: 18682edfdf574f64eb7d444e8e6ca966
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 542, y: 69}
+  - name: Guardian SWORD_Frame_43
+    originalName: 
+    pivot: {x: 0.2605364, y: -0.01818182}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 273
+      y: 69
+      width: 261
+      height: 55
+    spriteID: 6fb68c5281464b34d98a97f4d5fb7dfe
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 273, y: 69}
+  - name: Guardian SWORD_Frame_44
+    originalName: 
+    pivot: {x: 0.23715416, y: -0.018867925}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 135
+      width: 253
+      height: 53
+    spriteID: 5a2d4a99da98b924490ab2aafe7bac69
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 135}
+  - name: Guardian SWORD_Frame_45
+    originalName: 
+    pivot: {x: 0.082474224, y: -0.03125}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 206
+      y: 587
+      width: 194
+      height: 32
+    spriteID: 3fa1318fab1c21e4ca6c7d30124d127c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 206, y: 587}
+  - name: Guardian SWORD_Frame_46
+    originalName: 
+    pivot: {x: 0.08962265, y: -0.03448276}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 408
+      y: 587
+      width: 212
+      height: 29
+    spriteID: 62b55b5909c2e3e4bb470093fb80dfe9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 408, y: 587}
+  - name: Guardian SWORD_Frame_47
+    originalName: 
+    pivot: {x: 0.10232557, y: -0.03448276}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 457
+      y: 550
+      width: 215
+      height: 29
+    spriteID: c90728aed99085142ad37d9e952884dc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 457, y: 550}
+  - name: Guardian SWORD_Frame_48
+    originalName: 
+    pivot: {x: 0.13452914, y: -0.03448276}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 234
+      y: 473
+      width: 223
+      height: 29
+    spriteID: f6659d32cc450b748b7d22a9e70d7888
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 234, y: 473}
+  - name: Guardian SWORD_Frame_49
+    originalName: 
+    pivot: {x: 0.13063063, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 677
+      y: 432
+      width: 222
+      height: 30
+    spriteID: 2dc9f60018d66d042b2bd35d2cd92c8c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 677, y: 432}
+  - name: Guardian SWORD_Frame_50
+    originalName: 
+    pivot: {x: 0.13063063, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 473
+      width: 222
+      height: 30
+    spriteID: 958c9726d75c96c4d98ceada237a74fb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 473}
+  - name: Guardian SWORD_Frame_51
+    originalName: 
+    pivot: {x: 0.13452914, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 456
+      y: 392
+      width: 223
+      height: 30
+    spriteID: 12a94826fa89d534ab3c58881571ed57
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 456, y: 392}
+  - name: Guardian SWORD_Frame_52
+    originalName: 
+    pivot: {x: 0.13063063, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 679
+      y: 348
+      width: 222
+      height: 31
+    spriteID: 54b3dd0bb8006854bb51dd780a444a11
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 679, y: 348}
+  - name: Guardian SWORD_Frame_53
+    originalName: 
+    pivot: {x: 0.09389672, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 511
+      width: 213
+      height: 31
+    spriteID: ddf2d749f8b355b4b9be74c7656bab25
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 511}
+  - name: Guardian SWORD_Frame_54
+    originalName: 
+    pivot: {x: 0.08962265, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 392
+      width: 212
+      height: 32
+    spriteID: a593252638f031c49b3dbfae42b92c7a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 392}
+  - name: Guardian SWORD_Frame_55
+    originalName: 
+    pivot: {x: 0.058536574, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 432
+      width: 205
+      height: 33
+    spriteID: 3fd3035c2f6dfdf4881cd0582bfc54f1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 432}
+  - name: Guardian SWORD_Frame_56
+    originalName: 
+    pivot: {x: 0.063157886, y: -0.03030303}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 826
+      y: 4
+      width: 190
+      height: 33
+    spriteID: 4cb56912615836a4aae0e67d82fcb67d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 826, y: 4}
+  - name: Guardian SWORD_Frame_57
+    originalName: 
+    pivot: {x: 0.63157886, y: -0.033333335}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 976
+      y: 253
+      width: 19
+      height: 30
+    spriteID: 9857ba620323d9e43bd847840db45011
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 976, y: 253}
+  - name: Guardian SWORD_Frame_58
+    originalName: 
+    pivot: {x: 0.66666657, y: -0.032258064}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 985
+      y: 135
+      width: 18
+      height: 31
+    spriteID: d3cdb23343dd3f24b8cad4cda0c371d9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 985, y: 135}
+  - name: Guardian SWORD_Frame_59
+    originalName: 
+    pivot: {x: 4.000001, y: -32}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 985
+      y: 174
+      width: 1
+      height: 1
+    spriteID: e62e6b5ab65bea74b8e48aed3b93cf2f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 985, y: 174}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 1572031652
+    name: Guardian SWORD
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Guardian SWORD_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: 44
+        y: 0
+        width: 226
+        height: 48
+      spriteId: f93e6f1dc3ebca541b9effc2e43ab926
+    - name: Guardian SWORD_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: 42
+        y: 0
+        width: 228
+        height: 47
+      spriteId: 3c82a887055c12149b1f5d75029e527f
+    - name: Guardian SWORD_Frame_26
+      frameIndex: 26
+      cellRect:
+        x: 40
+        y: 0
+        width: 230
+        height: 48
+      spriteId: 4473cd1472540974b84ddb0fa9101c0e
+    - name: Guardian SWORD_Frame_27
+      frameIndex: 27
+      cellRect:
+        x: 39
+        y: 0
+        width: 232
+        height: 49
+      spriteId: c54fb7de095ccc74c9a04d299275b76e
+    - name: Guardian SWORD_Frame_28
+      frameIndex: 28
+      cellRect:
+        x: 38
+        y: 0
+        width: 234
+        height: 49
+      spriteId: 953159f1cc6b76848a884b105996f307
+    - name: Guardian SWORD_Frame_29
+      frameIndex: 29
+      cellRect:
+        x: 48
+        y: 0
+        width: 224
+        height: 49
+      spriteId: 93e6df517ea08fd4489b8a3dd041509c
+    - name: Guardian SWORD_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 38
+        y: 1
+        width: 235
+        height: 36
+      spriteId: 58dc1bb717144dc4ea2eb7d81d4a62c8
+    - name: Guardian SWORD_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 37
+        y: 1
+        width: 236
+        height: 37
+      spriteId: d1e03122b85954d4180160c31477fc3d
+    - name: Guardian SWORD_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 36
+        y: 1
+        width: 236
+        height: 39
+      spriteId: fa7175cce3f445c418dd13cd27ba0514
+    - name: Guardian SWORD_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 61
+        y: 1
+        width: 210
+        height: 40
+      spriteId: 4f26d3ffc18c0d547932246b90f47906
+    - name: Guardian SWORD_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 62
+        y: 1
+        width: 208
+        height: 45
+      spriteId: 8699a1dcba3fcff44bbd372ca4fdf1da
+    - name: Guardian SWORD_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 71
+        y: 0
+        width: 199
+        height: 30
+      spriteId: 9de3c26925419604589321dbee0d7279
+    - name: Guardian SWORD_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 74
+        y: 1
+        width: 196
+        height: 29
+      spriteId: 936c4feff8223254b8e0875181dc91f7
+    - name: Guardian SWORD_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 74
+        y: 1
+        width: 196
+        height: 29
+      spriteId: 18993eed1576d2b48bbeacb6b78840f1
+    - name: Guardian SWORD_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 74
+        y: 1
+        width: 196
+        height: 29
+      spriteId: 277f910092da52c46a1352598aa160b5
+    - name: Guardian SWORD_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 74
+        y: 1
+        width: 196
+        height: 29
+      spriteId: 98e0d096319ee254396a1d4b0bf2b76e
+    - name: Guardian SWORD_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 74
+        y: 0
+        width: 196
+        height: 30
+      spriteId: 308687ee20a7ad94ab23a19ecd680bb4
+    - name: Guardian SWORD_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 51
+        y: 1
+        width: 222
+        height: 29
+      spriteId: 6588734ae199a954d89cd18bc89e8fac
+    - name: Guardian SWORD_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 51
+        y: 1
+        width: 222
+        height: 29
+      spriteId: 18ca1187c060ab74897adf543cd56b41
+    - name: Guardian SWORD_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 51
+        y: 1
+        width: 222
+        height: 30
+      spriteId: 6c926ab9ef4f70d46926e69f32a598ce
+    - name: Guardian SWORD_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 51
+        y: 1
+        width: 222
+        height: 30
+      spriteId: c96ab4230564fa94b8c5f00294ca67ef
+    - name: Guardian SWORD_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 51
+        y: 1
+        width: 222
+        height: 29
+      spriteId: ed56204a4f8c6b7429b7b03602fe9476
+    - name: Guardian SWORD_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 51
+        y: 1
+        width: 222
+        height: 29
+      spriteId: bbfe9359c28c032438f96db5d861cbe2
+    - name: Guardian SWORD_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 51
+        y: 1
+        width: 222
+        height: 29
+      spriteId: a5ade22421ec5a44b88308181c0d886a
+    - name: Guardian SWORD_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 51
+        y: 1
+        width: 222
+        height: 29
+      spriteId: bf8b50e2ef7d2de43a28eb4b3dbef8d7
+    - name: Guardian SWORD_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 51
+        y: 0
+        width: 222
+        height: 30
+      spriteId: fd634e6d343d12c4a93b50734f8d139e
+    - name: Guardian SWORD_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 50
+        y: 1
+        width: 223
+        height: 31
+      spriteId: 7acc62cba8ef46d4a874cb55019228d3
+    - name: Guardian SWORD_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 50
+        y: 1
+        width: 223
+        height: 33
+      spriteId: 69853c5485b4002488ccd751cd0ed096
+    - name: Guardian SWORD_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 42
+        y: 0
+        width: 231
+        height: 35
+      spriteId: 703e31cfb614e474fadeb3bcd0e0b9cf
+    - name: Guardian SWORD_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 40
+        y: 0
+        width: 233
+        height: 38
+      spriteId: 986f9ee9036a6bd4c8d2304c1baeb06c
+    - name: Guardian SWORD_Frame_30
+      frameIndex: 30
+      cellRect:
+        x: 48
+        y: 0
+        width: 224
+        height: 30
+      spriteId: d8f0fe4ac2e9afe46925a3e620df1190
+    - name: Guardian SWORD_Frame_31
+      frameIndex: 31
+      cellRect:
+        x: 58
+        y: 1
+        width: 215
+        height: 29
+      spriteId: 41c003eb36c4ae94aa81773b5ea58371
+    - name: Guardian SWORD_Frame_32
+      frameIndex: 32
+      cellRect:
+        x: 61
+        y: 1
+        width: 212
+        height: 29
+      spriteId: 324ab3d6ffaed6e4f869158fc7767fc2
+    - name: Guardian SWORD_Frame_33
+      frameIndex: 33
+      cellRect:
+        x: 64
+        y: 1
+        width: 194
+        height: 32
+      spriteId: 9233a9ea1fa878d4584cc5f865ee9381
+    - name: Guardian SWORD_Frame_34
+      frameIndex: 34
+      cellRect:
+        x: 68
+        y: 1
+        width: 205
+        height: 36
+      spriteId: f0251cd80ecaee84095268a8757b3d3e
+    - name: Guardian SWORD_Frame_35
+      frameIndex: 35
+      cellRect:
+        x: 63
+        y: 1
+        width: 210
+        height: 38
+      spriteId: b26b2cc5a0bd5b24eb47f3d4f880bcf5
+    - name: Guardian SWORD_Frame_36
+      frameIndex: 36
+      cellRect:
+        x: 49
+        y: 1
+        width: 224
+        height: 40
+      spriteId: 9ea996162d8b5b24da4fe02c74ca3f9f
+    - name: Guardian SWORD_Frame_37
+      frameIndex: 37
+      cellRect:
+        x: 35
+        y: 1
+        width: 238
+        height: 41
+      spriteId: d0a8b1e0f68e41a4783dbb5bfa7d289f
+    - name: Guardian SWORD_Frame_38
+      frameIndex: 38
+      cellRect:
+        x: 0
+        y: 1
+        width: 273
+        height: 57
+      spriteId: db3417801bda6d14f81155a8a06aaf70
+    - name: Guardian SWORD_Frame_39
+      frameIndex: 39
+      cellRect:
+        x: 8
+        y: 1
+        width: 265
+        height: 56
+      spriteId: 08c88355a588b374db9d606f836cf961
+    - name: Guardian SWORD_Frame_40
+      frameIndex: 40
+      cellRect:
+        x: 13
+        y: 1
+        width: 260
+        height: 57
+      spriteId: 5c159ea3e21dcf544915971f853065e8
+    - name: Guardian SWORD_Frame_41
+      frameIndex: 41
+      cellRect:
+        x: 12
+        y: 1
+        width: 261
+        height: 58
+      spriteId: defbf1447f94c7a48add6dd16dcf920a
+    - name: Guardian SWORD_Frame_42
+      frameIndex: 42
+      cellRect:
+        x: 12
+        y: 1
+        width: 261
+        height: 54
+      spriteId: 18682edfdf574f64eb7d444e8e6ca966
+    - name: Guardian SWORD_Frame_43
+      frameIndex: 43
+      cellRect:
+        x: 12
+        y: 1
+        width: 261
+        height: 55
+      spriteId: 6fb68c5281464b34d98a97f4d5fb7dfe
+    - name: Guardian SWORD_Frame_44
+      frameIndex: 44
+      cellRect:
+        x: 20
+        y: 1
+        width: 253
+        height: 53
+      spriteId: 5a2d4a99da98b924490ab2aafe7bac69
+    - name: Guardian SWORD_Frame_45
+      frameIndex: 45
+      cellRect:
+        x: 64
+        y: 1
+        width: 194
+        height: 32
+      spriteId: 3fa1318fab1c21e4ca6c7d30124d127c
+    - name: Guardian SWORD_Frame_46
+      frameIndex: 46
+      cellRect:
+        x: 61
+        y: 1
+        width: 212
+        height: 29
+      spriteId: 62b55b5909c2e3e4bb470093fb80dfe9
+    - name: Guardian SWORD_Frame_47
+      frameIndex: 47
+      cellRect:
+        x: 58
+        y: 1
+        width: 215
+        height: 29
+      spriteId: c90728aed99085142ad37d9e952884dc
+    - name: Guardian SWORD_Frame_48
+      frameIndex: 48
+      cellRect:
+        x: 50
+        y: 1
+        width: 223
+        height: 29
+      spriteId: f6659d32cc450b748b7d22a9e70d7888
+    - name: Guardian SWORD_Frame_49
+      frameIndex: 49
+      cellRect:
+        x: 51
+        y: 0
+        width: 222
+        height: 30
+      spriteId: 2dc9f60018d66d042b2bd35d2cd92c8c
+    - name: Guardian SWORD_Frame_50
+      frameIndex: 50
+      cellRect:
+        x: 51
+        y: 0
+        width: 222
+        height: 30
+      spriteId: 958c9726d75c96c4d98ceada237a74fb
+    - name: Guardian SWORD_Frame_51
+      frameIndex: 51
+      cellRect:
+        x: 50
+        y: 0
+        width: 223
+        height: 30
+      spriteId: 12a94826fa89d534ab3c58881571ed57
+    - name: Guardian SWORD_Frame_52
+      frameIndex: 52
+      cellRect:
+        x: 51
+        y: 0
+        width: 222
+        height: 31
+      spriteId: 54b3dd0bb8006854bb51dd780a444a11
+    - name: Guardian SWORD_Frame_53
+      frameIndex: 53
+      cellRect:
+        x: 60
+        y: 0
+        width: 213
+        height: 31
+      spriteId: ddf2d749f8b355b4b9be74c7656bab25
+    - name: Guardian SWORD_Frame_54
+      frameIndex: 54
+      cellRect:
+        x: 61
+        y: 0
+        width: 212
+        height: 32
+      spriteId: a593252638f031c49b3dbfae42b92c7a
+    - name: Guardian SWORD_Frame_55
+      frameIndex: 55
+      cellRect:
+        x: 68
+        y: 0
+        width: 205
+        height: 33
+      spriteId: 3fd3035c2f6dfdf4881cd0582bfc54f1
+    - name: Guardian SWORD_Frame_56
+      frameIndex: 56
+      cellRect:
+        x: 68
+        y: 1
+        width: 190
+        height: 33
+      spriteId: 4cb56912615836a4aae0e67d82fcb67d
+    - name: Guardian SWORD_Frame_57
+      frameIndex: 57
+      cellRect:
+        x: 68
+        y: 1
+        width: 19
+        height: 30
+      spriteId: 9857ba620323d9e43bd847840db45011
+    - name: Guardian SWORD_Frame_58
+      frameIndex: 58
+      cellRect:
+        x: 68
+        y: 1
+        width: 18
+        height: 31
+      spriteId: d3cdb23343dd3f24b8cad4cda0c371d9
+    - name: Guardian SWORD_Frame_59
+      frameIndex: 59
+      cellRect:
+        x: 76
+        y: 32
+        width: 1
+        height: 1
+      spriteId: e62e6b5ab65bea74b8e48aed3b93cf2f
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 160, y: 59}

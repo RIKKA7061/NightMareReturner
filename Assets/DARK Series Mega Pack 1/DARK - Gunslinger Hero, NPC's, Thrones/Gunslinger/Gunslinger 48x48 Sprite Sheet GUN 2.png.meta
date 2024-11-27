@@ -1,0 +1,1247 @@
+fileFormatVersion: 2
+guid: 46eea8d22e3fb9044a69aca6bd715518
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5889732968036390996
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_0
+  - first:
+      213: -1908881461946720720
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_1
+  - first:
+      213: -9070925163443790269
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_2
+  - first:
+      213: 5884863151266014543
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_3
+  - first:
+      213: -8561591196322016361
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_4
+  - first:
+      213: -5417396406372168200
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_5
+  - first:
+      213: -4007484491387513548
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_6
+  - first:
+      213: -4008501029909374536
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_7
+  - first:
+      213: -2134572433080542496
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_8
+  - first:
+      213: 2121132466296293664
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_9
+  - first:
+      213: -8345580331246011418
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_10
+  - first:
+      213: 3855602469457135518
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_11
+  - first:
+      213: 5831086842169922006
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_12
+  - first:
+      213: 3267937754835693235
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_13
+  - first:
+      213: 2464240212409247360
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_14
+  - first:
+      213: -5029027045652042246
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_15
+  - first:
+      213: -6867822196051162323
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_16
+  - first:
+      213: 8634340560041985769
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_17
+  - first:
+      213: 2389325795182129243
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_18
+  - first:
+      213: 6711283109471168265
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_19
+  - first:
+      213: 951499221040043489
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_20
+  - first:
+      213: -3156886907363527781
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_21
+  - first:
+      213: 8130277525273933828
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_22
+  - first:
+      213: -701337246274361863
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_23
+  - first:
+      213: 6020426433883975765
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_24
+  - first:
+      213: -3629542131392660801
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_25
+  - first:
+      213: 2693615429092925780
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_26
+  - first:
+      213: -6116089147340236164
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_27
+  - first:
+      213: -6499993982819951792
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_28
+  - first:
+      213: -7993603002105914033
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_29
+  - first:
+      213: -1434285727318365323
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_30
+  - first:
+      213: -916821793898377010
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_31
+  - first:
+      213: 1302736269187967711
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_32
+  - first:
+      213: 6494617721909511834
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_33
+  - first:
+      213: 2440589100689251892
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_34
+  - first:
+      213: -8554796235431694568
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_35
+  - first:
+      213: 4761398776057609183
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_36
+  - first:
+      213: -278808855955350116
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_37
+  - first:
+      213: -843221073470873629
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_38
+  - first:
+      213: -3488070306896918593
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_39
+  - first:
+      213: -3828297570943341660
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_40
+  - first:
+      213: 1714799404588346854
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_41
+  - first:
+      213: 6968510110653435793
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_42
+  - first:
+      213: 1704992001621798923
+    second: Gunslinger 48x48 Sprite Sheet GUN 2_43
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 528
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45857b5ede88cb150800000000000000
+      internalID: 5889732968036390996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 480
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03e565e8c6a4285e0800000000000000
+      internalID: -1908881461946720720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_2
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 480
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34ed7c8af999d1280800000000000000
+      internalID: -9070925163443790269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 480
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f452ff25bdb3ba150800000000000000
+      internalID: 5884863151266014543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_4
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 480
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7935d1f0b2e1f2980800000000000000
+      internalID: -8561591196322016361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_5
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 480
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fd85b6cbaa81d4b0800000000000000
+      internalID: -5417396406372168200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_6
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 480
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 435d5ff661e8268c0800000000000000
+      internalID: -4007484491387513548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_7
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 480
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b9d67e1d81fe58c0800000000000000
+      internalID: -4008501029909374536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_8
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 480
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ea94ea7ea97062e0800000000000000
+      internalID: -2134572433080542496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 432
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02983276db6cf6d10800000000000000
+      internalID: 2121132466296293664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_10
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 432
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6eb389fc7ea8e2c80800000000000000
+      internalID: -8345580331246011418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_11
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 432
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e978c13a40ad18530800000000000000
+      internalID: 3855602469457135518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_12
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 432
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d11ef9a69e2ce050800000000000000
+      internalID: 5831086842169922006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_13
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 432
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bea111e21c0a5d20800000000000000
+      internalID: 3267937754835693235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 086e2e5ca6db23220800000000000000
+      internalID: 2464240212409247360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_15
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 384
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afde3120c8e453ab0800000000000000
+      internalID: -5029027045652042246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_16
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 384
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2bc3d7991890b0a0800000000000000
+      internalID: -6867822196051162323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 336
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e6cc0f1ef653d770800000000000000
+      internalID: 8634340560041985769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_18
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 336
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b50328ac627982120800000000000000
+      internalID: 2389325795182129243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_19
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 336
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 907ab1f1e64432d50800000000000000
+      internalID: 6711283109471168265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_20
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 336
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e517221087643d00800000000000000
+      internalID: 951499221040043489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_21
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 336
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b93f38a651c7034d0800000000000000
+      internalID: -3156886907363527781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_22
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 336
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4087b4b455c84d070800000000000000
+      internalID: 8130277525273933828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f5e0188d795446f0800000000000000
+      internalID: -701337246274361863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 550b60ca1f9dc8350800000000000000
+      internalID: 6020426433883975765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbab60169a641adc0800000000000000
+      internalID: -3629542131392660801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 144
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 451689c16f4a16520800000000000000
+      internalID: 2693615429092925780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_27
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 144
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7ad92e23594f1ba0800000000000000
+      internalID: -6116089147340236164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_28
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 144
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05b17db39e16bc5a0800000000000000
+      internalID: -6499993982819951792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_29
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4d1bf7eb64011190800000000000000
+      internalID: -7993603002105914033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_30
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57ba6cceab4681ce0800000000000000
+      internalID: -1434285727318365323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_31
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec0d95c9f6bc643f0800000000000000
+      internalID: -916821793898377010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_32
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fda67f01cbf341210800000000000000
+      internalID: 1302736269187967711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_33
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a968f5a7864812a50800000000000000
+      internalID: 6494617721909511834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_34
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43ed5453bd6bed120800000000000000
+      internalID: 2440589100689251892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_35
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81fae3d2622474980800000000000000
+      internalID: -8554796235431694568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_36
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdbb4e8b5f2e31240800000000000000
+      internalID: 4761398776057609183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_37
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9d5c8c92d8712cf0800000000000000
+      internalID: -278808855955350116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_38
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ef15a8b6e64c44f0800000000000000
+      internalID: -843221073470873629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_39
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb742d55982e79fc0800000000000000
+      internalID: -3488070306896918593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ab6e6574a72fdac0800000000000000
+      internalID: -3828297570943341660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_41
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ed2a8b19f03cc710800000000000000
+      internalID: 1714799404588346854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_42
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19f473f560f15b060800000000000000
+      internalID: 6968510110653435793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunslinger 48x48 Sprite Sheet GUN 2_43
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b00bc89213959a710800000000000000
+      internalID: 1704992001621798923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Gunslinger 48x48 Sprite Sheet GUN 2_0: 5889732968036390996
+      Gunslinger 48x48 Sprite Sheet GUN 2_1: -1908881461946720720
+      Gunslinger 48x48 Sprite Sheet GUN 2_10: -8345580331246011418
+      Gunslinger 48x48 Sprite Sheet GUN 2_11: 3855602469457135518
+      Gunslinger 48x48 Sprite Sheet GUN 2_12: 5831086842169922006
+      Gunslinger 48x48 Sprite Sheet GUN 2_13: 3267937754835693235
+      Gunslinger 48x48 Sprite Sheet GUN 2_14: 2464240212409247360
+      Gunslinger 48x48 Sprite Sheet GUN 2_15: -5029027045652042246
+      Gunslinger 48x48 Sprite Sheet GUN 2_16: -6867822196051162323
+      Gunslinger 48x48 Sprite Sheet GUN 2_17: 8634340560041985769
+      Gunslinger 48x48 Sprite Sheet GUN 2_18: 2389325795182129243
+      Gunslinger 48x48 Sprite Sheet GUN 2_19: 6711283109471168265
+      Gunslinger 48x48 Sprite Sheet GUN 2_2: -9070925163443790269
+      Gunslinger 48x48 Sprite Sheet GUN 2_20: 951499221040043489
+      Gunslinger 48x48 Sprite Sheet GUN 2_21: -3156886907363527781
+      Gunslinger 48x48 Sprite Sheet GUN 2_22: 8130277525273933828
+      Gunslinger 48x48 Sprite Sheet GUN 2_23: -701337246274361863
+      Gunslinger 48x48 Sprite Sheet GUN 2_24: 6020426433883975765
+      Gunslinger 48x48 Sprite Sheet GUN 2_25: -3629542131392660801
+      Gunslinger 48x48 Sprite Sheet GUN 2_26: 2693615429092925780
+      Gunslinger 48x48 Sprite Sheet GUN 2_27: -6116089147340236164
+      Gunslinger 48x48 Sprite Sheet GUN 2_28: -6499993982819951792
+      Gunslinger 48x48 Sprite Sheet GUN 2_29: -7993603002105914033
+      Gunslinger 48x48 Sprite Sheet GUN 2_3: 5884863151266014543
+      Gunslinger 48x48 Sprite Sheet GUN 2_30: -1434285727318365323
+      Gunslinger 48x48 Sprite Sheet GUN 2_31: -916821793898377010
+      Gunslinger 48x48 Sprite Sheet GUN 2_32: 1302736269187967711
+      Gunslinger 48x48 Sprite Sheet GUN 2_33: 6494617721909511834
+      Gunslinger 48x48 Sprite Sheet GUN 2_34: 2440589100689251892
+      Gunslinger 48x48 Sprite Sheet GUN 2_35: -8554796235431694568
+      Gunslinger 48x48 Sprite Sheet GUN 2_36: 4761398776057609183
+      Gunslinger 48x48 Sprite Sheet GUN 2_37: -278808855955350116
+      Gunslinger 48x48 Sprite Sheet GUN 2_38: -843221073470873629
+      Gunslinger 48x48 Sprite Sheet GUN 2_39: -3488070306896918593
+      Gunslinger 48x48 Sprite Sheet GUN 2_4: -8561591196322016361
+      Gunslinger 48x48 Sprite Sheet GUN 2_40: -3828297570943341660
+      Gunslinger 48x48 Sprite Sheet GUN 2_41: 1714799404588346854
+      Gunslinger 48x48 Sprite Sheet GUN 2_42: 6968510110653435793
+      Gunslinger 48x48 Sprite Sheet GUN 2_43: 1704992001621798923
+      Gunslinger 48x48 Sprite Sheet GUN 2_5: -5417396406372168200
+      Gunslinger 48x48 Sprite Sheet GUN 2_6: -4007484491387513548
+      Gunslinger 48x48 Sprite Sheet GUN 2_7: -4008501029909374536
+      Gunslinger 48x48 Sprite Sheet GUN 2_8: -2134572433080542496
+      Gunslinger 48x48 Sprite Sheet GUN 2_9: 2121132466296293664
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
