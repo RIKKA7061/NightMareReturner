@@ -10,11 +10,13 @@ public class teleport : MonoBehaviour
 	private ItemManager itemManager;							// ItemManager 스크립트
 	private GoHomeManager goHomeManager;						// GoHomeManager 스크립트
 	private DirectingCameraManager directingCameraManager;      // DirectingCameraManager 스크립트
-	private PrefabSpawner prefabSpawner;                        // PrefabSpawner 스크립트
-	
+	private PrefabSpawner prefabSpawner;                        // PrefabSpawner 스크립트	
 
 	[Header("나 클릭했어?")]
 	public bool isAlreadyClicked = false;
+
+	[Header("이거 충돌시 보스방으로 가지니?")]
+	public bool isBossTP;
 
 	private void Start()
 	{
@@ -71,6 +73,11 @@ public class teleport : MonoBehaviour
 				{
 					// 플레이어를 이동시킵니다.
 					MovePlayer(collider);
+
+					if (isBossTP)
+					{
+						Debug.Log("보스방 돌입, 엔더드래곤 체력바 출력");
+					}
 				}
 			}
 		}

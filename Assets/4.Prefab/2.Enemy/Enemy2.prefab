@@ -105,9 +105,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   prefabId: 1
-  damage: 2
   count: 0
   speed: 0.5
+  isBoss: 0
+  nearestTarget: {fileID: 0}
+  scanRadius: 10
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &6078138461163856461
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,8 +146,8 @@ RectTransform:
   m_GameObject: {fileID: 6078138461163856461}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6078138461833324239}
   - {fileID: 1879668733567622856}
@@ -196,7 +201,7 @@ SpriteRenderer:
   m_SortingLayerID: 2145977891
   m_SortingLayer: 6
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1287970102, guid: a11ebcc2e85e07542ae23d31f159a32e, type: 3}
+  m_Sprite: {fileID: -227154757, guid: cc11346005a39c9449837b00e998f2e5, type: 3}
   m_Color: {r: 1, g: 0.8920889, b: 0.2028302, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -238,7 +243,7 @@ Animator:
   m_GameObject: {fileID: 6078138461163856461}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 182e2d37ff87cac49950b8988bdcdbc0, type: 2}
+  m_Controller: {fileID: 9100000, guid: c5562fd00a0c7a04285384b18885dd56, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -262,18 +267,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.009765625, y: -0.0048828125}
+  m_Offset: {x: 0.009765625, y: -0.00970459}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.75, y: 1}
+    oldSize: {x: 0.28, y: 0.22}
     newSize: {x: 0.75, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.30615234, y: 0.9902344}
+  m_Size: {x: 0.30615234, y: 0.26678467}
   m_EdgeRadius: 0
 --- !u!114 &6078138461163856466
 MonoBehaviour:
@@ -290,7 +295,6 @@ MonoBehaviour:
   speed: 2
   SenserRangeX: 3
   SenserRangeY: 3
-  maxHP: 100
   nowHP: 0
   scanner: {fileID: 0}
   scanner2: {fileID: 0}
@@ -341,7 +345,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   nearestTarget: {fileID: 0}
-  yOffset: 5
 --- !u!1 &6078138461833324236
 GameObject:
   m_ObjectHideFlags: 0

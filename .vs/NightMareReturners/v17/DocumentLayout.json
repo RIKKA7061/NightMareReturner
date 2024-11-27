@@ -1,0 +1,114 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Project archive\\NightMareReturners\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|d:\\project archive\\nightmarereturners\\assets\\5.scripts\\teleport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|solutionrelative:assets\\5.scripts\\teleport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|d:\\project archive\\nightmarereturners\\assets\\5.scripts\\gohomemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|solutionrelative:assets\\5.scripts\\gohomemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|D:\\Project archive\\NightMareReturners\\assets\\5.scripts\\directingcameramanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|solutionrelative:assets\\5.scripts\\directingcameramanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|d:\\project archive\\nightmarereturners\\assets\\5.scripts\\prefabspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|solutionrelative:assets\\5.scripts\\prefabspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|D:\\Project archive\\NightMareReturners\\assets\\5.scripts\\scenechangeoncollision.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|solutionrelative:assets\\5.scripts\\scenechangeoncollision.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "teleport.cs",
+              "DocumentMoniker": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\teleport.cs",
+              "RelativeDocumentMoniker": "Assets\\5.Scripts\\teleport.cs",
+              "ToolTip": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\teleport.cs",
+              "RelativeToolTip": "Assets\\5.Scripts\\teleport.cs",
+              "ViewState": "AQIAAD0AAAAAAAAAAIAwwEgAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T18:15:50.761Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GoHomeManager.cs",
+              "DocumentMoniker": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\GoHomeManager.cs",
+              "RelativeDocumentMoniker": "Assets\\5.Scripts\\GoHomeManager.cs",
+              "ToolTip": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\GoHomeManager.cs",
+              "RelativeToolTip": "Assets\\5.Scripts\\GoHomeManager.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAQwCQAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T18:27:56.545Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{c9c0ae26-aa77-11d2-b3f0-0000f87570ee}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PrefabSpawner.cs",
+              "DocumentMoniker": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\PrefabSpawner.cs",
+              "RelativeDocumentMoniker": "Assets\\5.Scripts\\PrefabSpawner.cs",
+              "ToolTip": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\PrefabSpawner.cs",
+              "RelativeToolTip": "Assets\\5.Scripts\\PrefabSpawner.cs",
+              "ViewState": "AQIAABcAAAAAAAAAAAAAwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T18:27:39.068Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SceneChangeOnCollision.cs",
+              "DocumentMoniker": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\SceneChangeOnCollision.cs",
+              "RelativeDocumentMoniker": "Assets\\5.Scripts\\SceneChangeOnCollision.cs",
+              "ToolTip": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\SceneChangeOnCollision.cs",
+              "RelativeToolTip": "Assets\\5.Scripts\\SceneChangeOnCollision.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAQwBwAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T17:59:00.604Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DirectingCameraManager.cs",
+              "DocumentMoniker": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\DirectingCameraManager.cs",
+              "RelativeDocumentMoniker": "Assets\\5.Scripts\\DirectingCameraManager.cs",
+              "ToolTip": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\DirectingCameraManager.cs",
+              "RelativeToolTip": "Assets\\5.Scripts\\DirectingCameraManager.cs",
+              "ViewState": "AQIAADgAAAAAAAAAAAAswDcAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T17:58:33.799Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

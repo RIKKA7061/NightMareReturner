@@ -74,7 +74,7 @@ public class GoHomeManager : MonoBehaviour
 		playerScript.RespawnPlayer();
 	}
 
-    void SpawnNewBoss()
+    public void SpawnNewBoss()
     {
         if (bossPrefab != null && bossSpawnPoint != null)
         {

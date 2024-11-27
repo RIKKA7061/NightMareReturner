@@ -19,7 +19,6 @@ public class SceneChangeOnCollision : MonoBehaviour
 		if (isSideViewScene)
 		{
 			StartCoroutine(OnlySideView());
-
 		}
 	}
 
@@ -27,11 +26,11 @@ public class SceneChangeOnCollision : MonoBehaviour
 	{
 		directingCameraManager.darkBg_On();
 		yield return new WaitForSeconds(0.1f);
-		directingCameraManager.SetOrthoSize(1);
+		//directingCameraManager.SetOrthoSize(1);
 		yield return new WaitForSeconds(0.1f);
 		directingCameraManager.darkBg_Off();
 
-		directingCameraManager.ZoomOut();
+		//directingCameraManager.ZoomOut();
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)

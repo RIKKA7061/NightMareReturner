@@ -24,8 +24,8 @@ public class DirectingCameraManager : MonoBehaviour
 		originalSize = virtualCamera.m_Lens.OrthographicSize;
 
 		// 줌아웃 연출 시작
-		SetOrthoSize(1);
-		ZoomOut();
+		//SetOrthoSize(1);
+		//ZoomOut();
 	}
 
 	// 까만 판때기로 전체 화면 가리기
@@ -53,7 +53,8 @@ public class DirectingCameraManager : MonoBehaviour
 
 	public void ZoomOut() // 줌아웃 메서드
 	{
-		StartCoroutine(SmoothZoomToOrigin(delayTime));
+		//StartCoroutine(SmoothZoomToOrigin(delayTime));
+		SetOrthoSize(originalSize);
 	}
 
 
