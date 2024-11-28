@@ -12,6 +12,8 @@ TagManager:
   - Monster
   - MonsterHP
   - shop
+  - Car
+  - Moon
   layers:
   - Default
   - TransparentFX
@@ -35,7 +37,7 @@ TagManager:
   - 
   - EnemyAttack1
   - EnemyAttack2
-  - 
+  - Moon
   - 
   - 
   - 
@@ -84,4 +86,10 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3175115681
+    locked: 0
+  - name: gate
+    uniqueID: 2498584377
+    locked: 0
+  - name: car
+    uniqueID: 1932025945
     locked: 0

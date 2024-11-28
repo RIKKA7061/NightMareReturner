@@ -10,6 +10,10 @@ using Unity.VisualScripting;
 
 public class PlayerAction : MonoBehaviour
 {
+    [Header("이놈이 거리에 있는 플레이어야?")]
+    public bool isGeoRiPlayer;
+
+    [Header("PlayerAction 스크립트")]
     public Player playerScript;
 
     public float walkSpeed = 5f;              // 걷기 속도
@@ -163,7 +167,12 @@ public class PlayerAction : MonoBehaviour
         playerCollider = GetComponent<Collider2D>(); // 플레이어의 콜라이더 가져오기
     }
 
-    void Update()
+	private void Start()
+	{
+		canMove = true;
+	}
+
+	void Update()
     {
 
         if (isCooldown)
@@ -221,15 +230,16 @@ public class PlayerAction : MonoBehaviour
         isAtking = true;
 		canMove = false;
 		PleaseStopPlayer();
-		if (AtkStyle == 0 && Time.time > tempTime) // 기본공격
+		if (AtkStyle == 0 && Time.time > tempTime && !isGeoRiPlayer) // 기본공격
         {
-			animator.SetTrigger(AnimationStrings.attackTrigger);  // 공격 애니메이션 실행
+		    animator.SetTrigger(AnimationStrings.attackTrigger);  // 공격 애니메이션 실행
 			tempTime = Time.time + 0.15f;
 			collider.enabled = true;                              // 왼쪽 또는 오른쪽 공격 켜기
 			yield return new WaitForSeconds(0.1f);                // 콜라이더를 0.1초 동안 활성화
 			collider.enabled = false;                             // 왼쪽 또는 오른쪽 공격 끄기
+            canMove = true;
 		}
-        else if(AtkStyle == 1) // 스킬
+        else if(AtkStyle == 1 && !isGeoRiPlayer) // 스킬
         {
 			isUsingSkillorUltimate = true;              // 지금은 스킬 사용하고 있다.
 			yield return new WaitForSeconds(0.6f);      // 애니메이션 타격할 때까지 기다리는 중
@@ -239,8 +249,9 @@ public class PlayerAction : MonoBehaviour
 			collider.enabled = false;                   // 공격 콜라이더 비활성화
 			playerScript.Atk /= playerScript.SkillAtk;  // 공격력 초기화
 			isUsingSkillorUltimate = false;             // 지금은 스킬 사용하고 있지 않다.
+			canMove = true;
 		}
-		else if (AtkStyle == 2) // 궁극기
+		else if (AtkStyle == 2 && !isGeoRiPlayer) // 궁극기
 		{
             
 			isUsingSkillorUltimate = true;                  // 지금은 스킬 사용하고 있다.
@@ -253,6 +264,7 @@ public class PlayerAction : MonoBehaviour
             itemManager.HammerDeBuff();                     // 해머 공격력 하락 (단, 버프중 일때)
 			playerScript.Atk /= playerScript.UltimitAtk;    // 공격력 초기화
 			isUsingSkillorUltimate = false;                 // 지금은 스킬 사용하고 있지 않다.
+			canMove = true;
 		}
 		canMove = true;
         isAtking = false;
@@ -393,7 +405,7 @@ public class PlayerAction : MonoBehaviour
 
 	public void OnAttack(InputAction.CallbackContext context)// 일반 공격 (잽)
 	{
-        if (jabCooldown <= 0.2f)
+		if (jabCooldown <= 0.2f)
         {
             jabCooldown = 0.2f;
         }
@@ -456,7 +468,11 @@ public class PlayerAction : MonoBehaviour
 
             if (skillAttackTime <= 0)
             {
-                animator.SetTrigger(AnimationStrings.skillAttackTrigger);  // 스킬 애니메이션 실행
+                // 거리 출신 플레이어가 아닐 때
+                if (!isGeoRiPlayer)
+                {
+					animator.SetTrigger(AnimationStrings.skillAttackTrigger);  // 스킬 애니메이션 실행
+				}
                 skillAttackTime = skillAttackCooldown;  // 쿨타임 적용
 
 
@@ -485,7 +501,12 @@ public class PlayerAction : MonoBehaviour
         {
             if (skillAttack2Time <= 0)
             {
-                animator.SetTrigger(AnimationStrings.skillAttackTrigger2);  // 스킬 애니메이션 실행
+                // 거리 출신 플레이어가 아닐시
+                if (!isGeoRiPlayer)
+                {
+					animator.SetTrigger(AnimationStrings.skillAttackTrigger2);  // 스킬 애니메이션 실행
+				}
+
                 skillAttack2Time = skillAttack2Cooldown;  // 쿨타임 적용
 
 				int atkStyle = 2;      // 궁극기 공격 패턴

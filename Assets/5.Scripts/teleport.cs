@@ -18,6 +18,9 @@ public class teleport : MonoBehaviour
 	[Header("이거 충돌시 보스방으로 가지니?")]
 	public bool isBossTP;
 
+	[Header("차 전용 텔레포트")]
+	public bool isCarTP;
+
 	private void Start()
 	{
 		playerAction = FindObjectOfType<Player>().GetComponent<PlayerAction>(); // PlayerAction 스크립트 가져오기
@@ -30,7 +33,7 @@ public class teleport : MonoBehaviour
 	// 플레이어와 충돌시
 	private void OnTriggerEnter2D(Collider2D collider)
 	{
-		Debug.Log("침대와 닿았을 시");
+		//Debug.Log("침대와 닿았을 시");
 
 		// playerAction 스크립트가 비었을시
 		if (playerAction == null)
@@ -55,8 +58,19 @@ public class teleport : MonoBehaviour
 			}
 		}
 
+
+		// 이게 차야?
+		if (isCarTP)
+		{
+			if (collider.CompareTag("Car"))
+			{
+				// 플레이어 텔포
+				collider.transform.position = Pos[0].position;  // 플레이어 해당 위치로 전송
+			}
+		}
+
 		// 플레이어가 공격여부가 False 일시
-		if (!playerAction.isAtking)
+		if (!playerAction.isAtking )
 		{
 			// 플레이어 콜라이더와 충돌시
 			if (collider.CompareTag("Player"))

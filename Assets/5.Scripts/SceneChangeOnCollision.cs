@@ -7,6 +7,7 @@ public class SceneChangeOnCollision : MonoBehaviour
 	// 충돌했을 때 전환할 씬의 이름
 	public string sceneName;
 
+	[Header("니가 거리에 있는 놈이야?")]
 	public bool isSideViewScene = false;
 
 	private DirectingCameraManager directingCameraManager;

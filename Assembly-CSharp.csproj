@@ -146,6 +146,8 @@
     <Compile Include="Assets\5.Scripts\WeaponChange.cs" />
     <Compile Include="Assets\5.Scripts\DestroyAnySec.cs" />
     <Compile Include="Assets\9.Fonts\07.TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
+    <Compile Include="Assets\5.Scripts\CarMovement.cs" />
+    <Compile Include="Assets\5.Scripts\CameraFollowController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\9.Fonts\07.TextMesh Pro\Shaders\TMPro.cginc" />

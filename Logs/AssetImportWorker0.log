@@ -15,7 +15,7 @@ D:/Project archive/NightMareReturners
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-1766
+10054
 Successfully changed project path to: D:/Project archive/NightMareReturners
 D:/Project archive/NightMareReturners
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,12 +47,12 @@ D:/Project archive/NightMareReturners
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [17200] Host "[IP] 192.168.219.131 [Port] 0 [Flags] 2 [Guid] 1298656320 [EditorId] 1298656320 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-EDV24H0) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [14616] Host "[IP] 192.168.219.161 [Port] 0 [Flags] 2 [Guid] 3240643113 [EditorId] 3240643113 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-EDV24H0) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [17200] Host "[IP] 192.168.219.131 [Port] 0 [Flags] 2 [Guid] 1298656320 [EditorId] 1298656320 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-EDV24H0) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [14616] Host "[IP] 192.168.219.161 [Port] 0 [Flags] 2 [Guid] 3240643113 [EditorId] 3240643113 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-EDV24H0) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with {0} workers.
-Refreshing native plugins compatible for Editor in 104.13 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 101.56 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.31f1 (3409e2af086f)
 [Subsystems] Discovering subsystems at path D:/UnityEditorDownload/2021.3.31f1/Editor/Data/Resources/UnitySubsystems
@@ -68,99 +68,99 @@ Initialize mono
 Mono path[0] = 'D:/UnityEditorDownload/2021.3.31f1/Editor/Data/Managed'
 Mono path[1] = 'D:/UnityEditorDownload/2021.3.31f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'D:/UnityEditorDownload/2021.3.31f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56172
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56120
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: D:/UnityEditorDownload/2021.3.31f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: D:/UnityEditorDownload/2021.3.31f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
 Register platform support module: D:/UnityEditorDownload/2021.3.31f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002939 seconds.
+Registered in 0.002568 seconds.
 Native extension for WindowsStandalone target not found
 [usbmuxd] Start listen thread
 [usbmuxd] Listen thread started
 Native extension for iOS target not found
 Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 275 ms
-Refreshing native plugins compatible for Editor in 100.49 ms, found 4 plugins.
+Android Extension - Scanning For ADB Devices 231 ms
+Refreshing native plugins compatible for Editor in 102.59 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.868 seconds
+- Completed reload, in  0.809 seconds
 Domain Reload Profiling:
-	ReloadAssembly (869ms)
-		BeginReloadAssembly (61ms)
+	ReloadAssembly (809ms)
+		BeginReloadAssembly (54ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (0ms)
-		EndReloadAssembly (732ms)
-			LoadAssemblies (61ms)
+		EndReloadAssembly (679ms)
+			LoadAssemblies (54ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (93ms)
+			SetupTypeCache (92ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (26ms)
-			SetupLoadedEditorAssemblies (576ms)
+			RebuildScriptCaches (24ms)
+			SetupLoadedEditorAssemblies (530ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (360ms)
+				InitializePlatformSupportModulesInManaged (316ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (101ms)
+				RefreshPlugins (103ms)
 				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (75ms)
-				ProcessInitializeOnLoadMethodAttributes (39ms)
+				ProcessInitializeOnLoadAttributes (72ms)
+				ProcessInitializeOnLoadMethodAttributes (38ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.004722 seconds.
+Registered in 0.004125 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for iOS target not found
 Native extension for Android target not found
-Refreshing native plugins compatible for Editor in 102.31 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 100.89 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Package Manager log level set to [2]
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Completed reload, in  1.474 seconds
+- Completed reload, in  1.419 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1475ms)
-		BeginReloadAssembly (103ms)
+	ReloadAssembly (1420ms)
+		BeginReloadAssembly (90ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (5ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (18ms)
-		EndReloadAssembly (1286ms)
-			LoadAssemblies (84ms)
+			CreateAndSetChildDomain (16ms)
+		EndReloadAssembly (1244ms)
+			LoadAssemblies (71ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (218ms)
+			SetupTypeCache (208ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (59ms)
-			SetupLoadedEditorAssemblies (898ms)
+			RebuildScriptCaches (57ms)
+			SetupLoadedEditorAssemblies (874ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (24ms)
+				InitializePlatformSupportModulesInManaged (23ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (102ms)
+				RefreshPlugins (101ms)
 				BeforeProcessingInitializeOnLoad (88ms)
-				ProcessInitializeOnLoadAttributes (636ms)
-				ProcessInitializeOnLoadMethodAttributes (43ms)
-				AfterProcessingInitializeOnLoad (3ms)
+				ProcessInitializeOnLoadAttributes (620ms)
+				ProcessInitializeOnLoadMethodAttributes (39ms)
+				AfterProcessingInitializeOnLoad (2ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (5ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 0.57 ms, found 4 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 0.50 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 4449 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 52 unused Assets / (119.6 KB). Loaded Objects now: 4911.
-Memory consumption went from 174.0 MB to 173.9 MB.
-Total: 1.972400 ms (FindLiveObjects: 0.157000 ms CreateObjectMapping: 0.049100 ms MarkObjects: 1.712500 ms  DeleteObjects: 0.053400 ms)
+Unloading 52 unused Assets / (119.3 KB). Loaded Objects now: 4912.
+Memory consumption went from 174.1 MB to 174.0 MB.
+Total: 1.924300 ms (FindLiveObjects: 0.146300 ms CreateObjectMapping: 0.050100 ms MarkObjects: 1.670100 ms  DeleteObjects: 0.057200 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -176,291 +176,91 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 362326.501985 seconds.
-  path: Assets/4.Prefab/2.Enemy/Enemy3.prefab
-  artifactKey: Guid(22492c11aebb495429cd2a34e4c89242) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+  Time since last request: 26732.183696 seconds.
+  path: ProjectSettings/TagManager.asset
+  artifactKey: Guid(00000000000000003000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Number of updated assets reloaded before import = 0
-Start importing Assets/4.Prefab/2.Enemy/Enemy3.prefab using Guid(22492c11aebb495429cd2a34e4c89242) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '392897753824d0c646f31228f8d8b274') in 0.060254 seconds 
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/4.Prefab
-  artifactKey: Guid(a769f0e79ed1f5440a81c8fac15072a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/4.Prefab using Guid(a769f0e79ed1f5440a81c8fac15072a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a46fdab709d143df1d15b27cc56e25c9') in 0.005331 seconds 
+Start importing ProjectSettings/TagManager.asset using Guid(00000000000000003000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f75aec28d0459d96f575aa556c9afd01') in 0.024712 seconds 
 Number of asset objects unloaded after import = 0
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000013 seconds.
-  path: Assets/4.Prefab/2.Enemy/Enemy.prefab
-  artifactKey: Guid(5cb550bdbad4adf43827a10917e4221e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+  Time since last request: 56.880299 seconds.
+  path: Assets/2.Animation
+  artifactKey: Guid(bc59b5d279f3e9240b6b57af8b977acb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Number of updated assets reloaded before import = 0
-Start importing Assets/4.Prefab/2.Enemy/Enemy.prefab using Guid(5cb550bdbad4adf43827a10917e4221e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f52202c3aa093eabad16d311ea0553f') in 0.013588 seconds 
-Number of asset objects unloaded after import = 52
+Start importing Assets/2.Animation using Guid(bc59b5d279f3e9240b6b57af8b977acb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dcbf3c0d95e5a64a586e34426878a87e') in 0.005799 seconds 
+Number of asset objects unloaded after import = 0
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000011 seconds.
-  path: Assets/4.Prefab/2.Enemy/Enemy2.prefab
-  artifactKey: Guid(9ee93bccfaca28d41a420f641e00e1fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+  Time since last request: 1.138487 seconds.
+  path: Assets/3.Sprites
+  artifactKey: Guid(aeb542bdb207b2741bd7baa029022f2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Number of updated assets reloaded before import = 0
-Start importing Assets/4.Prefab/2.Enemy/Enemy2.prefab using Guid(9ee93bccfaca28d41a420f641e00e1fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a042d05fd877f396932071d74bc42de') in 0.215871 seconds 
-Number of asset objects unloaded after import = 86
+Start importing Assets/3.Sprites using Guid(aeb542bdb207b2741bd7baa029022f2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b73f78a0a2fe74106df4a156f740cbc8') in 0.007137 seconds 
+Number of asset objects unloaded after import = 0
 ========================================================================
 Received Import Request.
-  Time since last request: 21.569542 seconds.
-  path: Assets/8.Script_obj/Test Data 2.asset
-  artifactKey: Guid(c53aaafc5a322224ab0ff51eeff67d93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+  Time since last request: 0.157240 seconds.
+  path: Assets/3.Sprites/AtkDoor.png
+  artifactKey: Guid(486383ad602e4304fbc0966b01cb8fe6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Number of updated assets reloaded before import = 0
-Start importing Assets/8.Script_obj/Test Data 2.asset using Guid(c53aaafc5a322224ab0ff51eeff67d93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '15d76ef5f3dba545728964be4427f21b') in 0.007148 seconds 
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 1.773009 seconds.
-  path: Assets/7.Tiles/Deco.prefab
-  artifactKey: Guid(bba9875a79dce7445954bf1b69527e8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/7.Tiles/Deco.prefab using Guid(bba9875a79dce7445954bf1b69527e8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad0639c7215ce62ceb4609a8002e7150') in 0.015991 seconds 
-Number of asset objects unloaded after import = 22
-========================================================================
-Received Import Request.
-  Time since last request: 4.206739 seconds.
-  path: Assets/7.Tiles/Ground_tiles/base08.asset
-  artifactKey: Guid(21103be4b4d401842a3e5bc488f8da6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/7.Tiles/Ground_tiles/base08.asset using Guid(21103be4b4d401842a3e5bc488f8da6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe6b38aa47000a0cedbb8b86d45e0ef7') in 0.016221 seconds 
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/7.Tiles/Ground_tiles/desert-sliced_45.asset
-  artifactKey: Guid(44132aa4a36c15a4d847711a6d6552f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/7.Tiles/Ground_tiles/desert-sliced_45.asset using Guid(44132aa4a36c15a4d847711a6d6552f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7a3acd3f20998da633546040de2dd6a') in 0.010960 seconds 
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.001164 seconds.
-  path: Assets/7.Tiles/Ground_tiles/temple-sliced_19.asset
-  artifactKey: Guid(e5b4634e36f3a9a4e9de86ef4af5ef14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/7.Tiles/Ground_tiles/temple-sliced_19.asset using Guid(e5b4634e36f3a9a4e9de86ef4af5ef14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a8e227d39651d119790109746e75e87') in 0.009716 seconds 
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/7.Tiles/Ground_tiles/temple-sliced_39.asset
-  artifactKey: Guid(5029fdb99c3423a4ab430d50deb0ce43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/7.Tiles/Ground_tiles/temple-sliced_39.asset using Guid(5029fdb99c3423a4ab430d50deb0ce43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '681d9e204c5c10d9393d501ce6e9c9bb') in 0.009735 seconds 
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/7.Tiles/Ground_tiles/desert-sliced_42.asset
-  artifactKey: Guid(76551b7dc92fb2945a3c446150c56e0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/7.Tiles/Ground_tiles/desert-sliced_42.asset using Guid(76551b7dc92fb2945a3c446150c56e0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8908bd12b991b8157ba58532e101bb5f') in 0.010217 seconds 
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 1.931255 seconds.
-  path: Assets/6.Dummy/Player.prefab
-  artifactKey: Guid(61b52b9253c6ca349bbbf82d86df8bfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/6.Dummy/Player.prefab using Guid(61b52b9253c6ca349bbbf82d86df8bfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b44d42f7f5cfc2dfa2894d925cd6be7') in 0.007074 seconds 
-Number of asset objects unloaded after import = 6
-========================================================================
-Received Import Request.
-  Time since last request: 20.825833 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Animated Trees/Blood Tree 2 Sprite Sheet 128x96.png
-  artifactKey: Guid(e3be10f2ead548f4b983dc9a3fa2c44e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Animated Trees/Blood Tree 2 Sprite Sheet 128x96.png using Guid(e3be10f2ead548f4b983dc9a3fa2c44e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b587dc681996ee6ed14bf20053aba16') in 0.111188 seconds 
-Number of asset objects unloaded after import = 49
-========================================================================
-Received Import Request.
-  Time since last request: 2.006702 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Crow/Crow Sprite Sheet.aseprite
-  artifactKey: Guid(86489122847c0474d89b451f0056f760) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Crow/Crow Sprite Sheet.aseprite using Guid(86489122847c0474d89b451f0056f760) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '281931a1f3cb633df27a13b58cd9ad9d') in 0.074069 seconds 
-Number of asset objects unloaded after import = 37
-========================================================================
-Received Import Request.
-  Time since last request: 3.912100 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Deer/Deer Sprite.aseprite
-  artifactKey: Guid(e92eb256818bbd3498fd14507a68e1fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Deer/Deer Sprite.aseprite using Guid(e92eb256818bbd3498fd14507a68e1fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c858b3dfa456dc51353fc04cae7030c9') in 0.113897 seconds 
-Number of asset objects unloaded after import = 61
-========================================================================
-Received Import Request.
-  Time since last request: 11.270297 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Elk/Elk Sprite Sheet.aseprite
-  artifactKey: Guid(eb5a4ac22b65b5e489023c2d0f2bee56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Elk/Elk Sprite Sheet.aseprite using Guid(eb5a4ac22b65b5e489023c2d0f2bee56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '188ff36898c6218b37ba0efed96f58ca') in 0.092014 seconds 
-Number of asset objects unloaded after import = 65
-========================================================================
-Received Import Request.
-  Time since last request: 10.437744 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK - FX & Skill Icons/Number Sprite Sheet 16x16.png
-  artifactKey: Guid(8c190e6f3660afb47b4771398574467c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK - FX & Skill Icons/Number Sprite Sheet 16x16.png using Guid(8c190e6f3660afb47b4771398574467c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0edff658131e13c8b129f2eba16bb2b1') in 0.027178 seconds 
-Number of asset objects unloaded after import = 12
-========================================================================
-Received Import Request.
-  Time since last request: 19.175396 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Rat/Rat Sprite Sheet.aseprite
-  artifactKey: Guid(f90200576f2fe3749b059e46684a2c91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Rat/Rat Sprite Sheet.aseprite using Guid(f90200576f2fe3749b059e46684a2c91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f92d0e6b3a8bb08ab9c7de0efce1a104') in 0.073763 seconds 
-Number of asset objects unloaded after import = 30
-========================================================================
-Received Import Request.
-  Time since last request: 4.131639 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Trees Tileset/Tree Tileset3.png
-  artifactKey: Guid(01cb0720891b41545a571ac6d9e25e27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Trees Tileset/Tree Tileset3.png using Guid(01cb0720891b41545a571ac6d9e25e27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8cb2554cdb31229daf90bc899c5e6f90') in 0.549367 seconds 
-Number of asset objects unloaded after import = 374
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Trees Tileset/Tree Tileset5.png
-  artifactKey: Guid(7843d3dcb71e022468b623aab3d8873c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Trees Tileset/Tree Tileset5.png using Guid(7843d3dcb71e022468b623aab3d8873c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07b2ab517080c77f8d993e5530e40af4') in 0.329361 seconds 
-Number of asset objects unloaded after import = 376
-========================================================================
-Received Import Request.
-  Time since last request: 1.719781 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Fox/Fox Sprite Sheet.aseprite
-  artifactKey: Guid(8e6cef2efe86b9c48821e18cd1ba7afc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Fox/Fox Sprite Sheet.aseprite using Guid(8e6cef2efe86b9c48821e18cd1ba7afc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06d8b9c82f0b7d8340f49a8ddbc59dec') in 0.042958 seconds 
-Number of asset objects unloaded after import = 49
-========================================================================
-Received Import Request.
-  Time since last request: 10.561354 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/assassin/Assassin.aseprite
-  artifactKey: Guid(f281f800828fa09449f9cf7c7bf7190e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/assassin/Assassin.aseprite using Guid(f281f800828fa09449f9cf7c7bf7190e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf7c2dc5e354f57eb70edcb7e191f2c6') in 0.107062 seconds 
-Number of asset objects unloaded after import = 95
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/assassin/idle.png
-  artifactKey: Guid(a52576e6e4f9a9d48851ca69dd01e9a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/assassin/idle.png using Guid(a52576e6e4f9a9d48851ca69dd01e9a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9d873da17d8e5178269bdf92331d460') in 0.014488 seconds 
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/assassin/VFX for run.png
-  artifactKey: Guid(412e97efb3921a04a993916e023a251b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/assassin/VFX for run.png using Guid(412e97efb3921a04a993916e023a251b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b89c7af61a69304406b1dcf9c7b3614a') in 0.016636 seconds 
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/assassin/attack 1 without VFX.png
-  artifactKey: Guid(03e59d0e511f45c45b92d43ed354f40f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/assassin/attack 1 without VFX.png using Guid(03e59d0e511f45c45b92d43ed354f40f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39f91e2612cf6e59da1e945e50b5eaf8') in 0.017616 seconds 
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/assassin/VFX for attack 1.png
-  artifactKey: Guid(8b04d5ff8c08a97429eb251a3d6513ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/assassin/VFX for attack 1.png using Guid(8b04d5ff8c08a97429eb251a3d6513ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '793c2a2c86b007cbc5f41cd3fdeb0783') in 0.012184 seconds 
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 57.020093 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/Shock Sweeper/IG post.aseprite
-  artifactKey: Guid(bb7d169e48503db4a866a7acc3ccd5f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/Shock Sweeper/IG post.aseprite using Guid(bb7d169e48503db4a866a7acc3ccd5f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f584640550c295e038147f4b326f02b') in 0.295499 seconds 
-Number of asset objects unloaded after import = 47
-========================================================================
-Received Import Request.
-  Time since last request: 0.126067 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/Orb Mage/blaster.aseprite
-  artifactKey: Guid(8cece938b7b82fe4289719c3a7fe99af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/Orb Mage/blaster.aseprite using Guid(8cece938b7b82fe4289719c3a7fe99af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92d9b9b35ef2a755141620acd2508812') in 0.106290 seconds 
-Number of asset objects unloaded after import = 90
-========================================================================
-Received Import Request.
-  Time since last request: 12.456852 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK - Enemy Pack 2/Archer/attack.png
-  artifactKey: Guid(84ccf7fd30f18fe43922b9ac1e274483) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK - Enemy Pack 2/Archer/attack.png using Guid(84ccf7fd30f18fe43922b9ac1e274483) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9be2e453ce6f225aa5967c5290652a64') in 0.026220 seconds 
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK - Enemy Pack 2/Archer/idle.png
-  artifactKey: Guid(07654da97820cb44eb602faef5d3f5c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK - Enemy Pack 2/Archer/idle.png using Guid(07654da97820cb44eb602faef5d3f5c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '487d5c021cbf212c0781419cfb4351b1') in 0.020127 seconds 
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.935456 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK - Enemy Pack 2/Bomb Droid/bomb without VFX .png
-  artifactKey: Guid(07d3cfa33c2de1548b227bcd5a6f0f81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK - Enemy Pack 2/Bomb Droid/bomb without VFX .png using Guid(07d3cfa33c2de1548b227bcd5a6f0f81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '250373030d04be739c091b31cbc4c03d') in 0.035321 seconds 
-Number of asset objects unloaded after import = 18
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK - Enemy Pack 2/Bomb Droid/transition to idle.png
-  artifactKey: Guid(a8410d4024f71234aaaa9bfa49deb664) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK - Enemy Pack 2/Bomb Droid/transition to idle.png using Guid(a8410d4024f71234aaaa9bfa49deb664) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4bef0fe65038cdff5f0c656af3b16d9d') in 0.014460 seconds 
-Number of asset objects unloaded after import = 5
-========================================================================
-Received Import Request.
-  Time since last request: 1.124480 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK - Enemy Pack 2/Dagger Mush/attacks.png
-  artifactKey: Guid(a92f390789ef7754cad85a54cf30b5d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK - Enemy Pack 2/Dagger Mush/attacks.png using Guid(a92f390789ef7754cad85a54cf30b5d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '95a2c31445c00c98cf35284467f461e1') in 0.025778 seconds 
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK - Enemy Pack 2/Dagger Mush/throw.png
-  artifactKey: Guid(6602b1b9541591b418f301b4c55662f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK - Enemy Pack 2/Dagger Mush/throw.png using Guid(6602b1b9541591b418f301b4c55662f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '61a17d6301c3e062e36d5b51cba6bddf') in 0.017947 seconds 
+Start importing Assets/3.Sprites/AtkDoor.png using Guid(486383ad602e4304fbc0966b01cb8fe6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc8224c3280d0f5e99f94b89154da967') in 0.075815 seconds 
 Number of asset objects unloaded after import = 3
 ========================================================================
 Received Import Request.
   Time since last request: 0.000014 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK - Enemy Pack 2/Dagger Mush/idle.png
-  artifactKey: Guid(c752f45905b17f845af7fe7f77364845) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+  path: Assets/3.Sprites/moneyDoor.png
+  artifactKey: Guid(a5b9f6051dea69a4ca8e5e38f5bc2d37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK - Enemy Pack 2/Dagger Mush/idle.png using Guid(c752f45905b17f845af7fe7f77364845) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2463841fb3c11d49ef9a9a750eef48ec') in 0.017226 seconds 
+Start importing Assets/3.Sprites/moneyDoor.png using Guid(a5b9f6051dea69a4ca8e5e38f5bc2d37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e148782aa32215d2773b718536228a59') in 0.023910 seconds 
 Number of asset objects unloaded after import = 3
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK - Enemy Pack 2/Dagger Mush/run.png
-  artifactKey: Guid(cc11346005a39c9449837b00e998f2e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+  Time since last request: 4.165687 seconds.
+  path: Assets/3.Sprites/4.UI
+  artifactKey: Guid(5bd94c6a9b94af14caf4db8f3255f9c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK - Enemy Pack 2/Dagger Mush/run.png using Guid(cc11346005a39c9449837b00e998f2e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '73e0bdfc4ddfd6f9141fe16b6719e912') in 0.016275 seconds 
+Start importing Assets/3.Sprites/4.UI using Guid(5bd94c6a9b94af14caf4db8f3255f9c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '565abdcd69f5839b8df763cb60d064e2') in 0.007247 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.029066 seconds.
+  path: Assets/3.Sprites/4.UI/ar_v0.2.png
+  artifactKey: Guid(ee7ab061620762a49b71f1ac96c7be74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/3.Sprites/4.UI/ar_v0.2.png using Guid(ee7ab061620762a49b71f1ac96c7be74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a9e48900f4a087271dd0b0543aa4bb3') in 0.016889 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.009249 seconds.
+  path: Assets/3.Sprites/4.UI/Speed.png
+  artifactKey: Guid(9d8af7f0c4f292b498fd6bc67e1f8149) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/3.Sprites/4.UI/Speed.png using Guid(9d8af7f0c4f292b498fd6bc67e1f8149) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79eda0bdff26ad22cd11a4f93408dbde') in 0.012878 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/3.Sprites/4.UI/yeonKi.png
+  artifactKey: Guid(b335f4ce68964b4428b8366dc3b65585) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/3.Sprites/4.UI/yeonKi.png using Guid(b335f4ce68964b4428b8366dc3b65585) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1282661d64f422fb0169e27dca7471cf') in 0.027488 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/3.Sprites/4.UI/Atk_lol.png
+  artifactKey: Guid(053f1543d4daac6428f531bfba39f4b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/3.Sprites/4.UI/Atk_lol.png using Guid(053f1543d4daac6428f531bfba39f4b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9acc6806cfaaf1cae92388a61ab95c62') in 0.011946 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 2.776378 seconds.
+  path: Assets/3.Sprites/4.UI/bg.png
+  artifactKey: Guid(37e5ba53fe74358439cbba3cc0383525) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/3.Sprites/4.UI/bg.png using Guid(37e5ba53fe74358439cbba3cc0383525) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0057f9a5767f269b4d49f94e3d84e11d') in 0.022439 seconds 
 Number of asset objects unloaded after import = 3
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
 AssetImportWorker is now disconnected from the server
