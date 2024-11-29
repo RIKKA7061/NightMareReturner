@@ -138,5 +138,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 50
   per: 0
-  speed: 20
-  disappearTime: 0.05
+  speed: 5
+  disappearTime: 3
