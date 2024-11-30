@@ -24,22 +24,24 @@ public class GoHomeManager : MonoBehaviour
     public Player playerScript;
 
     public bool isPlayerMovable = false;
+    public bool isBossRoundIn = false;
 
     void Update()
     {
         // 보스 처치시
         // 1. 대상 객체가 null(파괴되거나 씬에서 찾을 수 없음) 상태인지 확인
-        if (targetObject == null)
-        {
-            isPlayerMovable = false;
-            // 2. 플레이어를 특정 좌표(homePosition)로 이동
-            MovePlayerToHome();
-            SpawnNewBoss();
-        }
+        //if (targetObject == null && isBossRoundIn)
+        //{
+        //    isBossRoundIn = true;
+        //    isPlayerMovable = false;
+        //    // 2. 플레이어를 특정 좌표(homePosition)로 이동
+        //    MovePlayerToHome();
+        //    SpawnNewBoss();
+        //}
     }
     public bool isRoundStart = false;
 
-	void MovePlayerToHome()
+	public void MovePlayerToHome()
     {
         if (player != null && homePosition != null && isPlayerMovable == false && isRoundStart == true )
         {

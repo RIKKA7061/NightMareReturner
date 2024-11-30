@@ -106,7 +106,7 @@ MonoBehaviour:
   id: 2
   prefabId: 1
   count: 0
-  speed: 0.5
+  speed: 0.2
   isBoss: 0
   nearestTarget: {fileID: 0}
   scanRadius: 10

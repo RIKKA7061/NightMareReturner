@@ -75,7 +75,7 @@ public class MonsterAI : MonoBehaviour
                 rb.velocity = lockedAttackDirection * projectileSpeed;
             }
 
-            //Debug.Log("공격!");
+            Debug.Log("(중간보스)히히 투사체 발사!");
             Destroy(projectile, 0.1f); // n초 후 투사체 파괴
         }
     }
