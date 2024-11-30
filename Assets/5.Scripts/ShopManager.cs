@@ -35,8 +35,6 @@ public class ShopManager : MonoBehaviour
             itemManager.Signal(ItemNametext, ItemID);
 
             // Debug.Log($"{ItemNametext}를 구매하셨습니다.");
-
-
         }
 
 		else if (Player.Money < ItemMoney)
