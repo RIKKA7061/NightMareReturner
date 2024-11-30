@@ -38,15 +38,11 @@ public class Player : MonoBehaviour
 
     [Header("체력")]
     public int maxHP = 1000; // 최대 체력
-    public int maxHP2 = 0;
     public int nowHP; // 체력을 int로 변경
     public TextMeshProUGUI HP_UI;
-    public TextMeshProUGUI MaxHP_UI;
-    public TextMeshProUGUI MaxHP2_UI;
-    
+
     [Header("일반 공격 (잽)")]
     public int Atk;
-    public int Atk2 = 0;
 
 	[Header("스킬 (차징 펀치) 몇배만큼 증가할것인가?")]
 	public int SkillAtk;
@@ -56,8 +52,6 @@ public class Player : MonoBehaviour
 
 	[Header("현재 공격력 UI 표시용")]
 	public TextMeshProUGUI Atk_UI;
-	public TextMeshProUGUI Atk_UI2;
-
 
     [Header("방어력")]
     public int AR; // Armor Resistance 방어력 Defense -> AR로 바꿈
@@ -93,13 +87,13 @@ public class Player : MonoBehaviour
 	public RoomGenerator roomGenerator; // 랜덤 문 숨기기용
 
 	// 디폴트 스테이터스 (저장용)
-	public int DefaultMaxHP = 0;
-	public int DefaultAtk = 0;
+	int DefaultMaxHP = 0;
+	int DefaultAtk = 0;
 	int DefaultMoney = 0;
 	int DefaultRound = 0;
-    public float D_speed = 0;
-    public float D_As = 0; // 공격속도
-    public int D_Ar = 0; // 방어력 Armor Resistance
+    float D_speed = 0;
+    float D_As = 0; // 공격속도
+    int D_Ar = 0; // 방어력 Armor Resistance
 
 	[Header("게임 라운드 수")]
 	public TextMeshProUGUI gameRoundTMP;
@@ -109,8 +103,6 @@ public class Player : MonoBehaviour
     public ShopManager shop;
 
     public ItemManager itemManager;
-
-    AudioManager audioManager;
 
     public int HammerBuffedRoundCount = 0;
 
@@ -123,8 +115,7 @@ public class Player : MonoBehaviour
 	private void Awake()
 	{
 		animator = GetComponent<Animator>();
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-    }
+	}
 	private void Start()
     {
         nowHP = Mathf.FloorToInt(maxHP); // 최대 체력을 정수로 설정
@@ -196,17 +187,14 @@ public class Player : MonoBehaviour
         if (!collision.CompareTag("weapon"))
             return;
 
-        // 피격 애니메이션 재생
-        if (playerAction.canMove == true)
-        {
+		// 피격 애니메이션 재생
+        if(playerAction.canMove == true)
             animator.SetTrigger(AnimationStrings.OuchTrigger);  // dead 애니메이션 실행
-            audioManager.PlayerSFX(audioManager.audio[5]);
-        }
-        else
-        {
-            // ResetTrigger로 해당 트리거를 비활성화
-            animator.ResetTrigger(AnimationStrings.OuchTrigger);
-        }
+		else
+		{
+			// ResetTrigger로 해당 트리거를 비활성화
+			animator.ResetTrigger(AnimationStrings.OuchTrigger);
+		}
 
 		// 방어력을 고려한 최종 피해량 계산
 		//float incomingDamage = collision.GetComponent<FarATK>().damage;
@@ -253,12 +241,8 @@ public class Player : MonoBehaviour
 		}
 
         HP_UI.text = TempNowHP.ToString() + "/" + maxHP.ToString(); // (현재체력/최대체력)
-        MaxHP_UI.text = maxHP.ToString();
-        MaxHP2_UI.text = "(" + "+" + maxHP2.ToString() + ")";
-        Atk_UI.text = Atk.ToString();                               // 공격력
-        Atk_UI2.text = "(" + "+" + Atk2.ToString() + ")";
-
-        MoneyTxt.text = Money.ToString();                           // 재화
+		Atk_UI.text = Atk.ToString();                               // 공격력
+		MoneyTxt.text = Money.ToString();                           // 재화
         StoreMoneyTxt.text = Money.ToString();                      // 상점에서 보이는 재화
         RoundTxt.text = round.ToString();                           // 구슬
         AR_UI.text = AR.ToString();                                 // 방어력
@@ -304,7 +288,7 @@ public class Player : MonoBehaviour
         }
         else if (gameRound <= prefabSpawner.OverRoom)
         {
-            Temptext = gameRound.ToString() + "번째 방";
+            Temptext = "스테이지 : " + gameRound.ToString();
             Printer(Temptext); // 현재 위치 출력
             playerAction.isGeoRiPlayer = false; // 거리 출신 플레이어로 변경 해제
         }
@@ -374,10 +358,7 @@ public class Player : MonoBehaviour
 		{
 			Atk = DefaultAtk;
 		}
-
-        playerAction.isGeoRiPlayer = true;
-
-    }// 플레이어 스테이터스 디폴트로 설정
+	}// 플레이어 스테이터스 디폴트로 설정
 
 
 	const float AR_FACTOR = 0.01f;       // 방어력 공식에 쓰임

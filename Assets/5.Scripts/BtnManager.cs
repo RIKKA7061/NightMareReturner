@@ -9,14 +9,6 @@ public class BtnManager : MonoBehaviour
 	//툴팁
 	public GameObject tip;
     public GameObject shop;
-	public GameObject myData;
-	public GameObject statSet;
-    public GameObject itemSet;
-    public GameObject floorSet;
-	public GameObject statButton;
-	public GameObject item1;
-    public GameObject item2;
-    public GameObject item3;
 
     //개발자
     public GameObject Dev;
@@ -24,17 +16,10 @@ public class BtnManager : MonoBehaviour
 	//창
 	public TextMeshProUGUI TipText;
 
-	AudioManager audioManager;
-
 	private bool isOpened = false;
 	public string text = "디폴트";
 
-    void Awake()
-    {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-    }
-
-    void Start()
+	void Start()
 	{
 		// 할당 확인을 위한 디버그 메시지
 		if (tip == null)
@@ -77,65 +62,9 @@ public class BtnManager : MonoBehaviour
 		tip.SetActive(false);
         shop.SetActive(false);
         isOpened = false;
-    }
+	}
 
-	public void MyDataBtn()
-	{
-        audioManager.PlayerSFX(audioManager.audio[4]);
-        myData.SetActive(true);
-        statButton.SetActive(true);
-    }
-
-
-    public void StatBtn()
-	{
-        audioManager.PlayerSFX(audioManager.audio[4]);
-        statSet.SetActive(true);
-        itemSet.SetActive(false);
-        floorSet.SetActive(false);
-    }
-
-	public void ItemBtn()
-	{
-        audioManager.PlayerSFX(audioManager.audio[4]);
-        itemSet.SetActive(true);
-        statSet.SetActive(false);
-        floorSet.SetActive(false);
-    }
-
-	public void BuffBtn()
-	{
-        audioManager.PlayerSFX(audioManager.audio[4]);
-        floorSet.SetActive(true);
-        statSet.SetActive(false);
-        itemSet.SetActive(false);
-    }
-
-    public void Item1()
-    {
-        audioManager.PlayerSFX(audioManager.audio[4]);
-        item1.SetActive(true);
-        item2.SetActive(false);
-        item3.SetActive(false);
-    }
-
-    public void Item2()
-    {
-        audioManager.PlayerSFX(audioManager.audio[4]);
-        item2.SetActive(true);
-        item1.SetActive(false);
-        item3.SetActive(false);
-    }
-
-    public void Item3()
-    {
-        audioManager.PlayerSFX(audioManager.audio[4]);
-        item3.SetActive(true);
-        item1.SetActive(false);
-        item2.SetActive(false);
-    }
-
-    public void Developement()
+	public void Developement()
 	{
 		if (TipText != null) // Null 체크
 		{
