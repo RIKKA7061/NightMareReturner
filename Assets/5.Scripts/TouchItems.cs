@@ -34,10 +34,10 @@ public class TouchItems : MonoBehaviour
 		if (other.CompareTag("Player"))
 		{
 			player.Atk += AddAtk;       // 공격력 증가
-			player.Atk2 = player.Atk - player.DefaultAtk;
+			player.Atk2 = player.Atk - 25;
 			player.nowHP += Heal;		// 체력 회복
 			player.maxHP += AddHp;      // 최대체력 증가
-			player.maxHP2 = player.maxHP - player.DefaultMaxHP;
+			player.maxHP2 = player.maxHP - 500;
 			Player.Money += AddMoney;	// 재화 획득
 			Player.round += Round;		// 구슬 획득
 
