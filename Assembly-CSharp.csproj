@@ -64,6 +64,7 @@
     <Compile Include="Assets\5.Scripts\RoomGenerator.cs" />
     <Compile Include="Assets\5.Scripts\MonsterATK.cs" />
     <Compile Include="Assets\5.Scripts\UI_MonsterHP.cs" />
+    <Compile Include="Assets\AudioManager.cs" />
     <Compile Include="Assets\5.Scripts\Enemy3.cs" />
     <Compile Include="Assets\5.Scripts\SceneChangeOnCollision.cs" />
     <Compile Include="Assets\5.Scripts\Door_Type.cs" />
