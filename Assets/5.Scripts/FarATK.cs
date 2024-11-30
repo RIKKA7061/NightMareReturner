@@ -23,6 +23,7 @@ public class FarATK : MonoBehaviour
 
     public void Init(int damage, int per, Vector3 dir)
     {
+        Debug.Log("히히 발사~");
         this.damage = damage;
         this.per = per;
         if(rigid != null)

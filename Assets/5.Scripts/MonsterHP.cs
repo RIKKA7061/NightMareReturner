@@ -10,6 +10,7 @@ public class MonsterHP : MonoBehaviour
     private PrefabSpawner prefabSpawner;
     private UI_MonsterHP uI_MonsterHP; // ui에 뿌려주는 hp바
     private DamageTextShow damageTextShow; // ui 데미지 수치를 표기해주는거 관련 스크립트
+    private GoHomeManager goHomeManager;
 
 	[Header("체력")]
     public int maxHP; // 최대 체력 변수
@@ -34,6 +35,7 @@ public class MonsterHP : MonoBehaviour
         prefabSpawner = FindAnyObjectByType<PrefabSpawner>();
 		uI_MonsterHP = GetComponent<UI_MonsterHP>();
 		damageTextShow = GetComponent<DamageTextShow>();// 같은 컴포넌트에 속해있다.
+        goHomeManager = FindAnyObjectByType<GoHomeManager>();
     }
 
     private void SetEnemyStatus(int _maxHP)
@@ -119,7 +121,9 @@ public class MonsterHP : MonoBehaviour
 	void MiddleBossDead()
 	{
 		nowHP = 0;
-		uI_MonsterHP.DestroyHP_UI();// 체력바 삭제
+        Debug.Log("게임 다시시작");
+        goHomeManager.MovePlayerToHome();
+        uI_MonsterHP.DestroyHP_UI();// 체력바 삭제
 		Destroy(gameObject);    // 자기 자신을 삭제
 	}
 }

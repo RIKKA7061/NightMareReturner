@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     [Header("소환 스크립트")]
     public PrefabSpawner prefabSpawner;
     public PlayerAction playerAction;
+    public GoHomeManager goHomeManager;
 
     [Header("죽은 횟수")]
     static public int DeadCount = 0;
@@ -134,7 +135,10 @@ public class Player : MonoBehaviour
 		D_speed = playerAction.walkSpeed; // start함수 내에 있음
 		D_As = playerAction.jabCooldown; // 공격속도
 		D_Ar = AR; // 방어력 Armor Resistance
-	}
+
+        NowPosAnnounce(); // 내위치 확인
+
+    }
 
     private void ApplyDebuff()// 디버프 적용
     {
@@ -210,6 +214,8 @@ public class Player : MonoBehaviour
     }
 
 
+    public bool isAlreadyTextIt = false;
+    public string Temptext = "";
     private void Update()
     {
         // 죽은 상태에서 스페이스바를 누르면 부활 처리 // #####################
@@ -242,38 +248,68 @@ public class Player : MonoBehaviour
         AR_UI.text = AR.ToString();                                 // 방어력
 
         // 현재 게임 라운드 수
-        string Temptext = "";
-        if (gameRound == 0) // 집 일때
-        {
-            Temptext = "집".ToString();
-            Printer(Temptext); // 현재 위치 출력
-            playerAction.isGeoRiPlayer = true;  // 거리 출신 플레이어로 변경
-		}
-        else if (gameRound <= prefabSpawner.OverRoom)
-        {
-            Temptext = "스테이지 : " + gameRound.ToString();
-			Printer(Temptext); // 현재 위치 출력
-            playerAction.isGeoRiPlayer = false; // 거리 출신 플레이어로 변경 해제
-		}
-        else if (gameRound == prefabSpawner.OverRoom + 1)
-        {
-            Temptext = "상점";
-			Printer(Temptext); // 현재 위치 출력
-		}
-        else if (gameRound == prefabSpawner.OverRoom + 2)
-        {
-            Temptext = "보스방";
-			Printer(Temptext); // 현재 위치 출력
-		}
+  //      if (gameRound == 0) // 집 일때
+  //      {
+  //          Temptext = "집".ToString();
+  //          Printer(Temptext); // 현재 위치 출력
+  //          playerAction.isGeoRiPlayer = true;  // 거리 출신 플레이어로 변경
+  //      }
+  //      else if (gameRound <= prefabSpawner.OverRoom)
+  //      {
+  //          Temptext = "스테이지 : " + gameRound.ToString();
+		//	Printer(Temptext); // 현재 위치 출력
+  //          playerAction.isGeoRiPlayer = false; // 거리 출신 플레이어로 변경 해제
+		//}
+  //      else if (gameRound == prefabSpawner.OverRoom + 1)
+  //      {
+  //          Temptext = "상점";
+		//	Printer(Temptext); // 현재 위치 출력
+		//}
+  //      else if (gameRound == prefabSpawner.OverRoom + 2)
+  //      {
+  //          Temptext = "보스방";
+		//	Printer(Temptext); // 현재 위치 출력
+  //      }
 
         gameRoundTMP.text = Temptext.ToString();
 
         DeadCount_UI.text = "죽은 횟수 : " + DeadCount.ToString();
     }
 
+
+    public void NowPosAnnounce()
+    {
+        // 현재 게임 라운드 수
+        if (gameRound == 0) // 집 일때
+        {
+            Temptext = "집".ToString();
+            Printer(Temptext); // 현재 위치 출력
+            playerAction.isGeoRiPlayer = true;  // 거리 출신 플레이어로 변경
+        }
+        else if (gameRound <= prefabSpawner.OverRoom)
+        {
+            Temptext = "스테이지 : " + gameRound.ToString();
+            Printer(Temptext); // 현재 위치 출력
+            playerAction.isGeoRiPlayer = false; // 거리 출신 플레이어로 변경 해제
+        }
+        else if (gameRound == prefabSpawner.OverRoom + 1)
+        {
+            Temptext = "상점";
+            Printer(Temptext); // 현재 위치 출력
+        }
+        else if (gameRound == prefabSpawner.OverRoom + 2)
+        {
+            Temptext = "보스방";
+            Printer(Temptext); // 현재 위치 출력
+            goHomeManager.SpawnNewBoss();
+        }
+    }
+
+
     public void Printer(string text)
     {
         Debug.Log(text);
+        isAlreadyTextIt = false;
     }
 
     public void RespawnPlayer()

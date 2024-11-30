@@ -6,6 +6,7 @@ public class teleport : MonoBehaviour
     [Header("좌표")]
 	public Transform [] Pos; // 이동하게될 좌표
 
+	private Player player;
 	private PlayerAction playerAction;							// PlayerAction 스크립트
 	private ItemManager itemManager;							// ItemManager 스크립트
 	private GoHomeManager goHomeManager;						// GoHomeManager 스크립트
@@ -28,6 +29,7 @@ public class teleport : MonoBehaviour
 		goHomeManager = FindObjectOfType<GoHomeManager>();                      // GoHomeManager 스크립트 가져오기	
 		directingCameraManager = FindObjectOfType<DirectingCameraManager>();    // DirectingCameraManager 스크립트 가져오기
 		prefabSpawner = FindObjectOfType<PrefabSpawner>();                      // PrefabSpawner 스크립트 가져오기
+		player = FindAnyObjectByType<Player>();
 	}
 
 	// 플레이어와 충돌시
@@ -151,6 +153,9 @@ public class teleport : MonoBehaviour
 		directingCameraManager.darkBg_Off();
 
 		directingCameraManager.ZoomOut();
+
+		Debug.Log("내 위치 알리기");
+		player.NowPosAnnounce(); // 현재 위치 알리기
 	}
 
 }

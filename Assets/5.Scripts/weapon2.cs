@@ -121,7 +121,7 @@ public class weapon2 : MonoBehaviour
 
 	void Fire()
 	{
-		//Debug.Log("รั น฿ป็");
+		//Debug.Log("ศ๗ศ๗ รั น฿ป็");
 
 		if (!enemy.scanner2.nearestTarget)
 			return;
