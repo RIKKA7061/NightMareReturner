@@ -52,14 +52,26 @@ TagManager:
   - name: InvisibleWall
     uniqueID: 453524833
     locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
   - name: Wall
     uniqueID: 151747341
+    locked: 0
+  - name: Daco2
+    uniqueID: 1081732373
     locked: 0
   - name: Shadow
     uniqueID: 207830705
     locked: 0
-  - name: Default
-    uniqueID: 0
+  - name: home map
+    uniqueID: 3592255643
+    locked: 0
+  - name: home wall
+    uniqueID: 2399226647
+    locked: 0
+  - name: Deco
+    uniqueID: 2968288821
     locked: 0
   - name: Ground
     uniqueID: 54192435
@@ -69,9 +81,6 @@ TagManager:
     locked: 0
   - name: wall2
     uniqueID: 2135988813
-    locked: 0
-  - name: Deco
-    uniqueID: 2968288821
     locked: 0
   - name: Attack
     uniqueID: 1659233345
