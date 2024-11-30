@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "D:\\Project archive\\NightMareReturners\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|D:\\Project archive\\NightMareReturners\\assets\\5.scripts\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|d:\\project archive\\nightmarereturners\\assets\\5.scripts\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|solutionrelative:assets\\5.scripts\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -73,7 +73,7 @@
               "RelativeDocumentMoniker": "Assets\\5.Scripts\\teleport.cs",
               "ToolTip": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\teleport.cs",
               "RelativeToolTip": "Assets\\5.Scripts\\teleport.cs",
-              "ViewState": "AQIAAH8AAAAAAAAAAAAowIgAAAAVAAAA",
+              "ViewState": "AQIAAIkAAAAAAAAAAAAQwJ0AAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-27T18:15:50.761Z",
               "IsPinned": true,
@@ -131,7 +131,7 @@
               "RelativeDocumentMoniker": "Assets\\5.Scripts\\Player.cs",
               "ToolTip": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\Player.cs",
               "RelativeToolTip": "Assets\\5.Scripts\\Player.cs",
-              "ViewState": "AQIAAOgAAAAAAAAAAAAkwP8AAABEAAAA",
+              "ViewState": "AQIAAAoBAAAAAAAAAAAAABcBAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-28T08:34:43.649Z",
               "EditorCaption": ""
@@ -158,8 +158,7 @@
               "RelativeToolTip": "Assets\\5.Scripts\\PlayerAction.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAAAsAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-28T08:35:10.841Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-28T08:35:10.841Z"
             },
             {
               "$type": "Document",
