@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using static ScriptableObjectTest;
 
 // 아이템 정보를 관리하는 테이블
@@ -70,6 +71,9 @@ public class ItemManager : MonoBehaviour
 	public GameObject HammerBuffSet;	// 결속망치 버프 표시용 이미지
 	public TextMeshProUGUI HammerCount; // 버프 라운드 횟수
 
+	public GameObject[] button;
+	public GameObject[] rock;
+
 	public void Signal(string itemText, int itemID) // 상점 아이템 신호 받아온다.
     {
         switch (itemID)
@@ -77,16 +81,22 @@ public class ItemManager : MonoBehaviour
             case 1:
                 ItemPrint(itemText, itemID);
                 Hammer();
+				button[0].SetActive(true);
+				rock[0].SetActive(false);
                 break;
             case 2:
                 ItemPrint(itemText, itemID);
 				NextRoundHpUp();
-				break;
+                button[1].SetActive(true);
+                rock[1].SetActive(false);
+                break;
             case 3:
                 ItemPrint(itemText, itemID);
 				CrunchModeEyeStarter();
 				CrunchModeEye();
-				break;
+                button[2].SetActive(true);
+                rock[2].SetActive(false);
+                break;
 
         }
     }

@@ -16,12 +16,12 @@ public class PlayerAction : MonoBehaviour
     [Header("PlayerAction 스크립트")]
     public Player playerScript;
 
-    public float walkSpeed = 5f;              // 걷기 속도
+    public float walkSpeed;              // 걷기 속도
     public TextMeshProUGUI speed_ui;          // 이동속도 보여주기 
     public TextMeshProUGUI As_ui;             // 공격속도 보여주기
 
-    public float defaultSpeed = 5f;           // 기본 속도(걷기 속도와 동일해야 함)
-    public float slideSpeed = 10f;            // 슬라이드 속도
+    public float defaultSpeed;           // 기본 속도(걷기 속도와 동일해야 함)
+    public float slideSpeed;            // 슬라이드 속도
     public float slideDuration = 0.3f;        // 슬라이드 지속 시간 (0.3초)
     public float slideCooldown = 1f;          // 슬라이드 후 쿨타임 (1초)
     private float slideTime = 0f;             // 남은 슬라이드 시간
@@ -50,6 +50,7 @@ public class PlayerAction : MonoBehaviour
     //private string dialog_text;
     public TalkManager talkManager;  // 대화 매니저 참조
     public GameObject DialogSet;     // 대화창
+    AudioManager audioManager;
 
     [Header("잽 경직 시간")]
     public float Jab;
@@ -165,6 +166,7 @@ public class PlayerAction : MonoBehaviour
         animator = GetComponent<Animator>();
         sp = GetComponent<SpriteRenderer>();
         playerCollider = GetComponent<Collider2D>(); // 플레이어의 콜라이더 가져오기
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
 	private void Start()
@@ -233,7 +235,8 @@ public class PlayerAction : MonoBehaviour
 		if (AtkStyle == 0 && Time.time > tempTime && !isGeoRiPlayer) // 기본공격
         {
 		    animator.SetTrigger(AnimationStrings.attackTrigger);  // 공격 애니메이션 실행
-			tempTime = Time.time + 0.15f;
+            audioManager.PlayerSFX(audioManager.audio[1]);
+            tempTime = Time.time + 0.15f;
 			collider.enabled = true;                              // 왼쪽 또는 오른쪽 공격 켜기
 			yield return new WaitForSeconds(0.1f);                // 콜라이더를 0.1초 동안 활성화
 			collider.enabled = false;                             // 왼쪽 또는 오른쪽 공격 끄기
@@ -447,7 +450,8 @@ public class PlayerAction : MonoBehaviour
 					SceneChangeOnCollision sceneChangeOnCollision = item.GetComponent<SceneChangeOnCollision>();
 					if (teleport != null)
 					{
-						teleport.MovePlayer(playerCollider2D); // 아이템의 OnItemClicked 함수 실행
+                        audioManager.PlayerSFX(audioManager.audio[6]);
+                        teleport.MovePlayer(playerCollider2D); // 아이템의 OnItemClicked 함수 실행
 					}
                     else if (teleport == null)
                     {
@@ -471,8 +475,8 @@ public class PlayerAction : MonoBehaviour
                 // 거리 출신 플레이어가 아닐 때
                 if (!isGeoRiPlayer)
                 {
-					animator.SetTrigger(AnimationStrings.skillAttackTrigger);  // 스킬 애니메이션 실행
-				}
+                    animator.SetTrigger(AnimationStrings.skillAttackTrigger);  // 스킬 애니메이션 실행
+                }
                 skillAttackTime = skillAttackCooldown;  // 쿨타임 적용
 
 
@@ -504,7 +508,7 @@ public class PlayerAction : MonoBehaviour
                 // 거리 출신 플레이어가 아닐시
                 if (!isGeoRiPlayer)
                 {
-					animator.SetTrigger(AnimationStrings.skillAttackTrigger2);  // 스킬 애니메이션 실행
+                    animator.SetTrigger(AnimationStrings.skillAttackTrigger2);  // 스킬 애니메이션 실행
 				}
 
                 skillAttack2Time = skillAttack2Cooldown;  // 쿨타임 적용
