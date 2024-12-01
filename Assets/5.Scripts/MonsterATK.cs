@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class MonsterATK : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int damage = 50;
+
+    void OnTriggerEnter2D(Collider2D other)
     {
-        
+        // 몬스터와 충돌 시
+        if (other.CompareTag("Player"))
+        {
+            Player Player = other.GetComponent<Player>();
+            if (Player != null)
+            {
+                Player.TakeDamage(damage);
+                Debug.Log($"데미지: {damage}");
+            }
+
+            Destroy(gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

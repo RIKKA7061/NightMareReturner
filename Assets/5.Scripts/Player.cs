@@ -171,6 +171,17 @@ public class Player : MonoBehaviour
         Debug.Log($"방어력: {AR}");
     }
 
+    public void TakeDamage(int damage)
+    {
+        nowHP -= damage;
+        Debug.Log($"현재체력: {nowHP}");
+
+        if (nowHP <= 0)
+        {
+            Dead();
+        }
+    }
+
     // 죽었을 떄 행하는 것
     public void Dead()
     {

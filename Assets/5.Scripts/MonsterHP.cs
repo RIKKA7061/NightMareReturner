@@ -27,6 +27,8 @@ public class MonsterHP : MonoBehaviour
 
     public int defaultMaxHp;
 
+    private Animator animator;
+
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -55,8 +57,10 @@ public class MonsterHP : MonoBehaviour
     {
         SetDefaultEnemyStat();
     }
+
     void Start()
     {
+        animator = GetComponent<Animator>();
         defaultMaxHp = maxHP;
         rb = GetComponent<Rigidbody2D>();
         player = FindObjectOfType<Player>();// 무조건 해줘야됨 (초기화)
@@ -101,6 +105,9 @@ public class MonsterHP : MonoBehaviour
 
     void BossDead()
     {
+        // 죽기 애니메이션 활성화
+        animator.SetTrigger("Die");
+
         Destroy(gameObject);
         //prefabSpawner.RoomEnemyCount++;        // 적 죽은 횟수 1 늘어남
         //Destroy(bghp_bar.gameObject);          // 체력바 삭제
