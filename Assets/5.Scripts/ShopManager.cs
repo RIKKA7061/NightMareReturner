@@ -12,6 +12,7 @@ public class ShopManager : MonoBehaviour
     public int ItemMoney;       // 재화
     public Text ItemMoneyTxt;
     public Text ItemNameTxt;
+    public GameObject soldout;
 
     private void Awake()
     {
@@ -34,6 +35,7 @@ public class ShopManager : MonoBehaviour
 
             itemManager.Signal(ItemNametext, ItemID);
 
+            soldout.SetActive(true);
             // Debug.Log($"{ItemNametext}를 구매하셨습니다.");
         }
 
