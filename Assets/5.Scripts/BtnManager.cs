@@ -13,6 +13,7 @@ public class BtnManager : MonoBehaviour
 	public GameObject statSet;
     public GameObject itemSet;
     public GameObject floorSet;
+	public GameObject storySet;
 	public GameObject statButton;
 	public GameObject item1;
     public GameObject item2;
@@ -76,7 +77,9 @@ public class BtnManager : MonoBehaviour
 	{
 		tip.SetActive(false);
         shop.SetActive(false);
+        myData.SetActive(false);
         isOpened = false;
+		Time.timeScale = 1f;
     }
 
 	public void MyDataBtn()
@@ -84,6 +87,7 @@ public class BtnManager : MonoBehaviour
         audioManager.PlayerSFX(audioManager.audio[4]);
         myData.SetActive(true);
         statButton.SetActive(true);
+		Time.timeScale = 0f;
     }
 
 
@@ -93,6 +97,7 @@ public class BtnManager : MonoBehaviour
         statSet.SetActive(true);
         itemSet.SetActive(false);
         floorSet.SetActive(false);
+        storySet.SetActive(false);
     }
 
 	public void ItemBtn()
@@ -101,14 +106,26 @@ public class BtnManager : MonoBehaviour
         itemSet.SetActive(true);
         statSet.SetActive(false);
         floorSet.SetActive(false);
+        storySet.SetActive(false);
     }
 
-	public void BuffBtn()
+	public void FloorBtn()
 	{
         audioManager.PlayerSFX(audioManager.audio[4]);
         floorSet.SetActive(true);
         statSet.SetActive(false);
         itemSet.SetActive(false);
+        storySet.SetActive(false);
+    }
+
+	public void StoryBtn()
+	{
+        audioManager.PlayerSFX(audioManager.audio[4]);
+        storySet.SetActive(true);
+        floorSet.SetActive(false);
+        statSet.SetActive(false);
+        itemSet.SetActive(false);
+
     }
 
     public void Item1()

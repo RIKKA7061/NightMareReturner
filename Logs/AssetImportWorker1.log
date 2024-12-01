@@ -1,23 +1,23 @@
 Using pre-set license
 Built from '2021.3/staging' branch; Version is '2021.3.31f1 (3409e2af086f) revision 3410402'; Using compiler version '192829333'; Build Type 'Release'
-OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'ko' Physical Memory: 32683 MB
+OS: 'Windows 11  (10.0.22631) 64bit Core' Language: 'ko' Physical Memory: 32470 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
 
 COMMAND LINE ARGUMENTS:
-G:\Unity 3D\Unity 2021.3.31f1\Editor\Unity.exe
+C:\Program Files\Unity\Hub\Editor\2021.3.31f1\Editor\Unity.exe
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker1
 -projectPath
-C:/Users/hsj27/OneDrive/문서/GitHub/NightMareReturner
+C:/Users/user/Documents/GitHub/NightMareReturner
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-6370
-Successfully changed project path to: C:/Users/hsj27/OneDrive/문서/GitHub/NightMareReturner
-C:/Users/hsj27/OneDrive/문서/GitHub/NightMareReturner
+58955
+Successfully changed project path to: C:/Users/user/Documents/GitHub/NightMareReturner
+C:/Users/user/Documents/GitHub/NightMareReturner
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -47,117 +47,122 @@ C:/Users/hsj27/OneDrive/문서/GitHub/NightMareReturner
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [20832] Host "[IP] 172.30.1.19 [Port] 0 [Flags] 2 [Guid] 58579034 [EditorId] 58579034 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-DEIAJ7R) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [42796] Host "[IP] 192.168.219.103 [Port] 0 [Flags] 2 [Guid] 522083377 [EditorId] 522083377 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-6U2F1F0) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [20832] Host "[IP] 172.30.1.19 [Port] 0 [Flags] 2 [Guid] 58579034 [EditorId] 58579034 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-DEIAJ7R) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [42796] Host "[IP] 192.168.219.103 [Port] 0 [Flags] 2 [Guid] 522083377 [EditorId] 522083377 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-6U2F1F0) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with {0} workers.
-Refreshing native plugins compatible for Editor in 92.25 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 82.61 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.31f1 (3409e2af086f)
-[Subsystems] Discovering subsystems at path G:/Unity 3D/Unity 2021.3.31f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/hsj27/OneDrive/문서/GitHub/NightMareReturner/Assets
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.31f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/user/Documents/GitHub/NightMareReturner/Assets
 GfxDevice: creating device client; threaded=0; jobified=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce RTX 3070 Ti (ID=0x2482)
+    Renderer: NVIDIA GeForce RTX 4060 Laptop GPU (ID=0x28a0)
     Vendor:   NVIDIA
-    VRAM:     8017 MB
-    Driver:   32.0.15.6614
+    VRAM:     7971 MB
+    Driver:   31.0.15.2892
 Initialize mono
-Mono path[0] = 'G:/Unity 3D/Unity 2021.3.31f1/Editor/Data/Managed'
-Mono path[1] = 'G:/Unity 3D/Unity 2021.3.31f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
-Mono config path = 'G:/Unity 3D/Unity 2021.3.31f1/Editor/Data/MonoBleedingEdge/etc'
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.31f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.31f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.31f1/Editor/Data/MonoBleedingEdge/etc'
 Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56624
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: G:/Unity 3D/Unity 2021.3.31f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.019181 seconds.
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.31f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.31f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.003442 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 78.41 ms, found 4 plugins.
+Native extension for Android target not found
+Android Extension - Scanning For ADB Devices 1131 ms
+Refreshing native plugins compatible for Editor in 66.88 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.451 seconds
+- Completed reload, in  1.625 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1451ms)
-		BeginReloadAssembly (1015ms)
+	ReloadAssembly (1625ms)
+		BeginReloadAssembly (73ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (344ms)
-			LoadAssemblies (1015ms)
+		EndReloadAssembly (1481ms)
+			LoadAssemblies (70ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (80ms)
+			SetupTypeCache (79ms)
 			ReleaseScriptCaches (0ms)
 			RebuildScriptCaches (19ms)
-			SetupLoadedEditorAssemblies (212ms)
+			SetupLoadedEditorAssemblies (1352ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
+				InitializePlatformSupportModulesInManaged (1197ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (78ms)
+				RefreshPlugins (67ms)
 				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (86ms)
-				ProcessInitializeOnLoadMethodAttributes (41ms)
+				ProcessInitializeOnLoadAttributes (58ms)
+				ProcessInitializeOnLoadMethodAttributes (29ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.022930 seconds.
+Registered in 0.005200 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 86.89 ms, found 4 plugins.
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 77.48 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Package Manager log level set to [2]
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Completed reload, in  1.478 seconds
+- Completed reload, in  1.303 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1479ms)
-		BeginReloadAssembly (116ms)
+	ReloadAssembly (1304ms)
+		BeginReloadAssembly (134ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (5ms)
+			DisableScriptedObjects (10ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (16ms)
-		EndReloadAssembly (1276ms)
-			LoadAssemblies (171ms)
+			CreateAndSetChildDomain (29ms)
+		EndReloadAssembly (1085ms)
+			LoadAssemblies (82ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (195ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (45ms)
-			SetupLoadedEditorAssemblies (854ms)
+			SetupTypeCache (169ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (50ms)
+			SetupLoadedEditorAssemblies (759ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (3ms)
+				InitializePlatformSupportModulesInManaged (14ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (87ms)
-				BeforeProcessingInitializeOnLoad (101ms)
-				ProcessInitializeOnLoadAttributes (626ms)
-				ProcessInitializeOnLoadMethodAttributes (36ms)
-				AfterProcessingInitializeOnLoad (2ms)
+				RefreshPlugins (78ms)
+				BeforeProcessingInitializeOnLoad (65ms)
+				ProcessInitializeOnLoadAttributes (566ms)
+				ProcessInitializeOnLoadMethodAttributes (31ms)
+				AfterProcessingInitializeOnLoad (5ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (11ms)
+			AwakeInstancesAfterBackupRestoration (4ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.09 seconds
-Refreshing native plugins compatible for Editor in 1.50 ms, found 4 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 0.60 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4451 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 52 unused Assets / (119.6 KB). Loaded Objects now: 4910.
-Memory consumption went from 169.5 MB to 169.4 MB.
-Total: 3.116500 ms (FindLiveObjects: 0.296000 ms CreateObjectMapping: 0.205300 ms MarkObjects: 2.532800 ms  DeleteObjects: 0.081500 ms)
+Unloading 4452 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 52 unused Assets / (119.7 KB). Loaded Objects now: 4914.
+Memory consumption went from 174.1 MB to 174.0 MB.
+Total: 3.136000 ms (FindLiveObjects: 0.263700 ms CreateObjectMapping: 0.132800 ms MarkObjects: 2.664000 ms  DeleteObjects: 0.074100 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
   custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
   custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
   custom:CustomObjectIndexerAttribute: bc11b3a6c3213fcdd17b65e7da85e133 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -167,83 +172,67 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 20121.222483 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK Series - Platformer Starter Pack
-  artifactKey: Guid(6e322937db5e41644a26b44820cfd541) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+  Time since last request: 326728.247973 seconds.
+  path: Assets/3.Sprites/4.UI/Atk_lol.png
+  artifactKey: Guid(053f1543d4daac6428f531bfba39f4b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK Series - Platformer Starter Pack using Guid(6e322937db5e41644a26b44820cfd541) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '90c2c2d9bf730ac55f3172c052d04cc4') in 0.009657 seconds 
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 0.002710 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK Series - Platformer Starter Pack/Parallax - Underground Caves/1-Background.png
-  artifactKey: Guid(024120c422f278346bfc8815a4a83f9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK Series - Platformer Starter Pack/Parallax - Underground Caves/1-Background.png using Guid(024120c422f278346bfc8815a4a83f9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd08385c3bb7353c056a5f527f9356690') in 0.261833 seconds 
+Start importing Assets/3.Sprites/4.UI/Atk_lol.png using Guid(053f1543d4daac6428f531bfba39f4b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9acc6806cfaaf1cae92388a61ab95c62') in 0.054729 seconds 
 Number of asset objects unloaded after import = 3
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK Series - Platformer Starter Pack/Parallax - Underground Caves/6-close light.png
-  artifactKey: Guid(f0bacab60f0f4624eab55c7da9429765) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+  Time since last request: 0.811744 seconds.
+  path: Assets/3.Sprites/4.UI/bg2.png
+  artifactKey: Guid(8441b8a3dc4da8f418f93ebccbf6e768) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK Series - Platformer Starter Pack/Parallax - Underground Caves/6-close light.png using Guid(f0bacab60f0f4624eab55c7da9429765) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36bed05ac43a584704764bfd1312db04') in 0.015962 seconds 
+Start importing Assets/3.Sprites/4.UI/bg2.png using Guid(8441b8a3dc4da8f418f93ebccbf6e768) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c3a8109bf91511b5e0543c0f1e1922b3') in 0.029944 seconds 
 Number of asset objects unloaded after import = 3
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK Series - Platformer Starter Pack/Parallax - Underground Caves/3-far.png
-  artifactKey: Guid(6e62c70df19a11641b90cf3b4cbdb225) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+  Time since last request: 0.991985 seconds.
+  path: Assets/3.Sprites/4.UI/Speed.png
+  artifactKey: Guid(9d8af7f0c4f292b498fd6bc67e1f8149) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK Series - Platformer Starter Pack/Parallax - Underground Caves/3-far.png using Guid(6e62c70df19a11641b90cf3b4cbdb225) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8b0615ce94d56815192181656b24c22') in 0.014059 seconds 
+Start importing Assets/3.Sprites/4.UI/Speed.png using Guid(9d8af7f0c4f292b498fd6bc67e1f8149) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67cca3307781883a930ecc41a0a9d95b') in 0.011120 seconds 
 Number of asset objects unloaded after import = 3
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK Series - Platformer Starter Pack/Parallax - Underground Caves/5-close.png
-  artifactKey: Guid(b0e62379c8572e4429eb4855af8e7878) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+  Time since last request: 0.841906 seconds.
+  path: Assets/3.Sprites/4.UI/Tree.png
+  artifactKey: Guid(22bd03c6af8b183418cbe55f04f84345) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK Series - Platformer Starter Pack/Parallax - Underground Caves/5-close.png using Guid(b0e62379c8572e4429eb4855af8e7878) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b2c6a6245235c88f74b37de9ffde3f3') in 0.015819 seconds 
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK Series - Platformer Starter Pack/Parallax - Underground Caves/Parallax Scifi Dark background.aseprite
-  artifactKey: Guid(22fcc3f58f4963646a1182deba74935b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK Series - Platformer Starter Pack/Parallax - Underground Caves/Parallax Scifi Dark background.aseprite using Guid(22fcc3f58f4963646a1182deba74935b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9e6e2bb25de5634830f9932a3f54aab4') in 0.099524 seconds 
-Number of asset objects unloaded after import = 7
-========================================================================
-Received Import Request.
-  Time since last request: 60.580686 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK Series - Platformer Starter Pack/Underground Tileset & Enemies/Sprites/Blinding Spider/Blinding Spider.gif
-  artifactKey: Guid(bf829ce7d97ac4f4c8ea6876c71d009c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK Series - Platformer Starter Pack/Underground Tileset & Enemies/Sprites/Blinding Spider/Blinding Spider.gif using Guid(bf829ce7d97ac4f4c8ea6876c71d009c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b1fa59181c719a6430c4bc53e301c169') in 0.017930 seconds 
+Start importing Assets/3.Sprites/4.UI/Tree.png using Guid(22bd03c6af8b183418cbe55f04f84345) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b65947ae26a77bc7b6b524be0962bf5e') in 0.089047 seconds 
 Number of asset objects unloaded after import = 3
 ========================================================================
 Received Import Request.
   Time since last request: 0.000016 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK Series - Platformer Starter Pack/Underground Tileset & Enemies/Sprites/Blinding Spider/walk 16x16.png
-  artifactKey: Guid(9881c0bb6ee231f47b94c0e02f8cb7ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+  path: Assets/3.Sprites/4.UI/yeonKi.png
+  artifactKey: Guid(b335f4ce68964b4428b8366dc3b65585) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK Series - Platformer Starter Pack/Underground Tileset & Enemies/Sprites/Blinding Spider/walk 16x16.png using Guid(9881c0bb6ee231f47b94c0e02f8cb7ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a308cadc993e4e4afea9ec0927361cbb') in 0.014308 seconds 
+Start importing Assets/3.Sprites/4.UI/yeonKi.png using Guid(b335f4ce68964b4428b8366dc3b65585) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42d2bd39f6bc36d203c9bc9a2acfd61b') in 0.025149 seconds 
 Number of asset objects unloaded after import = 3
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK Series - Platformer Starter Pack/Underground Tileset & Enemies/Sprites/Blinding Spider/spider.aseprite
-  artifactKey: Guid(33959e6ae85d26046a8d9221768bee4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+  Time since last request: 0.000024 seconds.
+  path: Assets/3.Sprites/4.UI/ui bg2.png
+  artifactKey: Guid(475f93db6e6b8894d82332477b8fec32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK Series - Platformer Starter Pack/Underground Tileset & Enemies/Sprites/Blinding Spider/spider.aseprite using Guid(33959e6ae85d26046a8d9221768bee4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '93798b12b62c8b66226125cf8952403e') in 0.033650 seconds 
-Number of asset objects unloaded after import = 41
+Start importing Assets/3.Sprites/4.UI/ui bg2.png using Guid(475f93db6e6b8894d82332477b8fec32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8812301b07a35231f35a580a0e6ab15a') in 0.015551 seconds 
+Number of asset objects unloaded after import = 3
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK Series - Platformer Starter Pack/Underground Tileset & Enemies/Sprites/Blinding Spider/static idle.png
-  artifactKey: Guid(e17e71dcaefe3a94b90f65452dac5aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+  Time since last request: 0.000012 seconds.
+  path: Assets/3.Sprites/4.UI/bg3.png
+  artifactKey: Guid(334571a13fcc70441b3f0fdf8e9d2686) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK Series - Platformer Starter Pack/Underground Tileset & Enemies/Sprites/Blinding Spider/static idle.png using Guid(e17e71dcaefe3a94b90f65452dac5aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e01f0b580bed36315b6a8d14b45228df') in 0.012561 seconds 
+Start importing Assets/3.Sprites/4.UI/bg3.png using Guid(334571a13fcc70441b3f0fdf8e9d2686) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '560acb39b6ff6fc173c01e6ab3d56eed') in 0.018487 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/3.Sprites/4.UI/UI3.png
+  artifactKey: Guid(2480d761b4b883e4b958caaad69643a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/3.Sprites/4.UI/UI3.png using Guid(2480d761b4b883e4b958caaad69643a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b73b066f27188d9598066dbeff582f5') in 0.087110 seconds 
 Number of asset objects unloaded after import = 3
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
 AssetImportWorker is now disconnected from the server

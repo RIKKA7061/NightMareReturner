@@ -1,0 +1,344 @@
+Using pre-set license
+Built from '2021.3/staging' branch; Version is '2021.3.31f1 (3409e2af086f) revision 3410402'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22631) 64bit Core' Language: 'ko' Physical Memory: 32470 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2021.3.31f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker7
+-projectPath
+C:/Users/user/Documents/GitHub/NightMareReturner
+-logFile
+Logs/AssetImportWorker7.log
+-srvPort
+58955
+Successfully changed project path to: C:/Users/user/Documents/GitHub/NightMareReturner
+C:/Users/user/Documents/GitHub/NightMareReturner
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [19900] Host "[IP] 192.168.219.103 [Port] 0 [Flags] 2 [Guid] 279691861 [EditorId] 279691861 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-6U2F1F0) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [19900] Host "[IP] 192.168.219.103 [Port] 0 [Flags] 2 [Guid] 279691861 [EditorId] 279691861 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-6U2F1F0) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+[Physics::Module] Initialized MultithreadedJobDispatcher with {0} workers.
+Refreshing native plugins compatible for Editor in 71.64 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.31f1 (3409e2af086f)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.31f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/user/Documents/GitHub/NightMareReturner/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 4060 Laptop GPU (ID=0x28a0)
+    Vendor:   NVIDIA
+    VRAM:     7971 MB
+    Driver:   31.0.15.2892
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.31f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.31f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.31f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56932
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.31f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.31f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.003649 seconds.
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Android Extension - Scanning For ADB Devices 617 ms
+Refreshing native plugins compatible for Editor in 77.78 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.137 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1138ms)
+		BeginReloadAssembly (67ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (990ms)
+			LoadAssemblies (64ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (75ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (20ms)
+			SetupLoadedEditorAssemblies (864ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (684ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (78ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (59ms)
+				ProcessInitializeOnLoadMethodAttributes (43ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.007338 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 74.74 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Package Manager log level set to [2]
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Completed reload, in  1.377 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1378ms)
+		BeginReloadAssembly (90ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (14ms)
+		EndReloadAssembly (1184ms)
+			LoadAssemblies (75ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (184ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (45ms)
+			SetupLoadedEditorAssemblies (855ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (14ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (75ms)
+				BeforeProcessingInitializeOnLoad (73ms)
+				ProcessInitializeOnLoadAttributes (631ms)
+				ProcessInitializeOnLoadMethodAttributes (49ms)
+				AfterProcessingInitializeOnLoad (13ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 0.95 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4452 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 52 unused Assets / (119.7 KB). Loaded Objects now: 4914.
+Memory consumption went from 174.2 MB to 174.0 MB.
+Total: 2.797200 ms (FindLiveObjects: 0.234500 ms CreateObjectMapping: 0.124800 ms MarkObjects: 2.345200 ms  DeleteObjects: 0.091800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:CustomObjectIndexerAttribute: bc11b3a6c3213fcdd17b65e7da85e133 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 326903.376423 seconds.
+  path: Assets/3.Sprites/5.House/bookshelf_v0.1.png
+  artifactKey: Guid(d48342d964eb65545a1a52aa3d72aa75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/3.Sprites/5.House/bookshelf_v0.1.png using Guid(d48342d964eb65545a1a52aa3d72aa75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd4c82653c294aab85d07f0706f4155b5') in 0.081030 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.022593 seconds.
+  path: Assets/3.Sprites/Dummy/Tiles/building_cornerBeige_E.png
+  artifactKey: Guid(70a971d0afa437040904ce212781d55e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/3.Sprites/Dummy/Tiles/building_cornerBeige_E.png using Guid(70a971d0afa437040904ce212781d55e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4e950138d6fb32f8c3608ae102c0f2b') in 0.018159 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/3.Sprites/Dummy/Tiles/building_door_E.png
+  artifactKey: Guid(17774fe0e8c93074fa50015f5cc48c28) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/3.Sprites/Dummy/Tiles/building_door_E.png using Guid(17774fe0e8c93074fa50015f5cc48c28) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2bb0d9f3e5183ecddddd37a10edaf6fa') in 0.014175 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.022556 seconds.
+  path: Assets/3.Sprites/Dummy/Tiles/building_doorBeige_E.png
+  artifactKey: Guid(a240e0242b594bc4b9d1716ff0c5d6ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/3.Sprites/Dummy/Tiles/building_doorBeige_E.png using Guid(a240e0242b594bc4b9d1716ff0c5d6ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4848bb3ec39d89ab272a38e087efcd2') in 0.017656 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/3.Sprites/Dummy/Tiles/building_doorWindows_S.png
+  artifactKey: Guid(7bd75f9f901a1d14f91bbcd7e12ad179) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/3.Sprites/Dummy/Tiles/building_doorWindows_S.png using Guid(7bd75f9f901a1d14f91bbcd7e12ad179) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a00536159a69f96a890e8bb2362190f8') in 0.014279 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/3.Sprites/Dummy/Tiles/building_doorWindowsBeige_E.png
+  artifactKey: Guid(339b837c63bd2ec4e81e70c5bbbb746f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/3.Sprites/Dummy/Tiles/building_doorWindowsBeige_E.png using Guid(339b837c63bd2ec4e81e70c5bbbb746f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4ce8d12283ec4ca8aa6e5247f07443d3') in 0.016165 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/3.Sprites/Dummy/Tiles/building_doorWindows_W.png
+  artifactKey: Guid(24cb6adfaea952f4fa433a0bacdf6072) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/3.Sprites/Dummy/Tiles/building_doorWindows_W.png using Guid(24cb6adfaea952f4fa433a0bacdf6072) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '713a17314c2a305e0856ade53c6dbab7') in 0.015529 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.206459 seconds.
+  path: Assets/3.Sprites/Dummy/Tiles/building_windowBeige_E.png
+  artifactKey: Guid(29ce0605cd4028148a944372074b9bab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/3.Sprites/Dummy/Tiles/building_windowBeige_E.png using Guid(29ce0605cd4028148a944372074b9bab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad2e436d72f1a5066efd251a3442f6f6') in 0.015231 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/3.Sprites/Dummy/Tiles/building_windowBeige_W.png
+  artifactKey: Guid(2ddc2046d96f6894b8c4674432bea26c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/3.Sprites/Dummy/Tiles/building_windowBeige_W.png using Guid(2ddc2046d96f6894b8c4674432bea26c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b2fc4fa3c29f3fd95908bb2166745f9') in 0.016862 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.003678 seconds.
+  path: Assets/3.Sprites/Dummy/Tiles/building_windowsBeige_E.png
+  artifactKey: Guid(405bafcdff0403a4fa34d709791f550f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/3.Sprites/Dummy/Tiles/building_windowsBeige_E.png using Guid(405bafcdff0403a4fa34d709791f550f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a25e8252ee333faf899c8052bcb95008') in 0.014959 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/3.Sprites/Dummy/Tiles/building_windowsBeige_W.png
+  artifactKey: Guid(2741229442787f54082773bd7881ef38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/3.Sprites/Dummy/Tiles/building_windowsBeige_W.png using Guid(2741229442787f54082773bd7881ef38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad2e87d4dbb46fa53dacceb40068001f') in 0.016244 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Enemies & Assets/Enemies/Caged Spider.aseprite
+  artifactKey: Guid(2b6e2f665bbecf74eb153d6a22e30f86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Enemies & Assets/Enemies/Caged Spider.aseprite using Guid(2b6e2f665bbecf74eb153d6a22e30f86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4bb393865872b86ae961d865b0c9db89') in 0.109806 seconds 
+Number of asset objects unloaded after import = 56
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/3.Sprites/Dummy/Tiles/castle_center_N.png
+  artifactKey: Guid(adf956ade32a18247813b928897c245f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/3.Sprites/Dummy/Tiles/castle_center_N.png using Guid(adf956ade32a18247813b928897c245f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b0c012d7e623d56b6a70381d5988ee9') in 0.015915 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/3.Sprites/Dummy/Tiles/castle_corner_N.png
+  artifactKey: Guid(d56ead4da7d1f8648b965ff68da68f13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/3.Sprites/Dummy/Tiles/castle_corner_N.png using Guid(d56ead4da7d1f8648b965ff68da68f13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6088360d6d5ec36e48be2889f3a2f3bd') in 0.016300 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Beneath Tileset/Parallax/cages.png
+  artifactKey: Guid(1067bb32dd1d6e247a03bcea1680db83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Beneath Tileset/Parallax/cages.png using Guid(1067bb32dd1d6e247a03bcea1680db83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f60dfd00c3e4a15edb9883f9ea5b64f7') in 0.013044 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/3.Sprites/Dummy/Tiles/castle_bend_S.png
+  artifactKey: Guid(e7e688fac0474ee4d8d0144a7bfde778) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/3.Sprites/Dummy/Tiles/castle_bend_S.png using Guid(e7e688fac0474ee4d8d0144a7bfde778) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc86fe6bb6cb5fa2c479f1aee7be3768') in 0.012786 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 1.833971 seconds.
+  path: Assets/3.Sprites/Demo_Sprites/FrozenCave/Wall/cave-sliced_42.png
+  artifactKey: Guid(5572f7348ac181745921c296f989cdf8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/3.Sprites/Demo_Sprites/FrozenCave/Wall/cave-sliced_42.png using Guid(5572f7348ac181745921c296f989cdf8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5c3840f527a2d72f8d540f114e2359b') in 0.031600 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/3.Sprites/Demo_Sprites/FrozenCave/Wall/cave-sliced_43.png
+  artifactKey: Guid(472800a6db7e9c04cac10e944bc659d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/3.Sprites/Demo_Sprites/FrozenCave/Wall/cave-sliced_43.png using Guid(472800a6db7e9c04cac10e944bc659d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4df1e7a8fb86922225a8cfc4eeca8d0') in 0.013160 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK City Tileset/Background/City Background Layer (works with peaks of lightning pack).png
+  artifactKey: Guid(012c47fa33760114ca1d77d891d591e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK City Tileset/Background/City Background Layer (works with peaks of lightning pack).png using Guid(012c47fa33760114ca1d77d891d591e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a178d2b33b416db0d59470e28b9edcd3') in 0.016572 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Crow/Crow Sprite Sheet 17x21 BLUE.png
+  artifactKey: Guid(8675c17d35049b841943f34c90e94ee9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Crow/Crow Sprite Sheet 17x21 BLUE.png using Guid(8675c17d35049b841943f34c90e94ee9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f149010e01eb35a06a2297e2029c0b2') in 0.098845 seconds 
+Number of asset objects unloaded after import = 23
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/3.Sprites/Demo_Sprites/Basic/Raised/cube00.png
+  artifactKey: Guid(c6abcb688c044ce48bde3e87ee7f2a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/3.Sprites/Demo_Sprites/Basic/Raised/cube00.png using Guid(c6abcb688c044ce48bde3e87ee7f2a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a80b9a65157786aee37edd04442e3bb') in 0.018379 seconds 
+Number of asset objects unloaded after import = 3
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
