@@ -87,6 +87,7 @@ public class teleport : MonoBehaviour
 				// 위치 좌표가 1개 일시
 				else 
 				{
+					Debug.Log("test");
 					// 플레이어를 이동시킵니다.
 					MovePlayer(collider);
 
