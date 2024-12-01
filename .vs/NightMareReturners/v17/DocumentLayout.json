@@ -3,15 +3,27 @@
   "WorkspaceRootPath": "D:\\Project archive\\NightMareReturners\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|d:\\project archive\\nightmarereturners\\assets\\5.scripts\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|D:\\Project archive\\NightMareReturners\\assets\\5.scripts\\directingcameramanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|solutionrelative:assets\\5.scripts\\directingcameramanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|d:\\project archive\\nightmarereturners\\assets\\5.scripts\\camerafollowcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|solutionrelative:assets\\5.scripts\\camerafollowcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|D:\\Project archive\\NightMareReturners\\assets\\5.scripts\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|solutionrelative:assets\\5.scripts\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|D:\\Project archive\\NightMareReturners\\assets\\5.scripts\\itemmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|solutionrelative:assets\\5.scripts\\itemmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|D:\\Project archive\\NightMareReturners\\assets\\5.scripts\\playeraction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|solutionrelative:assets\\5.scripts\\playeraction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|d:\\project archive\\nightmarereturners\\assets\\5.scripts\\touchitems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|D:\\Project archive\\NightMareReturners\\assets\\5.scripts\\touchitems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|solutionrelative:assets\\5.scripts\\touchitems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -19,7 +31,7 @@
       "RelativeMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|solutionrelative:assets\\5.scripts\\teleport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|d:\\project archive\\nightmarereturners\\assets\\5.scripts\\roomgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|D:\\Project archive\\NightMareReturners\\assets\\5.scripts\\roomgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|solutionrelative:assets\\5.scripts\\roomgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -43,10 +55,6 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.inputsystem@1.7.0\\InputSystem\\Utilities\\DelegateHelpers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|D:\\Project archive\\NightMareReturners\\assets\\5.scripts\\directingcameramanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|solutionrelative:assets\\5.scripts\\directingcameramanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|D:\\Project archive\\NightMareReturners\\assets\\5.scripts\\prefabspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BB1D8AFD-B5A5-B3D9-5049-94E1C59E9459}|Assembly-CSharp.csproj|solutionrelative:assets\\5.scripts\\prefabspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -58,39 +66,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "PlayerAction.cs",
               "DocumentMoniker": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\PlayerAction.cs",
               "RelativeDocumentMoniker": "Assets\\5.Scripts\\PlayerAction.cs",
               "ToolTip": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\PlayerAction.cs",
               "RelativeToolTip": "Assets\\5.Scripts\\PlayerAction.cs",
-              "ViewState": "AQIAALYAAAAAAAAAAAASwL4AAAAPAAAA",
+              "ViewState": "AQIAAHMAAAAAAAAAAAAjwL4AAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-28T08:35:10.841Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Player.cs",
               "DocumentMoniker": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\Player.cs",
               "RelativeDocumentMoniker": "Assets\\5.Scripts\\Player.cs",
               "ToolTip": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\Player.cs",
               "RelativeToolTip": "Assets\\5.Scripts\\Player.cs",
-              "ViewState": "AQIAAGABAAAAAAAAAAAvwG8BAAAYAAAA",
+              "ViewState": "AQIAAPYAAAAAAAAAAAArwAcBAAA5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-28T08:34:43.649Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "SceneChangeOnCollision.cs",
               "DocumentMoniker": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\SceneChangeOnCollision.cs",
               "RelativeDocumentMoniker": "Assets\\5.Scripts\\SceneChangeOnCollision.cs",
@@ -103,7 +109,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "teleport.cs",
               "DocumentMoniker": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\teleport.cs",
               "RelativeDocumentMoniker": "Assets\\5.Scripts\\teleport.cs",
@@ -112,12 +118,11 @@
               "ViewState": "AQIAAEUAAAAAAAAAAAAYwIkAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-27T18:15:50.761Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "GoHomeManager.cs",
               "DocumentMoniker": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\GoHomeManager.cs",
               "RelativeDocumentMoniker": "Assets\\5.Scripts\\GoHomeManager.cs",
@@ -126,34 +131,7 @@
               "ViewState": "AQIAAB4AAAAAAAAAAAAYwCQAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-27T18:27:56.545Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "RoomGenerator.cs",
-              "DocumentMoniker": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\RoomGenerator.cs",
-              "RelativeDocumentMoniker": "Assets\\5.Scripts\\RoomGenerator.cs",
-              "ToolTip": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\RoomGenerator.cs",
-              "RelativeToolTip": "Assets\\5.Scripts\\RoomGenerator.cs",
-              "ViewState": "AQIAACoAAAAAAAAAAAAYwDkAAABRAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T20:11:15.487Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TouchItems.cs",
-              "DocumentMoniker": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\TouchItems.cs",
-              "RelativeDocumentMoniker": "Assets\\5.Scripts\\TouchItems.cs",
-              "ToolTip": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\TouchItems.cs",
-              "RelativeToolTip": "Assets\\5.Scripts\\TouchItems.cs",
-              "ViewState": "AQIAACIAAAAAAAAAAAAQwDgAAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T20:07:45.796Z",
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -165,7 +143,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
+              "Title": "CameraFollowController.cs",
+              "DocumentMoniker": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\CameraFollowController.cs",
+              "RelativeDocumentMoniker": "Assets\\5.Scripts\\CameraFollowController.cs",
+              "ToolTip": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\CameraFollowController.cs",
+              "RelativeToolTip": "Assets\\5.Scripts\\CameraFollowController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-01T21:21:06.853Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TouchItems.cs",
+              "DocumentMoniker": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\TouchItems.cs",
+              "RelativeDocumentMoniker": "Assets\\5.Scripts\\TouchItems.cs",
+              "ToolTip": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\TouchItems.cs",
+              "RelativeToolTip": "Assets\\5.Scripts\\TouchItems.cs",
+              "ViewState": "AQIAACIAAAAAAAAAAAAQwDgAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-01T20:07:45.796Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "CameraFollowController.cs",
               "DocumentMoniker": "D:\\Project archive\\NightMareReturners\\Assets\\CameraFollowController.cs",
               "RelativeDocumentMoniker": "Assets\\CameraFollowController.cs",
@@ -176,7 +179,44 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 0,
+              "Title": "DirectingCameraManager.cs",
+              "DocumentMoniker": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\DirectingCameraManager.cs",
+              "RelativeDocumentMoniker": "Assets\\5.Scripts\\DirectingCameraManager.cs",
+              "ToolTip": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\DirectingCameraManager.cs",
+              "RelativeToolTip": "Assets\\5.Scripts\\DirectingCameraManager.cs",
+              "ViewState": "AQIAAB8AAAAAAAAAAIA8wC4AAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T17:58:33.799Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "RoomGenerator.cs",
+              "DocumentMoniker": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\RoomGenerator.cs",
+              "RelativeDocumentMoniker": "Assets\\5.Scripts\\RoomGenerator.cs",
+              "ToolTip": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\RoomGenerator.cs",
+              "RelativeToolTip": "Assets\\5.Scripts\\RoomGenerator.cs",
+              "ViewState": "AQIAACoAAAAAAAAAAAAYwDkAAABRAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-01T20:11:15.487Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ItemManager.cs",
+              "DocumentMoniker": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\ItemManager.cs",
+              "RelativeDocumentMoniker": "Assets\\5.Scripts\\ItemManager.cs",
+              "ToolTip": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\ItemManager.cs",
+              "RelativeToolTip": "Assets\\5.Scripts\\ItemManager.cs",
+              "ViewState": "AQIAAK4AAAAAAAAAAAArwL8AAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-01T21:04:04.888Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "DelegateHelpers.cs",
               "DocumentMoniker": "D:\\Project archive\\NightMareReturners\\Library\\PackageCache\\com.unity.inputsystem@1.7.0\\InputSystem\\Utilities\\DelegateHelpers.cs",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.inputsystem@1.7.0\\InputSystem\\Utilities\\DelegateHelpers.cs",
@@ -188,7 +228,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "CarMovement.cs",
               "DocumentMoniker": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\CarMovement.cs",
               "RelativeDocumentMoniker": "Assets\\5.Scripts\\CarMovement.cs",
@@ -200,7 +240,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "PrefabSpawner.cs",
               "DocumentMoniker": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\PrefabSpawner.cs",
               "RelativeDocumentMoniker": "Assets\\5.Scripts\\PrefabSpawner.cs",
@@ -209,18 +249,6 @@
               "ViewState": "AQIAABcAAAAAAAAAAAAAwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-27T18:27:39.068Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "DirectingCameraManager.cs",
-              "DocumentMoniker": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\DirectingCameraManager.cs",
-              "RelativeDocumentMoniker": "Assets\\5.Scripts\\DirectingCameraManager.cs",
-              "ToolTip": "D:\\Project archive\\NightMareReturners\\Assets\\5.Scripts\\DirectingCameraManager.cs",
-              "RelativeToolTip": "Assets\\5.Scripts\\DirectingCameraManager.cs",
-              "ViewState": "AQIAADgAAAAAAAAAAAAswDcAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T17:58:33.799Z"
             }
           ]
         }

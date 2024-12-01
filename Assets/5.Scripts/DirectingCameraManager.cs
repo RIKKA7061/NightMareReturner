@@ -46,6 +46,7 @@ public class DirectingCameraManager : MonoBehaviour
 		virtualCamera.m_Lens.OrthographicSize = size;
 	}
 
+
 	public void ZoomIn() // ¡‹¿Œ ∏ﬁº≠µÂ
 	{
 		StartCoroutine(SmoothZoomTo(zoomSize, delayTime));

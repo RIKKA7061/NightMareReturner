@@ -611,14 +611,14 @@ MonoBehaviour:
   maxHP2: 0
   nowHP: 0
   HP_UI: {fileID: 967616937}
-  MaxHP_UI: {fileID: 0}
-  MaxHP2_UI: {fileID: 0}
+  MaxHP_UI: {fileID: 967616937}
+  MaxHP2_UI: {fileID: 967616937}
   Atk: 25
   Atk2: 0
   SkillAtk: 0
   UltimitAtk: 0
   Atk_UI: {fileID: 967616937}
-  Atk_UI2: {fileID: 0}
+  Atk_UI2: {fileID: 967616937}
   AR: 0
   AR_UI: {fileID: 822876299}
   atkNum: 0
@@ -641,10 +641,12 @@ MonoBehaviour:
   D_Ar: 0
   gameRoundTMP: {fileID: 822876299}
   shop: {fileID: 0}
-  itemManager: {fileID: 0}
+  itemManager: {fileID: 1472822430}
   HammerBuffedRoundCount: 0
   isAlreadyTextIt: 0
   Temptext: 
+  portal: {fileID: 1429665474}
+  Class: {fileID: 1429665474}
 --- !u!114 &34459076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -685,6 +687,9 @@ MonoBehaviour:
   - {fileID: 1304978791}
   mainCamera: {fileID: 1251819165}
   isUsingSkillorUltimate: 0
+  animatorController: {fileID: 9100000, guid: 9334a0a9eb0f8d1429df5312e34a6561, type: 2}
+  overrideController: {fileID: 22100000, guid: d086dc0c3b58b01479fc20823487eac6, type: 2}
+  isRoundUP: 0
   originalLayerID: 6
   shiftedLayerID: 10
   _isMoving: 0
@@ -7217,6 +7222,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8, y: 0.8}
   m_EdgeRadius: 0
+--- !u!1 &1429665474
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1429665475}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1429665475
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429665474}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.6052122, y: -0.9493426, z: 0.02287408}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1437664422
 GameObject:
   m_ObjectHideFlags: 0
@@ -7253,6 +7289,63 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1472822429
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1472822431}
+  - component: {fileID: 1472822430}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1472822430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472822429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d569ff58b5338341bc1040348fc25a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: []
+  player: {fileID: 0}
+  playerAction: {fileID: 0}
+  isHammerBuffing: 0
+  isHammerAtkUsed: 0
+  isCrunchMode: 0
+  CrunchEye: {fileID: 1429665474}
+  isNextRoundHpUp: 0
+  HpUPSet: {fileID: 1429665474}
+  HammerBuffSet: {fileID: 1429665474}
+  HammerCount: {fileID: 0}
+  button: []
+  rock: []
+--- !u!4 &1472822431
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472822429}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.6052122, y: -0.9493426, z: 0.02287408}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1476776888
 GameObject:
   m_ObjectHideFlags: 0
