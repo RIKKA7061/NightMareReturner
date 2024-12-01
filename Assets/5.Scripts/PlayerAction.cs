@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SocialPlatforms;
 using UnityEditor;
 using Unity.VisualScripting;
+using UnityEditor.Animations;
 
 
 public class PlayerAction : MonoBehaviour
@@ -85,8 +86,12 @@ public class PlayerAction : MonoBehaviour
     [Header("지금 현재 스킬or궁극기를 사용 중인가?")]
     public bool isUsingSkillorUltimate;
 
+	// 애니메이터 오버라이드
+	public AnimatorController animatorController;
+	public AnimatorOverrideController overrideController;
+	public bool isRoundUP;
 
-    public int originalLayerID = 6; // 기본 레이어 ID (Default는 0)
+	public int originalLayerID = 6; // 기본 레이어 ID (Default는 0)
     public int shiftedLayerID = 10; // Shift 키를 눌렀을 때 적용할 레이어 ID
 
     private SpriteRenderer spriteRenderer;
@@ -174,10 +179,22 @@ public class PlayerAction : MonoBehaviour
 		canMove = true;
 	}
 
+	public void DefaultAnimatorController()
+	{
+		GetComponent<Animator>().runtimeAnimatorController = animatorController;
+	}
+
+
 	void Update()
     {
+		// 구슬변수가 false 일시 && 플레이어의 구슬이 1이상 일시
+		if (isRoundUP == false && Player.round >= 1)
+		{
+			GetComponent<Animator>().runtimeAnimatorController = overrideController;
+			isRoundUP = true;
+		}
 
-        if (isCooldown)
+		if (isCooldown)
         {
             cooldownTime -= Time.deltaTime;
             if (cooldownTime <= 0)

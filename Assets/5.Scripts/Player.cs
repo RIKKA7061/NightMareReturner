@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.InputSystem;
 using Unity.VisualScripting;
+using static UnityEditor.PlayerSettings;
 
 public class Player : MonoBehaviour
 {
@@ -140,14 +141,18 @@ public class Player : MonoBehaviour
         DefaultMaxHP = maxHP;
         DefaultAtk = Atk;
         DefaultMoney = Money;
-        DefaultRound = round;
+        DefaultRound = 0;
 		D_speed = playerAction.walkSpeed; // start함수 내에 있음
 		D_As = playerAction.jabCooldown; // 공격속도
 		D_Ar = AR; // 방어력 Armor Resistance
 
-        NowPosAnnounce(); // 내위치 확인
+		playerAction.DefaultAnimatorController(); // 디폴트 애니메이션 세트
 
-    }
+		NowPosAnnounce(); // 내위치 확인
+
+        StatDefaultPlayer(); // 디폴트
+
+	}
 
     private void ApplyDebuff()// 디버프 적용
     {
@@ -304,7 +309,7 @@ public class Player : MonoBehaviour
         }
         else if (gameRound <= prefabSpawner.OverRoom)
         {
-            Temptext = gameRound.ToString() + "번째 방";
+            Temptext = ( gameRound - 1 ).ToString() + "번째 방";
             Printer(Temptext); // 현재 위치 출력
             playerAction.isGeoRiPlayer = false; // 거리 출신 플레이어로 변경 해제
         }
@@ -355,11 +360,17 @@ public class Player : MonoBehaviour
         prefabSpawner.DestroySpawnedObjects();// 생성된 아이템 및 상점 TP 객체 제거
 	}// 플레이어 부활
 
+	public GameObject portal;
+	public GameObject Class;
+
 	public void StatDefaultPlayer()
     {
+		Class.SetActive(true);
+		portal.SetActive(false);
+
 		maxHP = DefaultMaxHP;
 		Atk = DefaultAtk;
-		round = DefaultRound;
+		round = 0;
 		itemManager.isNextRoundHpUp = false;    // 기력방울 버프 제거
 		itemManager.DebuffHpUp();
         playerAction.walkSpeed = D_speed;
@@ -367,6 +378,8 @@ public class Player : MonoBehaviour
         AR = D_Ar; // 방어력 Armor Resistance
         itemManager.GoodByeHammerBuff();        // 해머 버프 제거
 
+		playerAction.DefaultAnimatorController(); // 디폴트 애니메이션 세트
+        playerAction.isRoundUP = false;
 
 		itemManager.OFFCrunchMode();            // 과민의 눈 버프 제거
 
@@ -377,7 +390,12 @@ public class Player : MonoBehaviour
 
         playerAction.isGeoRiPlayer = true;
 
-    }// 플레이어 스테이터스 디폴트로 설정
+
+        gameRound = 0;
+        NowPosAnnounce();
+
+
+	}// 플레이어 스테이터스 디폴트로 설정
 
 
 	const float AR_FACTOR = 0.01f;       // 방어력 공식에 쓰임

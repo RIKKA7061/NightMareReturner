@@ -2,10 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.InputSystem;
 
 public class TouchItems : MonoBehaviour
 {
 	[Header("아이템과 닿을시")]
+	public GameObject portal;
+
+	[Header("이거 class야?")]
+	public bool isClass;
 
 	[Header("공격력 증가")]
 	public int AddAtk = 0;  // 공격력 증가
@@ -43,7 +48,19 @@ public class TouchItems : MonoBehaviour
 
 			if (player.nowHP > player.maxHP) player.nowHP = player.maxHP;
 
-			Destroy(gameObject);		// 나 자신을 아이템 삭제
+			// 클래스 아이템인 경우
+			if(isClass)
+			{
+				// 활성화
+				portal.SetActive(true);
+
+				// 나 자신 비활성화
+				gameObject.SetActive(false);
+			}
+			else
+			{
+				Destroy(gameObject);        // 나 자신을 아이템 삭제
+			}
 		}
 	}
 
