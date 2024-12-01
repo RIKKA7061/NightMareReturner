@@ -18,6 +18,7 @@ public class BtnManager : MonoBehaviour
 	public GameObject item1;
     public GameObject item2;
     public GameObject item3;
+	public GameObject setting;
 
     //개발자
     public GameObject Dev;
@@ -78,6 +79,7 @@ public class BtnManager : MonoBehaviour
 		tip.SetActive(false);
         shop.SetActive(false);
         myData.SetActive(false);
+		setting.SetActive(false);
         isOpened = false;
 		Time.timeScale = 1f;
     }
@@ -152,6 +154,13 @@ public class BtnManager : MonoBehaviour
         item2.SetActive(false);
     }
 
+	public void SettingBtn()
+	{
+        audioManager.PlayerSFX(audioManager.audio[4]);
+        setting.SetActive(true);
+		Time.timeScale = 0f;
+	}
+
     public void Developement()
 	{
 		if (TipText != null) // Null 체크
@@ -169,7 +178,7 @@ public class BtnManager : MonoBehaviour
 	{
 		if (TipText != null) // Null 체크
 		{
-			string text = "이동 방향 - 화살표 방향키\r\n기본 공격 - 좌클릭\r\n스킬 공격 - 우클릭\r\n궁극기 - R\r\n슬라이딩 - 쉬프트\r\n대화 - E";
+			string text = "이동 - WASD\r\n기본 공격 - 좌클릭\r\n특수 공격 - 우클릭\r\n궁극기 - R\r\n구르기 - 스페이스바\r\n대화 - E";
 			TipText.text = text;
 		}
 		else

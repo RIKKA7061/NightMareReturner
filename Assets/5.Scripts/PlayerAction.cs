@@ -401,6 +401,11 @@ public class PlayerAction : MonoBehaviour
         SetLayer(originalLayerID);
     }
 
+    IEnumerator PlaySoundWithDelay()
+    {
+        yield return new WaitForSeconds(0.3f); // Wait for the specified delay
+        audioManager.PlayerSFX(audioManager.audio[3]);                     // Play the sound
+    }
 
     public float jabCooldown = 0.3f;  // 잽 공격 쿨타임 (공속을 의미)
 	private float lastAttackTime = 0f;  // 마지막 공격 시간이 저장될 변수
@@ -509,7 +514,8 @@ public class PlayerAction : MonoBehaviour
                 if (!isGeoRiPlayer)
                 {
                     animator.SetTrigger(AnimationStrings.skillAttackTrigger2);  // 스킬 애니메이션 실행
-				}
+                    StartCoroutine(PlaySoundWithDelay());
+                }
 
                 skillAttack2Time = skillAttack2Cooldown;  // 쿨타임 적용
 

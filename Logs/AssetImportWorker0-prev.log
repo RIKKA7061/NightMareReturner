@@ -9,13 +9,13 @@ C:\Program Files\Unity\Hub\Editor\2021.3.31f1\Editor\Unity.exe
 -batchMode
 -noUpm
 -name
-AssetImportWorker21
+AssetImportWorker0
 -projectPath
 C:/Users/user/Documents/GitHub/NightMareReturner
 -logFile
-Logs/AssetImportWorker21.log
+Logs/AssetImportWorker0.log
 -srvPort
-58955
+62836
 Successfully changed project path to: C:/Users/user/Documents/GitHub/NightMareReturner
 C:/Users/user/Documents/GitHub/NightMareReturner
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,12 +47,12 @@ C:/Users/user/Documents/GitHub/NightMareReturner
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [53480] Host "[IP] 192.168.219.103 [Port] 0 [Flags] 2 [Guid] 966971836 [EditorId] 966971836 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-6U2F1F0) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [22284] Host "[IP] 192.168.219.103 [Port] 0 [Flags] 2 [Guid] 2996555100 [EditorId] 2996555100 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-6U2F1F0) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [53480] Host "[IP] 192.168.219.103 [Port] 0 [Flags] 2 [Guid] 966971836 [EditorId] 966971836 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-6U2F1F0) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [22284] Host "[IP] 192.168.219.103 [Port] 0 [Flags] 2 [Guid] 2996555100 [EditorId] 2996555100 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-6U2F1F0) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with {0} workers.
-Refreshing native plugins compatible for Editor in 90.98 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 78.84 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.31f1 (3409e2af086f)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.31f1/Editor/Data/Resources/UnitySubsystems
@@ -68,94 +68,122 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.31f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.31f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.31f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56472
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56912
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.31f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.31f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.003448 seconds.
+Registered in 0.002836 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 1136 ms
-Refreshing native plugins compatible for Editor in 83.80 ms, found 4 plugins.
+Android Extension - Scanning For ADB Devices 773 ms
+Refreshing native plugins compatible for Editor in 94.67 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.689 seconds
+- Completed reload, in  1.354 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1689ms)
-		BeginReloadAssembly (72ms)
+	ReloadAssembly (1354ms)
+		BeginReloadAssembly (86ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (1543ms)
-			LoadAssemblies (69ms)
+		EndReloadAssembly (1195ms)
+			LoadAssemblies (84ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (87ms)
+			SetupTypeCache (93ms)
 			ReleaseScriptCaches (0ms)
 			RebuildScriptCaches (20ms)
-			SetupLoadedEditorAssemblies (1404ms)
+			SetupLoadedEditorAssemblies (1044ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (1209ms)
+				InitializePlatformSupportModulesInManaged (847ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (84ms)
-				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (71ms)
-				ProcessInitializeOnLoadMethodAttributes (39ms)
+				RefreshPlugins (95ms)
+				BeforeProcessingInitializeOnLoad (2ms)
+				ProcessInitializeOnLoadAttributes (64ms)
+				ProcessInitializeOnLoadMethodAttributes (37ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.006883 seconds.
+Registered in 0.006660 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Refreshing native plugins compatible for Editor in 77.31 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 116.12 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Package Manager log level set to [2]
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Completed reload, in  1.354 seconds
+- Completed reload, in  1.992 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1355ms)
-		BeginReloadAssembly (98ms)
+	ReloadAssembly (1993ms)
+		BeginReloadAssembly (120ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
+			DisableScriptedObjects (6ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (15ms)
-		EndReloadAssembly (1160ms)
-			LoadAssemblies (82ms)
+			CreateAndSetChildDomain (19ms)
+		EndReloadAssembly (1768ms)
+			LoadAssemblies (103ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (183ms)
-			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (54ms)
-			SetupLoadedEditorAssemblies (815ms)
+			SetupTypeCache (347ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (73ms)
+			SetupLoadedEditorAssemblies (1121ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (15ms)
+				InitializePlatformSupportModulesInManaged (42ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (77ms)
-				BeforeProcessingInitializeOnLoad (67ms)
-				ProcessInitializeOnLoadAttributes (608ms)
-				ProcessInitializeOnLoadMethodAttributes (42ms)
-				AfterProcessingInitializeOnLoad (6ms)
+				RefreshPlugins (116ms)
+				BeforeProcessingInitializeOnLoad (112ms)
+				ProcessInitializeOnLoadAttributes (782ms)
+				ProcessInitializeOnLoadMethodAttributes (52ms)
+				AfterProcessingInitializeOnLoad (16ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (4ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Refreshing native plugins compatible for Editor in 0.65 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 0.93 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 4453 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 52 unused Assets / (119.6 KB). Loaded Objects now: 4915.
 Memory consumption went from 174.3 MB to 174.2 MB.
-Total: 2.811900 ms (FindLiveObjects: 0.220900 ms CreateObjectMapping: 0.114300 ms MarkObjects: 2.395600 ms  DeleteObjects: 0.080200 ms)
+Total: 3.707800 ms (FindLiveObjects: 0.216200 ms CreateObjectMapping: 0.206900 ms MarkObjects: 3.162100 ms  DeleteObjects: 0.121200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 340434.972871 seconds.
+  path: Assets/HoneyComb.inputactions
+  artifactKey: Guid(b8806b9451d518f4aa530bbc123d6f9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/HoneyComb.inputactions using Guid(b8806b9451d518f4aa530bbc123d6f9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '758bd4339cb3c039cd40e80a558abe07') in 0.043176 seconds 
+Number of asset objects unloaded after import = 18
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 5.29 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 25 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 25 unused Assets / (92.6 KB). Loaded Objects now: 4916.
+Memory consumption went from 82.8 MB to 82.8 MB.
+Total: 3.594800 ms (FindLiveObjects: 0.232000 ms CreateObjectMapping: 0.242100 ms MarkObjects: 3.086100 ms  DeleteObjects: 0.033500 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -172,33 +200,29 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 339191.017704 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Beneath Tileset/Animated Objects/light with bugs32x37.png
-  artifactKey: Guid(e881eaccecee20d4387b7262428b6306) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+  Time since last request: 200.839913 seconds.
+  path: Assets/3.Sprites/1.Player
+  artifactKey: Guid(ae8ccfba2e87fe945867abf03c38ff36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Beneath Tileset/Animated Objects/light with bugs32x37.png using Guid(e881eaccecee20d4387b7262428b6306) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5afa84ea9792095961004c92dde019e') in 0.108153 seconds 
-Number of asset objects unloaded after import = 12
-========================================================================
-Received Import Request.
-  Time since last request: 1.114369 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow.aseprite
-  artifactKey: Guid(a2874d22a21b1a14d85cba3c6c9a6c54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow.aseprite using Guid(a2874d22a21b1a14d85cba3c6c9a6c54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39d811fc55e811fe002dd8312addcf79') in 0.412182 seconds 
-Number of asset objects unloaded after import = 144
-========================================================================
-Received Import Request.
-  Time since last request: 74.731356 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/Materials
-  artifactKey: Guid(626253fa9bfd5ba43a75364be92fd610) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/Materials using Guid(626253fa9bfd5ba43a75364be92fd610) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '704e1577d7913ce92a5514f70486cad5') in 0.001440 seconds 
+Start importing Assets/3.Sprites/1.Player using Guid(ae8ccfba2e87fe945867abf03c38ff36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6677da7125af0be571e076dba2cf0f90') in 0.001788 seconds 
 Number of asset objects unloaded after import = 0
 ========================================================================
 Received Import Request.
-  Time since last request: 98.937688 seconds.
-  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Beneath Tileset/Tileset/Tileset.png
-  artifactKey: Guid(c6887a45fa5aaa84293bdfe15035a7d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+  Time since last request: 165.151272 seconds.
+  path: Assets/3.Sprites/1.Player/player_Attack1.png
+  artifactKey: Guid(6a9978629e1681d48abb5a1849804c24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Number of updated assets reloaded before import = 0
-Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Beneath Tileset/Tileset/Tileset.png using Guid(c6887a45fa5aaa84293bdfe15035a7d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6db6a52f839985383707886c5651bbcd') in 0.280867 seconds 
-Number of asset objects unloaded after import = 179
+Start importing Assets/3.Sprites/1.Player/player_Attack1.png using Guid(6a9978629e1681d48abb5a1849804c24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '953c14a551a8c0ba8734424def99b07c') in 0.055067 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 1.066075 seconds.
+  path: Assets/3.Sprites/1.Player/Player_Hammer.png
+  artifactKey: Guid(84554ea469eb8f04cbd7e8acf9a7e82d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/3.Sprites/1.Player/Player_Hammer.png using Guid(84554ea469eb8f04cbd7e8acf9a7e82d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1038b93f93bdb0905bb59b797a2ffcfc') in 0.051518 seconds 
+Number of asset objects unloaded after import = 3
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
