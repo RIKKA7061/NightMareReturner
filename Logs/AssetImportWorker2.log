@@ -1,0 +1,471 @@
+Using pre-set license
+Built from '2021.3/staging' branch; Version is '2021.3.31f1 (3409e2af086f) revision 3410402'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'ko' Physical Memory: 32683 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+G:\Unity 3D\Unity 2021.3.31f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker2
+-projectPath
+C:/Users/hsj27/OneDrive/문서/GitHub/NightMareReturner
+-logFile
+Logs/AssetImportWorker2.log
+-srvPort
+6370
+Successfully changed project path to: C:/Users/hsj27/OneDrive/문서/GitHub/NightMareReturner
+C:/Users/hsj27/OneDrive/문서/GitHub/NightMareReturner
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [7984] Host "[IP] 172.30.1.19 [Port] 0 [Flags] 2 [Guid] 3359754265 [EditorId] 3359754265 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-DEIAJ7R) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [7984] Host "[IP] 172.30.1.19 [Port] 0 [Flags] 2 [Guid] 3359754265 [EditorId] 3359754265 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-DEIAJ7R) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+[Physics::Module] Initialized MultithreadedJobDispatcher with {0} workers.
+Refreshing native plugins compatible for Editor in 118.09 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.31f1 (3409e2af086f)
+[Subsystems] Discovering subsystems at path G:/Unity 3D/Unity 2021.3.31f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/hsj27/OneDrive/문서/GitHub/NightMareReturner/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3070 Ti (ID=0x2482)
+    Vendor:   NVIDIA
+    VRAM:     8017 MB
+    Driver:   32.0.15.6614
+Initialize mono
+Mono path[0] = 'G:/Unity 3D/Unity 2021.3.31f1/Editor/Data/Managed'
+Mono path[1] = 'G:/Unity 3D/Unity 2021.3.31f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'G:/Unity 3D/Unity 2021.3.31f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56968
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: G:/Unity 3D/Unity 2021.3.31f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.003031 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 84.74 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.560 seconds
+Domain Reload Profiling:
+	ReloadAssembly (560ms)
+		BeginReloadAssembly (106ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (376ms)
+			LoadAssemblies (106ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (90ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (21ms)
+			SetupLoadedEditorAssemblies (229ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (85ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (91ms)
+				ProcessInitializeOnLoadMethodAttributes (46ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.017698 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 86.67 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Package Manager log level set to [2]
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Completed reload, in  1.571 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1572ms)
+		BeginReloadAssembly (128ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (21ms)
+		EndReloadAssembly (1348ms)
+			LoadAssemblies (135ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (298ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (47ms)
+			SetupLoadedEditorAssemblies (850ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (87ms)
+				BeforeProcessingInitializeOnLoad (109ms)
+				ProcessInitializeOnLoadAttributes (609ms)
+				ProcessInitializeOnLoadMethodAttributes (40ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (11ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 2.06 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4451 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 52 unused Assets / (119.6 KB). Loaded Objects now: 4910.
+Memory consumption went from 169.5 MB to 169.4 MB.
+Total: 4.895600 ms (FindLiveObjects: 0.541900 ms CreateObjectMapping: 0.254100 ms MarkObjects: 3.986900 ms  DeleteObjects: 0.111900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:CustomObjectIndexerAttribute: bc11b3a6c3213fcdd17b65e7da85e133 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 20182.239977 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK Series - Platformer Starter Pack/Underground Tileset & Enemies/Sprites/Blinding Spider/blind attack 16x16.png
+  artifactKey: Guid(07e1910480b97a148bca97a131a0991a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK Series - Platformer Starter Pack/Underground Tileset & Enemies/Sprites/Blinding Spider/blind attack 16x16.png using Guid(07e1910480b97a148bca97a131a0991a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53267cb510e0d1ad22a828b9199ed8df') in 0.156027 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 334.908219 seconds.
+  path: Assets/4.Prefab/2.Enemy/BOSS.prefab
+  artifactKey: Guid(4008b4a196953424889b457bc5a055a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/4.Prefab/2.Enemy/BOSS.prefab using Guid(4008b4a196953424889b457bc5a055a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1afcb6f7bd20f4d960492cb0cb038799') in 0.213770 seconds 
+Number of asset objects unloaded after import = 86
+========================================================================
+Received Import Request.
+  Time since last request: 3032.050879 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Enemies & Assets
+  artifactKey: Guid(ee5633b304352dd448e3c4e959e4de15) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Enemies & Assets using Guid(ee5633b304352dd448e3c4e959e4de15) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bfc2ec2769c16ecef58558987ad44a14') in 0.002087 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 4.463203 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset
+  artifactKey: Guid(4f799856f9d20ac469fe18b4fc2aea38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset using Guid(4f799856f9d20ac469fe18b4fc2aea38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd96eca68c1dbda579509b2c98fae6f0') in 0.001927 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 1.619325 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss
+  artifactKey: Guid(830ff631c6d9351439b3c18230564324) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss using Guid(830ff631c6d9351439b3c18230564324) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '510fbfd3ecfc3ffc5e4c27004be889a7') in 0.001835 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.071114 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png
+  artifactKey: Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png using Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36b6f146ce8c5aa36f6b72d44edb06d4') in 0.048434 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 399.300172 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png
+  artifactKey: Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png using Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de88621e0d2f593c0b55f5f0f04ea13a') in 0.051153 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 84.767892 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png
+  artifactKey: Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png using Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f6f4d925ae480cf7723efd332c3b0413') in 0.009691 seconds 
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 1104.512028 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png
+  artifactKey: Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png using Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '849c8626bfc7268ed10ea12474bac0a1') in 0.049090 seconds 
+Number of asset objects unloaded after import = 36
+========================================================================
+Received Import Request.
+  Time since last request: 6570.498514 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png
+  artifactKey: Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png using Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02331d94488cd21700f63f7968805d3f') in 0.161398 seconds 
+Number of asset objects unloaded after import = 116
+========================================================================
+Received Import Request.
+  Time since last request: 79.458129 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png
+  artifactKey: Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png using Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4364771726aa4c77ddb24ced680ac298') in 0.108037 seconds 
+Number of asset objects unloaded after import = 109
+========================================================================
+Received Import Request.
+  Time since last request: 42.478545 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png
+  artifactKey: Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png using Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b9ef989d87d46d3a4ae46ea44fca00b4') in 0.106606 seconds 
+Number of asset objects unloaded after import = 109
+========================================================================
+Received Import Request.
+  Time since last request: 9.211963 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png
+  artifactKey: Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png using Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22911efd01746e625e64ae7279adb61c') in 0.105192 seconds 
+Number of asset objects unloaded after import = 109
+========================================================================
+Received Import Request.
+  Time since last request: 153.865904 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png
+  artifactKey: Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png using Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e94faa30674fcc5a9c83968babf9262a') in 0.110352 seconds 
+Number of asset objects unloaded after import = 109
+========================================================================
+Received Import Request.
+  Time since last request: 15.618467 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png
+  artifactKey: Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png using Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '599c308bdde51820d583a10d3d93c8b8') in 0.141673 seconds 
+Number of asset objects unloaded after import = 109
+========================================================================
+Received Import Request.
+  Time since last request: 5.872656 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png
+  artifactKey: Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png using Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '617f54a871ec9588324b6face5160613') in 0.134206 seconds 
+Number of asset objects unloaded after import = 109
+========================================================================
+Received Import Request.
+  Time since last request: 18.549129 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png
+  artifactKey: Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png using Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'afcaba9aa2dbbf748139aff8dcddc8c0') in 0.135560 seconds 
+Number of asset objects unloaded after import = 109
+========================================================================
+Received Import Request.
+  Time since last request: 9.922505 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png
+  artifactKey: Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png using Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7459a7a3f1729ada4203721cbef7f3ad') in 0.138617 seconds 
+Number of asset objects unloaded after import = 109
+========================================================================
+Received Import Request.
+  Time since last request: 33.738948 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png
+  artifactKey: Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png using Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48111dbbce6a7347d1c3776633d993c6') in 0.082713 seconds 
+Number of asset objects unloaded after import = 109
+========================================================================
+Received Import Request.
+  Time since last request: 3.287943 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png
+  artifactKey: Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png using Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '585620690bbfd8c9e2a37f41468a7b17') in 0.074931 seconds 
+Number of asset objects unloaded after import = 109
+========================================================================
+Received Import Request.
+  Time since last request: 3.290661 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png
+  artifactKey: Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png using Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c7f45f8e74873db023fb7c89cf5763f') in 0.089253 seconds 
+Number of asset objects unloaded after import = 109
+========================================================================
+Received Import Request.
+  Time since last request: 6.431579 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png
+  artifactKey: Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png using Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a08e49ff7dce6d07979db0098a89d8af') in 0.139035 seconds 
+Number of asset objects unloaded after import = 109
+========================================================================
+Received Import Request.
+  Time since last request: 17.134387 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png
+  artifactKey: Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png using Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44c95d75fb15db73a8d373cdf424a4cb') in 0.123786 seconds 
+Number of asset objects unloaded after import = 109
+========================================================================
+Received Import Request.
+  Time since last request: 9.370393 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png
+  artifactKey: Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png using Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87798fe6e86e1a1076657476987d6443') in 0.139733 seconds 
+Number of asset objects unloaded after import = 109
+========================================================================
+Received Import Request.
+  Time since last request: 4.598263 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png
+  artifactKey: Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png using Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '58258efb03f11dd85574c299a7e642d9') in 0.133373 seconds 
+Number of asset objects unloaded after import = 109
+========================================================================
+Received Import Request.
+  Time since last request: 2.681314 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png
+  artifactKey: Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png using Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '789e15111ccfb31b5ddd232a32716780') in 0.137223 seconds 
+Number of asset objects unloaded after import = 109
+========================================================================
+Received Import Request.
+  Time since last request: 3.257616 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png
+  artifactKey: Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png using Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a37dab58a91fd55f7d5a8968fc17eb1') in 0.134214 seconds 
+Number of asset objects unloaded after import = 109
+========================================================================
+Received Import Request.
+  Time since last request: 6.102678 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png
+  artifactKey: Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png using Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79bd098c0cebda70da7f4d988b3e0a31') in 0.138870 seconds 
+Number of asset objects unloaded after import = 109
+========================================================================
+Received Import Request.
+  Time since last request: 2.956096 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png
+  artifactKey: Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png using Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07c78929c5d1e6557d22fcbce4837977') in 0.135393 seconds 
+Number of asset objects unloaded after import = 109
+========================================================================
+Received Import Request.
+  Time since last request: 3.742014 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png
+  artifactKey: Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png using Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b2b808635621d90bf6be2bf7fa062cd') in 0.133426 seconds 
+Number of asset objects unloaded after import = 109
+========================================================================
+Received Import Request.
+  Time since last request: 261.721976 seconds.
+  path: Assets/3.Sprites/Weapons/근접공격용.png
+  artifactKey: Guid(6872e792443ce4b4f87f82899c68e943) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/3.Sprites/Weapons/근접공격용.png using Guid(6872e792443ce4b4f87f82899c68e943) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7b43b38f794a0c703e756779590f79d') in 0.166257 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 34.627474 seconds.
+  path: Assets/3.Sprites/Weapons/원거리공격용.png
+  artifactKey: Guid(e13087e6b2f7db6429678f2232f951d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/3.Sprites/Weapons/원거리공격용.png using Guid(e13087e6b2f7db6429678f2232f951d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd7163c238aba695c27bd4bfab70334b3') in 0.068651 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 201.784137 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png
+  artifactKey: Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png using Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da636fd32ee8c8da04ebcc16f44b60e6') in 0.133626 seconds 
+Number of asset objects unloaded after import = 109
+========================================================================
+Received Import Request.
+  Time since last request: 6.515460 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png
+  artifactKey: Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png using Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '88d77d01662b2cb60665de8d155fee77') in 0.129750 seconds 
+Number of asset objects unloaded after import = 109
+========================================================================
+Received Import Request.
+  Time since last request: 49.652848 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png
+  artifactKey: Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png using Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72404d7d3a6ca6df247514b1d4787e13') in 0.134725 seconds 
+Number of asset objects unloaded after import = 109
+========================================================================
+Received Import Request.
+  Time since last request: 10.269778 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png
+  artifactKey: Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png using Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37ce2da15f1cd0869508fc8c9f57667e') in 0.134494 seconds 
+Number of asset objects unloaded after import = 109
+========================================================================
+Received Import Request.
+  Time since last request: 329.686631 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png
+  artifactKey: Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png using Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1fc35e5a3cf0dcfb6404be992dc18d4a') in 0.146961 seconds 
+Number of asset objects unloaded after import = 109
+========================================================================
+Received Import Request.
+  Time since last request: 11.238623 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png
+  artifactKey: Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Victorian Boss + Add on Tileset/Boss/The Tarnished Widow 188x90.png using Guid(3b06a8998bef89640b03a73532592b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e182b7f724c52bb448723bc8274e040') in 0.147533 seconds 
+Number of asset objects unloaded after import = 109
