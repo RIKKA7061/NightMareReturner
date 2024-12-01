@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SocialPlatforms;
 using UnityEditor;
 using Unity.VisualScripting;
+using UnityEditor.Animations;
 
 
 public class PlayerAction : MonoBehaviour
@@ -92,6 +93,11 @@ public class PlayerAction : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Coroutine revertLayerCoroutine;
 
+    // 애니메이터 오버라이드
+    public AnimatorController animatorController;
+    public AnimatorOverrideController overrideController;
+    public bool isRoundUP;
+
     // 이동 상태 확인 변수 (애니메이터와 연동)
     [SerializeField]
     private bool _isMoving = false;
@@ -128,9 +134,6 @@ public class PlayerAction : MonoBehaviour
     public Transform playerPos;
 
     public ItemManager itemManager;     // 아이템 매니저 스크립트
-
-	
-
 
 	public bool IsFacingRight
     {
@@ -176,6 +179,12 @@ public class PlayerAction : MonoBehaviour
 
 	void Update()
     {
+        // 구슬변수가 false 일시 && 플레이어의 구슬이 1이상 일시
+        if (isRoundUP == false && Player.round >= 1)
+        {
+            GetComponent<Animator>().runtimeAnimatorController = overrideController;
+            isRoundUP = true;
+		}
 
         if (isCooldown)
         {

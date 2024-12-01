@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI StoreMoneyTxt;
 
     [Header("구슬")]
-	static public int round = 0; // 구슬
+	public static int round = 0; // 구슬
 	public TextMeshProUGUI RoundTxt;
 
 	Animator animator;        // Animator 컴포넌트 참조
@@ -140,14 +140,19 @@ public class Player : MonoBehaviour
         DefaultMaxHP = maxHP;
         DefaultAtk = Atk;
         DefaultMoney = Money;
-        DefaultRound = round;
+        DefaultRound = 0;
 		D_speed = playerAction.walkSpeed; // start함수 내에 있음
 		D_As = playerAction.jabCooldown; // 공격속도
 		D_Ar = AR; // 방어력 Armor Resistance
 
+
         NowPosAnnounce(); // 내위치 확인
 
-    }
+
+        // 플레이어 스탯 초기화
+        StatDefaultPlayer();
+
+	}
 
     private void ApplyDebuff()// 디버프 적용
     {
