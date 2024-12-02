@@ -1,0 +1,374 @@
+Using pre-set license
+Built from '2021.3/staging' branch; Version is '2021.3.31f1 (3409e2af086f) revision 3410402'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22631) 64bit Core' Language: 'ko' Physical Memory: 16051 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2021.3.31f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker11
+-projectPath
+C:/Users/hdgeh/Documents/GitHub/NightMareReturner
+-logFile
+Logs/AssetImportWorker11.log
+-srvPort
+53136
+Successfully changed project path to: C:/Users/hdgeh/Documents/GitHub/NightMareReturner
+C:/Users/hdgeh/Documents/GitHub/NightMareReturner
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [4796] Host "[IP] 172.100.3.147 [Port] 0 [Flags] 2 [Guid] 1749376033 [EditorId] 1749376033 [Version] 1048832 [Id] WindowsEditor(7,rikka_laptop) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [4796] Host "[IP] 172.100.3.147 [Port] 0 [Flags] 2 [Guid] 1749376033 [EditorId] 1749376033 [Version] 1048832 [Id] WindowsEditor(7,rikka_laptop) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+[Physics::Module] Initialized MultithreadedJobDispatcher with {0} workers.
+Refreshing native plugins compatible for Editor in 95.35 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.31f1 (3409e2af086f)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.31f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/hdgeh/Documents/GitHub/NightMareReturner/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3060 Laptop GPU (ID=0x2520)
+    Vendor:   NVIDIA
+    VRAM:     5996 MB
+    Driver:   32.0.15.5613
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.31f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.31f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.31f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56592
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Trying to register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.31f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll (that doesn't exist). Retrying without overrides.
+Platform support module is not available: C:/Program Files/Unity/Hub/Editor/2021.3.31f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.31f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.009292 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 76.26 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.488 seconds
+Domain Reload Profiling:
+	ReloadAssembly (488ms)
+		BeginReloadAssembly (75ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (333ms)
+			LoadAssemblies (74ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (75ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (20ms)
+			SetupLoadedEditorAssemblies (205ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (76ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (86ms)
+				ProcessInitializeOnLoadMethodAttributes (35ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.005263 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 74.57 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Package Manager log level set to [2]
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Completed reload, in  1.448 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1449ms)
+		BeginReloadAssembly (105ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (16ms)
+		EndReloadAssembly (1262ms)
+			LoadAssemblies (87ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (184ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (47ms)
+			SetupLoadedEditorAssemblies (931ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (75ms)
+				BeforeProcessingInitializeOnLoad (76ms)
+				ProcessInitializeOnLoadAttributes (736ms)
+				ProcessInitializeOnLoadMethodAttributes (35ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 1.10 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4455 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 52 unused Assets / (119.3 KB). Loaded Objects now: 4915.
+Memory consumption went from 169.9 MB to 169.8 MB.
+Total: 3.178400 ms (FindLiveObjects: 0.222900 ms CreateObjectMapping: 0.118200 ms MarkObjects: 2.751700 ms  DeleteObjects: 0.084700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:CustomObjectIndexerAttribute: bc11b3a6c3213fcdd17b65e7da85e133 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 256657.747286 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/assassin/Assassin GIF.gif
+  artifactKey: Guid(9127bc6057aa5ba42ad621150563e637) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/assassin/Assassin GIF.gif using Guid(9127bc6057aa5ba42ad621150563e637) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9beebbc6fd55b7281eb4dab9fdcdab1') in 0.229414 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/assassin/hit.png
+  artifactKey: Guid(7e4374461cb6cc7409d2522d7db7700a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/assassin/hit.png using Guid(7e4374461cb6cc7409d2522d7db7700a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb4a59a6f190a640400edb0c8aa5fca2') in 0.036511 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/assassin/fall.png
+  artifactKey: Guid(855c0aa2eab51164ba6fd12d9909cb5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/assassin/fall.png using Guid(855c0aa2eab51164ba6fd12d9909cb5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '086882982cab1508fbfb50160104a8c0') in 0.044196 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.156140 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/Orb Mage/attack vfx .png
+  artifactKey: Guid(6b429524eb62acc4183e024692ccf137) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/Orb Mage/attack vfx .png using Guid(6b429524eb62acc4183e024692ccf137) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a2727c24837a3666205b434728e00f75') in 0.038224 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/Orb Mage/idle.png
+  artifactKey: Guid(944b830c25417e34ab975fed98f88e50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/Orb Mage/idle.png using Guid(944b830c25417e34ab975fed98f88e50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab8b4a562af35bd0d6dfee6adbf7fe04') in 0.037198 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/Orb Mage/orb mage gif.aseprite
+  artifactKey: Guid(7d56d5d5a288e8f4194ea8564b0d8ed5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/Orb Mage/orb mage gif.aseprite using Guid(7d56d5d5a288e8f4194ea8564b0d8ed5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '207d5bb32676523ee7bd7a7018efd65a') in 0.150431 seconds 
+Number of asset objects unloaded after import = 58
+========================================================================
+Received Import Request.
+  Time since last request: 0.288403 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/Shock Sweeper/hit.png
+  artifactKey: Guid(8931bb51ab90fb847b51d861f470fb13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/Shock Sweeper/hit.png using Guid(8931bb51ab90fb847b51d861f470fb13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0e7a9abb6304f8dabcf598c27ce277b2') in 0.063158 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/Shock Sweeper/slam with VFX.png
+  artifactKey: Guid(2cd56a20bd6c91340a78ea0d24d3e611) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/Shock Sweeper/slam with VFX.png using Guid(2cd56a20bd6c91340a78ea0d24d3e611) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '865246f9cb625a3fb14babe671bcedee') in 0.040197 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/Shock Sweeper/Sweep with VFX.png
+  artifactKey: Guid(ff4654a266bc4b64686b015ee04d4ddf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/Shock Sweeper/Sweep with VFX.png using Guid(ff4654a266bc4b64686b015ee04d4ddf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47710ab3af170553dbc917c74139adce') in 0.036822 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/Shock Sweeper/Spin Slam with VFX.png
+  artifactKey: Guid(a474c5eb440c0f146982b0452b39af0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Enemies Pack 1/Shock Sweeper/Spin Slam with VFX.png using Guid(a474c5eb440c0f146982b0452b39af0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d195b4e65784795d45a52b0fa0f6e67') in 0.039275 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 3.648369 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Animated Trees/Blood Tree 1 Sprite Sheet.aseprite
+  artifactKey: Guid(2aa93ad0a6b64e749bac7271e133e3b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Animated Trees/Blood Tree 1 Sprite Sheet.aseprite using Guid(2aa93ad0a6b64e749bac7271e133e3b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a161145c6757dcecad07d6069b6f75fa') in 0.200336 seconds 
+Number of asset objects unloaded after import = 62
+========================================================================
+Received Import Request.
+  Time since last request: 75.979442 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Crow
+  artifactKey: Guid(24480133d8c1c494ba194c17d62e9ee8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Crow using Guid(24480133d8c1c494ba194c17d62e9ee8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c6270e24212784a7b64bc9147eab4ffa') in 0.016524 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.274035 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Crow/Crow Sprite Sheet 17x21 BLUE.png
+  artifactKey: Guid(8675c17d35049b841943f34c90e94ee9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Crow/Crow Sprite Sheet 17x21 BLUE.png using Guid(8675c17d35049b841943f34c90e94ee9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50bc90ee247e2a99e67e070dc4754180') in 0.087072 seconds 
+Number of asset objects unloaded after import = 23
+========================================================================
+Received Import Request.
+  Time since last request: 30.365694 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Deer/Deer Sprite 56x54 BLUE.png
+  artifactKey: Guid(0b90d6e1b807af041b71a4a3842afce2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Deer/Deer Sprite 56x54 BLUE.png using Guid(0b90d6e1b807af041b71a4a3842afce2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad0f20543e07823bd147175f707f4e95') in 0.113459 seconds 
+Number of asset objects unloaded after import = 45
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Deer/Deer Sprite.aseprite
+  artifactKey: Guid(e92eb256818bbd3498fd14507a68e1fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Deer/Deer Sprite.aseprite using Guid(e92eb256818bbd3498fd14507a68e1fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c858b3dfa456dc51353fc04cae7030c9') in 0.107912 seconds 
+Number of asset objects unloaded after import = 61
+========================================================================
+Received Import Request.
+  Time since last request: 7.979326 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Deer
+  artifactKey: Guid(64c49a80a6bcaa943a875f46c27b8d84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Deer using Guid(64c49a80a6bcaa943a875f46c27b8d84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c6e8cf795f1ba912a2f842c57e6d427d') in 0.014664 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 422.422944 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Fox/Fox Sprite Sheet 28x20 RED.png
+  artifactKey: Guid(6520c01fb2e6f674f96da6f15e89a161) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Fox/Fox Sprite Sheet 28x20 RED.png using Guid(6520c01fb2e6f674f96da6f15e89a161) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e37e04ed23255008e01d6ff9b8883a1') in 0.090487 seconds 
+Number of asset objects unloaded after import = 29
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Fox/Fox Sprite Sheet.aseprite
+  artifactKey: Guid(8e6cef2efe86b9c48821e18cd1ba7afc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Fox/Fox Sprite Sheet.aseprite using Guid(8e6cef2efe86b9c48821e18cd1ba7afc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06d8b9c82f0b7d8340f49a8ddbc59dec') in 0.095528 seconds 
+Number of asset objects unloaded after import = 49
+========================================================================
+Received Import Request.
+  Time since last request: 209.453767 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Fox/Fox Sprite Sheet.aseprite
+  artifactKey: Guid(8e6cef2efe86b9c48821e18cd1ba7afc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Fox/Fox Sprite Sheet.aseprite using Guid(8e6cef2efe86b9c48821e18cd1ba7afc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '51d3f545f098d354f9177088b39fedd2') in 0.074497 seconds 
+Number of asset objects unloaded after import = 49
+========================================================================
+Received Import Request.
+  Time since last request: 3.087326 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Rat/Rat Sprite Sheet 24x9 BLUE.png
+  artifactKey: Guid(47650bfecfcbb1c4498d01d902ba96e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Rat/Rat Sprite Sheet 24x9 BLUE.png using Guid(47650bfecfcbb1c4498d01d902ba96e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9433532a4ca90e966e5465cbdcc94bdc') in 0.057556 seconds 
+Number of asset objects unloaded after import = 17
+========================================================================
+Received Import Request.
+  Time since last request: 0.949520 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Orbs/Orbs.aseprite
+  artifactKey: Guid(4a359125e9791be4cbd94be9ccb985cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Orbs/Orbs.aseprite using Guid(4a359125e9791be4cbd94be9ccb985cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '601134df5c6b8fd6820ff201eb8094ab') in 0.090466 seconds 
+Number of asset objects unloaded after import = 49
+========================================================================
+Received Import Request.
+  Time since last request: 5.264815 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Trees Tileset/Tree Tileset1.png
+  artifactKey: Guid(7040beb6117a0ba408a016ce6b443ad0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Trees Tileset/Tree Tileset1.png using Guid(7040beb6117a0ba408a016ce6b443ad0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '97a0f3a2d65c6c9f43302e7cac31bd2f') in 0.485141 seconds 
+Number of asset objects unloaded after import = 374
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Trees Tileset/Tree Tileset6.png
+  artifactKey: Guid(16c5a69635074ec4585563a57eba0f18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Trees Tileset/Tree Tileset6.png using Guid(16c5a69635074ec4585563a57eba0f18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b666cc5e89244a0c253ff1d803ce36c4') in 0.382800 seconds 
+Number of asset objects unloaded after import = 376
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Trees Tileset/Trees.aseprite
+  artifactKey: Guid(4ed682f07edfd704886eeaac8199c315) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Trees Tileset/Trees.aseprite using Guid(4ed682f07edfd704886eeaac8199c315) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e0b4357b1ede5a495398e10cc7fc6644') in 0.103053 seconds 
+Number of asset objects unloaded after import = 18
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Trees Tileset/Tree Tileset4.png
+  artifactKey: Guid(523076d95664e544a9d43bd0cf8d5474) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DARK Series Mega Pack 1/DARK - Animals & Trees/Trees Tileset/Tree Tileset4.png using Guid(523076d95664e544a9d43bd0cf8d5474) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c2ad6bf41847390602964bb20116ca0') in 0.431530 seconds 
+Number of asset objects unloaded after import = 376
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

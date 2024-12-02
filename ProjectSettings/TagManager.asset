@@ -52,9 +52,6 @@ TagManager:
   - name: InvisibleWall
     uniqueID: 453524833
     locked: 0
-  - name: Wall
-    uniqueID: 151747341
-    locked: 0
   - name: Shadow
     uniqueID: 207830705
     locked: 0
@@ -67,8 +64,14 @@ TagManager:
   - name: BorderLine
     uniqueID: 323400413
     locked: 0
+  - name: Wall
+    uniqueID: 151747341
+    locked: 0
   - name: wall2
     uniqueID: 2135988813
+    locked: 0
+  - name: wall3
+    uniqueID: 2939777365
     locked: 0
   - name: Deco
     uniqueID: 2968288821

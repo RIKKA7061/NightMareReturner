@@ -687,8 +687,8 @@ MonoBehaviour:
   - {fileID: 1304978791}
   mainCamera: {fileID: 1251819165}
   isUsingSkillorUltimate: 0
-  animatorController: {fileID: 9100000, guid: 9334a0a9eb0f8d1429df5312e34a6561, type: 2}
   overrideController: {fileID: 22100000, guid: d086dc0c3b58b01479fc20823487eac6, type: 2}
+  overrideController2: {fileID: 22100000, guid: 74f63ff5a971221488a3a9b5aa747469, type: 2}
   isRoundUP: 0
   originalLayerID: 6
   shiftedLayerID: 10

@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SocialPlatforms;
 using UnityEditor;
 using Unity.VisualScripting;
-using UnityEditor.Animations;
+//using UnityEditor.Animations;
 
 
 public class PlayerAction : MonoBehaviour
@@ -87,8 +87,9 @@ public class PlayerAction : MonoBehaviour
     public bool isUsingSkillorUltimate;
 
 	// 애니메이터 오버라이드
-	public AnimatorController animatorController;
+	//public AnimatorController animatorController;
 	public AnimatorOverrideController overrideController;
+	public AnimatorOverrideController overrideController2;
 	public bool isRoundUP;
 
 	public int originalLayerID = 6; // 기본 레이어 ID (Default는 0)
@@ -181,8 +182,8 @@ public class PlayerAction : MonoBehaviour
 
 	public void DefaultAnimatorController()
 	{
-		GetComponent<Animator>().runtimeAnimatorController = animatorController;
-	}
+        GetComponent<Animator>().runtimeAnimatorController = overrideController2;
+    }
 
 
 	void Update()
