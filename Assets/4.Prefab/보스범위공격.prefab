@@ -114,5 +114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b589d9583e881be4e8f968f4c554048a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 250
+  player: {fileID: 0}
+  attackRange: 1.5
+  attackDelay: 0.4
+  damage: 200
   damageDelay: 0.5

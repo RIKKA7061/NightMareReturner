@@ -128,7 +128,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.22, y: -0.12}
   serializedVersion: 2
-  m_Radius: 0.65
+  m_Radius: 1.2
 --- !u!61 &854624074220197608
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -190,15 +190,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   chaseSpeed: 3
-  attackCooldown: 2.14
+  basicAttackCooldown: 5
   attackPreparationTime: 1
   attackProjectile: {fileID: 4714925284245860198, guid: 098ff3b9025b98945886f47bb2a11f87, type: 3}
-  projectileSpeed: 12
-  pattern1Cooldown: 5
+  projectileSpeed: 15
+  pattern1Cooldown: 25
   blastProjectile: {fileID: 8182912706623948677, guid: b9a76beb2a11187468e0da6351db082f, type: 3}
   blastSpeed: 15
   attackRadiusPrefab: {fileID: 4272288471618933593, guid: 549a14337f79eb5438e2247cbdce97f3, type: 3}
-  pattern2PreparationTime: 0.7
+  pattern2PreparationTime: 1
   pattern2Cooldown: 60
   pattern2Damage: 110
 --- !u!114 &854624074220197611

@@ -75,6 +75,7 @@
     <Compile Include="Assets\9.Fonts\07.TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\5.Scripts\weapon.cs" />
     <Compile Include="Assets\9.Fonts\07.TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
+    <Compile Include="Assets\5.Scripts\AttackRadius.cs" />
     <Compile Include="Assets\3.Sprites\IsometricElfFreeVer\scripts\PlayerManager.cs" />
     <Compile Include="Assets\5.Scripts\npcManager.cs" />
     <Compile Include="Assets\3.Sprites\IsometricElfFreeVer\scripts\StoneManager.cs" />
@@ -146,7 +147,6 @@
     <Compile Include="Assets\5.Scripts\WeaponChange.cs" />
     <Compile Include="Assets\5.Scripts\DestroyAnySec.cs" />
     <Compile Include="Assets\9.Fonts\07.TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
-    <Compile Include="Assets\5.Scripts\AttackRadius.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\9.Fonts\07.TextMesh Pro\Shaders\TMPro.cginc" />
