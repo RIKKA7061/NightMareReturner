@@ -83,8 +83,9 @@ public class PrefabSpawner : MonoBehaviour
 			{
                 roomGenerator.RandomDoorGenerate(temp_i); // 랜덤 문 생성
             }
-
+            //
             Debug.Log(temp_i);
+            QuestManager.AllKill_inRoom();
             GameObject newItem = Instantiate(reward_item_prf[temp_i], RewardItem_Pos[temp_i].position, Quaternion.identity); // 보상 아이템 생성(아이템 프리펩, 소환될 위치, rotation)
 			spawnedItems.Add(newItem);                                                                            // 생성된 보상 아이템을 리스트에 추가
 		}

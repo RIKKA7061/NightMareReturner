@@ -152,6 +152,7 @@
     <Compile Include="Assets\5.Scripts\WeaponChange.cs" />
     <Compile Include="Assets\5.Scripts\DestroyAnySec.cs" />
     <Compile Include="Assets\9.Fonts\07.TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
+    <Compile Include="Assets\QuestManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\9.Fonts\07.TextMesh Pro\Shaders\TMPro.cginc" />
@@ -445,6 +446,12 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.1\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Android.Types">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.31f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Android.Gradle">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.31f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Gradle.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.31f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>

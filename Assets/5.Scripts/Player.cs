@@ -315,12 +315,29 @@ public class Player : MonoBehaviour
         if (gameRound == 0) // 집 일때
         {
             Temptext = "집".ToString();
+            //
+            QuestManager.House();
             Printer(Temptext); // 현재 위치 출력
             playerAction.isGeoRiPlayer = true;  // 거리 출신 플레이어로 변경
         }
         else if (gameRound <= prefabSpawner.OverRoom)
         {
             Temptext = ( gameRound - 1 ).ToString() + "번째 방";
+
+			if (gameRound - 1 == 0)
+			{
+                QuestManager.ReadyRoomZero();
+            }
+			else if (gameRound - 1 == 1 
+                || gameRound - 1 == 2
+                || gameRound - 1 == 3
+                || gameRound - 1 == 4
+                || gameRound - 1 == 5
+                || gameRound - 1 == 6)
+			{
+                QuestManager.RoomOne();
+                Debug.Log(gameRound - 1);
+            }
             Printer(Temptext); // 현재 위치 출력
             playerAction.isGeoRiPlayer = false; // 거리 출신 플레이어로 변경 해제
         }
