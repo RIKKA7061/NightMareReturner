@@ -71,8 +71,11 @@ public class teleport : MonoBehaviour
 			}
 		}
 
+		// [NR] 연출/메뉴/계층 이동 중에는 텔레포트하지 않음
+		if (NRRun.Transitioning || NRUIState.IsGameplayBlocked) return;
+
 		// 플레이어가 공격여부가 False 일시
-		if (!playerAction.isAtking )
+		if (!playerAction.isAtking && !collider.isTrigger)
 		{
 			// 플레이어 콜라이더와 충돌시
 			if (collider.CompareTag("Player"))
@@ -83,6 +86,7 @@ public class teleport : MonoBehaviour
 					// 둘중 하나 랜덤으로 넘어갑니다.
 					int RANDOM_NUMBER = Random.Range(0, Pos.Length);
 					collider.transform.position = Pos[RANDOM_NUMBER].position;
+					NRAudio.PlaySfx("floor_transition", 0.5f); // [NR]
 				}
 				// 위치 좌표가 1개 일시
 				else 
@@ -108,6 +112,7 @@ public class teleport : MonoBehaviour
 	// 플레이어 이동 함수
 	public void MovePlayer(Collider2D collider)
 	{
+        if (NRRun.Transitioning) return; // [NR]
         if (!isAlreadyClicked)
         {
 			// 클릭 여부 True
@@ -122,6 +127,7 @@ public class teleport : MonoBehaviour
 	private IEnumerator ZoomAndTeleport(Collider2D collider)
 	{
 		// Zoom-in 연출 (1초 대기)
+		NRAudio.PlaySfx("floor_transition", 0.6f); // [NR]
 		directingCameraManager.ZoomIn();
 		yield return new WaitForSeconds(1f);
 

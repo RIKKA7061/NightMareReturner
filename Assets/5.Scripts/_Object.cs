@@ -31,6 +31,9 @@ public class _Object : MonoBehaviour
     {
         id = id / 100;
 
+        // [NR] NPC 번호가 늘어나도 배열 범위 오류가 나지 않도록 확장
+        if (id >= EachTalkCountSaveNum.Length) System.Array.Resize(ref EachTalkCountSaveNum, id + 1);
+
         EachTalkCountSaveNum[id]++;
         if(EachTalkCountSaveNum[id] > EachTalkCount)
         {
@@ -58,6 +61,7 @@ public class _Object : MonoBehaviour
 	private void FixedUpdate()
 	{
         /*플레이어가 가까이 왔을시 말풍선 보이기*/
+		if (player == null) return; // [NR]
 		Vector2 direction = player.transform.position - transform.position;
 
 		float X = Mathf.Abs(Mathf.Round(direction.x));
@@ -65,11 +69,11 @@ public class _Object : MonoBehaviour
 
 		if (isDialogged && (X<= range && Y <= range))//선언문에서 조절하셈
         {
-			malPeungSeon.SetActive(true);
+			if (malPeungSeon != null) malPeungSeon.SetActive(true);
 		}
         else if (!isDialogged || (X >= range && Y >= range))//선언문에서 조절하셈
 		{
-            malPeungSeon.SetActive(false);
+            if (malPeungSeon != null) malPeungSeon.SetActive(false);
         }
 	}
 }

@@ -199,6 +199,7 @@ public class ItemManager : MonoBehaviour
 
 		// 이속 증가 (부활시 초기화 해야될듯)
 		playerAction.walkSpeed += itemData[2].Num2;
+		playerAction.defaultSpeed += itemData[2].Num2; // [NR] 구르기 후 기본 속도로 돌아갈 때 이속 증가가 사라지던 문제 수정
 
 		// 방어력 감소 (부활시 초기화 해야될듯)
 		player.AR += itemData[2].Num1;

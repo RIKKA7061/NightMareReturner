@@ -62,8 +62,14 @@ public class weapon2 : MonoBehaviour
                 }
                 break;
         }
-		Scan();
+		// [NR] 매 프레임 3D 물리(OverlapSphere)로 검색하던 코드 제거 (2D 게임에서 항상 빈 결과, 성능 낭비). 발사는 Scanner2 사용
 	}
+
+    // [NR] 계층별 공격력 배율
+    public void MultiplyDamage(float mul)
+    {
+        damage = Mathf.RoundToInt(damage * mul);
+    }
 
     public void Init()
     {

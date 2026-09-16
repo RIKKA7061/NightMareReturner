@@ -22,7 +22,15 @@ public class ShopManager : MonoBehaviour
 
     private void Update()
     {
-        ItemMoneyTxt.text = ItemMoney.ToString();
+        if (ItemMoneyTxt != null) ItemMoneyTxt.text = ItemMoney.ToString();
+    }
+
+    // [NR] 새 회차/계층마다 상점 재입고
+    public void Restock()
+    {
+        var btn = GetComponent<Button>();
+        if (btn != null) btn.interactable = true;
+        if (soldout != null) soldout.SetActive(false);
     }
 
     public void Buy()
@@ -36,12 +44,14 @@ public class ShopManager : MonoBehaviour
             itemManager.Signal(ItemNametext, ItemID);
 
             soldout.SetActive(true);
+            NRUIRoot.ToastMsg(ItemNametext + " 구매", NRPalette.Gold, 1.6f); // [NR]
             // Debug.Log($"{ItemNametext}를 구매하셨습니다.");
         }
 
 		else if (Player.Money < ItemMoney)
         {
             Debug.Log("돈 없다.");
+            NRUIRoot.ToastMsg("재화가 부족합니다 (필요 " + ItemMoney + ")", NRPalette.Crimson, 1.6f); // [NR]
         }
     }
 }

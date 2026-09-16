@@ -1,7 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// [NR] 보스 처치 후 즉시 집으로 리셋하던 흐름 → NRRun(계층 진행 → 3계층 후 엔딩 크레딧)
 public class GoHomeManager : MonoBehaviour
 {
     // 특정 객체를 감지하기 위한 변수
@@ -26,74 +27,36 @@ public class GoHomeManager : MonoBehaviour
     public bool isPlayerMovable = false;
     public bool isBossRoundIn = false;
 
-    void Update()
-    {
-        // 보스 처치시
-        // 1. 대상 객체가 null(파괴되거나 씬에서 찾을 수 없음) 상태인지 확인
-        //if (targetObject == null && isBossRoundIn)
-        //{
-        //    isBossRoundIn = true;
-        //    isPlayerMovable = false;
-        //    // 2. 플레이어를 특정 좌표(homePosition)로 이동
-        //    MovePlayerToHome();
-        //    SpawnNewBoss();
-        //}
-    }
     public bool isRoundStart = false;
 
 	public void MovePlayerToHome()
     {
-        if (player != null && homePosition != null && isPlayerMovable == false && isRoundStart == true )
-        {
-
-            // 부활
-            StartCoroutine(RespawnPlayerStart());
-        }
-        else
-        {
-            //Debug.LogWarning("플레이어나 HomePosition이 설정되지 않았습니다.");
-        }
+        // [NR] 기존 호출 경로 유지용. 실제 흐름은 NRRun.OnBossDefeated에서 처리
+        if (targetObject != null)
+            NRRun.OnBossDefeated(targetObject.transform.position);
     }
-
-    IEnumerator RespawnPlayerStart()
-    {
-		//GameOverImg.SetActive(true);
-		yield return new WaitForSeconds(0.1f);
-		// 2-1. 플레이어를 바로 좌표로 이동
-		//player.transform.position = homePosition.position;
-
-		// (선택적으로) 회전도 이동할 위치의 회전에 맞춤
-		//player.transform.rotation = homePosition.rotation;
-
-		//Debug.Log("플레이어가 지정된 좌표로 이동했습니다.");
-
-		// 플레이어 스탯 초기화 
-		//playerScript.StatDefaultPlayer();
-
-		isPlayerMovable = true;
-
-		Debug.Log("게임이 끝났습니다.");
-		playerScript.RespawnPlayer();
-	}
 
     public void SpawnNewBoss()
     {
+        if (targetObject != null) return; // [NR] 이미 보스가 있으면 중복 소환 방지
+
         if (bossPrefab != null && bossSpawnPoint != null)
         {
 			// 보스 생성
 			GameObject newBoss = Instantiate(bossPrefab, bossSpawnPoint.position, bossSpawnPoint.rotation);
+            newBoss.SetActive(true);
             MonsterHP bossHP = newBoss.GetComponent<MonsterHP>();
 
             if (bossHP != null)
             {
-                // MonsterHP 컴포넌트의 특정 함수 호출
-                bossHP.SetDefault(); // 특정함수()는 MonsterHP 스크립트의 함수 이름으로 교체
+                bossHP.SetDefault();
             }
             else
             {
                 Debug.LogError("MonsterHP 컴포넌트를 찾을 수 없습니다.");
             }
 
+            NRRun.ConfigureBoss(newBoss); // [NR] 계층별 체력/패턴/이름
 
             targetObject = newBoss; // 새로운 보스를 targetObject로 설정
 		}

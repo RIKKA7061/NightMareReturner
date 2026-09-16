@@ -171,37 +171,34 @@ public class Player : MonoBehaviour
         Debug.Log($"방어력: {AR}");
     }
 
+    // [NR] 피해 처리는 NRStats.DamagePlayer로 일원화 (방어력/보호막/무적/부활 처리)
     public void TakeDamage(int damage)
     {
-        nowHP -= damage;
-        Debug.Log($"현재체력: {nowHP}");
-
-        if (nowHP <= 0)
-        {
-            Dead();
-        }
+        NRStats.DamagePlayer(this, damage, true);
     }
 
     // 죽었을 떄 행하는 것
     public void Dead()
     {
+		if (isDead) return; // [NR] 중복 사망 방지 (죽은 횟수가 여러 번 오르던 문제)
 		isDead = true; // 플레이어 죽음 여부 활성화
 		DeadCount++;
+		NRRun.OnPlayerDied(this);
 		StartCoroutine(DeadShow());
     }
 
     // 죽었을 때 행하는 것22
     IEnumerator DeadShow()
     {
-		Debug.Log("내가 몇번 실행 되게?");
 		player.GetComponent<PlayerInput>().enabled = false; // 멈춰
         animator.SetTrigger(AnimationStrings.DeadTrigger);  // dead 애니메이션 실행
         yield return new WaitForSeconds(4); // N초 동안 기달려
-		Dead_set.SetActive(true);
+		if (!isDead) yield break; // [NR] 그 사이 부활했으면 중단
+		if (Dead_set != null) Dead_set.SetActive(true);
 		// 지옥 위치로 이동
-		player.position = DeadPoint.position;
+		if (DeadPoint != null) player.position = DeadPoint.position;
 		//prefabSpawner.HideTP();
-		prefabSpawner.isSpawnned = false;
+		if (prefabSpawner != null) prefabSpawner.isSpawnned = false;
 		EnmeyDown = true; // 적 모두 비활성화
 		yield return null;
 	}
@@ -212,32 +209,29 @@ public class Player : MonoBehaviour
         if (!collision.CompareTag("weapon"))
             return;
 
+        // [NR] 공격 판정(자식 트리거)이 아닌 몸통에 닿았을 때만 피격
+        var bodyCollider = GetComponent<Collider2D>();
+        if (bodyCollider != null && bodyCollider.enabled && Physics2D.Distance(bodyCollider, collision).distance > 0.05f)
+            return;
+
+        // [NR] FarATK(기존 적) / MonsterATK(보스) / NRDamageSource(신규 적) 모두 지원 — 보스 피격 시 예외 나던 문제 수정
+        if (!NRStats.TryGetDamage(collision, out float incomingDamage, out NRDamageSource source))
+            return;
+
+        bool damaged = NRStats.DamagePlayer(this, incomingDamage, source == null || !source.ignoreArmor, source == null || source.passThroughDash);
+        if (!damaged)
+            return;
+
         // 피격 애니메이션 재생
-        if (playerAction.canMove == true)
+        if (playerAction.canMove == true && !isDead)
         {
-            animator.SetTrigger(AnimationStrings.OuchTrigger);  // dead 애니메이션 실행
-            audioManager.PlayerSFX(audioManager.audio[5]);
+            animator.SetTrigger(AnimationStrings.OuchTrigger);
+            if (audioManager != null && audioManager.audio.Length > 5) audioManager.PlayerSFX(audioManager.audio[5]);
         }
         else
         {
             // ResetTrigger로 해당 트리거를 비활성화
             animator.ResetTrigger(AnimationStrings.OuchTrigger);
-        }
-
-		// 방어력을 고려한 최종 피해량 계산
-		//float incomingDamage = collision.GetComponent<FarATK>().damage;
-		//      float finalDamage = Mathf.Max(incomingDamage - AR, 1); // 방어력 적용 후 최소 피해 1로 제한
-
-		//      nowHP -= Mathf.FloorToInt(finalDamage); // 피해량을 정수로 적용
-
-		// 방어력을 고려한 최종 피해량 계산
-		float incomingDamage = collision.GetComponent<FarATK>().damage;
-        PlayerDamaged(incomingDamage);
-
-        // 체력이 0보다 적을시 && 죽는 여부가 비활성화 될시
-		if (nowHP <= 0 && isDead == false)
-        {
-            Dead();
         }
     }
 
@@ -311,6 +305,9 @@ public class Player : MonoBehaviour
 
     public void NowPosAnnounce()
     {
+        // [NR] 거리 씬 등 PrefabSpawner가 없는 씬에서는 집(0) 처리만
+        int overRoom = prefabSpawner != null ? prefabSpawner.OverRoom : int.MaxValue;
+
         // 현재 게임 라운드 수
         if (gameRound == 0) // 집 일때
         {
@@ -320,7 +317,7 @@ public class Player : MonoBehaviour
             Printer(Temptext); // 현재 위치 출력
             playerAction.isGeoRiPlayer = true;  // 거리 출신 플레이어로 변경
         }
-        else if (gameRound <= prefabSpawner.OverRoom)
+        else if (gameRound <= overRoom)
         {
             Temptext = ( gameRound - 1 ).ToString() + "번째 방";
 
@@ -341,17 +338,20 @@ public class Player : MonoBehaviour
             Printer(Temptext); // 현재 위치 출력
             playerAction.isGeoRiPlayer = false; // 거리 출신 플레이어로 변경 해제
         }
-        else if (gameRound == prefabSpawner.OverRoom + 1)
+        else if (gameRound == overRoom + 1)
         {
             Temptext = "상점";
+            QuestManager.Store();
             Printer(Temptext); // 현재 위치 출력
         }
-        else if (gameRound == prefabSpawner.OverRoom + 2)
+        else if (gameRound == overRoom + 2)
         {
             Temptext = "보스방";
             Printer(Temptext); // 현재 위치 출력
-            goHomeManager.SpawnNewBoss();
+            if (goHomeManager != null) goHomeManager.SpawnNewBoss();
         }
+
+        NRRun.OnPositionAnnounced(this); // [NR] 회차/계층 진행, 방 입장 보호막 등
     }
 
 
@@ -372,20 +372,26 @@ public class Player : MonoBehaviour
         player.GetComponent<PlayerInput>().enabled = true; // 다시 움직일수 있게
         nowHP = Mathf.FloorToInt(maxHP); // 부활 시 체력을 최대치로 설정
         isDead = false;
-        player.position = Home.position; // 집 텔
-        Dead_set.SetActive(false); // 죽음 연출 끝
+        if (Home != null) player.position = Home.position; // 집 텔
+        if (Dead_set != null) Dead_set.SetActive(false); // 죽음 연출 끝
+        NRDeathScreen.Hide(); // [NR]
 
         // 랜덤 문 다시 안보이게 숨기기
-        roomGenerator.DestroyDoor();
+        if (roomGenerator != null) roomGenerator.DestroyDoor();
 
         foreach (var npc in npcObjects)
         {
             npc.isDialogged = true;
         }
-        
+
         EnmeyDown = false;//적 죽음 상태 해제
-        prefabSpawner.RoomEnemyCount = 0;// 적 죽인 수 0으로 초기화
-        prefabSpawner.DestroySpawnedObjects();// 생성된 아이템 및 상점 TP 객체 제거
+        if (prefabSpawner != null)
+        {
+            prefabSpawner.RoomEnemyCount = 0;// 적 죽인 수 0으로 초기화
+            prefabSpawner.DestroySpawnedObjects();// 생성된 아이템 및 상점 TP 객체 제거
+        }
+        NRStats.ClearEnemyProjectiles(); // [NR]
+        foreach (var boss in FindObjectsOfType<MonsterHP>()) Destroy(boss.gameObject); // [NR] 남아있는 보스 정리
 	}// 플레이어 부활
 
 	public GameObject portal;
@@ -393,8 +399,8 @@ public class Player : MonoBehaviour
 
 	public void StatDefaultPlayer()
     {
-		Class.SetActive(true);
-		portal.SetActive(false);
+		if (Class != null) Class.SetActive(true);
+		if (portal != null) portal.SetActive(false);
 
 		maxHP = DefaultMaxHP;
 		Atk = DefaultAtk;
@@ -402,6 +408,7 @@ public class Player : MonoBehaviour
 		itemManager.isNextRoundHpUp = false;    // 기력방울 버프 제거
 		itemManager.DebuffHpUp();
         playerAction.walkSpeed = D_speed;
+        playerAction.defaultSpeed = D_speed;    // [NR] 과민의 눈 이속이 부활 후에도 남던 문제 수정
         playerAction.jabCooldown = D_As;// 공격속도
         AR = D_Ar; // 방어력 Armor Resistance
         itemManager.GoodByeHammerBuff();        // 해머 버프 제거
@@ -418,6 +425,8 @@ public class Player : MonoBehaviour
 
         playerAction.isGeoRiPlayer = true;
 
+        // [NR] 새 회차 초기화: 증강 제거 + 영구 강화(체력/공격력/방어력) 적용
+        NRRun.OnRunReset(this);
 
         gameRound = 0;
         NowPosAnnounce();
@@ -429,13 +438,7 @@ public class Player : MonoBehaviour
 	const float AR_FACTOR = 0.01f;       // 방어력 공식에 쓰임
 	public void PlayerDamaged(float dmg) // 플레이어가 받게되는 데미지 (방어력 공식 적용)
     {
-		// 방어력이 음수일 경우 0으로 보정
-		if (AR < 0) AR = 0;
-
-        // 데미지 계산 (롤하고 똑같음) (방어력 100 -> 50%) (방어력 200 -> 33.33%)
-		int totaldmg = Mathf.Max(1, (int)(dmg / (1 + (AR * AR_FACTOR))));
-
-		// 현재 HP에서 피해량 감소
-		nowHP -= totaldmg;
+		// [NR] 방어력 공식(피해 / (1 + 방어력×0.01))은 NRStats.DamagePlayer에서 동일하게 적용
+		NRStats.DamagePlayer(this, dmg, true);
 	}
 }

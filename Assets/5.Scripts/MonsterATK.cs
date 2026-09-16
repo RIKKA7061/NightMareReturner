@@ -1,7 +1,9 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// [NR] 피해는 Player.OnTriggerEnter2D → NRStats.DamagePlayer 한 곳에서 처리
+//      (기존에는 여기서 방어력 무시 피해 + Player 쪽 처리 시 예외가 함께 발생)
 public class MonsterATK : MonoBehaviour
 {
     public int damage = 50;
@@ -9,16 +11,12 @@ public class MonsterATK : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         // 몬스터와 충돌 시
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !other.isTrigger)
         {
-            Player Player = other.GetComponent<Player>();
-            if (Player != null)
-            {
-                Player.TakeDamage(damage);
-                Debug.Log($"데미지: {damage}");
-            }
-
-            Destroy(gameObject);
+            var act = other.GetComponent<PlayerAction>();
+            if (NRStats.DashInvuln && act != null && act.IsSliding) return;
+            NRCombatFX.Sparks(transform.position, NRPalette.Crimson, 6);
+            Destroy(gameObject, 0.01f);
         }
     }
 

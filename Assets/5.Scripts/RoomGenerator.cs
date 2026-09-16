@@ -41,7 +41,8 @@ public class RoomGenerator : MonoBehaviour
 		for (int i = 0; i < 2; i++)
 		{
 			// 아직 선택 되지 않은 문들 중에서 하나를 선택
-			int RandomNumber = Random.Range(0, doorType.Count); // 0 ~ (문들의 타입 개수) 까지 랜덤 숫자 생성
+			// [NR] 감정 구슬 문(증강)이 조금 더 자주 나오도록 가중치 (감정 2 : 나머지 1)
+			int RandomNumber = WeightedPick(doorType);
 			selectedDoors.Add(doorType[RandomNumber]);            // 랜덤한 문의 타입을 선택된 리스트에 추가
 			doorType.RemoveAt(RandomNumber);                    // 리스트에 추가된 문은 기존 리스트에서 제거
 		}
@@ -56,22 +57,41 @@ public class RoomGenerator : MonoBehaviour
 			{
 				case DoorType.hpUP:
 					createdDoor = Instantiate(hpUpDoor, Pos[key].position, Quaternion.identity);
+					createdDoor.name = "NRDoor_Health";
 					break;
 				case DoorType.atkUP:
 					createdDoor = Instantiate(atkUpDoor, Pos[key+1].position, Quaternion.identity);
+					createdDoor.name = "NRDoor_Attack";
 					break;
 				case DoorType.MoneyUp:
 					createdDoor = Instantiate(MoneyUpDoor, Pos[key+2].position, Quaternion.identity);
+					createdDoor.name = "NRDoor_Money";
 					break;
 				case DoorType.EmotionRound:
 					createdDoor = Instantiate(emotionRoundDoor, Pos[key+3].position, Quaternion.identity);
+					createdDoor.name = "NRDoor_Emotion";
 					break;
 			}
 			if (createdDoor != null)
 			{
+				createdDoor.SetActive(true);
 				generatedDoors.Add(createdDoor); // 생성된 문 참조를 리스트에 저장
 			}
 		}
+	}
+
+	// [NR] 가중치 랜덤
+	int WeightedPick(List<DoorType> types)
+	{
+		float total = 0f;
+		foreach (var t in types) total += t == DoorType.EmotionRound ? 2f : 1f;
+		float r = Random.value * total;
+		for (int i = 0; i < types.Count; i++)
+		{
+			r -= types[i] == DoorType.EmotionRound ? 2f : 1f;
+			if (r <= 0f) return i;
+		}
+		return types.Count - 1;
 	}
 
 	// 문 초기화 (삭제용)

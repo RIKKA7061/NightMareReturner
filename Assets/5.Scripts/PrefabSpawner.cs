@@ -1,13 +1,14 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-//using static UnityEditor.Progress;
-//using UnityEditor;
 
+// [NR] 변경 요약
+//  - 적 소환: 한 종류(prefab) × 5 → NRWaves가 계층/방 번호에 맞춰 기존 적 + 신규 적 조합, 다중 웨이브
+//  - 방 클리어 판정: 처치 수 == 5 비교(중복 카운트 시 소프트락) → 살아있는 적/대기 중 소환이 0일 때
+//  - 방 클리어 시 영구 재화(악몽 결정) 지급
 public class PrefabSpawner : MonoBehaviour
 {
-    public GameObject prefab;               // 생성할 적 프리팹
+    public GameObject prefab;               // 생성할 적 프리팹 (기존 적)
     public Transform playerPos;             // 플레이어 위치
 
     public TalkManager talkManager;         // TalkManager 스크립트
@@ -28,7 +29,7 @@ public class PrefabSpawner : MonoBehaviour
     [Header("몇초 후 적을 소환할 것인가?")]
     public float sec = 3.0f;
 
-    [Header("한 라운드당 적을 몇마리 소환할 것인가?")]
+    [Header("한 라운드당 적을 몇마리 소환할 것인가? (기존 값, 현재는 NRWaves가 결정)")]
     public int spawnCount = 5;
 
     [Header("주인공을 소환할 위치")]
@@ -58,24 +59,23 @@ public class PrefabSpawner : MonoBehaviour
     [Header("현재 처치한 적의 수를 나타냅니다.")]
     public int RoomEnemyCount = 0;
 
-    //static public bool alreadySpawnedEnemies = false; // 몬스터 소환 조건
-
     int temp_i = 0;
 
     private void Update()
     {
 		// 한 방에서 적 전부 처치시
-		if (RoomEnemyCount == spawnCount)
+		if (NRWaves.ConsumeRoomCleared())
 		{
             // 현재 적 처치수 초기화
             RoomEnemyCount = 0;
 
             // 상점 라운드 수만큼 왔을 시
-            if (Player.gameRound == OverRoom || Player.gameRound > OverRoom)
+            if (Player.gameRound >= OverRoom)
             {
                 // 상점 가는 텔포 생성
                 Vector3 leftPosition = Pos[temp_i].position + Vector3.left * 1.5f; // 좌표 기준 왼쪽으로 이동
                 GameObject newItems = Instantiate(StorePos, leftPosition, Quaternion.identity); // 생성된 텔레포트를 변수에 저장
+                newItems.SetActive(true);
 				spawnedStoreTP.Add(newItems);
 			}
 			// 일반 라운드 생성 할 때
@@ -83,16 +83,20 @@ public class PrefabSpawner : MonoBehaviour
 			{
                 roomGenerator.RandomDoorGenerate(temp_i); // 랜덤 문 생성
             }
-            //
-            Debug.Log(temp_i);
             QuestManager.AllKill_inRoom();
-            GameObject newItem = Instantiate(reward_item_prf[temp_i], RewardItem_Pos[temp_i].position, Quaternion.identity); // 보상 아이템 생성(아이템 프리펩, 소환될 위치, rotation)
-			spawnedItems.Add(newItem);                                                                            // 생성된 보상 아이템을 리스트에 추가
+            if (reward_item_prf != null && temp_i < reward_item_prf.Length && RewardItem_Pos != null && temp_i < RewardItem_Pos.Length)
+            {
+                GameObject newItem = Instantiate(reward_item_prf[temp_i], RewardItem_Pos[temp_i].position, Quaternion.identity); // 보상 아이템 생성(아이템 프리펩, 소환될 위치, rotation)
+                spawnedItems.Add(newItem);                                                                            // 생성된 보상 아이템을 리스트에 추가
+            }
+            NRRun.OnRoomCleared(); // [NR]
 		}
 
 		// 플레이어가 해당 방에 올시 && 라운드가 진행 중이 아니라 플레이어가 다음 라운드를 선택했을 때 && 이미 한번 스폰함?이 False일시
+		if (playerPos == null || Pos == null) return;
 		for (int i = 0; i < Pos.Length; i++)
         {
+            if (Pos[i] == null) continue;
             if (Vector3.Distance(playerPos.position, Pos[i].position) < checkDistance && !isSpawnned)
             {
                 temp_i = i;         // 위치 저장용
@@ -121,22 +125,14 @@ public class PrefabSpawner : MonoBehaviour
 
     IEnumerator DelayedSpawn(float delay, int room) // 기다렸다가 적 소환해주는 시간차 함수
     {
-        yield return new WaitForSeconds(delay);     // N초 시간 지연 (컴포넌트에 Sec 부분)
+        yield return new WaitForSeconds(Mathf.Min(delay, 1.5f));     // [NR] 3초 → 최대 1.5초 (진입 후 대기 단축)
         SpawnPrefabs(room);                         // 프리팹 소환 함수 호출
     }
 
     public void SpawnPrefabs(int room) // 좌표에 적 소환
     {
-        for (int i = 0; i < spawnCount; i++)
-        {
-            //Transform spawnTransform = Pos[room];                                               // 적을 소환할 위치
-            //Vector3 position = spawnTransform.position + new Vector3(i * spawnOffset, 0, 0);    // 소환할 위치 계산
-            //Instantiate(prefab, position, Quaternion.identity);                                 // 프리팹 소환
-
-            Transform spawnTransform = EnemySpawnPos[room * 5 + i];
-            Vector3 position = spawnTransform.position + new Vector3(spawnOffset, 0, 0);
-            Instantiate(prefab, position, Quaternion.identity);
-        }
+        temp_i = room;
+        NRWaves.BeginRoom(this, room); // [NR] 계층/방 번호 기반 웨이브 구성
     }
 
     public void DestroySpawnedObjects() // 생성된 아이템 및 상점 TP 객체 제거
@@ -158,5 +154,6 @@ public class PrefabSpawner : MonoBehaviour
 			}
 		}
 		spawnedStoreTP.Clear();
+		NRWaves.Cancel(); // [NR]
 	}
 }

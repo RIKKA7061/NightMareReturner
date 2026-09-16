@@ -22,7 +22,10 @@ public class Keyboard : MonoBehaviour
 	}
 	private void Update()
 	{
-		if (Dev_Btn.activeSelf)
+#if !(UNITY_EDITOR || DEVELOPMENT_BUILD)
+		return; // [NR] 개발자 단축키는 개발 빌드에서만 (출시 빌드 노출 방지)
+#else
+		if (Dev_Btn != null && Dev_Btn.activeSelf)
 		{
 			//Debug.Log("Dev_Btn은 활성화된 상태입니다.");
 
@@ -42,6 +45,7 @@ public class Keyboard : MonoBehaviour
 		{
 			//Debug.Log("Dev_Btn은 비활성화된 상태입니다.");
 		}
+#endif
 
 
 		////숫자키 = 방번호

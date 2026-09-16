@@ -1,9 +1,11 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+// [NR] 기존 버튼 이벤트(씬에 연결된 함수 이름)는 유지.
+//      현황/설정은 새 창(TAB 현황, ESC 메뉴)으로 연결하고, timeScale은 NRTime에서 일괄 관리
 public class BtnManager : MonoBehaviour
 {
 	//툴팁
@@ -33,144 +35,113 @@ public class BtnManager : MonoBehaviour
 
     void Awake()
     {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        var go = GameObject.FindGameObjectWithTag("Audio");
+        audioManager = go != null ? go.GetComponent<AudioManager>() : null;
     }
 
-    void Start()
-	{
-		// 할당 확인을 위한 디버그 메시지
-		if (tip == null)
-		{
-			Debug.LogError("Tip 오브젝트가 할당되지 않았습니다.");
-		}
-		if (Dev == null)
-		{
-			Debug.LogError("Dev 오브젝트가 할당되지 않았습니다.");
-		}
-		if (TipText == null)
-		{
-			Debug.LogError("TipText 오브젝트가 할당되지 않았습니다.");
-		}
-	}
+    void PlayClick()
+    {
+        if (audioManager != null && audioManager.audio != null && audioManager.audio.Length > 4)
+            audioManager.PlayerSFX(audioManager.audio[4]);
+    }
 
 	public void OnAndOFF()
 	{
 		if (tip != null) // Null 체크
 		{
-			if (isOpened == false)
-			{
-				tip.SetActive(true);
-				isOpened = true;
-			}
-			else if (isOpened == true)
-			{
-				tip.SetActive(false);
-				isOpened = false;
-			}
-		}
-		else
-		{
-			Debug.LogError("Tip 오브젝트가 null 상태입니다.");
+			isOpened = !isOpened;
+			tip.SetActive(isOpened);
 		}
 	}
 
 	public void OFF()
 	{
-		tip.SetActive(false);
-        shop.SetActive(false);
-        myData.SetActive(false);
-		setting.SetActive(false);
+		if (tip != null) tip.SetActive(false);
+        if (shop != null) shop.SetActive(false);
+        if (myData != null) myData.SetActive(false);
+		if (setting != null) setting.SetActive(false);
         isOpened = false;
-		Time.timeScale = 1f;
+        NRTime.Resume("legacy");
     }
 
 	public void MyDataBtn()
 	{
-        audioManager.PlayerSFX(audioManager.audio[4]);
-        myData.SetActive(true);
-        statButton.SetActive(true);
-		Time.timeScale = 0f;
+        PlayClick();
+        NRStatusWindow.Show(); // [NR] 새 현황 창
     }
 
 
     public void StatBtn()
 	{
-        audioManager.PlayerSFX(audioManager.audio[4]);
-        statSet.SetActive(true);
-        itemSet.SetActive(false);
-        floorSet.SetActive(false);
-        storySet.SetActive(false);
+        PlayClick();
+        if (statSet != null) statSet.SetActive(true);
+        if (itemSet != null) itemSet.SetActive(false);
+        if (floorSet != null) floorSet.SetActive(false);
+        if (storySet != null) storySet.SetActive(false);
     }
 
 	public void ItemBtn()
 	{
-        audioManager.PlayerSFX(audioManager.audio[4]);
-        itemSet.SetActive(true);
-        statSet.SetActive(false);
-        floorSet.SetActive(false);
-        storySet.SetActive(false);
+        PlayClick();
+        if (itemSet != null) itemSet.SetActive(true);
+        if (statSet != null) statSet.SetActive(false);
+        if (floorSet != null) floorSet.SetActive(false);
+        if (storySet != null) storySet.SetActive(false);
     }
 
 	public void FloorBtn()
 	{
-        audioManager.PlayerSFX(audioManager.audio[4]);
-        floorSet.SetActive(true);
-        statSet.SetActive(false);
-        itemSet.SetActive(false);
-        storySet.SetActive(false);
+        PlayClick();
+        if (floorSet != null) floorSet.SetActive(true);
+        if (statSet != null) statSet.SetActive(false);
+        if (itemSet != null) itemSet.SetActive(false);
+        if (storySet != null) storySet.SetActive(false);
     }
 
 	public void StoryBtn()
 	{
-        audioManager.PlayerSFX(audioManager.audio[4]);
-        storySet.SetActive(true);
-        floorSet.SetActive(false);
-        statSet.SetActive(false);
-        itemSet.SetActive(false);
-
+        PlayClick();
+        if (storySet != null) storySet.SetActive(true);
+        if (floorSet != null) floorSet.SetActive(false);
+        if (statSet != null) statSet.SetActive(false);
+        if (itemSet != null) itemSet.SetActive(false);
     }
 
     public void Item1()
     {
-        audioManager.PlayerSFX(audioManager.audio[4]);
-        item1.SetActive(true);
-        item2.SetActive(false);
-        item3.SetActive(false);
+        PlayClick();
+        if (item1 != null) item1.SetActive(true);
+        if (item2 != null) item2.SetActive(false);
+        if (item3 != null) item3.SetActive(false);
     }
 
     public void Item2()
     {
-        audioManager.PlayerSFX(audioManager.audio[4]);
-        item2.SetActive(true);
-        item1.SetActive(false);
-        item3.SetActive(false);
+        PlayClick();
+        if (item2 != null) item2.SetActive(true);
+        if (item1 != null) item1.SetActive(false);
+        if (item3 != null) item3.SetActive(false);
     }
 
     public void Item3()
     {
-        audioManager.PlayerSFX(audioManager.audio[4]);
-        item3.SetActive(true);
-        item1.SetActive(false);
-        item2.SetActive(false);
+        PlayClick();
+        if (item3 != null) item3.SetActive(true);
+        if (item1 != null) item1.SetActive(false);
+        if (item2 != null) item2.SetActive(false);
     }
 
 	public void SettingBtn()
 	{
-        audioManager.PlayerSFX(audioManager.audio[4]);
-        setting.SetActive(true);
-		Time.timeScale = 0f;
+        PlayClick();
+        NRPauseMenu.Show(); // [NR] 새 일시정지/설정 메뉴 (ESC와 동일)
 	}
 
     public void Developement()
 	{
 		if (TipText != null) // Null 체크
 		{
-			string text = "집키 - H\n자결 - K";
-			TipText.text = text;
-		}
-		else
-		{
-			Debug.LogError("TipText 오브젝트가 null 상태입니다.");
+			TipText.text = "집키 - H\n자결 - K";
 		}
 	}
 
@@ -178,12 +149,7 @@ public class BtnManager : MonoBehaviour
 	{
 		if (TipText != null) // Null 체크
 		{
-			string text = "이동 - WASD\r\n기본 공격 - 좌클릭\r\n특수 공격 - 우클릭\r\n궁극기 - R\r\n구르기 - 스페이스바\r\n대화 - E";
-			TipText.text = text;
-		}
-		else
-		{
-			Debug.LogError("TipText 오브젝트가 null 상태입니다.");
+			TipText.text = "이동 - WASD\r\n기본 공격 - 좌클릭\r\n특수 공격 - 우클릭\r\n궁극기 - R\r\n구르기 - 스페이스바\r\n대화 - E";
 		}
 	}
 }
