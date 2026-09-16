@@ -288,7 +288,7 @@ public class NRHud : MonoBehaviour
 	{
 		var bg = NRUI.Image(root, "Boss Bar", NRSprites.DarkFrame, Color.white);
 		bossBar = bg.rectTransform;
-		NRUI.Place(bossBar, new Vector2(0.5f, 1), new Vector2(0, -196), new Vector2(980, 86), new Vector2(0.5f, 1));
+		NRUI.Place(bossBar, new Vector2(0.5f, 0), new Vector2(0, 150), new Vector2(980, 86), new Vector2(0.5f, 0)); // 목표 카드와 겹치지 않도록 하단 스킬 바 위
 		bossName = NRUI.Label(bossBar, "", 30, NRPalette.Crimson, TextAlignmentOptions.TopLeft, NRTextFx.OutlineShadow);
 		NRUI.Place(bossName.rectTransform, new Vector2(0, 1), new Vector2(24, -8), new Vector2(700, 36), new Vector2(0, 1));
 		bossPhase = NRUI.Label(bossBar, "", 24, NRPalette.TextDim, TextAlignmentOptions.TopRight);

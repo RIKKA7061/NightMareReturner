@@ -67,6 +67,7 @@ public static class NRScenePatcher
 
 		NRInteractableScanner.Install(false);
 		SyncNpcTalkProgress();
+		NRPlayerFX.Attach(Object.FindObjectOfType<Player>());
 
 		// 집의 책장 = 영구 강화
 		var shelf = NRUtil.FindInScene(scene, "bookShelf");
@@ -98,6 +99,7 @@ public static class NRScenePatcher
 		}
 		NRInteractableScanner.Install(true);
 		SyncNpcTalkProgress();
+		NRPlayerFX.Attach(Object.FindObjectOfType<Player>());
 		QuestManager.Town();
 
 		// 기존 화살표 스프라이트는 은은하게 움직이도록

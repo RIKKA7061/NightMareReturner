@@ -90,6 +90,7 @@ public class PrefabSpawner : MonoBehaviour
                 spawnedItems.Add(newItem);                                                                            // 생성된 보상 아이템을 리스트에 추가
             }
             NRRun.OnRoomCleared(); // [NR]
+            NRTime.SlowMotion(0.45f, 0.3f); // [NR] 마지막 적 처치 순간 강조
 		}
 
 		// 플레이어가 해당 방에 올시 && 라운드가 진행 중이 아니라 플레이어가 다음 라운드를 선택했을 때 && 이미 한번 스폰함?이 False일시

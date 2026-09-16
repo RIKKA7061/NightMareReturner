@@ -153,7 +153,9 @@ public class NRInteractable : MonoBehaviour
 		show = Mathf.MoveTowards(show, target, Time.deltaTime * 5f);
 
 		// 빛: 평소 은은하게, 주목 시 3회 강하게
-		float basePulse = 0.22f + 0.08f * Mathf.Sin(Time.time * 2.5f + born);
+		// 멀리 있는 오브젝트(씬에 배치된 문 템플릿 등)는 빛나지 않도록 거리 감쇠
+		float proximity = Mathf.Clamp01(1f - (dist - 7f) / 5f);
+		float basePulse = (0.22f + 0.08f * Mathf.Sin(Time.time * 2.5f + born)) * proximity;
 		float att = attention ? 0.35f * Mathf.Abs(Mathf.Sin((attentionUntil - Time.time) * Mathf.PI * 1.25f)) : 0f;
 		glow.transform.position = new Vector3(center.x, bounds.min.y + bounds.size.y * 0.35f, 0);
 		glow.color = color.WithAlpha(basePulse + 0.25f * show + att);

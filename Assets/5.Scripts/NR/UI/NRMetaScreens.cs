@@ -165,6 +165,7 @@ public class NRDeathScreen : MonoBehaviour
 		NRUI.Place(prompt.rectTransform, new Vector2(0.5f, 0), new Vector2(0, 110), new Vector2(1000, 60), new Vector2(0.5f, 0));
 		prompt.gameObject.SetActive(false);
 
+		yield return new WaitForSecondsRealtime(1.2f); // 쓰러지는 애니메이션을 먼저 보여줌
 		float t = 0f;
 		while (t < 1.2f)
 		{
@@ -173,7 +174,7 @@ public class NRDeathScreen : MonoBehaviour
 			dim.color = new Color(0.02f, 0.0f, 0.03f, 0.75f * group.alpha);
 			yield return null;
 		}
-		yield return new WaitForSecondsRealtime(2.9f);
+		yield return new WaitForSecondsRealtime(1.7f);
 		prompt.gameObject.SetActive(true);
 		while (true)
 		{
