@@ -1,106 +1,106 @@
-using Cinemachine;
+ï»¿using Cinemachine;
 using System.Collections;
 using UnityEngine;
 
 public class DirectingCameraManager : MonoBehaviour
 {
-	public CinemachineVirtualCamera virtualCamera; // CMvcam1À» ÇÒ´ç
+	public CinemachineVirtualCamera virtualCamera; // CMvcam1ì„ í• ë‹¹
 
-	[Header("¸ñÇ¥ ÁÜ°ª ¼³Á¤")]
+	[Header("ëª©í‘œ ì¤Œê°’ ì„¤ì •")]
 	public float zoomSize = 1f;
 
-	[Header("¿¬Ãâ ½Ã°£")]
+	[Header("ì—°ì¶œ ì‹œê°„")]
 	public float delayTime = 1f;
 
-	private float originalSize; // Ä«¸Ş¶óÀÇ ÃÊ±â Å©±â ÀúÀå
+	private float originalSize; // ì¹´ë©”ë¼ì˜ ì´ˆê¸° í¬ê¸° ì €ì¥
 
 
-	[Header("¿¬Ãâ ¶§ ¾²ÀÏ ±î¸¸ ÆÇ¶§±â")]
+	[Header("ì—°ì¶œ ë•Œ ì“°ì¼ ê¹Œë§Œ íŒë•Œê¸°")]
 	public GameObject darkBg;
 
 	void Start()
 	{
-		// Ä«¸Ş¶ó ÃÊ±â Å©±â¸¦ ÀúÀå
+		// ì¹´ë©”ë¼ ì´ˆê¸° í¬ê¸°ë¥¼ ì €ì¥
 		originalSize = virtualCamera.m_Lens.OrthographicSize;
 
-		// ÁÜ¾Æ¿ô ¿¬Ãâ ½ÃÀÛ
+		// ì¤Œì•„ì›ƒ ì—°ì¶œ ì‹œì‘
 		//SetOrthoSize(1);
 		//ZoomOut();
 	}
 
-	// ±î¸¸ ÆÇ¶§±â·Î ÀüÃ¼ È­¸é °¡¸®±â
+	// ê¹Œë§Œ íŒë•Œê¸°ë¡œ ì „ì²´ í™”ë©´ ê°€ë¦¬ê¸°
 	public void darkBg_On()
 	{
 		darkBg.SetActive(true);
 	}
 
-	// ±î¸¸ ÆÇ¶§±â·Î ÀüÃ¼ È­¸é °¡·ÁÁø °Å ¾ø¾Ö±â
+	// ê¹Œë§Œ íŒë•Œê¸°ë¡œ ì „ì²´ í™”ë©´ ê°€ë ¤ì§„ ê±° ì—†ì• ê¸°
 	public void darkBg_Off()
 	{
 		darkBg.SetActive(false);
 	}
 
-	// Ä«¸Ş¶ó ÁÜ »çÀÌÁî Å©±â Á¶Àı ¸Ş¼­µå
+	// ì¹´ë©”ë¼ ì¤Œ ì‚¬ì´ì¦ˆ í¬ê¸° ì¡°ì ˆ ë©”ì„œë“œ
 	public void SetOrthoSize(float size)
 	{
 		virtualCamera.m_Lens.OrthographicSize = size;
 	}
 
 
-	public void ZoomIn() // ÁÜÀÎ ¸Ş¼­µå
+	public void ZoomIn() // ì¤Œì¸ ë©”ì„œë“œ
 	{
 		StartCoroutine(SmoothZoomTo(zoomSize, delayTime));
 	}
 
-	public void ZoomOut() // ÁÜ¾Æ¿ô ¸Ş¼­µå
+	public void ZoomOut() // ì¤Œì•„ì›ƒ ë©”ì„œë“œ
 	{
 		//StartCoroutine(SmoothZoomToOrigin(delayTime));
 		SetOrthoSize(originalSize);
 	}
 
 
-	// ÀÚ¿¬½º·´°Ô ÁÜÀÎ ÇÏ´Â ¿¬Ãâ
+	// ìì—°ìŠ¤ëŸ½ê²Œ ì¤Œì¸ í•˜ëŠ” ì—°ì¶œ
 	public IEnumerator SmoothZoomTo(float targetSize, float duration)
 	{
-		Debug.Log("ÁÜÀÎ ¿¬Ãâ ½ÃÀÛ");
-		float startSize = virtualCamera.m_Lens.OrthographicSize; // ÇöÀç Å©±â
-		float elapsedTime = 0f; // °æ°ú ½Ã°£
+		Debug.Log("ì¤Œì¸ ì—°ì¶œ ì‹œì‘");
+		float startSize = virtualCamera.m_Lens.OrthographicSize; // í˜„ì¬ í¬ê¸°
+		float elapsedTime = 0f; // ê²½ê³¼ ì‹œê°„
 
 		while (elapsedTime < duration)
 		{
 			elapsedTime += Time.deltaTime;
 
-			// ÇöÀç Å©±â¸¦ ¼±ÇüÀûÀ¸·Î °è»ê
+			// í˜„ì¬ í¬ê¸°ë¥¼ ì„ í˜•ì ìœ¼ë¡œ ê³„ì‚°
 			float newSize = Mathf.Lerp(startSize, targetSize, elapsedTime / duration);
 			SetOrthoSize(newSize);
 
-			yield return null; // ´ÙÀ½ ÇÁ·¹ÀÓ±îÁö ´ë±â
+			yield return null; // ë‹¤ìŒ í”„ë ˆì„ê¹Œì§€ ëŒ€ê¸°
 		}
 
-		// Á¤È®ÇÑ ¸ñÇ¥ °ªÀ¸·Î ¼³Á¤
+		// ì •í™•í•œ ëª©í‘œ ê°’ìœ¼ë¡œ ì„¤ì •
 		SetOrthoSize(targetSize);
 
 	}
 
-	// ÀÚ¿¬½º·´°Ô ÁÜ ¾Æ¿ô ÇÏ´Â ¿¬Ãâ
+	// ìì—°ìŠ¤ëŸ½ê²Œ ì¤Œ ì•„ì›ƒ í•˜ëŠ” ì—°ì¶œ
 	public IEnumerator SmoothZoomToOrigin(float duration)
 	{
-		Debug.Log("ÁÜ¾Æ¿ô ¿¬Ãâ ½ÃÀÛ");
-		float startSize = virtualCamera.m_Lens.OrthographicSize; // ÇöÀç Å©±â
-		float elapsedTime = 0f; // °æ°ú ½Ã°£
+		Debug.Log("ì¤Œì•„ì›ƒ ì—°ì¶œ ì‹œì‘");
+		float startSize = virtualCamera.m_Lens.OrthographicSize; // í˜„ì¬ í¬ê¸°
+		float elapsedTime = 0f; // ê²½ê³¼ ì‹œê°„
 
 		while (elapsedTime < duration)
 		{
 			elapsedTime += Time.deltaTime;
 
-			// ¿ø·¡ Å©±â¸¦ ¼±ÇüÀûÀ¸·Î °è»ê
+			// ì›ë˜ í¬ê¸°ë¥¼ ì„ í˜•ì ìœ¼ë¡œ ê³„ì‚°
 			float newSize = Mathf.Lerp(startSize, originalSize, elapsedTime / duration);
 			SetOrthoSize(newSize);
 
-			yield return null; // ´ÙÀ½ ÇÁ·¹ÀÓ±îÁö ´ë±â
+			yield return null; // ë‹¤ìŒ í”„ë ˆì„ê¹Œì§€ ëŒ€ê¸°
 		}
 
-		// Á¤È®ÇÑ ¿ø·¡ °ªÀ¸·Î ¼³Á¤
+		// ì •í™•í•œ ì›ë˜ ê°’ìœ¼ë¡œ ì„¤ì •
 		SetOrthoSize(originalSize);
 	}
 }

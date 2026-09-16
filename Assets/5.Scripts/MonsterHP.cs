@@ -1,25 +1,25 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MonsterHP : MonoBehaviour
 {
-    private Player player;  //ÇÃ·¹ÀÌ¾î
-    private Rigidbody2D rb; //Áß·Â
+    private Player player;  //í”Œë ˆì´ì–´
+    private Rigidbody2D rb; //ì¤‘ë ¥
     private PlayerAction playerAction;
     private PrefabSpawner prefabSpawner;
-    private UI_MonsterHP uI_MonsterHP; // ui¿¡ »Ñ·ÁÁÖ´Â hp¹Ù
-    private DamageTextShow damageTextShow; // ui µ¥¹ÌÁö ¼öÄ¡¸¦ Ç¥±âÇØÁÖ´Â°Å °ü·Ã ½ºÅ©¸³Æ®
+    private UI_MonsterHP uI_MonsterHP; // uiì— ë¿Œë ¤ì£¼ëŠ” hpë°”
+    private DamageTextShow damageTextShow; // ui ë°ë¯¸ì§€ ìˆ˜ì¹˜ë¥¼ í‘œê¸°í•´ì£¼ëŠ”ê±° ê´€ë ¨ ìŠ¤í¬ë¦½íŠ¸
     private GoHomeManager goHomeManager;
 
-	[Header("Ã¼·Â")]
-    public int maxHP; // ÃÖ´ë Ã¼·Â º¯¼ö
-    public int nowHP; // ÇöÀç Ã¼·Â º¯¼ö
+	[Header("ì²´ë ¥")]
+    public int maxHP; // ìµœëŒ€ ì²´ë ¥ ë³€ìˆ˜
+    public int nowHP; // í˜„ì¬ ì²´ë ¥ ë³€ìˆ˜
 
-    [Header("ÀÌ°ÍÀÌ º¸½ºÀÎ°¡?")]
+    [Header("ì´ê²ƒì´ ë³´ìŠ¤ì¸ê°€?")]
     public bool isBoss;
 
-    [Header("ÀÌ°ÍÀÌ Áß°£º¸½ºÀÎ°¡?")]
+    [Header("ì´ê²ƒì´ ì¤‘ê°„ë³´ìŠ¤ì¸ê°€?")]
     public bool middleBoss;
 
     Rigidbody2D rigid;
@@ -36,7 +36,7 @@ public class MonsterHP : MonoBehaviour
         playerAction = FindObjectOfType<Player>().GetComponent<PlayerAction>();
         prefabSpawner = FindAnyObjectByType<PrefabSpawner>();
 		uI_MonsterHP = GetComponent<UI_MonsterHP>();
-		damageTextShow = GetComponent<DamageTextShow>();// °°Àº ÄÄÆ÷³ÍÆ®¿¡ ¼ÓÇØÀÖ´Ù.
+		damageTextShow = GetComponent<DamageTextShow>();// ê°™ì€ ì»´í¬ë„ŒíŠ¸ì— ì†í•´ìˆë‹¤.
         goHomeManager = FindAnyObjectByType<GoHomeManager>();
     }
 
@@ -63,41 +63,41 @@ public class MonsterHP : MonoBehaviour
         animator = GetComponent<Animator>();
         defaultMaxHp = maxHP;
         rb = GetComponent<Rigidbody2D>();
-        player = FindObjectOfType<Player>();// ¹«Á¶°Ç ÇØÁà¾ßµÊ (ÃÊ±âÈ­)
-        SetEnemyStatus(maxHP);              // Ã¼·Â ¼öÄ¡ ¼³Á¤
+        player = FindObjectOfType<Player>();// ë¬´ì¡°ê±´ í•´ì¤˜ì•¼ë¨ (ì´ˆê¸°í™”)
+        SetEnemyStatus(maxHP);              // ì²´ë ¥ ìˆ˜ì¹˜ ì„¤ì •
 
-        // prfHpBar ÇÁ¸®ÆÕÀ» ÀÌ¿ëÇØ canvas¿¡´Ù°¡ Ã¼·Â¹Ù »ı¼º.
-        //bghp_bar = Instantiate(prfHpBar, GameObject.Find("Canvas").transform).GetComponent<RectTransform>(); // bghp_bar»ı¼º
-        //hp_bar = bghp_bar.transform.GetChild(0).GetComponent<Image>(); // bghp_bar¿¡ ÀÚ½Ä ¿ÀºêÁ§Æ® ÄÄÆ÷³ÍÆ® °¡Á®¿À±â
+        // prfHpBar í”„ë¦¬íŒ¹ì„ ì´ìš©í•´ canvasì—ë‹¤ê°€ ì²´ë ¥ë°” ìƒì„±.
+        //bghp_bar = Instantiate(prfHpBar, GameObject.Find("Canvas").transform).GetComponent<RectTransform>(); // bghp_barìƒì„±
+        //hp_bar = bghp_bar.transform.GetChild(0).GetComponent<Image>(); // bghp_barì— ìì‹ ì˜¤ë¸Œì íŠ¸ ì»´í¬ë„ŒíŠ¸ ê°€ì ¸ì˜¤ê¸°
     }
 
     private void Update()
     {
     }
 
-    // Á¢ÃË½Ã
+    // ì ‘ì´‰ì‹œ
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // ±× ´ë»óÀÌ ÇÃ·¹ÀÌ¾î ÅÂ±×ÀÏ½Ã && ÇÃ·¹ÀÌ¾î°¡ °ø°İÁßÀÏ½Ã
+        // ê·¸ ëŒ€ìƒì´ í”Œë ˆì´ì–´ íƒœê·¸ì¼ì‹œ && í”Œë ˆì´ì–´ê°€ ê³µê²©ì¤‘ì¼ì‹œ
         if (other.CompareTag("Player") && playerAction.isAtking)
         {
-            int damage = player.Atk;                // ÇÃ·¹ÀÌ¾î ´ë¹ÌÁö
+            int damage = player.Atk;                // í”Œë ˆì´ì–´ ëŒ€ë¯¸ì§€
 			damageTextShow.ShowDamage(damage);
-			//StartCoroutine(ShowDamageText(damage)); // ´ë¹ÌÁö¸¦ Ç¥±â
+			//StartCoroutine(ShowDamageText(damage)); // ëŒ€ë¯¸ì§€ë¥¼ í‘œê¸°
 			nowHP = nowHP - damage;
         }
 
-        // ÀÏ¹İ¸÷ Á×´Â ÇÔ¼ö
-        //if (nowHP < 0 && isBoss == false)			// Ã¼·ÂÀÌ 0º¸´Ù ÀûÀ»½Ã
+        // ì¼ë°˜ëª¹ ì£½ëŠ” í•¨ìˆ˜
+        //if (nowHP < 0 && isBoss == false)			// ì²´ë ¥ì´ 0ë³´ë‹¤ ì ì„ì‹œ
         //{
         //    EnemyDead();
         //}
-        //// Àû Á×´Â ÇÔ¼ö
+        //// ì  ì£½ëŠ” í•¨ìˆ˜
         //else if (nowHP < 0 && isBoss == true)
         //{
         //    BossDead();
         //}
-        if (nowHP < 0 && middleBoss) // Áß°£º¸½º
+        if (nowHP < 0 && middleBoss) // ì¤‘ê°„ë³´ìŠ¤
         {
             MiddleBossDead();
 		}
@@ -105,12 +105,12 @@ public class MonsterHP : MonoBehaviour
 
     void BossDead()
     {
-        // Á×±â ¾Ö´Ï¸ŞÀÌ¼Ç È°¼ºÈ­
+        // ì£½ê¸° ì• ë‹ˆë©”ì´ì…˜ í™œì„±í™”
         animator.SetTrigger("Die");
 
         Destroy(gameObject);
-        //prefabSpawner.RoomEnemyCount++;        // Àû Á×Àº È½¼ö 1 ´Ã¾î³²
-        //Destroy(bghp_bar.gameObject);          // Ã¼·Â¹Ù »èÁ¦
+        //prefabSpawner.RoomEnemyCount++;        // ì  ì£½ì€ íšŸìˆ˜ 1 ëŠ˜ì–´ë‚¨
+        //Destroy(bghp_bar.gameObject);          // ì²´ë ¥ë°” ì‚­ì œ
     }
 
     void EnemyDead()
@@ -120,17 +120,17 @@ public class MonsterHP : MonoBehaviour
         {
             Destroy(gameObject);
 		}
-        //prefabSpawner.RoomEnemyCount++;        // Àû Á×Àº È½¼ö 1 ´Ã¾î³²
-        //Destroy(bghp_bar.gameObject);          // Ã¼·Â¹Ù »èÁ¦
+        //prefabSpawner.RoomEnemyCount++;        // ì  ì£½ì€ íšŸìˆ˜ 1 ëŠ˜ì–´ë‚¨
+        //Destroy(bghp_bar.gameObject);          // ì²´ë ¥ë°” ì‚­ì œ
 
     }
 
 	void MiddleBossDead()
 	{
 		nowHP = 0;
-        Debug.Log("°ÔÀÓ ´Ù½Ã½ÃÀÛ");
+        Debug.Log("ê²Œì„ ë‹¤ì‹œì‹œì‘");
         goHomeManager.MovePlayerToHome();
-        uI_MonsterHP.DestroyHP_UI();// Ã¼·Â¹Ù »èÁ¦
-		Destroy(gameObject);    // ÀÚ±â ÀÚ½ÅÀ» »èÁ¦
+        uI_MonsterHP.DestroyHP_UI();// ì²´ë ¥ë°” ì‚­ì œ
+		Destroy(gameObject);    // ìê¸° ìì‹ ì„ ì‚­ì œ
 	}
 }

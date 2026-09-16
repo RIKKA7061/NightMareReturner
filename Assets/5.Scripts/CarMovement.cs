@@ -1,20 +1,20 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class CarMovement : MonoBehaviour
 {
-	public float speed = 5f; // ÀÚµ¿Â÷ ¼Óµµ Á¶Á¤
+	public float speed = 5f; // ìë™ì°¨ ì†ë„ ì¡°ì •
 
 	private Rigidbody2D rb;
 
 	void Start()
 	{
-		// Rigidbody2D ÄÄÆ÷³ÍÆ®¸¦ °¡Á®¿É´Ï´Ù.
+		// Rigidbody2D ì»´í¬ë„ŒíŠ¸ë¥¼ ê°€ì ¸ì˜µë‹ˆë‹¤.
 		rb = GetComponent<Rigidbody2D>();
 	}
 
 	void FixedUpdate()
 	{
-		// ¿À¸¥ÂÊ ¹æÇâÀ¸·Î Áö¼ÓÀûÀ¸·Î ¿òÁ÷ÀÌµµ·Ï ¼³Á¤
+		// ì˜¤ë¥¸ìª½ ë°©í–¥ìœ¼ë¡œ ì§€ì†ì ìœ¼ë¡œ ì›€ì§ì´ë„ë¡ ì„¤ì •
 		rb.velocity = new Vector2(speed, rb.velocity.y);
 	}
 }

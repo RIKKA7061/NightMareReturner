@@ -1,26 +1,26 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class weapon2 : MonoBehaviour
 {
-    //¿ø°Å¸® °ø°İ¿ë ½ºÅ©¸³Æ®
-    //°ø°İ ±¸ºĞÁş±â À§ÇÔ
-    [Header("ÁÖ¹Îµî·Ï¹øÈ£")]
-    public int id; //¹«±â or °ø°İ ¾ÆÀÌµğ
-    public int prefabId; //ÇÁ¸®Æé ¾ÆÀÌµğ
+    //ì›ê±°ë¦¬ ê³µê²©ìš© ìŠ¤í¬ë¦½íŠ¸
+    //ê³µê²© êµ¬ë¶„ì§“ê¸° ìœ„í•¨
+    [Header("ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸")]
+    public int id; //ë¬´ê¸° or ê³µê²© ì•„ì´ë””
+    public int prefabId; //í”„ë¦¬í© ì•„ì´ë””
 
-    [Header("ÀÌ°Ô µÇ´Â °ÅÀÓ;; °ø°İ·Â")]
-    private int damage; //µ¥¹ÌÁö
+    [Header("ì´ê²Œ ë˜ëŠ” ê±°ì„;; ê³µê²©ë ¥")]
+    private int damage; //ë°ë¯¸ì§€
 
-    [Header("°üÅë·Â")]
-    public int count; //°üÅë µÇ´Â ¼ö // EX. 0 = ÇÑ°³
+    [Header("ê´€í†µë ¥")]
+    public int count; //ê´€í†µ ë˜ëŠ” ìˆ˜ // EX. 0 = í•œê°œ
 
-    [Header("Åº¼Ó")]
-    public float speed; // ¹«±â ¼Óµµ
+    [Header("íƒ„ì†")]
+    public float speed; // ë¬´ê¸° ì†ë„
 
-	[Header("º¸½º")]
-	public bool isBoss; // ¹«±â ¼Óµµ
+	[Header("ë³´ìŠ¤")]
+	public bool isBoss; // ë¬´ê¸° ì†ë„
 
 	//public int per;
 
@@ -31,11 +31,11 @@ public class weapon2 : MonoBehaviour
     {
 		if (!isBoss)
 		{
-			damage = TableManager.Enemy1Atk; //µ¥¹ÌÁö
+			damage = TableManager.Enemy1Atk; //ë°ë¯¸ì§€
 		}
 		else if (isBoss)
 		{
-			damage = TableManager.BossATK; //µ¥¹ÌÁö
+			damage = TableManager.BossATK; //ë°ë¯¸ì§€
 		}
 		enemy = GetComponentInParent<Enemy>();
     }
@@ -50,7 +50,7 @@ public class weapon2 : MonoBehaviour
         switch (id)
         {
             case 0:
-                //transform.Rotate(Vector3.back * speed * Time.deltaTime); //¹«±âÈ¸Àü
+                //transform.Rotate(Vector3.back * speed * Time.deltaTime); //ë¬´ê¸°íšŒì „
                 break;
             default:
                 timer += Time.deltaTime;
@@ -70,7 +70,7 @@ public class weapon2 : MonoBehaviour
         switch (id)
         {
             case 0:
-                //speed = -150; //¹«±âÈ¸Àü ¼Óµµ
+                //speed = -150; //ë¬´ê¸°íšŒì „ ì†ë„
                 Batch();
                 break;
             default:
@@ -87,14 +87,14 @@ public class weapon2 : MonoBehaviour
             FarATK.parent = transform;
             if(Vector3.zero != null)
             {
-				FarATK.GetComponent<FarATK>().Init(damage, count, Vector3.zero); //count ÀÚ¸® -1Àº ¹«ÇÑÀ¸·Î °üÅë
+				FarATK.GetComponent<FarATK>().Init(damage, count, Vector3.zero); //count ìë¦¬ -1ì€ ë¬´í•œìœ¼ë¡œ ê´€í†µ
 			}
         }
 
     }
 	public Transform nearestTarget;
-	public float scanRadius = 10f; // Å½Áö ¹İ°æ
-	public LayerMask targetLayer; // Å½Áö ´ë»ó ·¹ÀÌ¾î
+	public float scanRadius = 10f; // íƒì§€ ë°˜ê²½
+	public LayerMask targetLayer; // íƒì§€ ëŒ€ìƒ ë ˆì´ì–´
 
 
 	void Scan()
@@ -106,22 +106,22 @@ public class weapon2 : MonoBehaviour
 
 		foreach (Collider col in colliders)
 		{
-			// Æ¯Á¤ ÄÄÆ÷³ÍÆ®¸¦ °¡Áø Collider¸¸ ÇÊÅÍ¸µ
+			// íŠ¹ì • ì»´í¬ë„ŒíŠ¸ë¥¼ ê°€ì§„ Colliderë§Œ í•„í„°ë§
 			Player playerComp = col.GetComponent<Player>();
-			if (playerComp == null) continue; // PlayerComponent°¡ ¾øÀ¸¸é ¹«½Ã
+			if (playerComp == null) continue; // PlayerComponentê°€ ì—†ìœ¼ë©´ ë¬´ì‹œ
 
 			float distance = Vector3.Distance(transform.position, col.transform.position);
 			if (distance < nearestDistance)
 			{
 				nearestDistance = distance;
-				nearestTarget = col.transform; // Å¸°ÙÀ¸·Î ¼³Á¤
+				nearestTarget = col.transform; // íƒ€ê²Ÿìœ¼ë¡œ ì„¤ì •
 			}
 		}
 	}
 
 	void Fire()
 	{
-		//Debug.Log("È÷È÷ ÃÑ ¹ß»ç");
+		//Debug.Log("íˆíˆ ì´ ë°œì‚¬");
 
 		if (!enemy.scanner2.nearestTarget)
 			return;

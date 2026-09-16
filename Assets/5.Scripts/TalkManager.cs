@@ -1,53 +1,53 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;//TextMeshPro¿ë namespace
+using TMPro;//TextMeshProìš© namespace
 using UnityEngine;
 
 public class TalkManager : MonoBehaviour
 {
-	/*TalkManger¶õ ´ëÈ­ °ü·ÃµÈ °ÍÀ» Ã³¸®ÇÏ´Â ½ºÅ©¸³Æ®ÀÔ´Ï´Ù.*/
+	/*TalkMangerë€ ëŒ€í™” ê´€ë ¨ëœ ê²ƒì„ ì²˜ë¦¬í•˜ëŠ” ìŠ¤í¬ë¦½íŠ¸ì…ë‹ˆë‹¤.*/
 
-	[Header("NPC ½ºÄµ")]
+	[Header("NPC ìŠ¤ìº”")]
 	public GameObject ScanObject;
 
 	[Header("Player")]
 	public Player player;
 
-	[Header("ÆÄ¾Å")]
+	[Header("íŒŒì”½")]
 	public ParsingManager parsingManager;
 
-	[Header("´ëÈ­Ã¢")]
+	[Header("ëŒ€í™”ì°½")]
 	public TextMeshProUGUI Talker;
 	public TextMeshProUGUI Dialog;
 	string talker = "";
 	string dialog = "";
     public GameObject Shop;
     public GameObject DialogSet;
-	public bool isDialoging; // »óÅÂ ÀúÀå º¯¼ö
+	public bool isDialoging; // ìƒíƒœ ì €ì¥ ë³€ìˆ˜
 
-	[Header("Å×½ºÆ®")]
+	[Header("í…ŒìŠ¤íŠ¸")]
 	public TextMeshProUGUI TalkCountNum;
 	string text = "";
-	string NPCname;//Å×½ºÆ®¿ë NPC ÀÌ¸§ º¯¼ö
+	string NPCname;//í…ŒìŠ¤íŠ¸ìš© NPC ì´ë¦„ ë³€ìˆ˜
 
-	int tempId = 0;//ÀÓ½Ã NPC ÁÖ¹Îµî·Ï¹øÈ£
-	//int tempDeadCount = 0;//ÀÓ½Ã PlayerÁ×À½ È½¼ö
+	int tempId = 0;//ì„ì‹œ NPC ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸
+	//int tempDeadCount = 0;//ì„ì‹œ Playerì£½ìŒ íšŸìˆ˜
 
-	public bool isOverIndex = false;//´ëÈ­ Èå¸§¼ö EX. 10100~10107
+	public bool isOverIndex = false;//ëŒ€í™” íë¦„ìˆ˜ EX. 10100~10107
 
-	//´ëÈ­ ¾×¼Ç
-	public void DialogAction(GameObject scannedObject)//Áø¿ì°¡ ÇÑ¹ø ½ºÄµ½Ã ÀÛµ¿
+	//ëŒ€í™” ì•¡ì…˜
+	public void DialogAction(GameObject scannedObject)//ì§„ìš°ê°€ í•œë²ˆ ìŠ¤ìº”ì‹œ ì‘ë™
 	{
-		ScanObject = scannedObject;//Áø¿ì°¡ ½ºÄµÇÑ NPC
+		ScanObject = scannedObject;//ì§„ìš°ê°€ ìŠ¤ìº”í•œ NPC
 
-		_Object obj = scannedObject.GetComponent<_Object>();//NPC Á¤º¸
+		_Object obj = scannedObject.GetComponent<_Object>();//NPC ì •ë³´
 
 		
 		Talk(obj.id, scannedObject);
 		tempId = obj.id;
 		NPCname = obj.name;
-		text = NPCname + "ÀÇ È¸Â÷º° ´ëÈ­ È½¼ö : " + obj.EachTalkCount.ToString();//test
+		text = NPCname + "ì˜ íšŒì°¨ë³„ ëŒ€í™” íšŸìˆ˜ : " + obj.EachTalkCount.ToString();//test
 	}
 
 	private void Update()
@@ -65,18 +65,18 @@ public class TalkManager : MonoBehaviour
 
 		if(tempId != id)
 		{
-			//Debug.Log("B ³ª´Â 1 ´Ã¾î³ª");
+			//Debug.Log("B ë‚˜ëŠ” 1 ëŠ˜ì–´ë‚˜");
 		}
 
 
-		//Á×À½ÀÇ ¼ö°¡ ¹Ù²î¾ú´Â°¡?
+		//ì£½ìŒì˜ ìˆ˜ê°€ ë°”ë€Œì—ˆëŠ”ê°€?
 		if (obj.tempPlayerDead != Player.DeadCount)
 		{
 			i = 0;
 			obj.isDeadUp = true;
 
-			//´ëÈ­Ã¢ ¿ÀÇÂ
-			//Debug.Log("´ëÈ­¿­±â");
+			//ëŒ€í™”ì°½ ì˜¤í”ˆ
+			//Debug.Log("ëŒ€í™”ì—´ê¸°");
 
 			isDialoging = true;// talking now
 			DialogSet.SetActive(true);
@@ -88,32 +88,32 @@ public class TalkManager : MonoBehaviour
             Shop.SetActive(true);
         }
 
-        // Á×À½ È½¼ö °¡ NPC ±âÁØÀ¸·Î ¹Ù²î¾ú´Â°¡?
+        // ì£½ìŒ íšŸìˆ˜ ê°€ NPC ê¸°ì¤€ìœ¼ë¡œ ë°”ë€Œì—ˆëŠ”ê°€?
         if (Player.DeadCount > _Object.EachTalkCountSaveNum[obj.id/100] && obj.isDeadUp == true)
 		{
 			obj.EachTalkCount++;
-			obj.EachTalkCountSave(obj.id); // ´ëÈ­ ³Ñ¹ö ÀúÀå ÇÔ¼ö
+			obj.EachTalkCountSave(obj.id); // ëŒ€í™” ë„˜ë²„ ì €ì¥ í•¨ìˆ˜
 			obj.isDeadUp = false;
 			obj.isDialogged = true;
 		}
 
-		if (tempId != 0 && tempId != id)//´Ù¸¥»ç¶÷ ´ëÈ­Çß´Ù°¡ Àú»ç¶÷ ´ëÈ­Çß´Ù°¡ ¼ø¹ø ²¿ÀÌ´Â ÀÏ ¹æÁö
+		if (tempId != 0 && tempId != id)//ë‹¤ë¥¸ì‚¬ëŒ ëŒ€í™”í–ˆë‹¤ê°€ ì €ì‚¬ëŒ ëŒ€í™”í–ˆë‹¤ê°€ ìˆœë²ˆ ê¼¬ì´ëŠ” ì¼ ë°©ì§€
 		{
 			i = 0;
 		}
 
-		obj.tempPlayerDead = Player.DeadCount;//ÇöÀç Á×À½ È½¼ö ÀÓ½Ã ÀúÀå
+		obj.tempPlayerDead = Player.DeadCount;//í˜„ì¬ ì£½ìŒ íšŸìˆ˜ ì„ì‹œ ì €ì¥
 
-		if (isOverIndex == false)//´ëÈ­ ¼ø¹ø index¸¦ ³ÑÁö ¾ÊÀ» ¶§
+		if (isOverIndex == false)//ëŒ€í™” ìˆœë²ˆ indexë¥¼ ë„˜ì§€ ì•Šì„ ë•Œ
 		{
-			int DialogNum = obj.EachTalkCount * 10000 + id + i;//´ëÈ­¹øÈ£
-			//Debug.Log(DialogNum);//Å×½ºÆ®
+			int DialogNum = obj.EachTalkCount * 10000 + id + i;//ëŒ€í™”ë²ˆí˜¸
+			//Debug.Log(DialogNum);//í…ŒìŠ¤íŠ¸
 			i++;
 			string[] texts = parsingManager.GetDialogPlz(DialogNum, obj);
 			talker = texts[1];
 			dialog = texts[0];
 		}
-		else if (isOverIndex == true)//´ëÈ­ ¼ø¹ø index¸¦ ³ÑÀ» ¶§
+		else if (isOverIndex == true)//ëŒ€í™” ìˆœë²ˆ indexë¥¼ ë„˜ì„ ë•Œ
 		{
 			i = 0;
 			isOverIndex = false;
@@ -122,42 +122,42 @@ public class TalkManager : MonoBehaviour
 
 	public void SoloTalk()
     {
-		int DialogNum =  10000 + (400) + j;//´ëÈ­¹øÈ£
+		int DialogNum =  10000 + (400) + j;//ëŒ€í™”ë²ˆí˜¸
 		j++;
-		string[] texts = parsingManager.GetSoloDialogPlz(DialogNum); // ´ëÈ­ °¡Á®¿À´Â ÇÔ¼ö
-		talker = texts[1]; // ´ëÈ­ ÇÏ´Â »ç¶÷ ÀÌ¸§ (ÇöÀç º¸¿©Áı´Ï´Ù.)
-		dialog = texts[0]; // ´ëÈ­ ³»¿ë (ÇöÀç º¸¿©Áı´Ï´Ù.22)
+		string[] texts = parsingManager.GetSoloDialogPlz(DialogNum); // ëŒ€í™” ê°€ì ¸ì˜¤ëŠ” í•¨ìˆ˜
+		talker = texts[1]; // ëŒ€í™” í•˜ëŠ” ì‚¬ëŒ ì´ë¦„ (í˜„ì¬ ë³´ì—¬ì§‘ë‹ˆë‹¤.)
+		dialog = texts[0]; // ëŒ€í™” ë‚´ìš© (í˜„ì¬ ë³´ì—¬ì§‘ë‹ˆë‹¤.22)
 
-		if(talker == "...") // µ¶¹é ³»¿ëÀÌ ´õÀÌ»ó ¾ø´Ù¸é ¾Èº¸¿©ÁÖ±â
+		if(talker == "...") // ë…ë°± ë‚´ìš©ì´ ë”ì´ìƒ ì—†ë‹¤ë©´ ì•ˆë³´ì—¬ì£¼ê¸°
         {
 			j = 0;
-			Debug.Log("ÇÒ µ¶¹é ³»¿ë ¾øÀ½");
+			Debug.Log("í•  ë…ë°± ë‚´ìš© ì—†ìŒ");
         }
         else
         {
-			DialogSet.SetActive(true);//´ëÈ­ Ã¢ º¸ÀÌ°Ô ÇÏ±â
-			StartCoroutine(SoloStopTalkTime());// ½Ã°£ Áö¿¬ÈÄ ´ëÈ­Ã¢ ´İ±â
+			DialogSet.SetActive(true);//ëŒ€í™” ì°½ ë³´ì´ê²Œ í•˜ê¸°
+			StartCoroutine(SoloStopTalkTime());// ì‹œê°„ ì§€ì—°í›„ ëŒ€í™”ì°½ ë‹«ê¸°
 		}
 	}
 
-	// ½Ã°£ Áö¿¬ÈÄ ´ëÈ­ ´İ±â
+	// ì‹œê°„ ì§€ì—°í›„ ëŒ€í™” ë‹«ê¸°
 	IEnumerator SoloStopTalkTime()
     {
-		yield return new WaitForSeconds(2); // 2ÃÊ Á¤µµ¸¸ º¸¿©ÁÖ°í
-		StopSoloTalk(); // ´ëÈ­ ¾Èº¸ÀÌ°Ô ÇÏ±â
+		yield return new WaitForSeconds(2); // 2ì´ˆ ì •ë„ë§Œ ë³´ì—¬ì£¼ê³ 
+		StopSoloTalk(); // ëŒ€í™” ì•ˆë³´ì´ê²Œ í•˜ê¸°
     }
 
-	//´ëÈ­Ã¢ ´İ´Â ÇÔ¼ö
+	//ëŒ€í™”ì°½ ë‹«ëŠ” í•¨ìˆ˜
 	public void StopSoloTalk()
     {
-		DialogSet.SetActive(false);//´ëÈ­ ¾È º¸ÀÌ°Ô ÇÏ±â
+		DialogSet.SetActive(false);//ëŒ€í™” ì•ˆ ë³´ì´ê²Œ í•˜ê¸°
 	}
 
 	public void StopDialogSet(_Object obj)
 	{
 		DialogSet.SetActive(false);
 		isDialoging = false; // not talking now
-		//Debug.Log("´ëÈ­ ´İ±â");
+		//Debug.Log("ëŒ€í™” ë‹«ê¸°");
 		obj.isDialogged = false;
 	}
 }

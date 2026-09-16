@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,7 +19,7 @@ public class QuestManager : MonoBehaviour
 
 	public static void House()
 	{
-		Instance.UpdtTxt("²Þ¼Ó °áÅõ: Ä§´ë¿¡ ´Ù°¡°¡¼¼¿ä.\n¹Û¿¡¼­ÀÇ ´ëÈ­: ¹®À» Å¬¸¯ÇÏ½Ã¿À.");
+		Instance.UpdtTxt("ê¿ˆì† ê²°íˆ¬: ì¹¨ëŒ€ì— ë‹¤ê°€ê°€ì„¸ìš”.\në°–ì—ì„œì˜ ëŒ€í™”: ë¬¸ì„ í´ë¦­í•˜ì‹œì˜¤.");
 	}
 	public void UpdtTxt(string s)
 	{
@@ -27,21 +27,21 @@ public class QuestManager : MonoBehaviour
 	}
 	public static void ReadyRoomZero()
 	{
-		Instance.UpdtTxt("Å¬·¡½º ±¸½½¿¡ ´Ù°¡°¡¼­ °¢¼ºÇÏ½Ã¿À.\n" +
-			"±×´ÙÀ½, º¸¶ó»ö È¸¿À¸®°¡ ÀÖ´Â ¹®À» ÇâÇØ ´Ù°¡°Å³ª Å¬¸¯ÇÏ¼¼¿ä.");
+		Instance.UpdtTxt("í´ëž˜ìŠ¤ êµ¬ìŠ¬ì— ë‹¤ê°€ê°€ì„œ ê°ì„±í•˜ì‹œì˜¤.\n" +
+			"ê·¸ë‹¤ìŒ, ë³´ë¼ìƒ‰ íšŒì˜¤ë¦¬ê°€ ìžˆëŠ” ë¬¸ì„ í–¥í•´ ë‹¤ê°€ê±°ë‚˜ í´ë¦­í•˜ì„¸ìš”.");
 	}
 
 	public static void RoomOne()
 	{
-		Instance.UpdtTxt("ÀûµéÀÌ ³ªÅ¸³µ½À´Ï´Ù. ÁÖº¯À» µ¹¾Æ´Ù³à¼­ ÀûÀ» Ã£¾Æ" +
-			" ¸ðµÎ Ã³Ä¡ÇÏ¼¼¿ä.");
+		Instance.UpdtTxt("ì ë“¤ì´ ë‚˜íƒ€ë‚¬ìŠµë‹ˆë‹¤. ì£¼ë³€ì„ ëŒì•„ë‹¤ë…€ì„œ ì ì„ ì°¾ì•„" +
+			" ëª¨ë‘ ì²˜ì¹˜í•˜ì„¸ìš”.");
 	}
 
 	public static void AllKill_inRoom()
 	{
-		Instance.UpdtTxt("ÀûÀ» ¸ðµÎ Ã³Ä¡ÇÏ¿´½À´Ï´Ù.\n" +
-			"°¡¿îµ¥¼­ ¼ÒÈ¯µÈ º¸»óÀ» ÇâÇØ ´Ù°¡°¡ È¹µæÇÏ¼¼¿ä.\n" +
-			"±× ´ÙÀ½ °¢ º¸»óÀ» ¾òÀ» ¼ö ÀÖ´Â ¹æÀ¸·Î ¿¬°áµÈ º¸¶ó»ö È¸¿À¸®" +
-			"¸¦ ÇâÇØ ´Ù°¡°¡¼¼¿ä.");
+		Instance.UpdtTxt("ì ì„ ëª¨ë‘ ì²˜ì¹˜í•˜ì˜€ìŠµë‹ˆë‹¤.\n" +
+			"ê°€ìš´ë°ì„œ ì†Œí™˜ëœ ë³´ìƒì„ í–¥í•´ ë‹¤ê°€ê°€ íšë“í•˜ì„¸ìš”.\n" +
+			"ê·¸ ë‹¤ìŒ ê° ë³´ìƒì„ ì–»ì„ ìˆ˜ ìžˆëŠ” ë°©ìœ¼ë¡œ ì—°ê²°ëœ ë³´ë¼ìƒ‰ íšŒì˜¤ë¦¬" +
+			"ë¥¼ í–¥í•´ ë‹¤ê°€ê°€ì„¸ìš”.");
 	}
 }

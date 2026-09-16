@@ -1,26 +1,26 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Cmove : MonoBehaviour
 {
-    /*ÇÃ·¹ÀÌ¾î ÁÂÇ¥¿¡¼­ Ä«¸Ş¶ó ÁÂÇ¥¸¦ »«ÈÄ ±× »« ¼ö¸¸Å­À» ÇâÇØ µû¶ó°¡´Â ÄÚµå*/
+    /*í”Œë ˆì´ì–´ ì¢Œí‘œì—ì„œ ì¹´ë©”ë¼ ì¢Œí‘œë¥¼ ëº€í›„ ê·¸ ëº€ ìˆ˜ë§Œí¼ì„ í–¥í•´ ë”°ë¼ê°€ëŠ” ì½”ë“œ*/
 
-    //Ä«¸Ş¶ó ¼Óµµ º¯¼ö°ª ÁöÁ¤
+    //ì¹´ë©”ë¼ ì†ë„ ë³€ìˆ˜ê°’ ì§€ì •
     public float cameraSpeed = 5.0f;
 
-    //¿ÜºÎ ÇÏÀÌ¾Æ¶óÅ° Ã¢¿¡ ÇÃ·¹ÀÌ¾î °¡Á®¿Í¼­ player º¯¼ö¿¡ ´ã±â
+    //ì™¸ë¶€ í•˜ì´ì•„ë¼í‚¤ ì°½ì— í”Œë ˆì´ì–´ ê°€ì ¸ì™€ì„œ player ë³€ìˆ˜ì— ë‹´ê¸°
     public GameObject player;
 
     private void Update()
     {
-        //dir = ÇÃ·¹ÀÌ¾î ÁÂÇ¥ - Ä«¸Ş¶ó ÁÂÇ¥
+        //dir = í”Œë ˆì´ì–´ ì¢Œí‘œ - ì¹´ë©”ë¼ ì¢Œí‘œ
         Vector3 dir = player.transform.position - this.transform.position;
 
-        //moveVector = dir¿¡ ÀÔ·ÂµÈ xÁÂÇ¥, yÁÂÇ¥¿¡ ¼Óµµ¶û ½Ã°£À» °öÇØ¼­ ³Ñ°ÜÁØ´Ù.
+        //moveVector = dirì— ì…ë ¥ëœ xì¢Œí‘œ, yì¢Œí‘œì— ì†ë„ë‘ ì‹œê°„ì„ ê³±í•´ì„œ ë„˜ê²¨ì¤€ë‹¤.
         Vector3 moveVector = new Vector3(dir.x * cameraSpeed * Time.deltaTime, dir.y * cameraSpeed * Time.deltaTime, 0.0f);
 
-        //ÀÌ ½ºÅ©¸³Æ®°¡ ´Ş¸° ¹°Ã¼´Â moveVector°ªÀ» ÇâÇØ º¯È¯ÇÑ´Ù.
+        //ì´ ìŠ¤í¬ë¦½íŠ¸ê°€ ë‹¬ë¦° ë¬¼ì²´ëŠ” moveVectorê°’ì„ í–¥í•´ ë³€í™˜í•œë‹¤.
         this.transform.Translate(moveVector);
     }
 }

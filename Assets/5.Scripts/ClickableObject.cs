@@ -1,12 +1,12 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class ClickableObject : MonoBehaviour
 {
-    // ½ÇÇàÇÒ ÇÔ¼ö
+    // ì‹¤í–‰í•  í•¨ìˆ˜
     public void ExecuteFunction()
     {
-        Debug.Log($"{gameObject.name}ÀÌ(°¡) Å¬¸¯µÇ¾ú½À´Ï´Ù!");
-        // ¿©±â¿¡ ½ÇÇàÇÏ°íÀÚ ÇÏ´Â µ¿ÀÛ Ãß°¡
+        Debug.Log($"{gameObject.name}ì´(ê°€) í´ë¦­ë˜ì—ˆìŠµë‹ˆë‹¤!");
+        // ì—¬ê¸°ì— ì‹¤í–‰í•˜ê³ ì í•˜ëŠ” ë™ì‘ ì¶”ê°€
     }
 }
 
@@ -14,7 +14,7 @@ public class InputManager : MonoBehaviour
 {
     void Update()
     {
-        // ¸¶¿ì½º ÁÂÅ¬¸¯ °¨Áö
+        // ë§ˆìš°ìŠ¤ ì¢Œí´ë¦­ ê°ì§€
         if (Input.GetMouseButtonDown(0))
         {
             CheckObjectUnderMouse();
@@ -23,18 +23,18 @@ public class InputManager : MonoBehaviour
 
     void CheckObjectUnderMouse()
     {
-        // Ä«¸Ş¶ó¿¡¼­ ¸¶¿ì½º À§Ä¡·Î Ray »ı¼º
+        // ì¹´ë©”ë¼ì—ì„œ ë§ˆìš°ìŠ¤ ìœ„ì¹˜ë¡œ Ray ìƒì„±
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        Debug.Log("³ª Å¬¸¯ ¤»¤»");
-        // Ray°¡ Collider¿Í Ãæµ¹ÇÏ¸é
+        Debug.Log("ë‚˜ í´ë¦­ ã…‹ã…‹");
+        // Rayê°€ Colliderì™€ ì¶©ëŒí•˜ë©´
         if (Physics.Raycast(ray, out hit))
         {
-            //Ãæµ¹ÇÑ ¿ÀºêÁ§Æ®ÀÇ ½ºÅ©¸³Æ® °¡Á®¿À±â
+            //ì¶©ëŒí•œ ì˜¤ë¸Œì íŠ¸ì˜ ìŠ¤í¬ë¦½íŠ¸ ê°€ì ¸ì˜¤ê¸°
             ClickableObject clickable = hit.collider.GetComponent<ClickableObject>();
             if (clickable != null)
             {
-                // ÇØ´ç ¿ÀºêÁ§Æ®ÀÇ ÇÔ¼ö ½ÇÇà
+                // í•´ë‹¹ ì˜¤ë¸Œì íŠ¸ì˜ í•¨ìˆ˜ ì‹¤í–‰
                 clickable.ExecuteFunction();
             }
         }

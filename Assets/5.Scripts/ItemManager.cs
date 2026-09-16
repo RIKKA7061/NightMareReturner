@@ -1,22 +1,22 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static ScriptableObjectTest;
 
-// ¾ÆÀÌÅÛ Á¤º¸¸¦ °ü¸®ÇÏ´Â Å×ÀÌºí
+// ì•„ì´í…œ ì •ë³´ë¥¼ ê´€ë¦¬í•˜ëŠ” í…Œì´ë¸”
 [CreateAssetMenu(fileName = "ItemDatabase", menuName = "Game/ItemDatabase")]
 public class ItemTable : ScriptableObject
 {
-	// ¾ÆÀÌÅÛ µ¥ÀÌÅÍ ±¸Á¶Ã¼
+	// ì•„ì´í…œ ë°ì´í„° êµ¬ì¡°ì²´
 	[System.Serializable]
 	public class ItemData
 	{
-		public string Name;	  // ¾ÆÀÌÅÛ ÀÌ¸§
-		public int num1;      // º¯¼ö1 
-		public float num2;    // º¯¼ö2
-		public float num3;	  // º¯¼ö3
+		public string Name;	  // ì•„ì´í…œ ì´ë¦„
+		public int num1;      // ë³€ìˆ˜1 
+		public float num2;    // ë³€ìˆ˜2
+		public float num3;	  // ë³€ìˆ˜3
 
 		public ItemData(string name, int Num1, float Num2, float Num3)
 		{
@@ -27,20 +27,20 @@ public class ItemTable : ScriptableObject
 		}
 	}
 
-	// ¾ÆÀÌÅÛ ¸ñ·Ï
+	// ì•„ì´í…œ ëª©ë¡
 	static public Dictionary<int, ItemData> itemDictionary;
 
 	static ItemTable()
 	{
 		itemDictionary = new Dictionary<int, ItemData>();
 
-		// ¾ÆÀÌÅÛ µ¥ÀÌÅÍ µî·Ï
-		itemDictionary.Add(1, new ItemData("°á¼Ó ¸ÁÄ¡", 250, 0, 0));
-		itemDictionary.Add(2, new ItemData("±â·Â ¹æ¿ï", 1, 0, 0)); // ¿¹Á¦ ¾ÆÀÌÅÛ
-		itemDictionary.Add(3, new ItemData("°ú¹ÎÀÇ ´«", -1, 0.1f, 0.02f)); // ¹æ¾î·Â °¨¼Ò, ÀÌ¼Ó Áõ°¡, °ø¼Ó Áõ°¡
+		// ì•„ì´í…œ ë°ì´í„° ë“±ë¡
+		itemDictionary.Add(1, new ItemData("ê²°ì† ë§ì¹˜", 250, 0, 0));
+		itemDictionary.Add(2, new ItemData("ê¸°ë ¥ ë°©ìš¸", 1, 0, 0)); // ì˜ˆì œ ì•„ì´í…œ
+		itemDictionary.Add(3, new ItemData("ê³¼ë¯¼ì˜ ëˆˆ", -1, 0.1f, 0.02f)); // ë°©ì–´ë ¥ ê°ì†Œ, ì´ì† ì¦ê°€, ê³µì† ì¦ê°€
 	}
 
-	// ¾ÆÀÌÅÛ µ¥ÀÌÅÍ °¡Á®¿À±â
+	// ì•„ì´í…œ ë°ì´í„° ê°€ì ¸ì˜¤ê¸°
 	//public ItemData GetItemData(int itemID)
 	//{
 	//	if (itemDictionary.ContainsKey(itemID))
@@ -54,27 +54,27 @@ public class ItemTable : ScriptableObject
 
 public class ItemManager : MonoBehaviour
 {
-	public ScriptableObjectTest[] itemData;  // ScriptableObjectTest ¿¬°á ÇÊµå
+	public ScriptableObjectTest[] itemData;  // ScriptableObjectTest ì—°ê²° í•„ë“œ
 
-	public Player player;               // ÇÃ·¹ÀÌ¾î ½ºÅ©¸³Æ®
-    public PlayerAction playerAction;   // ÇÃ·¹ÀÌ¾î ¾×¼Ç ½ºÅ©¸³Æ®
+	public Player player;               // í”Œë ˆì´ì–´ ìŠ¤í¬ë¦½íŠ¸
+    public PlayerAction playerAction;   // í”Œë ˆì´ì–´ ì•¡ì…˜ ìŠ¤í¬ë¦½íŠ¸
 
-    public bool isHammerBuffing;        // ÇØ¸Ó °ø°İ·Â »ó½Â ¹öÇÁ Àû¿ë ¿©ºÎ
-	public bool isHammerAtkUsed;        // 1È¸ ÇØ¸Ó °ø°İ ½ÇÇà µÊ?
+    public bool isHammerBuffing;        // í•´ë¨¸ ê³µê²©ë ¥ ìƒìŠ¹ ë²„í”„ ì ìš© ì—¬ë¶€
+	public bool isHammerAtkUsed;        // 1íšŒ í•´ë¨¸ ê³µê²© ì‹¤í–‰ ë¨?
 
-	public bool isCrunchMode;           // Áö±İ °ú¹ÎÀÇ ´« ÁßÀÎ°¡?
-	public GameObject CrunchEye;		// °ú¹ÎÀÇ ´« ¹öÇÁ ÀÌ¹ÌÁö 
+	public bool isCrunchMode;           // ì§€ê¸ˆ ê³¼ë¯¼ì˜ ëˆˆ ì¤‘ì¸ê°€?
+	public GameObject CrunchEye;		// ê³¼ë¯¼ì˜ ëˆˆ ë²„í”„ ì´ë¯¸ì§€ 
 
 	public bool isNextRoundHpUp = false;// HpUpCheck
 	public GameObject HpUPSet;
 
-	public GameObject HammerBuffSet;	// °á¼Ó¸ÁÄ¡ ¹öÇÁ Ç¥½Ã¿ë ÀÌ¹ÌÁö
-	public TextMeshProUGUI HammerCount; // ¹öÇÁ ¶ó¿îµå È½¼ö
+	public GameObject HammerBuffSet;	// ê²°ì†ë§ì¹˜ ë²„í”„ í‘œì‹œìš© ì´ë¯¸ì§€
+	public TextMeshProUGUI HammerCount; // ë²„í”„ ë¼ìš´ë“œ íšŸìˆ˜
 
 	public GameObject[] button;
 	public GameObject[] rock;
 
-	public void Signal(string itemText, int itemID) // »óÁ¡ ¾ÆÀÌÅÛ ½ÅÈ£ ¹Ş¾Æ¿Â´Ù.
+	public void Signal(string itemText, int itemID) // ìƒì  ì•„ì´í…œ ì‹ í˜¸ ë°›ì•„ì˜¨ë‹¤.
     {
         switch (itemID)
         {
@@ -101,20 +101,20 @@ public class ItemManager : MonoBehaviour
         }
     }
 
-    private void ItemPrint(string itemText, int itemID) // Å×½ºÆ®
+    private void ItemPrint(string itemText, int itemID) // í…ŒìŠ¤íŠ¸
     {
-		//Debug.Log(itemID + "¹ø ¾ÆÀÌÅÛ :" + itemText + "¸¦ ½ÇÇà");
+		//Debug.Log(itemID + "ë²ˆ ì•„ì´í…œ :" + itemText + "ë¥¼ ì‹¤í–‰");
 	}
 	
-    private void Hammer()// °á¼Ó ¸ÁÄ¡ ¾ÆÀÌÅÛ ÇÔ¼ö
+    private void Hammer()// ê²°ì† ë§ì¹˜ ì•„ì´í…œ í•¨ìˆ˜
 	{
-        player.HammerBuffedRoundCount = 3;		// 3 ¶ó¿îµå¸¸ ÇÑÇØ¼­ ¹öÇÁ ºÎ¿© (¶ó¿îµå ÀÌµ¿½Ã 1 ¼Ò¸ğ)
+        player.HammerBuffedRoundCount = 3;		// 3 ë¼ìš´ë“œë§Œ í•œí•´ì„œ ë²„í”„ ë¶€ì—¬ (ë¼ìš´ë“œ ì´ë™ì‹œ 1 ì†Œëª¨)
 		isHammerBuffing = true;
-		HammerBuffSet.SetActive(true);          // ¹öÇÁ ¼¼Æ® Ãâ·Â
-		HammerCount.text = player.HammerBuffedRoundCount.ToString(); // ¶ó¿îµå È½¼ö Ãâ·Â
+		HammerBuffSet.SetActive(true);          // ë²„í”„ ì„¸íŠ¸ ì¶œë ¥
+		HammerCount.text = player.HammerBuffedRoundCount.ToString(); // ë¼ìš´ë“œ íšŸìˆ˜ ì¶œë ¥
 	}
 
-	public void HammerBuff()// ÇØ¸Ó °ø°İ·Â »ó½Â (´Ü, ¹öÇÁÁß ÀÏ¶§ && 1È¸¿¡ ÇÑÇØ¼­)
+	public void HammerBuff()// í•´ë¨¸ ê³µê²©ë ¥ ìƒìŠ¹ (ë‹¨, ë²„í”„ì¤‘ ì¼ë•Œ && 1íšŒì— í•œí•´ì„œ)
 	{
 		if (isHammerBuffing == true && isHammerAtkUsed == false)
 		{
@@ -122,53 +122,53 @@ public class ItemManager : MonoBehaviour
 		}
 	}
 
-	public void HammerDeBuff()// ÇØ¸Ó °ø°İ·Â ÇÏ¶ô (´Ü, ¹öÇÁÁß ÀÏ¶§ && 1È¸¿¡ ÇÑÇØ¼­)
+	public void HammerDeBuff()// í•´ë¨¸ ê³µê²©ë ¥ í•˜ë½ (ë‹¨, ë²„í”„ì¤‘ ì¼ë•Œ && 1íšŒì— í•œí•´ì„œ)
 	{
 		if (isHammerBuffing == true && isHammerAtkUsed == false)
 		{
 			player.Atk -= itemData[0].Num1;
-			isHammerAtkUsed = true; // 1È¸ ÇØ¸Ó °ø°İ »ó½Â±Ç ½á¹ö¸²
+			isHammerAtkUsed = true; // 1íšŒ í•´ë¨¸ ê³µê²© ìƒìŠ¹ê¶Œ ì¨ë²„ë¦¼
 
-			if (player.HammerBuffedRoundCount == 0) // ÇØ¸Ó¹öÇÁ ¶ó¿îµå È½¼ö°¡ 0 ÀÏ½Ã
+			if (player.HammerBuffedRoundCount == 0) // í•´ë¨¸ë²„í”„ ë¼ìš´ë“œ íšŸìˆ˜ê°€ 0 ì¼ì‹œ
 			{
-				GoodByeHammerBuff();    // ÇØ¸Ó¹öÇÁ Àß°¡
+				GoodByeHammerBuff();    // í•´ë¨¸ë²„í”„ ì˜ê°€
 			}
 		}
 	}
 
 	public void RoundUp()
 	{
-		if(isHammerBuffing == true) // ¶ó¿îµå ±âÈ¸ 1¼Ò¸ğ (´Ü, ¹öÇÁÁß ÀÏ¶§)
+		if(isHammerBuffing == true) // ë¼ìš´ë“œ ê¸°íšŒ 1ì†Œëª¨ (ë‹¨, ë²„í”„ì¤‘ ì¼ë•Œ)
 		{
 			player.HammerBuffedRoundCount--;
-			isHammerAtkUsed = false; // 1È¸ ÇØ¸Ó °ø°İ »ó½Â±Ç »ı±è
-			HammerCount.text = player.HammerBuffedRoundCount.ToString(); // ¶ó¿îµå È½¼ö Ãâ·Â
+			isHammerAtkUsed = false; // 1íšŒ í•´ë¨¸ ê³µê²© ìƒìŠ¹ê¶Œ ìƒê¹€
+			HammerCount.text = player.HammerBuffedRoundCount.ToString(); // ë¼ìš´ë“œ íšŸìˆ˜ ì¶œë ¥
 		}
 
 		if (player.HammerBuffedRoundCount < 0)
 		{
-			GoodByeHammerBuff();	// ÇØ¸Ó¹öÇÁ Àß°¡
+			GoodByeHammerBuff();	// í•´ë¨¸ë²„í”„ ì˜ê°€
 		}
 	}
 
 	public void GoodByeHammerBuff()
 	{
-		isHammerBuffing = false;                 // ¶ó¿îµå ¼ö¸¦ ÃÊ°ú ÇØ¹ö·ÈÀ¸¹Ç·Î (ÀüÃ¼ÀûÀÎ ÇØ¸Ó)¹öÇÁ¸¦ ¹ÚÅ»ÇÕ´Ï´Ù.
-		HammerBuffSet.SetActive(false);          // ¹öÇÁ ¼¼Æ® ´Ù½Ã ¾Èº¸ÀÌ°Ô
-	} // ÇØ¸Ó ¹öÇÁ ÇØÁ¦ ÇÔ¼ö
+		isHammerBuffing = false;                 // ë¼ìš´ë“œ ìˆ˜ë¥¼ ì´ˆê³¼ í•´ë²„ë ¸ìœ¼ë¯€ë¡œ (ì „ì²´ì ì¸ í•´ë¨¸)ë²„í”„ë¥¼ ë°•íƒˆí•©ë‹ˆë‹¤.
+		HammerBuffSet.SetActive(false);          // ë²„í”„ ì„¸íŠ¸ ë‹¤ì‹œ ì•ˆë³´ì´ê²Œ
+	} // í•´ë¨¸ ë²„í”„ í•´ì œ í•¨ìˆ˜
 
-	public void NextRoundHpUp() // ±â·Â ¹æ¿ï ÇÔ¼ö
+	public void NextRoundHpUp() // ê¸°ë ¥ ë°©ìš¸ í•¨ìˆ˜
 	{
 		isNextRoundHpUp = true;
 		HpUPSet.SetActive(true);
 	}
 
-	public void DebuffHpUp() // ±â·Â ¹æ¿ï ¹öÇÁ ÇØÁ¦ ÇÔ¼ö
+	public void DebuffHpUp() // ê¸°ë ¥ ë°©ìš¸ ë²„í”„ í•´ì œ í•¨ìˆ˜
 	{
 		HpUPSet.SetActive(false);
 	}
 
-	public void HpUP() // ±â·Â ¹æ¿ï ¹öÇÁ ÀÖÀ»½Ã Àû¿ë
+	public void HpUP() // ê¸°ë ¥ ë°©ìš¸ ë²„í”„ ìˆì„ì‹œ ì ìš©
 	{
 		if(player.nowHP == player.maxHP)
 		{
@@ -176,7 +176,7 @@ public class ItemManager : MonoBehaviour
 		}
 		else if(player.nowHP <= player.maxHP)
 		{
-			player.nowHP += itemData[1].Num1;// hp ¿Ã·ÁÁÜ
+			player.nowHP += itemData[1].Num1;// hp ì˜¬ë ¤ì¤Œ
 		}
 	}
 
@@ -192,15 +192,15 @@ public class ItemManager : MonoBehaviour
 		CrunchEye.SetActive(false);
 	}
 
-	public void CrunchModeEye() // °ú¹ÎÀÇ ´«
+	public void CrunchModeEye() // ê³¼ë¯¼ì˜ ëˆˆ
 	{
-		// °ø¼Ó Áõ°¡ (ºÎÈ°½Ã ÃÊ±âÈ­ ÇØ¾ßµÉµí)
+		// ê³µì† ì¦ê°€ (ë¶€í™œì‹œ ì´ˆê¸°í™” í•´ì•¼ë ë“¯)
 		playerAction.jabCooldown -= itemData[2].Num3;
 
-		// ÀÌ¼Ó Áõ°¡ (ºÎÈ°½Ã ÃÊ±âÈ­ ÇØ¾ßµÉµí)
+		// ì´ì† ì¦ê°€ (ë¶€í™œì‹œ ì´ˆê¸°í™” í•´ì•¼ë ë“¯)
 		playerAction.walkSpeed += itemData[2].Num2;
 
-		// ¹æ¾î·Â °¨¼Ò (ºÎÈ°½Ã ÃÊ±âÈ­ ÇØ¾ßµÉµí)
+		// ë°©ì–´ë ¥ ê°ì†Œ (ë¶€í™œì‹œ ì´ˆê¸°í™” í•´ì•¼ë ë“¯)
 		player.AR += itemData[2].Num1;
 	}
 }

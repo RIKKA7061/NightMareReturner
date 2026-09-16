@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -7,131 +7,131 @@ using UnityEngine;
 
 public class PrefabSpawner : MonoBehaviour
 {
-    public GameObject prefab;               // »ı¼ºÇÒ Àû ÇÁ¸®ÆÕ
-    public Transform playerPos;             // ÇÃ·¹ÀÌ¾î À§Ä¡
+    public GameObject prefab;               // ìƒì„±í•  ì  í”„ë¦¬íŒ¹
+    public Transform playerPos;             // í”Œë ˆì´ì–´ ìœ„ì¹˜
 
-    public TalkManager talkManager;         // TalkManager ½ºÅ©¸³Æ®
-    public RoomGenerator roomGenerator;     // RoomGenerator ½ºÅ©¸³Æ®
+    public TalkManager talkManager;         // TalkManager ìŠ¤í¬ë¦½íŠ¸
+    public RoomGenerator roomGenerator;     // RoomGenerator ìŠ¤í¬ë¦½íŠ¸
 
-    [Header("¸î ¶ó¿îµå ÀÌ»ó »óÁ¡?")]
+    [Header("ëª‡ ë¼ìš´ë“œ ì´ìƒ ìƒì ?")]
     public int OverRoom;
 
-    [Header("»óÁ¡ ÅÚ·¹Æ÷Æ® ÇÁ¸®Æé")]
+    [Header("ìƒì  í…”ë ˆí¬íŠ¸ í”„ë¦¬í©")]
     public GameObject StorePos;
 
-	private List<GameObject> spawnedStoreTP = new List<GameObject>();   // »ı¼ºµÈ »óÁ¡ ÅÚ·¹Æ÷Æ® °´Ã¼µéÀ» ´ã°ÔµÉ ¸®½ºÆ® ¼±¾ğ
+	private List<GameObject> spawnedStoreTP = new List<GameObject>();   // ìƒì„±ëœ ìƒì  í…”ë ˆí¬íŠ¸ ê°ì²´ë“¤ì„ ë‹´ê²Œë  ë¦¬ìŠ¤íŠ¸ ì„ ì–¸
 
-	[Header("º¸»ó ¾ÆÀÌÅÛ ÇÁ¸®Æé")]
+	[Header("ë³´ìƒ ì•„ì´í…œ í”„ë¦¬í©")]
     public GameObject[] reward_item_prf;
-    private List<GameObject> spawnedItems = new List<GameObject>();     // »ı¼ºµÈ º¸»ó ¾ÆÀÌÅÛ °´Ã¼µéÀ» ´ã°ÔµÉ ¸®½ºÆ® ¼±¾ğ
+    private List<GameObject> spawnedItems = new List<GameObject>();     // ìƒì„±ëœ ë³´ìƒ ì•„ì´í…œ ê°ì²´ë“¤ì„ ë‹´ê²Œë  ë¦¬ìŠ¤íŠ¸ ì„ ì–¸
 
-    [Header("¸îÃÊ ÈÄ ÀûÀ» ¼ÒÈ¯ÇÒ °ÍÀÎ°¡?")]
+    [Header("ëª‡ì´ˆ í›„ ì ì„ ì†Œí™˜í•  ê²ƒì¸ê°€?")]
     public float sec = 3.0f;
 
-    [Header("ÇÑ ¶ó¿îµå´ç ÀûÀ» ¸î¸¶¸® ¼ÒÈ¯ÇÒ °ÍÀÎ°¡?")]
+    [Header("í•œ ë¼ìš´ë“œë‹¹ ì ì„ ëª‡ë§ˆë¦¬ ì†Œí™˜í•  ê²ƒì¸ê°€?")]
     public int spawnCount = 5;
 
-    [Header("ÁÖÀÎ°øÀ» ¼ÒÈ¯ÇÒ À§Ä¡")]
+    [Header("ì£¼ì¸ê³µì„ ì†Œí™˜í•  ìœ„ì¹˜")]
     public Transform[] Pos;
 
-    [Header("ÀûÀ» ¼ÒÈ¯ÇÒ À§Ä¡")]
+    [Header("ì ì„ ì†Œí™˜í•  ìœ„ì¹˜")]
     public Transform[] EnemySpawnPos;
 
-    [Header("º¸»ó ¾ÆÀÌÅÛ ¼ÒÈ¯ÇÒ À§Ä¡")]
+    [Header("ë³´ìƒ ì•„ì´í…œ ì†Œí™˜í•  ìœ„ì¹˜")]
     public Transform[] RewardItem_Pos;
 
-    [Header("¼ÒÈ¯ÇÒ À§Ä¡ ¿ÀºêÁ§Æ®µé")]
+    [Header("ì†Œí™˜í•  ìœ„ì¹˜ ì˜¤ë¸Œì íŠ¸ë“¤")]
     public GameObject[] PosObj;
 
-	[Header("¸îÃÊ ÀÖ´Ù°¡ µ¶¹éÀ» ½ÇÇàÇÒ·¡?")]
+	[Header("ëª‡ì´ˆ ìˆë‹¤ê°€ ë…ë°±ì„ ì‹¤í–‰í• ë˜?")]
 	public float docBack_DelayTime;
 
-    [Header("Àû ¼ÒÈ¯½Ã Àûµé °£ÀÇ °£°İ")]
+    [Header("ì  ì†Œí™˜ì‹œ ì ë“¤ ê°„ì˜ ê°„ê²©")]
     public float spawnOffset = 1.0f;
 
-    [Header("Àû ¼ÒÈ¯½Ã Çã¿ëÇÒ °Å¸® ¿ÀÂ÷")]
-    public float checkDistance = 0.1f;  // Çã¿ëÇÒ °Å¸® ¿ÀÂ÷
+    [Header("ì  ì†Œí™˜ì‹œ í—ˆìš©í•  ê±°ë¦¬ ì˜¤ì°¨")]
+    public float checkDistance = 0.1f;  // í—ˆìš©í•  ê±°ë¦¬ ì˜¤ì°¨
 
-    [Header("ÀÌ¹Ì ÇÑ¹ø ½ºÆùÇÔ?")]
+    [Header("ì´ë¯¸ í•œë²ˆ ìŠ¤í°í•¨?")]
     public bool isSpawnned = false;
 
-    [Header("ÇöÀç Ã³Ä¡ÇÑ ÀûÀÇ ¼ö¸¦ ³ªÅ¸³À´Ï´Ù.")]
+    [Header("í˜„ì¬ ì²˜ì¹˜í•œ ì ì˜ ìˆ˜ë¥¼ ë‚˜íƒ€ëƒ…ë‹ˆë‹¤.")]
     public int RoomEnemyCount = 0;
 
-    //static public bool alreadySpawnedEnemies = false; // ¸ó½ºÅÍ ¼ÒÈ¯ Á¶°Ç
+    //static public bool alreadySpawnedEnemies = false; // ëª¬ìŠ¤í„° ì†Œí™˜ ì¡°ê±´
 
     int temp_i = 0;
 
     private void Update()
     {
-		// ÇÑ ¹æ¿¡¼­ Àû ÀüºÎ Ã³Ä¡½Ã
+		// í•œ ë°©ì—ì„œ ì  ì „ë¶€ ì²˜ì¹˜ì‹œ
 		if (RoomEnemyCount == spawnCount)
 		{
-            // ÇöÀç Àû Ã³Ä¡¼ö ÃÊ±âÈ­
+            // í˜„ì¬ ì  ì²˜ì¹˜ìˆ˜ ì´ˆê¸°í™”
             RoomEnemyCount = 0;
 
-            // »óÁ¡ ¶ó¿îµå ¼ö¸¸Å­ ¿ÔÀ» ½Ã
+            // ìƒì  ë¼ìš´ë“œ ìˆ˜ë§Œí¼ ì™”ì„ ì‹œ
             if (Player.gameRound == OverRoom || Player.gameRound > OverRoom)
             {
-                // »óÁ¡ °¡´Â ÅÚÆ÷ »ı¼º
-                Vector3 leftPosition = Pos[temp_i].position + Vector3.left * 1.5f; // ÁÂÇ¥ ±âÁØ ¿ŞÂÊÀ¸·Î ÀÌµ¿
-                GameObject newItems = Instantiate(StorePos, leftPosition, Quaternion.identity); // »ı¼ºµÈ ÅÚ·¹Æ÷Æ®¸¦ º¯¼ö¿¡ ÀúÀå
+                // ìƒì  ê°€ëŠ” í…”í¬ ìƒì„±
+                Vector3 leftPosition = Pos[temp_i].position + Vector3.left * 1.5f; // ì¢Œí‘œ ê¸°ì¤€ ì™¼ìª½ìœ¼ë¡œ ì´ë™
+                GameObject newItems = Instantiate(StorePos, leftPosition, Quaternion.identity); // ìƒì„±ëœ í…”ë ˆí¬íŠ¸ë¥¼ ë³€ìˆ˜ì— ì €ì¥
 				spawnedStoreTP.Add(newItems);
 			}
-			// ÀÏ¹İ ¶ó¿îµå »ı¼º ÇÒ ¶§
+			// ì¼ë°˜ ë¼ìš´ë“œ ìƒì„± í•  ë•Œ
 			else
 			{
-                roomGenerator.RandomDoorGenerate(temp_i); // ·£´ı ¹® »ı¼º
+                roomGenerator.RandomDoorGenerate(temp_i); // ëœë¤ ë¬¸ ìƒì„±
             }
             //
             Debug.Log(temp_i);
             QuestManager.AllKill_inRoom();
-            GameObject newItem = Instantiate(reward_item_prf[temp_i], RewardItem_Pos[temp_i].position, Quaternion.identity); // º¸»ó ¾ÆÀÌÅÛ »ı¼º(¾ÆÀÌÅÛ ÇÁ¸®Æé, ¼ÒÈ¯µÉ À§Ä¡, rotation)
-			spawnedItems.Add(newItem);                                                                            // »ı¼ºµÈ º¸»ó ¾ÆÀÌÅÛÀ» ¸®½ºÆ®¿¡ Ãß°¡
+            GameObject newItem = Instantiate(reward_item_prf[temp_i], RewardItem_Pos[temp_i].position, Quaternion.identity); // ë³´ìƒ ì•„ì´í…œ ìƒì„±(ì•„ì´í…œ í”„ë¦¬í©, ì†Œí™˜ë  ìœ„ì¹˜, rotation)
+			spawnedItems.Add(newItem);                                                                            // ìƒì„±ëœ ë³´ìƒ ì•„ì´í…œì„ ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€
 		}
 
-		// ÇÃ·¹ÀÌ¾î°¡ ÇØ´ç ¹æ¿¡ ¿Ã½Ã && ¶ó¿îµå°¡ ÁøÇà ÁßÀÌ ¾Æ´Ï¶ó ÇÃ·¹ÀÌ¾î°¡ ´ÙÀ½ ¶ó¿îµå¸¦ ¼±ÅÃÇßÀ» ¶§ && ÀÌ¹Ì ÇÑ¹ø ½ºÆùÇÔ?ÀÌ FalseÀÏ½Ã
+		// í”Œë ˆì´ì–´ê°€ í•´ë‹¹ ë°©ì— ì˜¬ì‹œ && ë¼ìš´ë“œê°€ ì§„í–‰ ì¤‘ì´ ì•„ë‹ˆë¼ í”Œë ˆì´ì–´ê°€ ë‹¤ìŒ ë¼ìš´ë“œë¥¼ ì„ íƒí–ˆì„ ë•Œ && ì´ë¯¸ í•œë²ˆ ìŠ¤í°í•¨?ì´ Falseì¼ì‹œ
 		for (int i = 0; i < Pos.Length; i++)
         {
             if (Vector3.Distance(playerPos.position, Pos[i].position) < checkDistance && !isSpawnned)
             {
-                temp_i = i;         // À§Ä¡ ÀúÀå¿ë
-                SpawnEnemies(i);    // Àû ¼ÒÈ¯
+                temp_i = i;         // ìœ„ì¹˜ ì €ì¥ìš©
+                SpawnEnemies(i);    // ì  ì†Œí™˜
             }
         }
     }
 
-    public void SpawnEnemies(int room) // Àû ¼ÒÈ¯
+    public void SpawnEnemies(int room) // ì  ì†Œí™˜
     {
-        // ÀÌ¹Ì ÇÑ¹ø ½ºÆùÇÔ? -> False ÀÏ½Ã
+        // ì´ë¯¸ í•œë²ˆ ìŠ¤í°í•¨? -> False ì¼ì‹œ
         if (isSpawnned == false)
         {
-            roomGenerator.DestroyDoor();                // »ı¼ºµÇ¾ú´ø ¹® ÆÄ±«
-            isSpawnned = true;                          // ÀÌ¹Ì ÇÑ¹ø ½ºÆùÇÔ? -> True·Î ¼³Á¤
-            StartCoroutine(DelayedSpawn(sec, room));    // Àû ¼ÒÈ¯
-            StartCoroutine(DocBack());                  // ÁÖÀÎ°ø µ¶¹é ½ÃÀÛ
+            roomGenerator.DestroyDoor();                // ìƒì„±ë˜ì—ˆë˜ ë¬¸ íŒŒê´´
+            isSpawnned = true;                          // ì´ë¯¸ í•œë²ˆ ìŠ¤í°í•¨? -> Trueë¡œ ì„¤ì •
+            StartCoroutine(DelayedSpawn(sec, room));    // ì  ì†Œí™˜
+            StartCoroutine(DocBack());                  // ì£¼ì¸ê³µ ë…ë°± ì‹œì‘
         }
     }
 
-    IEnumerator DocBack() // ±â´Ù·È´Ù°¡ µ¶¹éÃâ·Â
+    IEnumerator DocBack() // ê¸°ë‹¤ë ¸ë‹¤ê°€ ë…ë°±ì¶œë ¥
     {
 		yield return new WaitForSeconds(docBack_DelayTime);
-		talkManager.SoloTalk(); // ´øÀü ÁøÀÔ »óÈ²
+		talkManager.SoloTalk(); // ë˜ì „ ì§„ì… ìƒí™©
 	}
 
-    IEnumerator DelayedSpawn(float delay, int room) // ±â´Ù·È´Ù°¡ Àû ¼ÒÈ¯ÇØÁÖ´Â ½Ã°£Â÷ ÇÔ¼ö
+    IEnumerator DelayedSpawn(float delay, int room) // ê¸°ë‹¤ë ¸ë‹¤ê°€ ì  ì†Œí™˜í•´ì£¼ëŠ” ì‹œê°„ì°¨ í•¨ìˆ˜
     {
-        yield return new WaitForSeconds(delay);     // NÃÊ ½Ã°£ Áö¿¬ (ÄÄÆ÷³ÍÆ®¿¡ Sec ºÎºĞ)
-        SpawnPrefabs(room);                         // ÇÁ¸®ÆÕ ¼ÒÈ¯ ÇÔ¼ö È£Ãâ
+        yield return new WaitForSeconds(delay);     // Nì´ˆ ì‹œê°„ ì§€ì—° (ì»´í¬ë„ŒíŠ¸ì— Sec ë¶€ë¶„)
+        SpawnPrefabs(room);                         // í”„ë¦¬íŒ¹ ì†Œí™˜ í•¨ìˆ˜ í˜¸ì¶œ
     }
 
-    public void SpawnPrefabs(int room) // ÁÂÇ¥¿¡ Àû ¼ÒÈ¯
+    public void SpawnPrefabs(int room) // ì¢Œí‘œì— ì  ì†Œí™˜
     {
         for (int i = 0; i < spawnCount; i++)
         {
-            //Transform spawnTransform = Pos[room];                                               // ÀûÀ» ¼ÒÈ¯ÇÒ À§Ä¡
-            //Vector3 position = spawnTransform.position + new Vector3(i * spawnOffset, 0, 0);    // ¼ÒÈ¯ÇÒ À§Ä¡ °è»ê
-            //Instantiate(prefab, position, Quaternion.identity);                                 // ÇÁ¸®ÆÕ ¼ÒÈ¯
+            //Transform spawnTransform = Pos[room];                                               // ì ì„ ì†Œí™˜í•  ìœ„ì¹˜
+            //Vector3 position = spawnTransform.position + new Vector3(i * spawnOffset, 0, 0);    // ì†Œí™˜í•  ìœ„ì¹˜ ê³„ì‚°
+            //Instantiate(prefab, position, Quaternion.identity);                                 // í”„ë¦¬íŒ¹ ì†Œí™˜
 
             Transform spawnTransform = EnemySpawnPos[room * 5 + i];
             Vector3 position = spawnTransform.position + new Vector3(spawnOffset, 0, 0);
@@ -139,7 +139,7 @@ public class PrefabSpawner : MonoBehaviour
         }
     }
 
-    public void DestroySpawnedObjects() // »ı¼ºµÈ ¾ÆÀÌÅÛ ¹× »óÁ¡ TP °´Ã¼ Á¦°Å
+    public void DestroySpawnedObjects() // ìƒì„±ëœ ì•„ì´í…œ ë° ìƒì  TP ê°ì²´ ì œê±°
     {
         foreach (var item in spawnedItems)
         {

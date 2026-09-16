@@ -1,21 +1,21 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponChange : MonoBehaviour
 {
-    public List<GameObject> weapons; // ¹«±â ¸®½ºÆ®
-    private int selectedWeapon = 0;  // ÇöÀç ¼±ÅÃµÈ ¹«±â ÀÎµ¦½º
+    public List<GameObject> weapons; // ë¬´ê¸° ë¦¬ìŠ¤íŠ¸
+    private int selectedWeapon = 0;  // í˜„ì¬ ì„ íƒëœ ë¬´ê¸° ì¸ë±ìŠ¤
 
 
     void Start()
     {
-        SelectWeapon();  // ½ÃÀÛÇÒ ¶§ ±âº» ¹«±â ¼±ÅÃ
+        SelectWeapon();  // ì‹œì‘í•  ë•Œ ê¸°ë³¸ ë¬´ê¸° ì„ íƒ
     }
 
     void Update()
     {
-        // ¼ıÀÚ Å°·Î ¹«±â ±³Ã¼
+        // ìˆ«ì í‚¤ë¡œ ë¬´ê¸° êµì²´
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             selectedWeapon = 0;
@@ -32,7 +32,7 @@ public class WeaponChange : MonoBehaviour
             SelectWeapon();
         }
 
-        // ¸¶¿ì½º ÈÙ·Î ¹«±â ±³Ã¼
+        // ë§ˆìš°ìŠ¤ íœ ë¡œ ë¬´ê¸° êµì²´
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         if (scroll > 0f)
         {
@@ -49,7 +49,7 @@ public class WeaponChange : MonoBehaviour
 
     void SelectWeapon()
     {
-        // ¸ğµç ¹«±â¸¦ ºñÈ°¼ºÈ­ÇÏ°í, ¼±ÅÃµÈ ¹«±â¸¸ È°¼ºÈ­
+        // ëª¨ë“  ë¬´ê¸°ë¥¼ ë¹„í™œì„±í™”í•˜ê³ , ì„ íƒëœ ë¬´ê¸°ë§Œ í™œì„±í™”
         for (int i = 0; i < weapons.Count; i++)
         {
             weapons[i].SetActive(i == selectedWeapon);

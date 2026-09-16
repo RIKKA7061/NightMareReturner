@@ -1,10 +1,10 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Memo : MonoBehaviour
 {
-//»ç¿ë ¼³¸í¼­
+//ì‚¬ìš© ì„¤ëª…ì„œ
 
 
 /*
@@ -13,24 +13,24 @@ public class Memo : MonoBehaviour
 
 
 
-	1. Á¶»ç ¾×¼Ç ¾ÈµÉ ¶§
-		boxcollider 2DÄÄÆ÷³ÍÆ® ºÎÂø - rigidbody2d ÄÄÆ÷³ÍÆ® ºÎÂø (Kintic¼³Á¤, gravity scale 0)
+	1. ì¡°ì‚¬ ì•¡ì…˜ ì•ˆë  ë•Œ
+		boxcollider 2Dì»´í¬ë„ŒíŠ¸ ë¶€ì°© - rigidbody2d ì»´í¬ë„ŒíŠ¸ ë¶€ì°© (Kinticì„¤ì •, gravity scale 0)
 
-	2. ÅÚ·¹Æ÷Æ® ¾ÈµÉ ¶§
-		Äİ¶óÀÌ´õ ÄÄÆ÷³ÍÆ®¿¡ isTrigger Ã¼Å© ÇÏ¼À
+	2. í…”ë ˆí¬íŠ¸ ì•ˆë  ë•Œ
+		ì½œë¼ì´ë” ì»´í¬ë„ŒíŠ¸ì— isTrigger ì²´í¬ í•˜ì…ˆ
 
-	3. NullReference ¿øÀÎ ¸ğ¸¦ ¿¡·¯ ¹ß»ı½Ã (¹ß»ıÇØµµ ºôµå´Â µ¹¾Æ°¥½Ã)
-		À¯´ÏÆ¼ ²¯´Ù Å°¼À (¼¼ÀÌºê ²ÀÇÏ°í)
+	3. NullReference ì›ì¸ ëª¨ë¥¼ ì—ëŸ¬ ë°œìƒì‹œ (ë°œìƒí•´ë„ ë¹Œë“œëŠ” ëŒì•„ê°ˆì‹œ)
+		ìœ ë‹ˆí‹° ê»ë‹¤ í‚¤ì…ˆ (ì„¸ì´ë¸Œ ê¼­í•˜ê³ )
 
-	4. isometric ½ÃÁ¡ ¿ÀºêÁ§Æ® Äİ¶óÀÌ´õ ¼³Á¤
-		edge collider 2d·Î Á÷Á¢ Äİ¶óÀÌ´õ ¸¸µå¼À
+	4. isometric ì‹œì  ì˜¤ë¸Œì íŠ¸ ì½œë¼ì´ë” ì„¤ì •
+		edge collider 2dë¡œ ì§ì ‘ ì½œë¼ì´ë” ë§Œë“œì…ˆ
 
-	5. Àû °ø°İ·Â 
-		Àû ÇÁ¸®Æé -> ¿ø°Å¸® °ø°İ -> Weapon2½ºÅ©¸³Æ®
+	5. ì  ê³µê²©ë ¥ 
+		ì  í”„ë¦¬í© -> ì›ê±°ë¦¬ ê³µê²© -> Weapon2ìŠ¤í¬ë¦½íŠ¸
 
-	6. ´Ù¸¥ ½ºÅ©¸³Æ® °ª °¡Á®¿Ã ¶§
-		private ¼±¾ğ½Ã ¹«Á¶°Ç start³ª awake¿¡¼­ ¼±¾ğÇØÁÖ±â
-		player = FindObjectOfType<Player>();//¹«Á¶°Ç ÇØÁà¾ßµÊ (ÃÊ±âÈ­)
+	6. ë‹¤ë¥¸ ìŠ¤í¬ë¦½íŠ¸ ê°’ ê°€ì ¸ì˜¬ ë•Œ
+		private ì„ ì–¸ì‹œ ë¬´ì¡°ê±´ startë‚˜ awakeì—ì„œ ì„ ì–¸í•´ì£¼ê¸°
+		player = FindObjectOfType<Player>();//ë¬´ì¡°ê±´ í•´ì¤˜ì•¼ë¨ (ì´ˆê¸°í™”)
 
 
 

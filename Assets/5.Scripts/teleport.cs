@@ -1,127 +1,127 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
 
 public class teleport : MonoBehaviour
 {
-    [Header("ÁÂÇ¥")]
-	public Transform [] Pos; // ÀÌµ¿ÇÏ°ÔµÉ ÁÂÇ¥
+    [Header("ì¢Œí‘œ")]
+	public Transform [] Pos; // ì´ë™í•˜ê²Œë  ì¢Œí‘œ
 
 	private Player player;
-	private PlayerAction playerAction;							// PlayerAction ½ºÅ©¸³Æ®
-	private ItemManager itemManager;							// ItemManager ½ºÅ©¸³Æ®
-	private GoHomeManager goHomeManager;						// GoHomeManager ½ºÅ©¸³Æ®
-	private DirectingCameraManager directingCameraManager;      // DirectingCameraManager ½ºÅ©¸³Æ®
-	private PrefabSpawner prefabSpawner;                        // PrefabSpawner ½ºÅ©¸³Æ®	
+	private PlayerAction playerAction;							// PlayerAction ìŠ¤í¬ë¦½íŠ¸
+	private ItemManager itemManager;							// ItemManager ìŠ¤í¬ë¦½íŠ¸
+	private GoHomeManager goHomeManager;						// GoHomeManager ìŠ¤í¬ë¦½íŠ¸
+	private DirectingCameraManager directingCameraManager;      // DirectingCameraManager ìŠ¤í¬ë¦½íŠ¸
+	private PrefabSpawner prefabSpawner;                        // PrefabSpawner ìŠ¤í¬ë¦½íŠ¸	
 
-	[Header("³ª Å¬¸¯Çß¾î?")]
+	[Header("ë‚˜ í´ë¦­í–ˆì–´?")]
 	public bool isAlreadyClicked = false;
 
-	[Header("ÀÌ°Å Ãæµ¹½Ã º¸½º¹æÀ¸·Î °¡Áö´Ï?")]
+	[Header("ì´ê±° ì¶©ëŒì‹œ ë³´ìŠ¤ë°©ìœ¼ë¡œ ê°€ì§€ë‹ˆ?")]
 	public bool isBossTP;
 
-	[Header("Â÷ Àü¿ë ÅÚ·¹Æ÷Æ®")]
+	[Header("ì°¨ ì „ìš© í…”ë ˆí¬íŠ¸")]
 	public bool isCarTP;
 
 	private void Start()
 	{
-		playerAction = FindObjectOfType<Player>().GetComponent<PlayerAction>(); // PlayerAction ½ºÅ©¸³Æ® °¡Á®¿À±â
-		itemManager = FindObjectOfType<ItemManager>();                          // ItemManager ½ºÅ©¸³Æ® °¡Á®¿À±â
-		goHomeManager = FindObjectOfType<GoHomeManager>();                      // GoHomeManager ½ºÅ©¸³Æ® °¡Á®¿À±â	
-		directingCameraManager = FindObjectOfType<DirectingCameraManager>();    // DirectingCameraManager ½ºÅ©¸³Æ® °¡Á®¿À±â
-		prefabSpawner = FindObjectOfType<PrefabSpawner>();                      // PrefabSpawner ½ºÅ©¸³Æ® °¡Á®¿À±â
+		playerAction = FindObjectOfType<Player>().GetComponent<PlayerAction>(); // PlayerAction ìŠ¤í¬ë¦½íŠ¸ ê°€ì ¸ì˜¤ê¸°
+		itemManager = FindObjectOfType<ItemManager>();                          // ItemManager ìŠ¤í¬ë¦½íŠ¸ ê°€ì ¸ì˜¤ê¸°
+		goHomeManager = FindObjectOfType<GoHomeManager>();                      // GoHomeManager ìŠ¤í¬ë¦½íŠ¸ ê°€ì ¸ì˜¤ê¸°	
+		directingCameraManager = FindObjectOfType<DirectingCameraManager>();    // DirectingCameraManager ìŠ¤í¬ë¦½íŠ¸ ê°€ì ¸ì˜¤ê¸°
+		prefabSpawner = FindObjectOfType<PrefabSpawner>();                      // PrefabSpawner ìŠ¤í¬ë¦½íŠ¸ ê°€ì ¸ì˜¤ê¸°
 		player = FindAnyObjectByType<Player>();
 	}
 
-	// ÇÃ·¹ÀÌ¾î¿Í Ãæµ¹½Ã
+	// í”Œë ˆì´ì–´ì™€ ì¶©ëŒì‹œ
 	private void OnTriggerEnter2D(Collider2D collider)
 	{
-		//Debug.Log("Ä§´ë¿Í ´ê¾ÒÀ» ½Ã");
+		//Debug.Log("ì¹¨ëŒ€ì™€ ë‹¿ì•˜ì„ ì‹œ");
 
-		// playerAction ½ºÅ©¸³Æ®°¡ ºñ¾úÀ»½Ã
+		// playerAction ìŠ¤í¬ë¦½íŠ¸ê°€ ë¹„ì—ˆì„ì‹œ
 		if (playerAction == null)
 		{
 			return;
 		}
 
-		// Pos ²ø¾îÄ¡±â ¾ÈÇÒ½Ã
+		// Pos ëŒì–´ì¹˜ê¸° ì•ˆí• ì‹œ
 		if (Pos == null || Pos.Length == 0)
 		{
-			Debug.LogError("À§Ä¡°¡ ÇÒ´çµÇÁö ¾Ê¾Ò½À´Ï´Ù.");
+			Debug.LogError("ìœ„ì¹˜ê°€ í• ë‹¹ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 			return;
 		}
 
-		// Pos ²ø¾îÄ¡±â ¾ÈÇÒ½Ã22
+		// Pos ëŒì–´ì¹˜ê¸° ì•ˆí• ì‹œ22
 		foreach (var pos in Pos)
 		{
 			if (pos == null)
 			{
-				Debug.LogError("À§Ä¡°¡ ÇÒ´çµÇÁö ¾Ê¾Ò½À´Ï´Ù.");
+				Debug.LogError("ìœ„ì¹˜ê°€ í• ë‹¹ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 				return;
 			}
 		}
 
 
-		// ÀÌ°Ô Â÷¾ß?
+		// ì´ê²Œ ì°¨ì•¼?
 		if (isCarTP)
 		{
 			if (collider.CompareTag("Car"))
 			{
-				// ÇÃ·¹ÀÌ¾î ÅÚÆ÷
-				collider.transform.position = Pos[0].position;  // ÇÃ·¹ÀÌ¾î ÇØ´ç À§Ä¡·Î Àü¼Û
+				// í”Œë ˆì´ì–´ í…”í¬
+				collider.transform.position = Pos[0].position;  // í”Œë ˆì´ì–´ í•´ë‹¹ ìœ„ì¹˜ë¡œ ì „ì†¡
 			}
 		}
 
-		// ÇÃ·¹ÀÌ¾î°¡ °ø°İ¿©ºÎ°¡ False ÀÏ½Ã
+		// í”Œë ˆì´ì–´ê°€ ê³µê²©ì—¬ë¶€ê°€ False ì¼ì‹œ
 		if (!playerAction.isAtking )
 		{
-			// ÇÃ·¹ÀÌ¾î Äİ¶óÀÌ´õ¿Í Ãæµ¹½Ã
+			// í”Œë ˆì´ì–´ ì½œë¼ì´ë”ì™€ ì¶©ëŒì‹œ
 			if (collider.CompareTag("Player"))
 			{
-				// À§Ä¡ ÁÂÇ¥°¡ 2°³ ÀÌ»óÀÏ½Ã
+				// ìœ„ì¹˜ ì¢Œí‘œê°€ 2ê°œ ì´ìƒì¼ì‹œ
 				if (Pos.Length >= 2)
 				{
-					// µÑÁß ÇÏ³ª ·£´ıÀ¸·Î ³Ñ¾î°©´Ï´Ù.
+					// ë‘˜ì¤‘ í•˜ë‚˜ ëœë¤ìœ¼ë¡œ ë„˜ì–´ê°‘ë‹ˆë‹¤.
 					int RANDOM_NUMBER = Random.Range(0, Pos.Length);
 					collider.transform.position = Pos[RANDOM_NUMBER].position;
 				}
-				// À§Ä¡ ÁÂÇ¥°¡ 1°³ ÀÏ½Ã
+				// ìœ„ì¹˜ ì¢Œí‘œê°€ 1ê°œ ì¼ì‹œ
 				else 
 				{
 					Debug.Log("test");
-					// ÇÃ·¹ÀÌ¾î¸¦ ÀÌµ¿½ÃÅµ´Ï´Ù.
+					// í”Œë ˆì´ì–´ë¥¼ ì´ë™ì‹œí‚µë‹ˆë‹¤.
 					MovePlayer(collider);
 
 					if (isBossTP)
 					{
-						Debug.Log("º¸½º¹æ µ¹ÀÔ, ¿£´õµå·¡°ï Ã¼·Â¹Ù Ãâ·Â");
+						Debug.Log("ë³´ìŠ¤ë°© ëŒì…, ì—”ë”ë“œë˜ê³¤ ì²´ë ¥ë°” ì¶œë ¥");
 					}
 				}
 			}
 		}
-		// ÇÃ·¹ÀÌ¾î °ø°İ¿©ºÎ°¡ True ÀÏ½Ã
+		// í”Œë ˆì´ì–´ ê³µê²©ì—¬ë¶€ê°€ True ì¼ì‹œ
 		else
 		{
 		}
 	}
 
 
-	// ÇÃ·¹ÀÌ¾î ÀÌµ¿ ÇÔ¼ö
+	// í”Œë ˆì´ì–´ ì´ë™ í•¨ìˆ˜
 	public void MovePlayer(Collider2D collider)
 	{
         if (!isAlreadyClicked)
         {
-			// Å¬¸¯ ¿©ºÎ True
+			// í´ë¦­ ì—¬ë¶€ True
 			isAlreadyClicked = true;
 
-			// Zoom-in ¿¬Ãâ ÀÌÈÄ ÅÚ·¹Æ÷Æ® ½ÇÇà
+			// Zoom-in ì—°ì¶œ ì´í›„ í…”ë ˆí¬íŠ¸ ì‹¤í–‰
 			StartCoroutine(ZoomAndTeleport(collider));
 		}
 	}
 
-	// Zoom-in ¿¬Ãâ ÀÌÈÄ ÅÚ·¹Æ÷Æ® ÄÚ·çÆ¾
+	// Zoom-in ì—°ì¶œ ì´í›„ í…”ë ˆí¬íŠ¸ ì½”ë£¨í‹´
 	private IEnumerator ZoomAndTeleport(Collider2D collider)
 	{
-		// Zoom-in ¿¬Ãâ (1ÃÊ ´ë±â)
+		// Zoom-in ì—°ì¶œ (1ì´ˆ ëŒ€ê¸°)
 		directingCameraManager.ZoomIn();
 		yield return new WaitForSeconds(1f);
 
@@ -129,15 +129,15 @@ public class teleport : MonoBehaviour
 
 		yield return new WaitForSeconds(0.5f);
 
-		// ÇÃ·¹ÀÌ¾î ÅÚÆ÷
-		collider.transform.position = Pos[0].position;  // ÇÃ·¹ÀÌ¾î ÇØ´ç À§Ä¡·Î Àü¼Û
+		// í”Œë ˆì´ì–´ í…”í¬
+		collider.transform.position = Pos[0].position;  // í”Œë ˆì´ì–´ í•´ë‹¹ ìœ„ì¹˜ë¡œ ì „ì†¡
 
-		// Å¬¸¯ ¿©ºÎ False
+		// í´ë¦­ ì—¬ë¶€ False
 		isAlreadyClicked = false;
 
 		Player.gameRound++;
-		prefabSpawner.isSpawnned = false;    // ´ÙÀ½ ¶ó¿îµå·Î ¹®À» ¿­¾úÀ¸´Ï ¸ó½ºÅÍ ¼ÒÈ¯ÀÌ °¡´ÉÇØÁı´Ï´Ù.
-		itemManager.RoundUp();                          // ¶ó¿îµå ±âÈ¸ 1¼Ò¸ğ (´Ü, ¹öÇÁÁß ÀÏ¶§)
+		prefabSpawner.isSpawnned = false;    // ë‹¤ìŒ ë¼ìš´ë“œë¡œ ë¬¸ì„ ì—´ì—ˆìœ¼ë‹ˆ ëª¬ìŠ¤í„° ì†Œí™˜ì´ ê°€ëŠ¥í•´ì§‘ë‹ˆë‹¤.
+		itemManager.RoundUp();                          // ë¼ìš´ë“œ ê¸°íšŒ 1ì†Œëª¨ (ë‹¨, ë²„í”„ì¤‘ ì¼ë•Œ)
 
 		if (itemManager.isNextRoundHpUp == true)
 		{
@@ -155,8 +155,8 @@ public class teleport : MonoBehaviour
 
 		directingCameraManager.ZoomOut();
 
-		Debug.Log("³» À§Ä¡ ¾Ë¸®±â");
-		player.NowPosAnnounce(); // ÇöÀç À§Ä¡ ¾Ë¸®±â
+		Debug.Log("ë‚´ ìœ„ì¹˜ ì•Œë¦¬ê¸°");
+		player.NowPosAnnounce(); // í˜„ì¬ ìœ„ì¹˜ ì•Œë¦¬ê¸°
 	}
 
 }

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine.UI;
@@ -7,16 +7,16 @@ using UnityEngine;
 public class ShopManager : MonoBehaviour
 {
     Player player;
-    ItemManager itemManager;    // ¾ÆÀÌÅÛ ¸Å´ÏÀú
-    public int ItemID;          // ¾ÆÀÌÅÛ ¹øÈ£
-    public int ItemMoney;       // ÀçÈ­
+    ItemManager itemManager;    // ì•„ì´í…œ ë§¤ë‹ˆì €
+    public int ItemID;          // ì•„ì´í…œ ë²ˆí˜¸
+    public int ItemMoney;       // ì¬í™”
     public Text ItemMoneyTxt;
     public Text ItemNameTxt;
     public GameObject soldout;
 
     private void Awake()
     {
-        player = FindObjectOfType<Player>(); // ¹«Á¶°Ç ÇØÁà¾ßµÊ (ÃÊ±âÈ­)
+        player = FindObjectOfType<Player>(); // ë¬´ì¡°ê±´ í•´ì¤˜ì•¼ë¨ (ì´ˆê¸°í™”)
 		itemManager = FindAnyObjectByType<ItemManager>();
 	}
 
@@ -36,12 +36,12 @@ public class ShopManager : MonoBehaviour
             itemManager.Signal(ItemNametext, ItemID);
 
             soldout.SetActive(true);
-            // Debug.Log($"{ItemNametext}¸¦ ±¸¸ÅÇÏ¼Ì½À´Ï´Ù.");
+            // Debug.Log($"{ItemNametext}ë¥¼ êµ¬ë§¤í•˜ì…¨ìŠµë‹ˆë‹¤.");
         }
 
 		else if (Player.Money < ItemMoney)
         {
-            Debug.Log("µ· ¾ø´Ù.");
+            Debug.Log("ëˆ ì—†ë‹¤.");
         }
     }
 }

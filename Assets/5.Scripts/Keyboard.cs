@@ -1,20 +1,20 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Keyboard : MonoBehaviour
 {
-	//ÇÃ·¹ÀÌ¾îÀÇ ÁÂÇ¥ º¯¼ö ÀÎµí?
+	//í”Œë ˆì´ì–´ì˜ ì¢Œí‘œ ë³€ìˆ˜ ì¸ë“¯?
 	public Transform player;
 	private Player playerScript;
 	public GameObject Dev_Btn;
 
-	//ÁÂÇ¥ º¯¼ö ÀÎµí?
+	//ì¢Œí‘œ ë³€ìˆ˜ ì¸ë“¯?
 	public Transform[] Pos;
-	//Pos[0] Áı ÁÂÇ¥
-	//Pos[1] room1 ÁÂÇ¥
-	//Pos[2] room2 ÁÂÇ¥
-	//Pos[3] room3 ÁÂÇ¥...
+	//Pos[0] ì§‘ ì¢Œí‘œ
+	//Pos[1] room1 ì¢Œí‘œ
+	//Pos[2] room2 ì¢Œí‘œ
+	//Pos[3] room3 ì¢Œí‘œ...
 
 	private void Start()
 	{
@@ -24,27 +24,27 @@ public class Keyboard : MonoBehaviour
 	{
 		if (Dev_Btn.activeSelf)
 		{
-			//Debug.Log("Dev_BtnÀº È°¼ºÈ­µÈ »óÅÂÀÔ´Ï´Ù.");
+			//Debug.Log("Dev_Btnì€ í™œì„±í™”ëœ ìƒíƒœì…ë‹ˆë‹¤.");
 
 			if (Input.GetKeyDown(KeyCode.H))
 			{
-				//ÇÃ·¹ÀÌ¾î ÁÂÇ¥¸¦ -> Áı ÁÂÇ¥
+				//í”Œë ˆì´ì–´ ì¢Œí‘œë¥¼ -> ì§‘ ì¢Œí‘œ
 				player.position = Pos[0].position;
 			}
 
 			if (Input.GetKeyDown(KeyCode.K))
 			{
-				//¼ÒÃµÇÏ¼Ì½À´Ï´Ù.
+				//ì†Œì²œí•˜ì…¨ìŠµë‹ˆë‹¤.
 				playerScript.Dead();
 			}
 		}
 		else
 		{
-			//Debug.Log("Dev_BtnÀº ºñÈ°¼ºÈ­µÈ »óÅÂÀÔ´Ï´Ù.");
+			//Debug.Log("Dev_Btnì€ ë¹„í™œì„±í™”ëœ ìƒíƒœì…ë‹ˆë‹¤.");
 		}
 
 
-		////¼ıÀÚÅ° = ¹æ¹øÈ£
+		////ìˆ«ìí‚¤ = ë°©ë²ˆí˜¸
 		//if (Input.GetKeyDown(KeyCode.Alpha1))
 		//	player.position = Pos[1].position;
 

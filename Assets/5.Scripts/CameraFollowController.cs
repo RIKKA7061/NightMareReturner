@@ -1,26 +1,26 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using Cinemachine;
 
 public class CameraFollowController : MonoBehaviour
 {
 	public CinemachineVirtualCamera virtualCamera; // Cinemachine Virtual Camera
-	public Transform playerCameraPos; // ÇÃ·¹ÀÌ¾î Transform
-	public float minX = -9.49f; // X ÁÂÇ¥ ÃÖ¼Ò°ª
-	public float maxX = 10.11f; // X ÁÂÇ¥ ÃÖ´ë°ª
+	public Transform playerCameraPos; // í”Œë ˆì´ì–´ Transform
+	public float minX = -9.49f; // X ì¢Œí‘œ ìµœì†Œê°’
+	public float maxX = 10.11f; // X ì¢Œí‘œ ìµœëŒ€ê°’
 
 	void Update()
 	{
-		// ÇÃ·¹ÀÌ¾îÀÇ X ÁÂÇ¥¸¦ È®ÀÎ
+		// í”Œë ˆì´ì–´ì˜ X ì¢Œí‘œë¥¼ í™•ì¸
 		float playerX = playerCameraPos.position.x;
 
-		// X ÁÂÇ¥°¡ ¹üÀ§¸¦ ¹ş¾î³ª¸é µû¶ó´Ù´Ï±â ÁßÁö
+		// X ì¢Œí‘œê°€ ë²”ìœ„ë¥¼ ë²—ì–´ë‚˜ë©´ ë”°ë¼ë‹¤ë‹ˆê¸° ì¤‘ì§€
 		if (playerX < minX || playerX > maxX)
 		{
-			virtualCamera.Follow = null; // µû¶ó´Ù´Ï±â ÁßÁö
+			virtualCamera.Follow = null; // ë”°ë¼ë‹¤ë‹ˆê¸° ì¤‘ì§€
 		}
 		else
 		{
-			virtualCamera.Follow = playerCameraPos; // µû¶ó´Ù´Ï±â ½ÃÀÛ
+			virtualCamera.Follow = playerCameraPos; // ë”°ë¼ë‹¤ë‹ˆê¸° ì‹œì‘
 		}
 	}
 }

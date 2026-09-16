@@ -1,21 +1,21 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TableManager : MonoBehaviour
 {
-	// ½Ì±ÛÅæ ÀÎ½ºÅÏ½º
+	// ì‹±ê¸€í†¤ ì¸ìŠ¤í„´ìŠ¤
 	public static TableManager Instance;
 
-	[Header("ÀÏ¹İ ¸÷")]
-	[SerializeField] private int enemy1HP; // Inspector¿¡¼­ Á¶Á¤ °¡´É
+	[Header("ì¼ë°˜ ëª¹")]
+	[SerializeField] private int enemy1HP; // Inspectorì—ì„œ ì¡°ì • ê°€ëŠ¥
 	[SerializeField] private int enemy1Atk;
 
-	[Header("º¸½º ¸÷")]
+	[Header("ë³´ìŠ¤ ëª¹")]
 	[SerializeField] private int bossHP;
 	[SerializeField] private int bossATK;
 
-	// Static º¯¼ö
+	// Static ë³€ìˆ˜
 	public static int Enemy1HP { get; private set; }
 	public static int Enemy1Atk { get; private set; }
 	public static int BossHP { get; private set; }
@@ -23,31 +23,31 @@ public class TableManager : MonoBehaviour
 
 	private void Awake()
 	{
-		// ½Ì±ÛÅæ ÆĞÅÏ ±¸Çö
+		// ì‹±ê¸€í†¤ íŒ¨í„´ êµ¬í˜„
 		if (Instance == null)
 		{
 			Instance = this;
-			//DontDestroyOnLoad(gameObject); // ¾À ÀüÈ¯ ½Ã¿¡µµ À¯Áö
+			//DontDestroyOnLoad(gameObject); // ì”¬ ì „í™˜ ì‹œì—ë„ ìœ ì§€
 		}
 		else
 		{
 			Destroy(gameObject);
 		}
 
-		// ÃÊ±âÈ­ (°ÔÀÓ ½ÇÇà ½Ã static º¯¼ö ¾÷µ¥ÀÌÆ®)
+		// ì´ˆê¸°í™” (ê²Œì„ ì‹¤í–‰ ì‹œ static ë³€ìˆ˜ ì—…ë°ì´íŠ¸)
 		UpdateStaticValues();
 	}
 
 	private void UpdateStaticValues()
 	{
-		// Static º¯¼ö¿¡ Inspector °ª ÇÒ´ç
+		// Static ë³€ìˆ˜ì— Inspector ê°’ í• ë‹¹
 		Enemy1HP = enemy1HP;
 		Enemy1Atk = enemy1Atk;
 		BossHP = bossHP;
 		BossATK = bossATK;
 	}
 
-	// Inspector¿¡¼­ °ªÀÌ º¯°æµÉ ¶§¸¶´Ù static º¯¼ö °»½Å
+	// Inspectorì—ì„œ ê°’ì´ ë³€ê²½ë  ë•Œë§ˆë‹¤ static ë³€ìˆ˜ ê°±ì‹ 
 	private void OnValidate()
 	{
 		if (Instance == this)

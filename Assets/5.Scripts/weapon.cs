@@ -1,16 +1,16 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class weapon : MonoBehaviour
 {
-    //±Ù°Å¸® °ø°İ¿ë ½ºÅ©¸³Æ®
-    //°ø°İ ±¸ºĞÁş±â À§ÇÔ
-    public int id; //¹«±â or °ø°İ ¾ÆÀÌµğ
-    public int prefabId; //ÇÁ¸®Æé ¾ÆÀÌµğ
-    public int damage; //µ¥¹ÌÁö
-    public int count; //°üÅë µÇ´Â ¼ö
-    public float speed; // °ø¼Ó
+    //ê·¼ê±°ë¦¬ ê³µê²©ìš© ìŠ¤í¬ë¦½íŠ¸
+    //ê³µê²© êµ¬ë¶„ì§“ê¸° ìœ„í•¨
+    public int id; //ë¬´ê¸° or ê³µê²© ì•„ì´ë””
+    public int prefabId; //í”„ë¦¬í© ì•„ì´ë””
+    public int damage; //ë°ë¯¸ì§€
+    public int count; //ê´€í†µ ë˜ëŠ” ìˆ˜
+    public float speed; // ê³µì†
 
     //public int per;
 
@@ -32,7 +32,7 @@ public class weapon : MonoBehaviour
         switch (id)
         {
             case 0:
-                //transform.Rotate(Vector3.back * speed * Time.deltaTime); //¹«±âÈ¸Àü
+                //transform.Rotate(Vector3.back * speed * Time.deltaTime); //ë¬´ê¸°íšŒì „
                 break;
             default:
                 timer += Time.deltaTime;
@@ -51,11 +51,11 @@ public class weapon : MonoBehaviour
         switch (id)
         {
             case 0:
-                //speed = -150; //¹«±âÈ¸Àü ¼Óµµ
+                //speed = -150; //ë¬´ê¸°íšŒì „ ì†ë„
                 Batch();
                 break;
             default:
-                speed = 0.5f; //°ø¼Ó
+                speed = 0.5f; //ê³µì†
                 break;
         }
     }
@@ -66,7 +66,7 @@ public class weapon : MonoBehaviour
         {
             Transform FarATK = GameManager.Instance.pool.Get(prefabId).transform;
             FarATK.parent = transform;
-            FarATK.GetComponent<FarATK>().Init(damage, count, Vector3.zero); //count ÀÚ¸® -1Àº ¹«ÇÑÀ¸·Î °üÅë
+            FarATK.GetComponent<FarATK>().Init(damage, count, Vector3.zero); //count ìë¦¬ -1ì€ ë¬´í•œìœ¼ë¡œ ê´€í†µ
         }
 
     }

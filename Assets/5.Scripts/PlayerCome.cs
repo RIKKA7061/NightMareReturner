@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,10 +7,10 @@ public class PlayerCome : MonoBehaviour
 	PrefabSpawner prefabSpawner;
 	private void OnTriggerEnter(Collider other)
 	{
-		// "Player" ÅÂ±×°¡ ºÙÀº ¿ÀºêÁ§Æ®ÀÎÁö È®ÀÎ
+		// "Player" íƒœê·¸ê°€ ë¶™ì€ ì˜¤ë¸Œì íŠ¸ì¸ì§€ í™•ì¸
 		if (other.CompareTag("Player"))
 		{
-			// ÇÁ¸®ÆÕ ¼ÒÈ¯
+			// í”„ë¦¬íŒ¹ ì†Œí™˜
 			//prefabSpawner.SpawnPrefabs();
 		}
 	}

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,14 +8,14 @@ public class MonsterATK : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        // ¸ó½ºÅÍ¿Í Ãæµ¹ ½Ã
+        // ëª¬ìŠ¤í„°ì™€ ì¶©ëŒ ì‹œ
         if (other.CompareTag("Player"))
         {
             Player Player = other.GetComponent<Player>();
             if (Player != null)
             {
                 Player.TakeDamage(damage);
-                Debug.Log($"µ¥¹ÌÁö: {damage}");
+                Debug.Log($"ë°ë¯¸ì§€: {damage}");
             }
 
             Destroy(gameObject);

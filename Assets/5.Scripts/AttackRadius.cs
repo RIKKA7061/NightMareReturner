@@ -1,29 +1,29 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AttackRadius : MonoBehaviour
 {
     public Transform player;
-    public float attackRange = 1.5f; // °ø°İ ¹üÀ§
-    public float attackDelay = 0.6f; // °ø°İ Àü ´ë±â ½Ã°£
-    public int damage = 20; // ¹üÀ§ ³» °ø°İ µ¥¹ÌÁö
-    public float damageDelay = 0.5f; // µ¥¹ÌÁö Àû¿ë ´ë±â ½Ã°£
-    private bool isAttacking = false; // ÇöÀç °ø°İ ÁßÀÎÁö È®ÀÎ
+    public float attackRange = 1.5f; // ê³µê²© ë²”ìœ„
+    public float attackDelay = 0.6f; // ê³µê²© ì „ ëŒ€ê¸° ì‹œê°„
+    public int damage = 20; // ë²”ìœ„ ë‚´ ê³µê²© ë°ë¯¸ì§€
+    public float damageDelay = 0.5f; // ë°ë¯¸ì§€ ì ìš© ëŒ€ê¸° ì‹œê°„
+    private bool isAttacking = false; // í˜„ì¬ ê³µê²© ì¤‘ì¸ì§€ í™•ì¸
 
-    //private bool isAttacking = false; // ÇöÀç °ø°İ ÁßÀÎÁö È®ÀÎ
+    //private bool isAttacking = false; // í˜„ì¬ ê³µê²© ì¤‘ì¸ì§€ í™•ì¸
 
     System.Collections.IEnumerator AttackPlayer()
     {
         isAttacking = true;
 
-        // °ø°İ Àü µô·¹ÀÌ
-        Debug.Log("°ø°İÁØºñ");
+        // ê³µê²© ì „ ë”œë ˆì´
+        Debug.Log("ê³µê²©ì¤€ë¹„");
         yield return new WaitForSeconds(attackDelay);
 
-        // °ø°İ ½ÇÇà
+        // ê³µê²© ì‹¤í–‰
 
-        Debug.Log("°ø°İ");
+        Debug.Log("ê³µê²©");
         player.GetComponent<Player>()?.TakeDamage(damage);
 
 
@@ -34,8 +34,8 @@ public class AttackRadius : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // ÇÃ·¹ÀÌ¾î µ¥¹ÌÁö Ã³¸®
-            Debug.Log("ÇÃ·¹ÀÌ¾î°¡ ¿øÇü ¹üÀ§ °ø°İ¿¡ ÇÇ°İµÇ¾ú½À´Ï´Ù!");
+            // í”Œë ˆì´ì–´ ë°ë¯¸ì§€ ì²˜ë¦¬
+            Debug.Log("í”Œë ˆì´ì–´ê°€ ì›í˜• ë²”ìœ„ ê³µê²©ì— í”¼ê²©ë˜ì—ˆìŠµë‹ˆë‹¤!");
             other.GetComponent<Player>().TakeDamage(damage);
         }
     }

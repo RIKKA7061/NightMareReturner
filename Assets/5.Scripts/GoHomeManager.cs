@@ -1,25 +1,25 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GoHomeManager : MonoBehaviour
 {
-    // Æ¯Á¤ °´Ã¼¸¦ °¨ÁöÇÏ±â À§ÇÑ º¯¼ö
-    [Header("º¸½º")]
-    public GameObject targetObject; // °¨ÁöÇÒ ´ë»ó °´Ã¼
+    // íŠ¹ì • ê°ì²´ë¥¼ ê°ì§€í•˜ê¸° ìœ„í•œ ë³€ìˆ˜
+    [Header("ë³´ìŠ¤")]
+    public GameObject targetObject; // ê°ì§€í•  ëŒ€ìƒ ê°ì²´
 
-    [Header("º¸½º ÇÁ¸®Æé")]
-    public GameObject bossPrefab;   // »õ·Î »ı¼ºÇÒ º¸½º ÇÁ¸®ÆÕ
-    public Transform bossSpawnPoint; // º¸½º¸¦ »ı¼ºÇÒ À§Ä¡
+    [Header("ë³´ìŠ¤ í”„ë¦¬í©")]
+    public GameObject bossPrefab;   // ìƒˆë¡œ ìƒì„±í•  ë³´ìŠ¤ í”„ë¦¬íŒ¹
+    public Transform bossSpawnPoint; // ë³´ìŠ¤ë¥¼ ìƒì„±í•  ìœ„ì¹˜
 
 
-    public GameObject GameOverImg;  // °ÔÀÓ ¿À¹ö ¿¬Ãâ
+    public GameObject GameOverImg;  // ê²Œì„ ì˜¤ë²„ ì—°ì¶œ
 
-    [Header("Áı À§Ä¡")]
-    public Transform homePosition;  // ÀÌµ¿ÇÒ ÁÂÇ¥
+    [Header("ì§‘ ìœ„ì¹˜")]
+    public Transform homePosition;  // ì´ë™í•  ì¢Œí‘œ
 
-    // ÇÃ·¹ÀÌ¾î¸¦ ÂüÁ¶
-    [Header("ÇÃ·¹ÀÌ¾î")]
+    // í”Œë ˆì´ì–´ë¥¼ ì°¸ì¡°
+    [Header("í”Œë ˆì´ì–´")]
     public GameObject player;
     public Player playerScript;
 
@@ -28,13 +28,13 @@ public class GoHomeManager : MonoBehaviour
 
     void Update()
     {
-        // º¸½º Ã³Ä¡½Ã
-        // 1. ´ë»ó °´Ã¼°¡ null(ÆÄ±«µÇ°Å³ª ¾À¿¡¼­ Ã£À» ¼ö ¾øÀ½) »óÅÂÀÎÁö È®ÀÎ
+        // ë³´ìŠ¤ ì²˜ì¹˜ì‹œ
+        // 1. ëŒ€ìƒ ê°ì²´ê°€ null(íŒŒê´´ë˜ê±°ë‚˜ ì”¬ì—ì„œ ì°¾ì„ ìˆ˜ ì—†ìŒ) ìƒíƒœì¸ì§€ í™•ì¸
         //if (targetObject == null && isBossRoundIn)
         //{
         //    isBossRoundIn = true;
         //    isPlayerMovable = false;
-        //    // 2. ÇÃ·¹ÀÌ¾î¸¦ Æ¯Á¤ ÁÂÇ¥(homePosition)·Î ÀÌµ¿
+        //    // 2. í”Œë ˆì´ì–´ë¥¼ íŠ¹ì • ì¢Œí‘œ(homePosition)ë¡œ ì´ë™
         //    MovePlayerToHome();
         //    SpawnNewBoss();
         //}
@@ -46,12 +46,12 @@ public class GoHomeManager : MonoBehaviour
         if (player != null && homePosition != null && isPlayerMovable == false && isRoundStart == true )
         {
 
-            // ºÎÈ°
+            // ë¶€í™œ
             StartCoroutine(RespawnPlayerStart());
         }
         else
         {
-            //Debug.LogWarning("ÇÃ·¹ÀÌ¾î³ª HomePositionÀÌ ¼³Á¤µÇÁö ¾Ê¾Ò½À´Ï´Ù.");
+            //Debug.LogWarning("í”Œë ˆì´ì–´ë‚˜ HomePositionì´ ì„¤ì •ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
         }
     }
 
@@ -59,20 +59,20 @@ public class GoHomeManager : MonoBehaviour
     {
 		//GameOverImg.SetActive(true);
 		yield return new WaitForSeconds(0.1f);
-		// 2-1. ÇÃ·¹ÀÌ¾î¸¦ ¹Ù·Î ÁÂÇ¥·Î ÀÌµ¿
+		// 2-1. í”Œë ˆì´ì–´ë¥¼ ë°”ë¡œ ì¢Œí‘œë¡œ ì´ë™
 		//player.transform.position = homePosition.position;
 
-		// (¼±ÅÃÀûÀ¸·Î) È¸Àüµµ ÀÌµ¿ÇÒ À§Ä¡ÀÇ È¸Àü¿¡ ¸ÂÃã
+		// (ì„ íƒì ìœ¼ë¡œ) íšŒì „ë„ ì´ë™í•  ìœ„ì¹˜ì˜ íšŒì „ì— ë§ì¶¤
 		//player.transform.rotation = homePosition.rotation;
 
-		//Debug.Log("ÇÃ·¹ÀÌ¾î°¡ ÁöÁ¤µÈ ÁÂÇ¥·Î ÀÌµ¿Çß½À´Ï´Ù.");
+		//Debug.Log("í”Œë ˆì´ì–´ê°€ ì§€ì •ëœ ì¢Œí‘œë¡œ ì´ë™í–ˆìŠµë‹ˆë‹¤.");
 
-		// ÇÃ·¹ÀÌ¾î ½ºÅÈ ÃÊ±âÈ­ 
+		// í”Œë ˆì´ì–´ ìŠ¤íƒ¯ ì´ˆê¸°í™” 
 		//playerScript.StatDefaultPlayer();
 
 		isPlayerMovable = true;
 
-		Debug.Log("°ÔÀÓÀÌ ³¡³µ½À´Ï´Ù.");
+		Debug.Log("ê²Œì„ì´ ëë‚¬ìŠµë‹ˆë‹¤.");
 		playerScript.RespawnPlayer();
 	}
 
@@ -80,26 +80,26 @@ public class GoHomeManager : MonoBehaviour
     {
         if (bossPrefab != null && bossSpawnPoint != null)
         {
-			// º¸½º »ı¼º
+			// ë³´ìŠ¤ ìƒì„±
 			GameObject newBoss = Instantiate(bossPrefab, bossSpawnPoint.position, bossSpawnPoint.rotation);
             MonsterHP bossHP = newBoss.GetComponent<MonsterHP>();
 
             if (bossHP != null)
             {
-                // MonsterHP ÄÄÆ÷³ÍÆ®ÀÇ Æ¯Á¤ ÇÔ¼ö È£Ãâ
-                bossHP.SetDefault(); // Æ¯Á¤ÇÔ¼ö()´Â MonsterHP ½ºÅ©¸³Æ®ÀÇ ÇÔ¼ö ÀÌ¸§À¸·Î ±³Ã¼
+                // MonsterHP ì»´í¬ë„ŒíŠ¸ì˜ íŠ¹ì • í•¨ìˆ˜ í˜¸ì¶œ
+                bossHP.SetDefault(); // íŠ¹ì •í•¨ìˆ˜()ëŠ” MonsterHP ìŠ¤í¬ë¦½íŠ¸ì˜ í•¨ìˆ˜ ì´ë¦„ìœ¼ë¡œ êµì²´
             }
             else
             {
-                Debug.LogError("MonsterHP ÄÄÆ÷³ÍÆ®¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.");
+                Debug.LogError("MonsterHP ì»´í¬ë„ŒíŠ¸ë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
             }
 
 
-            targetObject = newBoss; // »õ·Î¿î º¸½º¸¦ targetObject·Î ¼³Á¤
+            targetObject = newBoss; // ìƒˆë¡œìš´ ë³´ìŠ¤ë¥¼ targetObjectë¡œ ì„¤ì •
 		}
         else
         {
-            Debug.LogWarning("BossPrefabÀÌ³ª BossSpawnPoint°¡ ¼³Á¤µÇÁö ¾Ê¾Ò½À´Ï´Ù.");
+            Debug.LogWarning("BossPrefabì´ë‚˜ BossSpawnPointê°€ ì„¤ì •ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
         }
     }
 }

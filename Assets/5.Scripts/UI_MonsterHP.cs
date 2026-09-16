@@ -1,33 +1,33 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UI_MonsterHP : MonoBehaviour
 {
-	private Rigidbody2D rb;//Áß·Â
-	private Player player;//ÇÃ·¹ÀÌ¾î
+	private Rigidbody2D rb;//ì¤‘ë ¥
+	private Player player;//í”Œë ˆì´ì–´
 	private MonsterHP monsterHP;
 
-	//Ã¼·Â¹Ù ÇÁ¸®Æé 
-	[SerializeField]                    // privateÇü º¯¼ö¸¦ ¿ÜºÎ¿¡¼­ Á¶ÀıÇÒ ¼ö ÀÖ°Ô ¹Ù²ãÁÜ
-	private GameObject prfHpBar;        // ÇÁ¸®Æé Ã¼·Â¹Ù
+	//ì²´ë ¥ë°” í”„ë¦¬í© 
+	[SerializeField]                    // privateí˜• ë³€ìˆ˜ë¥¼ ì™¸ë¶€ì—ì„œ ì¡°ì ˆí•  ìˆ˜ ìˆê²Œ ë°”ê¿”ì¤Œ
+	private GameObject prfHpBar;        // í”„ë¦¬í© ì²´ë ¥ë°”
 
-	RectTransform bghp_bar;             // bghp_bar ¾îµÎ¿î ¹è°æ Ã¼·Â¹Ù
-	Image hp_bar;                       // hp_bar ÇöÀç Ã¼·Â¹Ù
+	RectTransform bghp_bar;             // bghp_bar ì–´ë‘ìš´ ë°°ê²½ ì²´ë ¥ë°”
+	Image hp_bar;                       // hp_bar í˜„ì¬ ì²´ë ¥ë°”
 
-	public float height = 1.7f;         // Ã¼·Â¹Ù Y ³ôÀÌ
+	public float height = 1.7f;         // ì²´ë ¥ë°” Y ë†’ì´
 
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
-		player = FindObjectOfType<Player>();    // ¹«Á¶°Ç ÇØÁà¾ßµÊ (ÃÊ±âÈ­)
-		monsterHP = GetComponent<MonsterHP>();  // ÀÚ±â ¿ÀºêÁ§Æ®¿¡ °°ÀÌ ÀÖ´Â ½ºÅ©¸³Æ® Ä£±¸
+		player = FindObjectOfType<Player>();    // ë¬´ì¡°ê±´ í•´ì¤˜ì•¼ë¨ (ì´ˆê¸°í™”)
+		monsterHP = GetComponent<MonsterHP>();  // ìê¸° ì˜¤ë¸Œì íŠ¸ì— ê°™ì´ ìˆëŠ” ìŠ¤í¬ë¦½íŠ¸ ì¹œêµ¬
 
-		// prfHpBar ÇÁ¸®ÆÕÀ» ÀÌ¿ëÇØ canvas¿¡´Ù°¡ Ã¼·Â¹Ù »ı¼º.
-		bghp_bar = Instantiate(prfHpBar, GameObject.Find("Canvas").transform).GetComponent<RectTransform>(); // bghp_bar»ı¼º
-		hp_bar = bghp_bar.transform.GetChild(0).GetComponent<Image>(); // bghp_bar¿¡ ÀÚ½Ä ¿ÀºêÁ§Æ® ÄÄÆ÷³ÍÆ® °¡Á®¿À±â
-		bghp_bar.pivot = new Vector2(0.9f, 0.5f); // Áß¾Ó ±âÁØ (ÇÊ¿ä¿¡ µû¶ó ¼öÁ¤ °¡´É)
+		// prfHpBar í”„ë¦¬íŒ¹ì„ ì´ìš©í•´ canvasì—ë‹¤ê°€ ì²´ë ¥ë°” ìƒì„±.
+		bghp_bar = Instantiate(prfHpBar, GameObject.Find("Canvas").transform).GetComponent<RectTransform>(); // bghp_barìƒì„±
+		hp_bar = bghp_bar.transform.GetChild(0).GetComponent<Image>(); // bghp_barì— ìì‹ ì˜¤ë¸Œì íŠ¸ ì»´í¬ë„ŒíŠ¸ ê°€ì ¸ì˜¤ê¸°
+		bghp_bar.pivot = new Vector2(0.9f, 0.5f); // ì¤‘ì•™ ê¸°ì¤€ (í•„ìš”ì— ë”°ë¼ ìˆ˜ì • ê°€ëŠ¥)
 
 	}
 
@@ -35,15 +35,15 @@ public class UI_MonsterHP : MonoBehaviour
 	{
 		if (bghp_bar == null)
 		{
-			//Debug.LogWarning("bghp_bar°¡ ÆÄ±«µÇ¾ú½À´Ï´Ù.");
+			//Debug.LogWarning("bghp_barê°€ íŒŒê´´ë˜ì—ˆìŠµë‹ˆë‹¤.");
 			return;
 		}
 
-		// Ä«¸Ş¶ó º¸´Â ±âÁØ Ã¼·Â¹Ù ÁÂÇ¥ À§Ä¡ ¼³Á¤
+		// ì¹´ë©”ë¼ ë³´ëŠ” ê¸°ì¤€ ì²´ë ¥ë°” ì¢Œí‘œ ìœ„ì¹˜ ì„¤ì •
 		Vector3 _hpBarPos = Camera.main.WorldToScreenPoint(new Vector3(transform.position.x, transform.position.y + height, 0));
-		bghp_bar.position = _hpBarPos; // ÇØ´ç ÁÂÇ¥ÀÇ À§Ä¡ Àû¿ëÇÏ±â
+		bghp_bar.position = _hpBarPos; // í•´ë‹¹ ì¢Œí‘œì˜ ìœ„ì¹˜ ì ìš©í•˜ê¸°
 
-		hp_bar.fillAmount = (float)monsterHP.nowHP / (float)monsterHP.maxHP; // Ã¼·Â ¼öÄ¡ Àû¿ëÇÏ±â
+		hp_bar.fillAmount = (float)monsterHP.nowHP / (float)monsterHP.maxHP; // ì²´ë ¥ ìˆ˜ì¹˜ ì ìš©í•˜ê¸°
 	}
 	public void DestroyHP_UI()
 	{

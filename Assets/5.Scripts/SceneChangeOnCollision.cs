@@ -1,13 +1,13 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneChangeOnCollision : MonoBehaviour
 {
-	// Ãæµ¹ÇßÀ» ¶§ ÀüÈ¯ÇÒ ¾ÀÀÇ ÀÌ¸§
+	// ì¶©ëŒí–ˆì„ ë•Œ ì „í™˜í•  ì”¬ì˜ ì´ë¦„
 	public string sceneName;
 
-	[Header("´Ï°¡ °Å¸®¿¡ ÀÖ´Â ³ğÀÌ¾ß?")]
+	[Header("ë‹ˆê°€ ê±°ë¦¬ì— ìˆëŠ” ë†ˆì´ì•¼?")]
 	public bool isSideViewScene = false;
 
 	private DirectingCameraManager directingCameraManager;
@@ -16,7 +16,7 @@ public class SceneChangeOnCollision : MonoBehaviour
 	{
 		directingCameraManager = FindObjectOfType<DirectingCameraManager>();
 
-		// »çÀÌµå ºä ¾À Àü¿ë
+		// ì‚¬ì´ë“œ ë·° ì”¬ ì „ìš©
 		if (isSideViewScene)
 		{
 			StartCoroutine(OnlySideView());
@@ -36,10 +36,10 @@ public class SceneChangeOnCollision : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		// Ãæµ¹ÇÑ °´Ã¼°¡ Æ¯Á¤ Á¶°ÇÀ» ¸¸Á·ÇÏ¸é ¾À ÀüÈ¯
-		if (collision.gameObject.CompareTag("Player")) // ¿¹: "Player" ÅÂ±×°¡ ºÙÀº °´Ã¼¿Í Ãæµ¹ ½Ã
+		// ì¶©ëŒí•œ ê°ì²´ê°€ íŠ¹ì • ì¡°ê±´ì„ ë§Œì¡±í•˜ë©´ ì”¬ ì „í™˜
+		if (collision.gameObject.CompareTag("Player")) // ì˜ˆ: "Player" íƒœê·¸ê°€ ë¶™ì€ ê°ì²´ì™€ ì¶©ëŒ ì‹œ
 		{
-			// ¾À ÀüÈ¯
+			// ì”¬ ì „í™˜
 			//SceneChangeHamSu();
 		}
 	}
@@ -51,7 +51,7 @@ public class SceneChangeOnCollision : MonoBehaviour
 
 	IEnumerator ZoomInAndSceneChange()
 	{
-		// Zoom-in ¿¬Ãâ (1ÃÊ ´ë±â)
+		// Zoom-in ì—°ì¶œ (1ì´ˆ ëŒ€ê¸°)
 		directingCameraManager.ZoomIn();
 
 		yield return new WaitForSeconds(1f);
@@ -65,7 +65,7 @@ public class SceneChangeOnCollision : MonoBehaviour
 
 	IEnumerator ZoomOut()
 	{
-		// Zoom-in ¿¬Ãâ (1ÃÊ ´ë±â)
+		// Zoom-in ì—°ì¶œ (1ì´ˆ ëŒ€ê¸°)
 		directingCameraManager.ZoomOut();
 		yield return new WaitForSeconds(1f);
 

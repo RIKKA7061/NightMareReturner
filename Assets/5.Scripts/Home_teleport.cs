@@ -1,22 +1,22 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Home_teleport : MonoBehaviour
 {
-	//ÀÌµ¿ÇÒ À§Ä¡¸¦ publicÀ¸·Î ¼³Á¤ÇÏ¿© Unity ¿¡µğÅÍ¿¡¼­ ÁöÁ¤ÇÒ ¼ö ÀÖ°Ô ÇÔ
-	public Transform Home;// ÇÃ·¹ÀÌ¾î°¡ ½ºÆùµÉ °ÔÀÓ ¿ÀºêÁ§Æ® ÁÂÇ¥
+	//ì´ë™í•  ìœ„ì¹˜ë¥¼ publicìœ¼ë¡œ ì„¤ì •í•˜ì—¬ Unity ì—ë””í„°ì—ì„œ ì§€ì •í•  ìˆ˜ ìˆê²Œ í•¨
+	public Transform Home;// í”Œë ˆì´ì–´ê°€ ìŠ¤í°ë  ê²Œì„ ì˜¤ë¸Œì íŠ¸ ì¢Œí‘œ
 
-	//Æ®¸®°Å¿¡ Ãæµ¹ÇßÀ» ¶§ È£ÃâµÇ´Â ÇÔ¼ö
-	private void OnTriggerEnter2D(Collider2D other)//´êÀº Á¢ÃËÃ¼¸¦ ¸Å°³º¯¼ö·Î ºÒ·¯¿È
+	//íŠ¸ë¦¬ê±°ì— ì¶©ëŒí–ˆì„ ë•Œ í˜¸ì¶œë˜ëŠ” í•¨ìˆ˜
+	private void OnTriggerEnter2D(Collider2D other)//ë‹¿ì€ ì ‘ì´‰ì²´ë¥¼ ë§¤ê°œë³€ìˆ˜ë¡œ ë¶ˆëŸ¬ì˜´
 	{
-		//ÇÃ·¹ÀÌ¾î°¡ Ãæµ¹Çß´ÂÁö È®ÀÎ (ÅÂ±×·Î ÇÃ·¹ÀÌ¾î¸¦ ±¸ºĞ)
-		if (other.CompareTag("Player"))//´êÀº Á¢ÃËÃ¼ÀÇ ÅÂ±×°¡ PlayerÀÏ °æ¿ì
+		//í”Œë ˆì´ì–´ê°€ ì¶©ëŒí–ˆëŠ”ì§€ í™•ì¸ (íƒœê·¸ë¡œ í”Œë ˆì´ì–´ë¥¼ êµ¬ë¶„)
+		if (other.CompareTag("Player"))//ë‹¿ì€ ì ‘ì´‰ì²´ì˜ íƒœê·¸ê°€ Playerì¼ ê²½ìš°
 		{
-			Debug.Log("ÁıÀ¸·Î ¸ğ½Ç²²¿ä~");
+			Debug.Log("ì§‘ìœ¼ë¡œ ëª¨ì‹¤ê»˜ìš”~");
 
 			other.transform.position = Home.position;
-			//´êÀº Á¢ÃËÃ¼ÀÇ ÇÃ·¹ÀÌ¾î ÁÂÇ¥°¡ ½ºÆùµÉ °ÔÀÓ ¿ÀºêÁ§Æ® ÁÂÇ¥·Î ÀÌµ¿
+			//ë‹¿ì€ ì ‘ì´‰ì²´ì˜ í”Œë ˆì´ì–´ ì¢Œí‘œê°€ ìŠ¤í°ë  ê²Œì„ ì˜¤ë¸Œì íŠ¸ ì¢Œí‘œë¡œ ì´ë™
 		}
 	}
 }

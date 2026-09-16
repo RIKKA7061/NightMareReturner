@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,49 +7,49 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    [Header("¼Óµµ")]
+    [Header("ì†ë„")]
     public float speed;
-	private Rigidbody2D rb;//Áß·Â
-	private Player player;//ÇÃ·¹ÀÌ¾î
+	private Rigidbody2D rb;//ì¤‘ë ¥
+	private Player player;//í”Œë ˆì´ì–´
 	private PlayerAction playerAction;
 	private PrefabSpawner prefabSpawner;
 
     private Rigidbody2D target;
 
-	[Header("°¨Áö ¹üÀ§")]
+	[Header("ê°ì§€ ë²”ìœ„")]
     public int SenserRangeX = 3;
     public int SenserRangeY = 3;
 
-	[Header("Ã¼·Â")]
-	private int maxHP = 0; // ÃÖ´ë Ã¼·Â º¯¼ö
-    public int nowHP; // ÇöÀç Ã¼·Â º¯¼ö
+	[Header("ì²´ë ¥")]
+	private int maxHP = 0; // ìµœëŒ€ ì²´ë ¥ ë³€ìˆ˜
+    public int nowHP; // í˜„ì¬ ì²´ë ¥ ë³€ìˆ˜
 
-	[Header("ÇÃ·¹ÀÌ¾î °¨Áö±â ÀÎµí")]
+	[Header("í”Œë ˆì´ì–´ ê°ì§€ê¸° ì¸ë“¯")]
     public Scanner scanner;
     public Scanner2 scanner2;
 
     bool isLive;
 
-	[Header("ÀÌ°ÍÀÌ º¸½ºÀÎ°¡?")]
+	[Header("ì´ê²ƒì´ ë³´ìŠ¤ì¸ê°€?")]
 	public bool isBoss;
 
 	Rigidbody2D rigid;
     SpriteRenderer spriter;
 
-	//Ã¼·Â¹Ù ÇÁ¸®Æé 
-	[SerializeField]					// privateÇü º¯¼ö¸¦ ¿ÜºÎ¿¡¼­ Á¶ÀıÇÒ ¼ö ÀÖ°Ô ¹Ù²ãÁÜ
-	private GameObject prfHpBar;		// ÇÁ¸®Æé Ã¼·Â¹Ù
+	//ì²´ë ¥ë°” í”„ë¦¬í© 
+	[SerializeField]					// privateí˜• ë³€ìˆ˜ë¥¼ ì™¸ë¶€ì—ì„œ ì¡°ì ˆí•  ìˆ˜ ìˆê²Œ ë°”ê¿”ì¤Œ
+	private GameObject prfHpBar;		// í”„ë¦¬í© ì²´ë ¥ë°”
 
-	RectTransform bghp_bar;				// bghp_bar ¾îµÎ¿î ¹è°æ Ã¼·Â¹Ù
-	Image hp_bar;						// hp_bar ÇöÀç Ã¼·Â¹Ù
+	RectTransform bghp_bar;				// bghp_bar ì–´ë‘ìš´ ë°°ê²½ ì²´ë ¥ë°”
+	Image hp_bar;						// hp_bar í˜„ì¬ ì²´ë ¥ë°”
 
-	public float height = 1.7f;         // Ã¼·Â¹Ù Y ³ôÀÌ
+	public float height = 1.7f;         // ì²´ë ¥ë°” Y ë†’ì´
 
-	[Header("µ¥¹ÌÁö ¼öÄ¡ Ç¥±â")]
+	[Header("ë°ë¯¸ì§€ ìˆ˜ì¹˜ í‘œê¸°")]
 	public TextMeshProUGUI damage_text;
 	public GameObject damage_text_prf;
 
-	private void SetEnemyStatus(int _maxHP) // Àû Ã¼·Â ¼³Á¤ ÇÔ¼ö
+	private void SetEnemyStatus(int _maxHP) // ì  ì²´ë ¥ ì„¤ì • í•¨ìˆ˜
     {
         maxHP = _maxHP;
         nowHP = _maxHP;
@@ -58,44 +58,44 @@ public class Enemy : MonoBehaviour
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
-		player = FindObjectOfType<Player>();// ¹«Á¶°Ç ÇØÁà¾ßµÊ (ÃÊ±âÈ­)
-		SetEnemyStatus(maxHP);				// Ã¼·Â ¼öÄ¡ ¼³Á¤
+		player = FindObjectOfType<Player>();// ë¬´ì¡°ê±´ í•´ì¤˜ì•¼ë¨ (ì´ˆê¸°í™”)
+		SetEnemyStatus(maxHP);				// ì²´ë ¥ ìˆ˜ì¹˜ ì„¤ì •
 
-		// prfHpBar ÇÁ¸®ÆÕÀ» ÀÌ¿ëÇØ canvas¿¡´Ù°¡ Ã¼·Â¹Ù »ı¼º.
-		bghp_bar = Instantiate(prfHpBar, GameObject.Find("Canvas").transform).GetComponent<RectTransform>(); // bghp_bar»ı¼º
-		hp_bar = bghp_bar.transform.GetChild(0).GetComponent<Image>(); // bghp_bar¿¡ ÀÚ½Ä ¿ÀºêÁ§Æ® ÄÄÆ÷³ÍÆ® °¡Á®¿À±â
+		// prfHpBar í”„ë¦¬íŒ¹ì„ ì´ìš©í•´ canvasì—ë‹¤ê°€ ì²´ë ¥ë°” ìƒì„±.
+		bghp_bar = Instantiate(prfHpBar, GameObject.Find("Canvas").transform).GetComponent<RectTransform>(); // bghp_barìƒì„±
+		hp_bar = bghp_bar.transform.GetChild(0).GetComponent<Image>(); // bghp_barì— ìì‹ ì˜¤ë¸Œì íŠ¸ ì»´í¬ë„ŒíŠ¸ ê°€ì ¸ì˜¤ê¸°
 	}
 
 	void Update()
 	{
 		if (bghp_bar == null)
 		{
-			//Debug.LogWarning("bghp_bar°¡ ÆÄ±«µÇ¾ú½À´Ï´Ù.");
+			//Debug.LogWarning("bghp_barê°€ íŒŒê´´ë˜ì—ˆìŠµë‹ˆë‹¤.");
 			return;
 		}
 
-		// Ä«¸Ş¶ó º¸´Â ±âÁØ Ã¼·Â¹Ù ÁÂÇ¥ À§Ä¡ ¼³Á¤
+		// ì¹´ë©”ë¼ ë³´ëŠ” ê¸°ì¤€ ì²´ë ¥ë°” ì¢Œí‘œ ìœ„ì¹˜ ì„¤ì •
 		Vector3 _hpBarPos = Camera.main.WorldToScreenPoint(new Vector3(transform.position.x, transform.position.y + height, 0));
-		bghp_bar.position = _hpBarPos; // ÇØ´ç ÁÂÇ¥ÀÇ À§Ä¡ Àû¿ëÇÏ±â
+		bghp_bar.position = _hpBarPos; // í•´ë‹¹ ì¢Œí‘œì˜ ìœ„ì¹˜ ì ìš©í•˜ê¸°
 
-		hp_bar.fillAmount = (float)nowHP / (float)maxHP; // Ã¼·Â ¼öÄ¡ Àû¿ëÇÏ±â
+		hp_bar.fillAmount = (float)nowHP / (float)maxHP; // ì²´ë ¥ ìˆ˜ì¹˜ ì ìš©í•˜ê¸°
 	}
 
 	void Awake()
     {
-		if (!isBoss)// ÀÏ¹İ¸ó½ºÅÍ
+		if (!isBoss)// ì¼ë°˜ëª¬ìŠ¤í„°
 		{
-			maxHP = TableManager.Enemy1HP; // ÃÖ´ë Ã¼·Â º¯¼ö
+			maxHP = TableManager.Enemy1HP; // ìµœëŒ€ ì²´ë ¥ ë³€ìˆ˜
 		}
-		else if (isBoss) // º¸½º
+		else if (isBoss) // ë³´ìŠ¤
 		{
-			maxHP = TableManager.BossHP; // ÃÖ´ë Ã¼·Â º¯¼ö
+			maxHP = TableManager.BossHP; // ìµœëŒ€ ì²´ë ¥ ë³€ìˆ˜
 		}
 		rigid = GetComponent<Rigidbody2D>();
         target = GetComponent<Rigidbody2D>();
 		spriter = GetComponent<SpriteRenderer>();
-        scanner = GetComponent<Scanner>(); //±Ù°Å¸® °ø°İ¿ë ½ºÄµ
-        scanner2 = GetComponent<Scanner2>(); //¿ø°Å¸® °ø°İ¿ë ½ºÄµ
+        scanner = GetComponent<Scanner>(); //ê·¼ê±°ë¦¬ ê³µê²©ìš© ìŠ¤ìº”
+        scanner2 = GetComponent<Scanner2>(); //ì›ê±°ë¦¬ ê³µê²©ìš© ìŠ¤ìº”
 		playerAction = FindObjectOfType<Player>().GetComponent<PlayerAction>();
 		prefabSpawner = FindAnyObjectByType<PrefabSpawner>();
 	}
@@ -105,9 +105,9 @@ public class Enemy : MonoBehaviour
 		if(player.EnmeyDown == true)
         {
 			EnemyDead();
-			//GetComponent<Image>();     // Ã¼·Â¹Ù(»ö) ÆÄ±«
-			//GetComponent<RectTransform>();   // Ã¼·Â¹Ù(¹è°æ) ÆÄ±«
-			//Destroy(gameObject); // Àû (ÀÚ±âÀÚ½Å) ÆÄ±«
+			//GetComponent<Image>();     // ì²´ë ¥ë°”(ìƒ‰) íŒŒê´´
+			//GetComponent<RectTransform>();   // ì²´ë ¥ë°”(ë°°ê²½) íŒŒê´´
+			//Destroy(gameObject); // ì  (ìê¸°ìì‹ ) íŒŒê´´
 		}
 
 		Vector2 direction = player.transform.position - transform.position;
@@ -115,14 +115,14 @@ public class Enemy : MonoBehaviour
 		int X = Math.Abs(Mathf.RoundToInt(direction.x));
 		int Y = Math.Abs(Mathf.RoundToInt(direction.y));
 
-		if (X <= SenserRangeX && Y <= SenserRangeY)//°¡±îÀÌ ÀÖÀ»¶§
+		if (X <= SenserRangeX && Y <= SenserRangeY)//ê°€ê¹Œì´ ìˆì„ë•Œ
 		{
-			//µû¶ó°£´Ù.
+			//ë”°ë¼ê°„ë‹¤.
 			Vector2 nextVec = direction.normalized * speed * Time.fixedDeltaTime;
 			rigid.MovePosition(rigid.position + nextVec);
 			rigid.velocity = Vector2.zero;
 
-			//¿ŞÂÊ ¿À¸¥ÂÊ ÇÃ¸³ÇØÁÖ´Â °Í
+			//ì™¼ìª½ ì˜¤ë¥¸ìª½ í”Œë¦½í•´ì£¼ëŠ” ê²ƒ
 			if(direction.x > 0)
 			{
 				spriter.flipX = false;
@@ -134,24 +134,24 @@ public class Enemy : MonoBehaviour
 		}
 	}
 
-	// ÇÃ·¹ÀÌ¾îÇÑÅ× °ø°İ ¹ŞÀ»½Ã ´ë¹ÌÁö Ç¥±â
+	// í”Œë ˆì´ì–´í•œí…Œ ê³µê²© ë°›ì„ì‹œ ëŒ€ë¯¸ì§€ í‘œê¸°
 	private void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.CompareTag("Player"))
 		{
-			int damage = player.Atk;				// ÇÃ·¹ÀÌ¾î ´ë¹ÌÁö
+			int damage = player.Atk;				// í”Œë ˆì´ì–´ ëŒ€ë¯¸ì§€
 
 
-			StartCoroutine(ShowDamageText(damage)); // ´ë¹ÌÁö¸¦ Ç¥±â
+			StartCoroutine(ShowDamageText(damage)); // ëŒ€ë¯¸ì§€ë¥¼ í‘œê¸°
 			nowHP = nowHP - damage;
 		}
 
-		// ÀÏ¹İ¸÷ Á×´Â ÇÔ¼ö
-        if(nowHP < 0 && isBoss == false)			// Ã¼·ÂÀÌ 0º¸´Ù ÀûÀ»½Ã
+		// ì¼ë°˜ëª¹ ì£½ëŠ” í•¨ìˆ˜
+        if(nowHP < 0 && isBoss == false)			// ì²´ë ¥ì´ 0ë³´ë‹¤ ì ì„ì‹œ
         {
 			EnemyDead();
 		}
-		// Àû Á×´Â ÇÔ¼ö
+		// ì  ì£½ëŠ” í•¨ìˆ˜
 		else if(nowHP < 0 && isBoss == true)
 		{
 			BossDead();
@@ -161,8 +161,8 @@ public class Enemy : MonoBehaviour
 	void BossDead()
 	{
 		Destroy(gameObject);
-		prefabSpawner.RoomEnemyCount++;        // Àû Á×Àº È½¼ö 1 ´Ã¾î³²
-		Destroy(bghp_bar.gameObject);          // Ã¼·Â¹Ù »èÁ¦
+		prefabSpawner.RoomEnemyCount++;        // ì  ì£½ì€ íšŸìˆ˜ 1 ëŠ˜ì–´ë‚¨
+		Destroy(bghp_bar.gameObject);          // ì²´ë ¥ë°” ì‚­ì œ
 	}
 
 	void EnemyDead()
@@ -172,47 +172,47 @@ public class Enemy : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
-		prefabSpawner.RoomEnemyCount++;        // Àû Á×Àº È½¼ö 1 ´Ã¾î³²
+		prefabSpawner.RoomEnemyCount++;        // ì  ì£½ì€ íšŸìˆ˜ 1 ëŠ˜ì–´ë‚¨
 
-		if(bghp_bar != null) // Á¸ÀçÇÒ ½Ã
+		if(bghp_bar != null) // ì¡´ì¬í•  ì‹œ
 		{
-			Destroy(bghp_bar.gameObject);          // Ã¼·Â¹Ù »èÁ¦
+			Destroy(bghp_bar.gameObject);          // ì²´ë ¥ë°” ì‚­ì œ
 		}
 	}
 
-	// ´ë¹ÌÁö ÅØ½ºÆ® »ı¼º ¹× 1ÃÊ ÈÄ »èÁ¦
+	// ëŒ€ë¯¸ì§€ í…ìŠ¤íŠ¸ ìƒì„± ë° 1ì´ˆ í›„ ì‚­ì œ
 	IEnumerator ShowDamageText(int damage)
 	{
-		// ÅØ½ºÆ® ÇÁ¸®ÆÕ »ı¼º
+		// í…ìŠ¤íŠ¸ í”„ë¦¬íŒ¹ ìƒì„±
 		GameObject dmgText = Instantiate(damage_text_prf, GameObject.Find("Canvas").transform);
 		TextMeshProUGUI dmgTextComponent = dmgText.GetComponent<TextMeshProUGUI>();
 
-		// ÅØ½ºÆ® ³»¿ë°ú À§Ä¡ ¼³Á¤
+		// í…ìŠ¤íŠ¸ ë‚´ìš©ê³¼ ìœ„ì¹˜ ì„¤ì •
 		dmgTextComponent.text = damage.ToString();
 
-		// ÃÊ±â À§Ä¡ ¼³Á¤ (¿ùµå -> ½ºÅ©¸° ÁÂÇ¥ º¯È¯)
+		// ì´ˆê¸° ìœ„ì¹˜ ì„¤ì • (ì›”ë“œ -> ìŠ¤í¬ë¦° ì¢Œí‘œ ë³€í™˜)
 		Vector3 startPosition = Camera.main.WorldToScreenPoint(transform.position);
 		dmgText.transform.position = startPosition;
 
-		// ÀÌµ¿ÇÒ y°ª ¼³Á¤
-		float moveDistance = 50f; // yÃà ÀÌµ¿ °Å¸® (Canvas ±âÁØ)
-		float duration = 0.2f;    // Áö¼Ó ½Ã°£
-		float elapsedTime = 0f;   // °æ°ú ½Ã°£
+		// ì´ë™í•  yê°’ ì„¤ì •
+		float moveDistance = 50f; // yì¶• ì´ë™ ê±°ë¦¬ (Canvas ê¸°ì¤€)
+		float duration = 0.2f;    // ì§€ì† ì‹œê°„
+		float elapsedTime = 0f;   // ê²½ê³¼ ì‹œê°„
 
-		// ÄÚ·çÆ¾À¸·Î ÅØ½ºÆ® À§Ä¡ ÀÌµ¿
+		// ì½”ë£¨í‹´ìœ¼ë¡œ í…ìŠ¤íŠ¸ ìœ„ì¹˜ ì´ë™
 		while (elapsedTime < duration)
 		{
 			elapsedTime += Time.deltaTime;
 
-			// ÇöÀç À§Ä¡ °è»ê
+			// í˜„ì¬ ìœ„ì¹˜ ê³„ì‚°
 			Vector3 currentPosition = dmgText.transform.position;
 			currentPosition.y = Mathf.Lerp(startPosition.y, startPosition.y + moveDistance, elapsedTime / duration);
 			dmgText.transform.position = currentPosition;
 
-			yield return null; // ´ÙÀ½ ÇÁ·¹ÀÓ±îÁö ´ë±â
+			yield return null; // ë‹¤ìŒ í”„ë ˆì„ê¹Œì§€ ëŒ€ê¸°
 		}
 
-		// ÅØ½ºÆ® »èÁ¦
+		// í…ìŠ¤íŠ¸ ì‚­ì œ
 		Destroy(dmgText);
 	}
 

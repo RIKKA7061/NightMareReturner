@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,98 +13,98 @@ public class Player : MonoBehaviour
 
     public List<_Object> npcObjects = new List<_Object>();
 
-    [Header("¼ÒÈ¯ ½ºÅ©¸³Æ®")]
+    [Header("ì†Œí™˜ ìŠ¤í¬ë¦½íŠ¸")]
     public PrefabSpawner prefabSpawner;
     public PlayerAction playerAction;
     public GoHomeManager goHomeManager;
 
-    [Header("Á×Àº È½¼ö")]
+    [Header("ì£½ì€ íšŸìˆ˜")]
     static public int DeadCount = 0;
     public TextMeshProUGUI DeadCount_UI;
 
-    //Àû ¸ğµÎ Å³
+    //ì  ëª¨ë‘ í‚¬
     public bool EnmeyDown = false;
 
-    //ÇÃ·¹ÀÌ¾î À§Ä¡
+    //í”Œë ˆì´ì–´ ìœ„ì¹˜
     public Transform player;
 
-    //Áı À§Ä¡
+    //ì§‘ ìœ„ì¹˜
     public Transform Home;
 
-    //Áö¿Á À§Ä¡
+    //ì§€ì˜¥ ìœ„ì¹˜
     public Transform DeadPoint;
 
     public bool isDead = false;
-    public GameObject Dead_set; // Á×À½ ¿¬Ãâ
+    public GameObject Dead_set; // ì£½ìŒ ì—°ì¶œ
 
-    [Header("Ã¼·Â")]
-    public int maxHP = 1000; // ÃÖ´ë Ã¼·Â
+    [Header("ì²´ë ¥")]
+    public int maxHP = 1000; // ìµœëŒ€ ì²´ë ¥
     public int maxHP2 = 0;
-    public int nowHP; // Ã¼·ÂÀ» int·Î º¯°æ
+    public int nowHP; // ì²´ë ¥ì„ intë¡œ ë³€ê²½
     public TextMeshProUGUI HP_UI;
     public TextMeshProUGUI MaxHP_UI;
     public TextMeshProUGUI MaxHP2_UI;
     
-    [Header("ÀÏ¹İ °ø°İ (Àì)")]
+    [Header("ì¼ë°˜ ê³µê²© (ì½)")]
     public int Atk;
     public int Atk2 = 0;
 
-	[Header("½ºÅ³ (Â÷Â¡ ÆİÄ¡) ¸î¹è¸¸Å­ Áõ°¡ÇÒ°ÍÀÎ°¡?")]
+	[Header("ìŠ¤í‚¬ (ì°¨ì§• í€ì¹˜) ëª‡ë°°ë§Œí¼ ì¦ê°€í• ê²ƒì¸ê°€?")]
 	public int SkillAtk;
 
-	[Header("±Ã±Ø±â(¸ÁÄ¡) ¸î¹è¸¸Å­ Áõ°¡ ÇÒ°ÍÀÎ°¡?")]
+	[Header("ê¶ê·¹ê¸°(ë§ì¹˜) ëª‡ë°°ë§Œí¼ ì¦ê°€ í• ê²ƒì¸ê°€?")]
 	public int UltimitAtk;
 
-	[Header("ÇöÀç °ø°İ·Â UI Ç¥½Ã¿ë")]
+	[Header("í˜„ì¬ ê³µê²©ë ¥ UI í‘œì‹œìš©")]
 	public TextMeshProUGUI Atk_UI;
 	public TextMeshProUGUI Atk_UI2;
 
 
-    [Header("¹æ¾î·Â")]
-    public int AR; // Armor Resistance ¹æ¾î·Â Defense -> AR·Î ¹Ù²Ş
+    [Header("ë°©ì–´ë ¥")]
+    public int AR; // Armor Resistance ë°©ì–´ë ¥ Defense -> ARë¡œ ë°”ê¿ˆ
     public TextMeshProUGUI AR_UI;
 
-    public int atkNum; // ÄŞº¸ ¹øÈ£
+    public int atkNum; // ì½¤ë³´ ë²ˆí˜¸
 
-    [Header("Ã¼·Â µğ¹öÇÁ ÆÛ¼¾Æ®")]
-    public float healthDebuff1 = 0.35f;       // Ã¼·Â °¨¼Ò µğ¹öÇÁ 1 (35%) °øÈ²Àå¾Ö
-    public float healthDebuff2 = 0.3f;        // Ã¼·Â °¨¼Ò µğ¹öÇÁ 2 (30%)  ±äÀå¼º µÎÅë
-    public float healthDebuff3 = 0.2f;        // Ã¼·Â °¨¼Ò µğ¹öÇÁ 3 (20%) ¼ö¸éÀå¾Ö
-    public float healthDebuff4 = 0.1f;        // Ã¼·Â °¨¼Ò µğ¹öÇÁ 4 (10%) Å»¸ğÁõ
+    [Header("ì²´ë ¥ ë””ë²„í”„ í¼ì„¼íŠ¸")]
+    public float healthDebuff1 = 0.35f;       // ì²´ë ¥ ê°ì†Œ ë””ë²„í”„ 1 (35%) ê³µí™©ì¥ì• 
+    public float healthDebuff2 = 0.3f;        // ì²´ë ¥ ê°ì†Œ ë””ë²„í”„ 2 (30%)  ê¸´ì¥ì„± ë‘í†µ
+    public float healthDebuff3 = 0.2f;        // ì²´ë ¥ ê°ì†Œ ë””ë²„í”„ 3 (20%) ìˆ˜ë©´ì¥ì• 
+    public float healthDebuff4 = 0.1f;        // ì²´ë ¥ ê°ì†Œ ë””ë²„í”„ 4 (10%) íƒˆëª¨ì¦
 
 
-    [Header("¹æ¾î·Â µğ¹öÇÁ ÆÛ¼¾Æ®")]
-    public float defenseDebuff1 = 0.25f;      // ¹æ¾î·Â °¨¼Ò µğ¹öÇÁ 1 (25%) »çÈ¸Àû ºÒ¾ÈÀå¾Ö
-    public float defenseDebuff2 = 0.14f;      // ¹æ¾î·Â °¨¼Ò µğ¹öÇÁ 2 (14%) ÀÚÁ¸°¨ ÀúÇÏ
-    public float defenseDebuff3 = 0.26f;      // ¹æ¾î·Â °¨¼Ò µğ¹öÇÁ 3 (26%) È¸ÇÇÇàµ¿
-    public float defenseDebuff4 = 0.35f;      // ¹æ¾î·Â °¨¼Ò µğ¹öÇÁ 4 (35%) ½ÉÀå µÎ±Ù°Å¸²
+    [Header("ë°©ì–´ë ¥ ë””ë²„í”„ í¼ì„¼íŠ¸")]
+    public float defenseDebuff1 = 0.25f;      // ë°©ì–´ë ¥ ê°ì†Œ ë””ë²„í”„ 1 (25%) ì‚¬íšŒì  ë¶ˆì•ˆì¥ì• 
+    public float defenseDebuff2 = 0.14f;      // ë°©ì–´ë ¥ ê°ì†Œ ë””ë²„í”„ 2 (14%) ìì¡´ê° ì €í•˜
+    public float defenseDebuff3 = 0.26f;      // ë°©ì–´ë ¥ ê°ì†Œ ë””ë²„í”„ 3 (26%) íšŒí”¼í–‰ë™
+    public float defenseDebuff4 = 0.35f;      // ë°©ì–´ë ¥ ê°ì†Œ ë””ë²„í”„ 4 (35%) ì‹¬ì¥ ë‘ê·¼ê±°ë¦¼
 
-    [Header("ÀçÈ­")]
-    static public int Money = 0; // ÀçÈ­
+    [Header("ì¬í™”")]
+    static public int Money = 0; // ì¬í™”
 	public TextMeshProUGUI MoneyTxt;
     public TextMeshProUGUI StoreMoneyTxt;
 
-    [Header("±¸½½")]
-	static public int round = 0; // ±¸½½
+    [Header("êµ¬ìŠ¬")]
+	static public int round = 0; // êµ¬ìŠ¬
 	public TextMeshProUGUI RoundTxt;
 
-	Animator animator;        // Animator ÄÄÆ÷³ÍÆ® ÂüÁ¶
+	Animator animator;        // Animator ì»´í¬ë„ŒíŠ¸ ì°¸ì¡°
 
-	[Header("·£´ı ¹® ¼û±â±â¿ë")]
-	public RoomGenerator roomGenerator; // ·£´ı ¹® ¼û±â±â¿ë
+	[Header("ëœë¤ ë¬¸ ìˆ¨ê¸°ê¸°ìš©")]
+	public RoomGenerator roomGenerator; // ëœë¤ ë¬¸ ìˆ¨ê¸°ê¸°ìš©
 
-	// µğÆúÆ® ½ºÅ×ÀÌÅÍ½º (ÀúÀå¿ë)
+	// ë””í´íŠ¸ ìŠ¤í…Œì´í„°ìŠ¤ (ì €ì¥ìš©)
 	public int DefaultMaxHP = 0;
 	public int DefaultAtk = 0;
 	int DefaultMoney = 0;
 	int DefaultRound = 0;
     public float D_speed = 0;
-    public float D_As = 0; // °ø°İ¼Óµµ
-    public int D_Ar = 0; // ¹æ¾î·Â Armor Resistance
+    public float D_As = 0; // ê³µê²©ì†ë„
+    public int D_Ar = 0; // ë°©ì–´ë ¥ Armor Resistance
 
-	[Header("°ÔÀÓ ¶ó¿îµå ¼ö")]
+	[Header("ê²Œì„ ë¼ìš´ë“œ ìˆ˜")]
 	public TextMeshProUGUI gameRoundTMP;
-	// ¸Å ¹æ¸¶´Ù ¶ó¿îµå UP, 5¹ø½Ã »óÁ¡ -> 6¹ø½Ã º¸½º¹æ
+	// ë§¤ ë°©ë§ˆë‹¤ ë¼ìš´ë“œ UP, 5ë²ˆì‹œ ìƒì  -> 6ë²ˆì‹œ ë³´ìŠ¤ë°©
 	static public int gameRound = 0;
 
     public ShopManager shop;
@@ -115,7 +115,7 @@ public class Player : MonoBehaviour
 
     public int HammerBuffedRoundCount = 0;
 
-    // »óÁ¡ Å×½ºÆ®¿ë ÀçÈ­ + 100
+    // ìƒì  í…ŒìŠ¤íŠ¸ìš© ì¬í™” + 100
     public void AddMoneyTest()
 	{
         Money += 100;
@@ -128,53 +128,53 @@ public class Player : MonoBehaviour
     }
 	private void Start()
     {
-        nowHP = Mathf.FloorToInt(maxHP); // ÃÖ´ë Ã¼·ÂÀ» Á¤¼ö·Î ¼³Á¤
+        nowHP = Mathf.FloorToInt(maxHP); // ìµœëŒ€ ì²´ë ¥ì„ ì •ìˆ˜ë¡œ ì„¤ì •
         PlayerHpShow = GetComponent<PlayerHpShow>();
 
-        // µğ¹öÇÁ Àû¿ë
+        // ë””ë²„í”„ ì ìš©
        // ApplyDebuff();
 
-        // °ÔÀÓ ½ÃÀÛ½Ã ¶ó¿îµå ÃÊ±âÈ­
+        // ê²Œì„ ì‹œì‘ì‹œ ë¼ìš´ë“œ ì´ˆê¸°í™”
         gameRound = 0;
 
-        // µğÆúÆ® ½ºÅ×ÀÌÅÍ½º ÀúÀå
+        // ë””í´íŠ¸ ìŠ¤í…Œì´í„°ìŠ¤ ì €ì¥
         DefaultMaxHP = maxHP;
         DefaultAtk = Atk;
         DefaultMoney = Money;
         DefaultRound = 0;
-		D_speed = playerAction.walkSpeed; // startÇÔ¼ö ³»¿¡ ÀÖÀ½
-		D_As = playerAction.jabCooldown; // °ø°İ¼Óµµ
-		D_Ar = AR; // ¹æ¾î·Â Armor Resistance
+		D_speed = playerAction.walkSpeed; // startí•¨ìˆ˜ ë‚´ì— ìˆìŒ
+		D_As = playerAction.jabCooldown; // ê³µê²©ì†ë„
+		D_Ar = AR; // ë°©ì–´ë ¥ Armor Resistance
 
-		playerAction.DefaultAnimatorController(); // µğÆúÆ® ¾Ö´Ï¸ŞÀÌ¼Ç ¼¼Æ®
+		playerAction.DefaultAnimatorController(); // ë””í´íŠ¸ ì• ë‹ˆë©”ì´ì…˜ ì„¸íŠ¸
 
-		NowPosAnnounce(); // ³»À§Ä¡ È®ÀÎ
+		NowPosAnnounce(); // ë‚´ìœ„ì¹˜ í™•ì¸
 
-        StatDefaultPlayer(); // µğÆúÆ®
+        StatDefaultPlayer(); // ë””í´íŠ¸
 
 	}
 
-    private void ApplyDebuff()// µğ¹öÇÁ Àû¿ë
+    private void ApplyDebuff()// ë””ë²„í”„ ì ìš©
     {
-        // Ã¼·Â µğ¹öÇÁ Àû¿ë: 95% °¨¼Ò¸¦ À§ÇØ °è»ê
-        nowHP = Mathf.FloorToInt(maxHP * 0.05f); // ÃÖÁ¾ Ã¼·Â = 1000 * 0.05
+        // ì²´ë ¥ ë””ë²„í”„ ì ìš©: 95% ê°ì†Œë¥¼ ìœ„í•´ ê³„ì‚°
+        nowHP = Mathf.FloorToInt(maxHP * 0.05f); // ìµœì¢… ì²´ë ¥ = 1000 * 0.05
 
-        // ¹æ¾î·Â µğ¹öÇÁ Àû¿ë
+        // ë°©ì–´ë ¥ ë””ë²„í”„ ì ìš©
         float debuffedDefense = AR * (1 - defenseDebuff1);
         debuffedDefense *= (1 - defenseDebuff2);
         debuffedDefense *= (1 - defenseDebuff3);
         debuffedDefense *= (1 - defenseDebuff4);
         AR = Mathf.FloorToInt(debuffedDefense);
 
-        Debug.Log("µğ¹öÇÁ Àû¿ë ¿Ï·á: ");
-        Debug.Log($"Ã¼·Â: {nowHP}");
-        Debug.Log($"¹æ¾î·Â: {AR}");
+        Debug.Log("ë””ë²„í”„ ì ìš© ì™„ë£Œ: ");
+        Debug.Log($"ì²´ë ¥: {nowHP}");
+        Debug.Log($"ë°©ì–´ë ¥: {AR}");
     }
 
     public void TakeDamage(int damage)
     {
         nowHP -= damage;
-        Debug.Log($"ÇöÀçÃ¼·Â: {nowHP}");
+        Debug.Log($"í˜„ì¬ì²´ë ¥: {nowHP}");
 
         if (nowHP <= 0)
         {
@@ -182,59 +182,59 @@ public class Player : MonoBehaviour
         }
     }
 
-    // Á×¾úÀ» ‹š ÇàÇÏ´Â °Í
+    // ì£½ì—ˆì„ ë–„ í–‰í•˜ëŠ” ê²ƒ
     public void Dead()
     {
-		isDead = true; // ÇÃ·¹ÀÌ¾î Á×À½ ¿©ºÎ È°¼ºÈ­
+		isDead = true; // í”Œë ˆì´ì–´ ì£½ìŒ ì—¬ë¶€ í™œì„±í™”
 		DeadCount++;
 		StartCoroutine(DeadShow());
     }
 
-    // Á×¾úÀ» ¶§ ÇàÇÏ´Â °Í22
+    // ì£½ì—ˆì„ ë•Œ í–‰í•˜ëŠ” ê²ƒ22
     IEnumerator DeadShow()
     {
-		Debug.Log("³»°¡ ¸î¹ø ½ÇÇà µÇ°Ô?");
-		player.GetComponent<PlayerInput>().enabled = false; // ¸ØÃç
-        animator.SetTrigger(AnimationStrings.DeadTrigger);  // dead ¾Ö´Ï¸ŞÀÌ¼Ç ½ÇÇà
-        yield return new WaitForSeconds(4); // NÃÊ µ¿¾È ±â´Ş·Á
+		Debug.Log("ë‚´ê°€ ëª‡ë²ˆ ì‹¤í–‰ ë˜ê²Œ?");
+		player.GetComponent<PlayerInput>().enabled = false; // ë©ˆì¶°
+        animator.SetTrigger(AnimationStrings.DeadTrigger);  // dead ì• ë‹ˆë©”ì´ì…˜ ì‹¤í–‰
+        yield return new WaitForSeconds(4); // Nì´ˆ ë™ì•ˆ ê¸°ë‹¬ë ¤
 		Dead_set.SetActive(true);
-		// Áö¿Á À§Ä¡·Î ÀÌµ¿
+		// ì§€ì˜¥ ìœ„ì¹˜ë¡œ ì´ë™
 		player.position = DeadPoint.position;
 		//prefabSpawner.HideTP();
 		prefabSpawner.isSpawnned = false;
-		EnmeyDown = true; // Àû ¸ğµÎ ºñÈ°¼ºÈ­
+		EnmeyDown = true; // ì  ëª¨ë‘ ë¹„í™œì„±í™”
 		yield return null;
 	}
 
-    // ÀûÀÇ Åõ»çÃ¼¿¡ ÀÇÇØ ÇÇ°İ ´çÇÒ½Ã
+    // ì ì˜ íˆ¬ì‚¬ì²´ì— ì˜í•´ í”¼ê²© ë‹¹í• ì‹œ
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("weapon"))
             return;
 
-        // ÇÇ°İ ¾Ö´Ï¸ŞÀÌ¼Ç Àç»ı
+        // í”¼ê²© ì• ë‹ˆë©”ì´ì…˜ ì¬ìƒ
         if (playerAction.canMove == true)
         {
-            animator.SetTrigger(AnimationStrings.OuchTrigger);  // dead ¾Ö´Ï¸ŞÀÌ¼Ç ½ÇÇà
+            animator.SetTrigger(AnimationStrings.OuchTrigger);  // dead ì• ë‹ˆë©”ì´ì…˜ ì‹¤í–‰
             audioManager.PlayerSFX(audioManager.audio[5]);
         }
         else
         {
-            // ResetTrigger·Î ÇØ´ç Æ®¸®°Å¸¦ ºñÈ°¼ºÈ­
+            // ResetTriggerë¡œ í•´ë‹¹ íŠ¸ë¦¬ê±°ë¥¼ ë¹„í™œì„±í™”
             animator.ResetTrigger(AnimationStrings.OuchTrigger);
         }
 
-		// ¹æ¾î·ÂÀ» °í·ÁÇÑ ÃÖÁ¾ ÇÇÇØ·® °è»ê
+		// ë°©ì–´ë ¥ì„ ê³ ë ¤í•œ ìµœì¢… í”¼í•´ëŸ‰ ê³„ì‚°
 		//float incomingDamage = collision.GetComponent<FarATK>().damage;
-		//      float finalDamage = Mathf.Max(incomingDamage - AR, 1); // ¹æ¾î·Â Àû¿ë ÈÄ ÃÖ¼Ò ÇÇÇØ 1·Î Á¦ÇÑ
+		//      float finalDamage = Mathf.Max(incomingDamage - AR, 1); // ë°©ì–´ë ¥ ì ìš© í›„ ìµœì†Œ í”¼í•´ 1ë¡œ ì œí•œ
 
-		//      nowHP -= Mathf.FloorToInt(finalDamage); // ÇÇÇØ·®À» Á¤¼ö·Î Àû¿ë
+		//      nowHP -= Mathf.FloorToInt(finalDamage); // í”¼í•´ëŸ‰ì„ ì •ìˆ˜ë¡œ ì ìš©
 
-		// ¹æ¾î·ÂÀ» °í·ÁÇÑ ÃÖÁ¾ ÇÇÇØ·® °è»ê
+		// ë°©ì–´ë ¥ì„ ê³ ë ¤í•œ ìµœì¢… í”¼í•´ëŸ‰ ê³„ì‚°
 		float incomingDamage = collision.GetComponent<FarATK>().damage;
         PlayerDamaged(incomingDamage);
 
-        // Ã¼·ÂÀÌ 0º¸´Ù ÀûÀ»½Ã && Á×´Â ¿©ºÎ°¡ ºñÈ°¼ºÈ­ µÉ½Ã
+        // ì²´ë ¥ì´ 0ë³´ë‹¤ ì ì„ì‹œ && ì£½ëŠ” ì—¬ë¶€ê°€ ë¹„í™œì„±í™” ë ì‹œ
 		if (nowHP <= 0 && isDead == false)
         {
             Dead();
@@ -246,83 +246,83 @@ public class Player : MonoBehaviour
     public string Temptext = "";
     private void Update()
     {
-        // Á×Àº »óÅÂ¿¡¼­ ½ºÆäÀÌ½º¹Ù¸¦ ´©¸£¸é ºÎÈ° Ã³¸® // #####################
+        // ì£½ì€ ìƒíƒœì—ì„œ ìŠ¤í˜ì´ìŠ¤ë°”ë¥¼ ëˆ„ë¥´ë©´ ë¶€í™œ ì²˜ë¦¬ // #####################
         if (isDead && Input.GetKeyDown(KeyCode.Space))
         {
             RespawnPlayer();
-            Debug.Log("½ºÆäÀÌ½º ¹Ù ´©¸§");
+            Debug.Log("ìŠ¤í˜ì´ìŠ¤ ë°” ëˆ„ë¦„");
         }
 
         //if (isDead)
         //    player.position = DeadPoint.position;
 
-        // ÀÓ½Ã Ã¼·Â Ç¥±â º¯¼ö
+        // ì„ì‹œ ì²´ë ¥ í‘œê¸° ë³€ìˆ˜
         int TempNowHP = nowHP;
 
-        if (nowHP < 0)// Ã¼·ÂÀÌ À½¼öÀÏ ¶§ -> º¸¿©ÁÖ±â¿ë Ã¼·Â 0 Ç¥±â
+        if (nowHP < 0)// ì²´ë ¥ì´ ìŒìˆ˜ì¼ ë•Œ -> ë³´ì—¬ì£¼ê¸°ìš© ì²´ë ¥ 0 í‘œê¸°
 		{
             TempNowHP = 0;
 		}
-        else if (nowHP > 0) // ¾ç¼ö ÀÏ ¶§´Â ÇöÀç Ã¼·ÂÀ¸·Î Ç¥±â
+        else if (nowHP > 0) // ì–‘ìˆ˜ ì¼ ë•ŒëŠ” í˜„ì¬ ì²´ë ¥ìœ¼ë¡œ í‘œê¸°
         {
 			TempNowHP = nowHP;
 		}
 
-        HP_UI.text = TempNowHP.ToString() + "/" + maxHP.ToString(); // (ÇöÀçÃ¼·Â/ÃÖ´ëÃ¼·Â)
+        HP_UI.text = TempNowHP.ToString() + "/" + maxHP.ToString(); // (í˜„ì¬ì²´ë ¥/ìµœëŒ€ì²´ë ¥)
         MaxHP_UI.text = maxHP.ToString();
         MaxHP2_UI.text = "(" + "+" + maxHP2.ToString() + ")";
-        Atk_UI.text = Atk.ToString();                               // °ø°İ·Â
+        Atk_UI.text = Atk.ToString();                               // ê³µê²©ë ¥
         Atk_UI2.text = "(" + "+" + Atk2.ToString() + ")";
 
-        MoneyTxt.text = Money.ToString();                           // ÀçÈ­
-        StoreMoneyTxt.text = Money.ToString();                      // »óÁ¡¿¡¼­ º¸ÀÌ´Â ÀçÈ­
-        RoundTxt.text = round.ToString();                           // ±¸½½
-        AR_UI.text = AR.ToString();                                 // ¹æ¾î·Â
+        MoneyTxt.text = Money.ToString();                           // ì¬í™”
+        StoreMoneyTxt.text = Money.ToString();                      // ìƒì ì—ì„œ ë³´ì´ëŠ” ì¬í™”
+        RoundTxt.text = round.ToString();                           // êµ¬ìŠ¬
+        AR_UI.text = AR.ToString();                                 // ë°©ì–´ë ¥
 
-        // ÇöÀç °ÔÀÓ ¶ó¿îµå ¼ö
-  //      if (gameRound == 0) // Áı ÀÏ¶§
+        // í˜„ì¬ ê²Œì„ ë¼ìš´ë“œ ìˆ˜
+  //      if (gameRound == 0) // ì§‘ ì¼ë•Œ
   //      {
-  //          Temptext = "Áı".ToString();
-  //          Printer(Temptext); // ÇöÀç À§Ä¡ Ãâ·Â
-  //          playerAction.isGeoRiPlayer = true;  // °Å¸® Ãâ½Å ÇÃ·¹ÀÌ¾î·Î º¯°æ
+  //          Temptext = "ì§‘".ToString();
+  //          Printer(Temptext); // í˜„ì¬ ìœ„ì¹˜ ì¶œë ¥
+  //          playerAction.isGeoRiPlayer = true;  // ê±°ë¦¬ ì¶œì‹  í”Œë ˆì´ì–´ë¡œ ë³€ê²½
   //      }
   //      else if (gameRound <= prefabSpawner.OverRoom)
   //      {
-  //          Temptext = "½ºÅ×ÀÌÁö : " + gameRound.ToString();
-		//	Printer(Temptext); // ÇöÀç À§Ä¡ Ãâ·Â
-  //          playerAction.isGeoRiPlayer = false; // °Å¸® Ãâ½Å ÇÃ·¹ÀÌ¾î·Î º¯°æ ÇØÁ¦
+  //          Temptext = "ìŠ¤í…Œì´ì§€ : " + gameRound.ToString();
+		//	Printer(Temptext); // í˜„ì¬ ìœ„ì¹˜ ì¶œë ¥
+  //          playerAction.isGeoRiPlayer = false; // ê±°ë¦¬ ì¶œì‹  í”Œë ˆì´ì–´ë¡œ ë³€ê²½ í•´ì œ
 		//}
   //      else if (gameRound == prefabSpawner.OverRoom + 1)
   //      {
-  //          Temptext = "»óÁ¡";
-		//	Printer(Temptext); // ÇöÀç À§Ä¡ Ãâ·Â
+  //          Temptext = "ìƒì ";
+		//	Printer(Temptext); // í˜„ì¬ ìœ„ì¹˜ ì¶œë ¥
 		//}
   //      else if (gameRound == prefabSpawner.OverRoom + 2)
   //      {
-  //          Temptext = "º¸½º¹æ";
-		//	Printer(Temptext); // ÇöÀç À§Ä¡ Ãâ·Â
+  //          Temptext = "ë³´ìŠ¤ë°©";
+		//	Printer(Temptext); // í˜„ì¬ ìœ„ì¹˜ ì¶œë ¥
   //      }
 
         gameRoundTMP.text = Temptext.ToString();
 
-        DeadCount_UI.text = "Á×Àº È½¼ö : " + DeadCount.ToString();
+        DeadCount_UI.text = "ì£½ì€ íšŸìˆ˜ : " + DeadCount.ToString();
     }
 
 
     public void NowPosAnnounce()
     {
-        // ÇöÀç °ÔÀÓ ¶ó¿îµå ¼ö
-        if (gameRound == 0) // Áı ÀÏ¶§
+        // í˜„ì¬ ê²Œì„ ë¼ìš´ë“œ ìˆ˜
+        if (gameRound == 0) // ì§‘ ì¼ë•Œ
         {
-            Temptext = "Áı".ToString();
+            Temptext = "ì§‘".ToString();
             //
             QuestManager.House();
-            Printer(Temptext); // ÇöÀç À§Ä¡ Ãâ·Â
-            playerAction.isGeoRiPlayer = true;  // °Å¸® Ãâ½Å ÇÃ·¹ÀÌ¾î·Î º¯°æ
+            Printer(Temptext); // í˜„ì¬ ìœ„ì¹˜ ì¶œë ¥
+            playerAction.isGeoRiPlayer = true;  // ê±°ë¦¬ ì¶œì‹  í”Œë ˆì´ì–´ë¡œ ë³€ê²½
         }
         else if (gameRound <= prefabSpawner.OverRoom)
         {
-            Temptext = ( gameRound - 1 ).ToString() + "¹øÂ° ¹æ";
+            Temptext = ( gameRound - 1 ).ToString() + "ë²ˆì§¸ ë°©";
 
 			if (gameRound - 1 == 0)
 			{
@@ -338,18 +338,18 @@ public class Player : MonoBehaviour
                 QuestManager.RoomOne();
                 Debug.Log(gameRound - 1);
             }
-            Printer(Temptext); // ÇöÀç À§Ä¡ Ãâ·Â
-            playerAction.isGeoRiPlayer = false; // °Å¸® Ãâ½Å ÇÃ·¹ÀÌ¾î·Î º¯°æ ÇØÁ¦
+            Printer(Temptext); // í˜„ì¬ ìœ„ì¹˜ ì¶œë ¥
+            playerAction.isGeoRiPlayer = false; // ê±°ë¦¬ ì¶œì‹  í”Œë ˆì´ì–´ë¡œ ë³€ê²½ í•´ì œ
         }
         else if (gameRound == prefabSpawner.OverRoom + 1)
         {
-            Temptext = "»óÁ¡";
-            Printer(Temptext); // ÇöÀç À§Ä¡ Ãâ·Â
+            Temptext = "ìƒì ";
+            Printer(Temptext); // í˜„ì¬ ìœ„ì¹˜ ì¶œë ¥
         }
         else if (gameRound == prefabSpawner.OverRoom + 2)
         {
-            Temptext = "º¸½º¹æ";
-            Printer(Temptext); // ÇöÀç À§Ä¡ Ãâ·Â
+            Temptext = "ë³´ìŠ¤ë°©";
+            Printer(Temptext); // í˜„ì¬ ìœ„ì¹˜ ì¶œë ¥
             goHomeManager.SpawnNewBoss();
         }
     }
@@ -363,19 +363,19 @@ public class Player : MonoBehaviour
 
     public void RespawnPlayer()
     {
-        // ÇÃ·¹ÀÌ¾î ½ºÅ×ÀÌÅÍ½º ¿ø·¡´ë·Î Áï, ¹öÇÁ Á¦°Å
+        // í”Œë ˆì´ì–´ ìŠ¤í…Œì´í„°ìŠ¤ ì›ë˜ëŒ€ë¡œ ì¦‰, ë²„í”„ ì œê±°
         StatDefaultPlayer();
 
-		// ÁøÇà ÁßÀÎ °ÔÀÓ ¶ó¿îµå ¼ö 0À¸·Î ÃÊ±âÈ­
+		// ì§„í–‰ ì¤‘ì¸ ê²Œì„ ë¼ìš´ë“œ ìˆ˜ 0ìœ¼ë¡œ ì´ˆê¸°í™”
 		gameRound = 0;
 
-        player.GetComponent<PlayerInput>().enabled = true; // ´Ù½Ã ¿òÁ÷ÀÏ¼ö ÀÖ°Ô
-        nowHP = Mathf.FloorToInt(maxHP); // ºÎÈ° ½Ã Ã¼·ÂÀ» ÃÖ´ëÄ¡·Î ¼³Á¤
+        player.GetComponent<PlayerInput>().enabled = true; // ë‹¤ì‹œ ì›€ì§ì¼ìˆ˜ ìˆê²Œ
+        nowHP = Mathf.FloorToInt(maxHP); // ë¶€í™œ ì‹œ ì²´ë ¥ì„ ìµœëŒ€ì¹˜ë¡œ ì„¤ì •
         isDead = false;
-        player.position = Home.position; // Áı ÅÚ
-        Dead_set.SetActive(false); // Á×À½ ¿¬Ãâ ³¡
+        player.position = Home.position; // ì§‘ í…”
+        Dead_set.SetActive(false); // ì£½ìŒ ì—°ì¶œ ë
 
-        // ·£´ı ¹® ´Ù½Ã ¾Èº¸ÀÌ°Ô ¼û±â±â
+        // ëœë¤ ë¬¸ ë‹¤ì‹œ ì•ˆë³´ì´ê²Œ ìˆ¨ê¸°ê¸°
         roomGenerator.DestroyDoor();
 
         foreach (var npc in npcObjects)
@@ -383,10 +383,10 @@ public class Player : MonoBehaviour
             npc.isDialogged = true;
         }
         
-        EnmeyDown = false;//Àû Á×À½ »óÅÂ ÇØÁ¦
-        prefabSpawner.RoomEnemyCount = 0;// Àû Á×ÀÎ ¼ö 0À¸·Î ÃÊ±âÈ­
-        prefabSpawner.DestroySpawnedObjects();// »ı¼ºµÈ ¾ÆÀÌÅÛ ¹× »óÁ¡ TP °´Ã¼ Á¦°Å
-	}// ÇÃ·¹ÀÌ¾î ºÎÈ°
+        EnmeyDown = false;//ì  ì£½ìŒ ìƒíƒœ í•´ì œ
+        prefabSpawner.RoomEnemyCount = 0;// ì  ì£½ì¸ ìˆ˜ 0ìœ¼ë¡œ ì´ˆê¸°í™”
+        prefabSpawner.DestroySpawnedObjects();// ìƒì„±ëœ ì•„ì´í…œ ë° ìƒì  TP ê°ì²´ ì œê±°
+	}// í”Œë ˆì´ì–´ ë¶€í™œ
 
 	public GameObject portal;
 	public GameObject Class;
@@ -399,17 +399,17 @@ public class Player : MonoBehaviour
 		maxHP = DefaultMaxHP;
 		Atk = DefaultAtk;
 		round = 0;
-		itemManager.isNextRoundHpUp = false;    // ±â·Â¹æ¿ï ¹öÇÁ Á¦°Å
+		itemManager.isNextRoundHpUp = false;    // ê¸°ë ¥ë°©ìš¸ ë²„í”„ ì œê±°
 		itemManager.DebuffHpUp();
         playerAction.walkSpeed = D_speed;
-        playerAction.jabCooldown = D_As;// °ø°İ¼Óµµ
-        AR = D_Ar; // ¹æ¾î·Â Armor Resistance
-        itemManager.GoodByeHammerBuff();        // ÇØ¸Ó ¹öÇÁ Á¦°Å
+        playerAction.jabCooldown = D_As;// ê³µê²©ì†ë„
+        AR = D_Ar; // ë°©ì–´ë ¥ Armor Resistance
+        itemManager.GoodByeHammerBuff();        // í•´ë¨¸ ë²„í”„ ì œê±°
 
-		playerAction.DefaultAnimatorController(); // µğÆúÆ® ¾Ö´Ï¸ŞÀÌ¼Ç ¼¼Æ®
+		playerAction.DefaultAnimatorController(); // ë””í´íŠ¸ ì• ë‹ˆë©”ì´ì…˜ ì„¸íŠ¸
         playerAction.isRoundUP = false;
 
-		itemManager.OFFCrunchMode();            // °ú¹ÎÀÇ ´« ¹öÇÁ Á¦°Å
+		itemManager.OFFCrunchMode();            // ê³¼ë¯¼ì˜ ëˆˆ ë²„í”„ ì œê±°
 
 		if (Atk != 25)
 		{
@@ -423,19 +423,19 @@ public class Player : MonoBehaviour
         NowPosAnnounce();
 
 
-	}// ÇÃ·¹ÀÌ¾î ½ºÅ×ÀÌÅÍ½º µğÆúÆ®·Î ¼³Á¤
+	}// í”Œë ˆì´ì–´ ìŠ¤í…Œì´í„°ìŠ¤ ë””í´íŠ¸ë¡œ ì„¤ì •
 
 
-	const float AR_FACTOR = 0.01f;       // ¹æ¾î·Â °ø½Ä¿¡ ¾²ÀÓ
-	public void PlayerDamaged(float dmg) // ÇÃ·¹ÀÌ¾î°¡ ¹Ş°ÔµÇ´Â µ¥¹ÌÁö (¹æ¾î·Â °ø½Ä Àû¿ë)
+	const float AR_FACTOR = 0.01f;       // ë°©ì–´ë ¥ ê³µì‹ì— ì“°ì„
+	public void PlayerDamaged(float dmg) // í”Œë ˆì´ì–´ê°€ ë°›ê²Œë˜ëŠ” ë°ë¯¸ì§€ (ë°©ì–´ë ¥ ê³µì‹ ì ìš©)
     {
-		// ¹æ¾î·ÂÀÌ À½¼öÀÏ °æ¿ì 0À¸·Î º¸Á¤
+		// ë°©ì–´ë ¥ì´ ìŒìˆ˜ì¼ ê²½ìš° 0ìœ¼ë¡œ ë³´ì •
 		if (AR < 0) AR = 0;
 
-        // µ¥¹ÌÁö °è»ê (·ÑÇÏ°í ¶È°°À½) (¹æ¾î·Â 100 -> 50%) (¹æ¾î·Â 200 -> 33.33%)
+        // ë°ë¯¸ì§€ ê³„ì‚° (ë¡¤í•˜ê³  ë˜‘ê°™ìŒ) (ë°©ì–´ë ¥ 100 -> 50%) (ë°©ì–´ë ¥ 200 -> 33.33%)
 		int totaldmg = Mathf.Max(1, (int)(dmg / (1 + (AR * AR_FACTOR))));
 
-		// ÇöÀç HP¿¡¼­ ÇÇÇØ·® °¨¼Ò
+		// í˜„ì¬ HPì—ì„œ í”¼í•´ëŸ‰ ê°ì†Œ
 		nowHP -= totaldmg;
 	}
 }

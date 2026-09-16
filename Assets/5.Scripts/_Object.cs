@@ -1,21 +1,21 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class _Object : MonoBehaviour
 {
-    public int id;//NPC¹øÈ£
+    public int id;//NPCë²ˆí˜¸
 
-    //NPCº° È½Â÷º° ´ëÈ­ È½¼ö
+    //NPCë³„ íšŸì°¨ë³„ ëŒ€í™” íšŸìˆ˜
     public int EachTalkCount = 0;
     public int TempEachTalkCount = 0;
     static public int[] EachTalkCountSaveNum = new int[4];
 
-    //Å×½ºÆ®¿ë ÀÌ¸§ º¯¼ö
+    //í…ŒìŠ¤íŠ¸ìš© ì´ë¦„ ë³€ìˆ˜
     public new string name;
 
-    //NPCº° Á×ÀºµÚ ´ëÈ­ È®ÀÎ¿ë boolÇü º¯¼ö
+    //NPCë³„ ì£½ì€ë’¤ ëŒ€í™” í™•ì¸ìš© boolí˜• ë³€ìˆ˜
 	public bool isDeadUp = false;
 	public bool isUpGraded = false;
 
@@ -23,11 +23,11 @@ public class _Object : MonoBehaviour
     public int tempPlayerDead = 0;
     public bool isDialogged = true;
 
-    public GameObject malPeungSeon;         // ¸»Ç³¼± ÀÌ¹ÌÁö
-    private Player player;                  // ÇÃ·¹ÀÌ¾î ½ºÅ©¸³Æ®
-    private float range = 2f;               // ÇÃ·¹ÀÌ¾î °¨Áö¹üÀ§
+    public GameObject malPeungSeon;         // ë§í’ì„  ì´ë¯¸ì§€
+    private Player player;                  // í”Œë ˆì´ì–´ ìŠ¤í¬ë¦½íŠ¸
+    private float range = 2f;               // í”Œë ˆì´ì–´ ê°ì§€ë²”ìœ„
 
-    public void EachTalkCountSave(int id) // ÀúÀå
+    public void EachTalkCountSave(int id) // ì €ì¥
     {
         id = id / 100;
 
@@ -40,34 +40,34 @@ public class _Object : MonoBehaviour
 
     public void Start()
     {
-        player = FindObjectOfType<Player>();// ¹«Á¶°Ç ÇØÁà¾ßµÊ (ÃÊ±âÈ­)
+        player = FindObjectOfType<Player>();// ë¬´ì¡°ê±´ í•´ì¤˜ì•¼ë¨ (ì´ˆê¸°í™”)
     }
 
     public void ResetEachTalkCountSave()
     {
-        // ´ëÈ­ ÀúÀå ÃÊ±âÈ­
+        // ëŒ€í™” ì €ì¥ ì´ˆê¸°í™”
         for (int i = 0; i < EachTalkCountSaveNum.Length; i++)
         {
             EachTalkCountSaveNum[i] = 0;
         }
 
-        EachTalkCount = 0;        // ÇöÀç ´ëÈ­ ¹øÈ£ ÃÊ±âÈ­
+        EachTalkCount = 0;        // í˜„ì¬ ëŒ€í™” ë²ˆí˜¸ ì´ˆê¸°í™”
     }
 
 
 	private void FixedUpdate()
 	{
-        /*ÇÃ·¹ÀÌ¾î°¡ °¡±îÀÌ ¿ÔÀ»½Ã ¸»Ç³¼± º¸ÀÌ±â*/
+        /*í”Œë ˆì´ì–´ê°€ ê°€ê¹Œì´ ì™”ì„ì‹œ ë§í’ì„  ë³´ì´ê¸°*/
 		Vector2 direction = player.transform.position - transform.position;
 
 		float X = Mathf.Abs(Mathf.Round(direction.x));
 		float Y = Mathf.Abs(Mathf.Round(direction.y));
 
-		if (isDialogged && (X<= range && Y <= range))//¼±¾ğ¹®¿¡¼­ Á¶ÀıÇÏ¼À
+		if (isDialogged && (X<= range && Y <= range))//ì„ ì–¸ë¬¸ì—ì„œ ì¡°ì ˆí•˜ì…ˆ
         {
 			malPeungSeon.SetActive(true);
 		}
-        else if (!isDialogged || (X >= range && Y >= range))//¼±¾ğ¹®¿¡¼­ Á¶ÀıÇÏ¼À
+        else if (!isDialogged || (X >= range && Y >= range))//ì„ ì–¸ë¬¸ì—ì„œ ì¡°ì ˆí•˜ì…ˆ
 		{
             malPeungSeon.SetActive(false);
         }
@@ -75,4 +75,4 @@ public class _Object : MonoBehaviour
 }
 
 
-//·¹Æ÷Æ® APK
+//ë ˆí¬íŠ¸ APK

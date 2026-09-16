@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,7 +6,7 @@ using TMPro;
 
 public class BtnManager : MonoBehaviour
 {
-	//ÅøÆÁ
+	//íˆ´íŒ
 	public GameObject tip;
     public GameObject shop;
 	public GameObject myData;
@@ -20,16 +20,16 @@ public class BtnManager : MonoBehaviour
     public GameObject item3;
 	public GameObject setting;
 
-    //°³¹ßÀÚ
+    //ê°œë°œì
     public GameObject Dev;
 
-	//Ã¢
+	//ì°½
 	public TextMeshProUGUI TipText;
 
 	AudioManager audioManager;
 
 	private bool isOpened = false;
-	public string text = "µğÆúÆ®";
+	public string text = "ë””í´íŠ¸";
 
     void Awake()
     {
@@ -38,24 +38,24 @@ public class BtnManager : MonoBehaviour
 
     void Start()
 	{
-		// ÇÒ´ç È®ÀÎÀ» À§ÇÑ µğ¹ö±× ¸Ş½ÃÁö
+		// í• ë‹¹ í™•ì¸ì„ ìœ„í•œ ë””ë²„ê·¸ ë©”ì‹œì§€
 		if (tip == null)
 		{
-			Debug.LogError("Tip ¿ÀºêÁ§Æ®°¡ ÇÒ´çµÇÁö ¾Ê¾Ò½À´Ï´Ù.");
+			Debug.LogError("Tip ì˜¤ë¸Œì íŠ¸ê°€ í• ë‹¹ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 		}
 		if (Dev == null)
 		{
-			Debug.LogError("Dev ¿ÀºêÁ§Æ®°¡ ÇÒ´çµÇÁö ¾Ê¾Ò½À´Ï´Ù.");
+			Debug.LogError("Dev ì˜¤ë¸Œì íŠ¸ê°€ í• ë‹¹ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 		}
 		if (TipText == null)
 		{
-			Debug.LogError("TipText ¿ÀºêÁ§Æ®°¡ ÇÒ´çµÇÁö ¾Ê¾Ò½À´Ï´Ù.");
+			Debug.LogError("TipText ì˜¤ë¸Œì íŠ¸ê°€ í• ë‹¹ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 		}
 	}
 
 	public void OnAndOFF()
 	{
-		if (tip != null) // Null Ã¼Å©
+		if (tip != null) // Null ì²´í¬
 		{
 			if (isOpened == false)
 			{
@@ -70,7 +70,7 @@ public class BtnManager : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError("Tip ¿ÀºêÁ§Æ®°¡ null »óÅÂÀÔ´Ï´Ù.");
+			Debug.LogError("Tip ì˜¤ë¸Œì íŠ¸ê°€ null ìƒíƒœì…ë‹ˆë‹¤.");
 		}
 	}
 
@@ -163,27 +163,27 @@ public class BtnManager : MonoBehaviour
 
     public void Developement()
 	{
-		if (TipText != null) // Null Ã¼Å©
+		if (TipText != null) // Null ì²´í¬
 		{
-			string text = "ÁıÅ° - H\nÀÚ°á - K";
+			string text = "ì§‘í‚¤ - H\nìê²° - K";
 			TipText.text = text;
 		}
 		else
 		{
-			Debug.LogError("TipText ¿ÀºêÁ§Æ®°¡ null »óÅÂÀÔ´Ï´Ù.");
+			Debug.LogError("TipText ì˜¤ë¸Œì íŠ¸ê°€ null ìƒíƒœì…ë‹ˆë‹¤.");
 		}
 	}
 
 	public void ControlKeyTips()
 	{
-		if (TipText != null) // Null Ã¼Å©
+		if (TipText != null) // Null ì²´í¬
 		{
-			string text = "ÀÌµ¿ - WASD\r\n±âº» °ø°İ - ÁÂÅ¬¸¯\r\nÆ¯¼ö °ø°İ - ¿ìÅ¬¸¯\r\n±Ã±Ø±â - R\r\n±¸¸£±â - ½ºÆäÀÌ½º¹Ù\r\n´ëÈ­ - E";
+			string text = "ì´ë™ - WASD\r\nê¸°ë³¸ ê³µê²© - ì¢Œí´ë¦­\r\níŠ¹ìˆ˜ ê³µê²© - ìš°í´ë¦­\r\nê¶ê·¹ê¸° - R\r\nêµ¬ë¥´ê¸° - ìŠ¤í˜ì´ìŠ¤ë°”\r\nëŒ€í™” - E";
 			TipText.text = text;
 		}
 		else
 		{
-			Debug.LogError("TipText ¿ÀºêÁ§Æ®°¡ null »óÅÂÀÔ´Ï´Ù.");
+			Debug.LogError("TipText ì˜¤ë¸Œì íŠ¸ê°€ null ìƒíƒœì…ë‹ˆë‹¤.");
 		}
 	}
 }

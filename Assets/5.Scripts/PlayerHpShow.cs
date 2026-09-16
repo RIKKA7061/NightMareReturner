@@ -1,26 +1,26 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerHpShow : MonoBehaviour
 {
-    public GameObject prefabHP_bar;//Ã¼·Â¹Ù(ÇÁ¸®Æé) ²ø¾îÄ¡±â
-    public GameObject canvas;//canvas²ø¾îÄ¡±â
-	public Player player;//ÇÃ·¹ÀÌ¾î
+    public GameObject prefabHP_bar;//ì²´ë ¥ë°”(í”„ë¦¬í©) ëŒì–´ì¹˜ê¸°
+    public GameObject canvas;//canvasëŒì–´ì¹˜ê¸°
+	public Player player;//í”Œë ˆì´ì–´
 
-	//RectTransform hpBar;//hp¹Ù º¯È¯ÇÏ±â À§ÇÑ ¾îÂ¼±¸
-	public RectTransform hpBar;//hp¹Ù º¯È¯ÇÏ±â À§ÇÑ ¾îÂ¼±¸
+	//RectTransform hpBar;//hpë°” ë³€í™˜í•˜ê¸° ìœ„í•œ ì–´ì©Œêµ¬
+	public RectTransform hpBar;//hpë°” ë³€í™˜í•˜ê¸° ìœ„í•œ ì–´ì©Œêµ¬
 
-	public Image nowHpBar;//ÇöÀç Ã¼·Â¹Ù
+	public Image nowHpBar;//í˜„ì¬ ì²´ë ¥ë°”
 
-    public float height = 1.7f;//¸ğ¸§
+    public float height = 1.7f;//ëª¨ë¦„
 
 	void Start()
 	{
-		//player = FindObjectOfType<Player>();//¹«Á¶°Ç ÇØÁà¾ßµÊ (ÃÊ±âÈ­)
-		//hpBar = Instantiate(prefabHP_bar, canvas.transform).GetComponent<RectTransform>();//Ã¼·Â¹Ù canvas¿¡´Ù°¡ »ı¼ºÀÏ µí?
-		//nowHpBar = hpBar.transform.GetChild(0).GetComponent<Image>();//Ã¼·Â¹Ù »¡°£ ºÎºĞ¸¸ °¡Á®¿À´Â °ÅÀÏµí?
+		//player = FindObjectOfType<Player>();//ë¬´ì¡°ê±´ í•´ì¤˜ì•¼ë¨ (ì´ˆê¸°í™”)
+		//hpBar = Instantiate(prefabHP_bar, canvas.transform).GetComponent<RectTransform>();//ì²´ë ¥ë°” canvasì—ë‹¤ê°€ ìƒì„±ì¼ ë“¯?
+		//nowHpBar = hpBar.transform.GetChild(0).GetComponent<Image>();//ì²´ë ¥ë°” ë¹¨ê°„ ë¶€ë¶„ë§Œ ê°€ì ¸ì˜¤ëŠ” ê±°ì¼ë“¯?
 	}
 
 	void Update()

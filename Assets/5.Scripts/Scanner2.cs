@@ -1,10 +1,10 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Scanner2 : MonoBehaviour
 {
-	//¿ø°Å¸® °ø°İ¿ë ½ºÅ©¸³Æ®
+	//ì›ê±°ë¦¬ ê³µê²©ìš© ìŠ¤í¬ë¦½íŠ¸
 	public float scanRange;
 	public LayerMask targetLayer;
 	public RaycastHit2D[] targets;
@@ -12,7 +12,7 @@ public class Scanner2 : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		targets = Physics2D.CircleCastAll(transform.position, scanRange, Vector2.zero, 0, targetLayer); //¿ø ¹üÀ§¾È¿¡ Å¸°Ù ½ºÄµ
+		targets = Physics2D.CircleCastAll(transform.position, scanRange, Vector2.zero, 0, targetLayer); //ì› ë²”ìœ„ì•ˆì— íƒ€ê²Ÿ ìŠ¤ìº”
 		nearestTarget = GetNearest();
 	}
 

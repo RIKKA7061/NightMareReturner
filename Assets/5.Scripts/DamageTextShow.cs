@@ -1,14 +1,14 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class DamageTextShow : MonoBehaviour
 {
-	[Header("¿¹´Â ¾È °®´Ù ºÙ¿©µµ µÊ")]
+	[Header("ì˜ˆëŠ” ì•ˆ ê°–ë‹¤ ë¶™ì—¬ë„ ë¨")]
 	public TextMeshProUGUI damage_text;
 
-	[Header("µ¥¹ÌÁö ÅØ½ºÆ® ÇÁ¸®Æé")]
+	[Header("ë°ë¯¸ì§€ í…ìŠ¤íŠ¸ í”„ë¦¬í©")]
 	public GameObject damage_text_prf;
 
 	public void ShowDamage(int damage)
@@ -16,39 +16,39 @@ public class DamageTextShow : MonoBehaviour
 		StartCoroutine(ShowDamageText(damage));
 	}
 
-	// ´ë¹ÌÁö ÅØ½ºÆ® »ı¼º ¹× 1ÃÊ ÈÄ »èÁ¦
+	// ëŒ€ë¯¸ì§€ í…ìŠ¤íŠ¸ ìƒì„± ë° 1ì´ˆ í›„ ì‚­ì œ
 	IEnumerator ShowDamageText(int damage)
 	{
-		// ÅØ½ºÆ® ÇÁ¸®ÆÕ »ı¼º
+		// í…ìŠ¤íŠ¸ í”„ë¦¬íŒ¹ ìƒì„±
 		GameObject dmgText = Instantiate(damage_text_prf, GameObject.Find("Canvas").transform);
 		TextMeshProUGUI dmgTextComponent = dmgText.GetComponent<TextMeshProUGUI>();
 
-		// ÅØ½ºÆ® ³»¿ë°ú À§Ä¡ ¼³Á¤
+		// í…ìŠ¤íŠ¸ ë‚´ìš©ê³¼ ìœ„ì¹˜ ì„¤ì •
 		dmgTextComponent.text = damage.ToString();
 
-		// ÃÊ±â À§Ä¡ ¼³Á¤ (¿ùµå -> ½ºÅ©¸° ÁÂÇ¥ º¯È¯)
+		// ì´ˆê¸° ìœ„ì¹˜ ì„¤ì • (ì›”ë“œ -> ìŠ¤í¬ë¦° ì¢Œí‘œ ë³€í™˜)
 		Vector3 startPosition = Camera.main.WorldToScreenPoint(transform.position);
 		dmgText.transform.position = startPosition;
 
-		// ÀÌµ¿ÇÒ y°ª ¼³Á¤
-		float moveDistance = 50f; // yÃà ÀÌµ¿ °Å¸® (Canvas ±âÁØ)
-		float duration = 0.2f;    // Áö¼Ó ½Ã°£
-		float elapsedTime = 0f;   // °æ°ú ½Ã°£
+		// ì´ë™í•  yê°’ ì„¤ì •
+		float moveDistance = 50f; // yì¶• ì´ë™ ê±°ë¦¬ (Canvas ê¸°ì¤€)
+		float duration = 0.2f;    // ì§€ì† ì‹œê°„
+		float elapsedTime = 0f;   // ê²½ê³¼ ì‹œê°„
 
-		// ÄÚ·çÆ¾À¸·Î ÅØ½ºÆ® À§Ä¡ ÀÌµ¿
+		// ì½”ë£¨í‹´ìœ¼ë¡œ í…ìŠ¤íŠ¸ ìœ„ì¹˜ ì´ë™
 		while (elapsedTime < duration)
 		{
 			elapsedTime += Time.deltaTime;
 
-			// ÇöÀç À§Ä¡ °è»ê
+			// í˜„ì¬ ìœ„ì¹˜ ê³„ì‚°
 			Vector3 currentPosition = dmgText.transform.position;
 			currentPosition.y = Mathf.Lerp(startPosition.y, startPosition.y + moveDistance, elapsedTime / duration);
 			dmgText.transform.position = currentPosition;
 
-			yield return null; // ´ÙÀ½ ÇÁ·¹ÀÓ±îÁö ´ë±â
+			yield return null; // ë‹¤ìŒ í”„ë ˆì„ê¹Œì§€ ëŒ€ê¸°
 		}
 
-		// ÅØ½ºÆ® »èÁ¦
+		// í…ìŠ¤íŠ¸ ì‚­ì œ
 		Destroy(dmgText);
 	}
 

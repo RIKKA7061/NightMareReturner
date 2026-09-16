@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +8,7 @@ public class ShotController : MonoBehaviour
     private Animator playerAnimator = null;
 
     // Start is called before the first frame update
-    void Start()//ŠÔ‚ÅÁ‚¦‚é—l‚Éw’è
+    void Start()//ë „ë“©ê¶³ë¤‘ê¶‘ê·¡ë¾©ê¶¸ëŸšë¯¦
     {
         
     }

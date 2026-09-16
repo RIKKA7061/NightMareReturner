@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -6,60 +6,60 @@ using UnityEngine.InputSystem;
 
 public class TouchItems : MonoBehaviour
 {
-	[Header("¾ÆÀÌÅÛ°ú ´êÀ»½Ã")]
+	[Header("ì•„ì´í…œê³¼ ë‹¿ì„ì‹œ")]
 	public GameObject portal;
 
-	[Header("ÀÌ°Å class¾ß?")]
+	[Header("ì´ê±° classì•¼?")]
 	public bool isClass;
 
-	[Header("°ø°İ·Â Áõ°¡")]
-	public int AddAtk = 0;  // °ø°İ·Â Áõ°¡
+	[Header("ê³µê²©ë ¥ ì¦ê°€")]
+	public int AddAtk = 0;  // ê³µê²©ë ¥ ì¦ê°€
 
-	[Header("Ã¼·Â È¸º¹")]
-	public int Heal = 0;    // Ã¼·Â È¸º¹
+	[Header("ì²´ë ¥ íšŒë³µ")]
+	public int Heal = 0;    // ì²´ë ¥ íšŒë³µ
 
-	[Header("ÃÖ´ë Ã¼·Â Áõ°¡")]
-	public int AddHp = 0;   // ÃÖ´ë Ã¼·Â Áõ°¡
+	[Header("ìµœëŒ€ ì²´ë ¥ ì¦ê°€")]
+	public int AddHp = 0;   // ìµœëŒ€ ì²´ë ¥ ì¦ê°€
 
-	[Header("ÀçÈ­ Áõ°¡")]
-	public int AddMoney = 0;// ÀçÈ­ Áõ°¡
+	[Header("ì¬í™” ì¦ê°€")]
+	public int AddMoney = 0;// ì¬í™” ì¦ê°€
 
-	[Header("±¸½½ È¹µæ")]
-	public int Round = 0;   // ±¸½½ È¹µæ
+	[Header("êµ¬ìŠ¬ íšë“")]
+	public int Round = 0;   // êµ¬ìŠ¬ íšë“
 	private Player player;
 
-	// ÇÃ·¹ÀÌ¾î ½ºÅ©¸³Æ®
+	// í”Œë ˆì´ì–´ ìŠ¤í¬ë¦½íŠ¸
 	private void Awake()
 	{
-		player = FindObjectOfType<Player>(); // ¹«Á¶°Ç ÇØÁà¾ßµÊ (ÃÊ±âÈ­)
+		player = FindObjectOfType<Player>(); // ë¬´ì¡°ê±´ í•´ì¤˜ì•¼ë¨ (ì´ˆê¸°í™”)
 	}
 
-	private void OnTriggerEnter2D(Collider2D other)// ÇÃ·¹ÀÌ¾î Ãæµ¹½Ã
+	private void OnTriggerEnter2D(Collider2D other)// í”Œë ˆì´ì–´ ì¶©ëŒì‹œ
 	{
 		if (other.CompareTag("Player"))
 		{
-			player.Atk += AddAtk;       // °ø°İ·Â Áõ°¡
+			player.Atk += AddAtk;       // ê³µê²©ë ¥ ì¦ê°€
 			player.Atk2 = player.Atk - 25;
-			player.nowHP += Heal;		// Ã¼·Â È¸º¹
-			player.maxHP += AddHp;      // ÃÖ´ëÃ¼·Â Áõ°¡
+			player.nowHP += Heal;		// ì²´ë ¥ íšŒë³µ
+			player.maxHP += AddHp;      // ìµœëŒ€ì²´ë ¥ ì¦ê°€
 			player.maxHP2 = player.maxHP - 500;
-			Player.Money += AddMoney;	// ÀçÈ­ È¹µæ
-			Player.round += Round;		// ±¸½½ È¹µæ
+			Player.Money += AddMoney;	// ì¬í™” íšë“
+			Player.round += Round;		// êµ¬ìŠ¬ íšë“
 
 			if (player.nowHP > player.maxHP) player.nowHP = player.maxHP;
 
-			// Å¬·¡½º ¾ÆÀÌÅÛÀÎ °æ¿ì
+			// í´ë˜ìŠ¤ ì•„ì´í…œì¸ ê²½ìš°
 			if(isClass)
 			{
-				// È°¼ºÈ­
+				// í™œì„±í™”
 				portal.SetActive(true);
 
-				// ³ª ÀÚ½Å ºñÈ°¼ºÈ­
+				// ë‚˜ ìì‹  ë¹„í™œì„±í™”
 				gameObject.SetActive(false);
 			}
 			else
 			{
-				Destroy(gameObject);        // ³ª ÀÚ½ÅÀ» ¾ÆÀÌÅÛ »èÁ¦
+				Destroy(gameObject);        // ë‚˜ ìì‹ ì„ ì•„ì´í…œ ì‚­ì œ
 			}
 		}
 	}

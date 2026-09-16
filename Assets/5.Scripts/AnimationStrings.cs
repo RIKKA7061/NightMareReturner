@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,33 +6,33 @@ using System.Threading.Tasks;
 
 internal class AnimationStrings
 {
-    // Ä³¸¯ÅÍ°¡ ¿òÁ÷ÀÌ°í ÀÖ´ÂÁö ¿©ºÎ¸¦ ³ªÅ¸³»´Â ÇÃ·¡±×
+    // ìºë¦­í„°ê°€ ì›€ì§ì´ê³  ìˆëŠ”ì§€ ì—¬ë¶€ë¥¼ ë‚˜íƒ€ë‚´ëŠ” í”Œë˜ê·¸
     internal static string isMoving = "isMoving";
 
-    // Ä³¸¯ÅÍ°¡ ½½¶óÀÌµù ÁßÀÎÁö ¿©ºÎ¸¦ ³ªÅ¸³»´Â ÇÃ·¡±×
+    // ìºë¦­í„°ê°€ ìŠ¬ë¼ì´ë”© ì¤‘ì¸ì§€ ì—¬ë¶€ë¥¼ ë‚˜íƒ€ë‚´ëŠ” í”Œë˜ê·¸
     internal static string isSliding = "isSliding";
 
-    // °ø°İ ¾Ö´Ï¸ŞÀÌ¼ÇÀ» ½ÃÀÛÇÏ´Â Æ®¸®°Å
+    // ê³µê²© ì• ë‹ˆë©”ì´ì…˜ì„ ì‹œì‘í•˜ëŠ” íŠ¸ë¦¬ê±°
     internal static string attackTrigger = "attack";
 
-    // Ä³¸¯ÅÍ°¡ ÀÌµ¿ÇÒ ¼ö ÀÖ´ÂÁö ¿©ºÎ¸¦ ³ªÅ¸³»´Â ÇÃ·¡±×
+    // ìºë¦­í„°ê°€ ì´ë™í•  ìˆ˜ ìˆëŠ”ì§€ ì—¬ë¶€ë¥¼ ë‚˜íƒ€ë‚´ëŠ” í”Œë˜ê·¸
     internal static string canMove = "canMove";
 
-    // Ä³¸¯ÅÍ°¡ Å¸°ÙÀ» °¡Áö°í ÀÖ´ÂÁö ¿©ºÎ¸¦ ³ªÅ¸³»´Â ÇÃ·¡±×
+    // ìºë¦­í„°ê°€ íƒ€ê²Ÿì„ ê°€ì§€ê³  ìˆëŠ”ì§€ ì—¬ë¶€ë¥¼ ë‚˜íƒ€ë‚´ëŠ” í”Œë˜ê·¸
     internal static string hasTarget = "hasTarget";
 
-    // Ä³¸¯ÅÍ°¡ »ì¾ÆÀÖ´ÂÁö ¿©ºÎ¸¦ ³ªÅ¸³»´Â ÇÃ·¡±×
+    // ìºë¦­í„°ê°€ ì‚´ì•„ìˆëŠ”ì§€ ì—¬ë¶€ë¥¼ ë‚˜íƒ€ë‚´ëŠ” í”Œë˜ê·¸
     internal static string isAlive = "isAlive";
 
-    // ½ºÅ³ °ø°İ ¾Ö´Ï¸ŞÀÌ¼ÇÀ» ½ÃÀÛÇÏ´Â Ã¹ ¹øÂ° Æ®¸®°Å
+    // ìŠ¤í‚¬ ê³µê²© ì• ë‹ˆë©”ì´ì…˜ì„ ì‹œì‘í•˜ëŠ” ì²« ë²ˆì§¸ íŠ¸ë¦¬ê±°
     internal static string skillAttackTrigger = "skillAttack";
 
-    // ½ºÅ³ °ø°İ ¾Ö´Ï¸ŞÀÌ¼ÇÀ» ½ÃÀÛÇÏ´Â µÎ ¹øÂ° Æ®¸®°Å
+    // ìŠ¤í‚¬ ê³µê²© ì• ë‹ˆë©”ì´ì…˜ì„ ì‹œì‘í•˜ëŠ” ë‘ ë²ˆì§¸ íŠ¸ë¦¬ê±°
     internal static string skillAttackTrigger2 = "skillAttack2";
 
-    // ÇÃ·¹ÀÌ¾î Á×À½
+    // í”Œë ˆì´ì–´ ì£½ìŒ
     internal static string DeadTrigger = "Dead";
 
-    // ÇÃ·¹ÀÌ¾î ÇÇ°İ // ¾ÆÆÄ¿ä
+    // í”Œë ˆì´ì–´ í”¼ê²© // ì•„íŒŒìš”
     internal static string OuchTrigger = "Ouch";
 }

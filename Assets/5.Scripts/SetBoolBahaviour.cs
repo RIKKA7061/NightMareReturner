@@ -1,65 +1,65 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SetBoolBahaviour : StateMachineBehaviour
 {
-    public string boolName; // º¯°æÇÒ ¾Ö´Ï¸ŞÀÌÅÍÀÇ bool º¯¼ö ÀÌ¸§
-    public bool updateOnState; // »óÅÂ ÁøÀÔ/Á¾·á ½Ã bool °ªÀ» ¾÷µ¥ÀÌÆ®ÇÒÁö ¿©ºÎ
-    public bool updateOnStateMachine; // ½ºÅ×ÀÌÆ® ¸Ó½Å ÁøÀÔ/Á¾·á ½Ã bool °ªÀ» ¾÷µ¥ÀÌÆ®ÇÒÁö ¿©ºÎ
-    public bool valueOnEnter, valueOnExit; // »óÅÂ³ª ½ºÅ×ÀÌÆ® ¸Ó½Å¿¡ ÁøÀÔ/Á¾·áÇÒ ¶§ ¼³Á¤ÇÒ bool °ª
+    public string boolName; // ë³€ê²½í•  ì• ë‹ˆë©”ì´í„°ì˜ bool ë³€ìˆ˜ ì´ë¦„
+    public bool updateOnState; // ìƒíƒœ ì§„ì…/ì¢…ë£Œ ì‹œ bool ê°’ì„ ì—…ë°ì´íŠ¸í• ì§€ ì—¬ë¶€
+    public bool updateOnStateMachine; // ìŠ¤í…Œì´íŠ¸ ë¨¸ì‹  ì§„ì…/ì¢…ë£Œ ì‹œ bool ê°’ì„ ì—…ë°ì´íŠ¸í• ì§€ ì—¬ë¶€
+    public bool valueOnEnter, valueOnExit; // ìƒíƒœë‚˜ ìŠ¤í…Œì´íŠ¸ ë¨¸ì‹ ì— ì§„ì…/ì¢…ë£Œí•  ë•Œ ì„¤ì •í•  bool ê°’
 
-    // »óÅÂ¿¡ ÁøÀÔÇÒ ¶§ È£ÃâµÇ´Â ¸Ş¼­µå
+    // ìƒíƒœì— ì§„ì…í•  ë•Œ í˜¸ì¶œë˜ëŠ” ë©”ì„œë“œ
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (updateOnState)
         {
-            // updateOnState°¡ trueÀÏ ¶§ »óÅÂ ÁøÀÔ ½Ã bool °ªÀ» valueOnEnter·Î ¼³Á¤
+            // updateOnStateê°€ trueì¼ ë•Œ ìƒíƒœ ì§„ì… ì‹œ bool ê°’ì„ valueOnEnterë¡œ ì„¤ì •
             animator.SetBool(boolName, valueOnEnter);
         }
     }
 
-    // »óÅÂ¸¦ ¾÷µ¥ÀÌÆ®ÇÒ ¶§ È£ÃâµÇ´Â ¸Ş¼­µå (ÇöÀç ºñÈ°¼ºÈ­µÊ)
+    // ìƒíƒœë¥¼ ì—…ë°ì´íŠ¸í•  ë•Œ í˜¸ì¶œë˜ëŠ” ë©”ì„œë“œ (í˜„ì¬ ë¹„í™œì„±í™”ë¨)
     //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{
     //    
     //}
 
-    // »óÅÂ¿¡¼­ ³ª°¥ ¶§ È£ÃâµÇ´Â ¸Ş¼­µå
+    // ìƒíƒœì—ì„œ ë‚˜ê°ˆ ë•Œ í˜¸ì¶œë˜ëŠ” ë©”ì„œë“œ
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (updateOnState)
         {
-            // updateOnState°¡ trueÀÏ ¶§ »óÅÂ Á¾·á ½Ã bool °ªÀ» valueOnExitÀ¸·Î ¼³Á¤
+            // updateOnStateê°€ trueì¼ ë•Œ ìƒíƒœ ì¢…ë£Œ ì‹œ bool ê°’ì„ valueOnExitìœ¼ë¡œ ì„¤ì •
             animator.SetBool(boolName, valueOnExit);
         }
     }
 
-    // »óÅÂ¿¡¼­ ÀÌµ¿ÇÒ ¶§ È£ÃâµÇ´Â ¸Ş¼­µå (ÇöÀç ºñÈ°¼ºÈ­µÊ)
+    // ìƒíƒœì—ì„œ ì´ë™í•  ë•Œ í˜¸ì¶œë˜ëŠ” ë©”ì„œë“œ (í˜„ì¬ ë¹„í™œì„±í™”ë¨)
     //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{
     //    
     //}
 
-    // IK °è»ê ½Ã È£ÃâµÇ´Â ¸Ş¼­µå (ÇöÀç ºñÈ°¼ºÈ­µÊ)
+    // IK ê³„ì‚° ì‹œ í˜¸ì¶œë˜ëŠ” ë©”ì„œë“œ (í˜„ì¬ ë¹„í™œì„±í™”ë¨)
     //override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{
     //    
     //}
 
-    // ½ºÅ×ÀÌÆ® ¸Ó½Å¿¡ ÁøÀÔÇÒ ¶§ È£ÃâµÇ´Â ¸Ş¼­µå
+    // ìŠ¤í…Œì´íŠ¸ ë¨¸ì‹ ì— ì§„ì…í•  ë•Œ í˜¸ì¶œë˜ëŠ” ë©”ì„œë“œ
     override public void OnStateMachineEnter(Animator animator, int stateMachinePathHash)
     {
         if (updateOnStateMachine)
-            // updateOnStateMachineÀÌ trueÀÏ ¶§ ½ºÅ×ÀÌÆ® ¸Ó½Å ÁøÀÔ ½Ã bool °ªÀ» valueOnEnter·Î ¼³Á¤
+            // updateOnStateMachineì´ trueì¼ ë•Œ ìŠ¤í…Œì´íŠ¸ ë¨¸ì‹  ì§„ì… ì‹œ bool ê°’ì„ valueOnEnterë¡œ ì„¤ì •
             animator.SetBool(boolName, valueOnEnter);
     }
 
-    // ½ºÅ×ÀÌÆ® ¸Ó½Å¿¡¼­ ³ª°¥ ¶§ È£ÃâµÇ´Â ¸Ş¼­µå
+    // ìŠ¤í…Œì´íŠ¸ ë¨¸ì‹ ì—ì„œ ë‚˜ê°ˆ ë•Œ í˜¸ì¶œë˜ëŠ” ë©”ì„œë“œ
     override public void OnStateMachineExit(Animator animator, int stateMachinePathHash)
     {
         if (updateOnStateMachine)
-            // updateOnStateMachineÀÌ trueÀÏ ¶§ ½ºÅ×ÀÌÆ® ¸Ó½Å Á¾·á ½Ã bool °ªÀ» valueOnExitÀ¸·Î ¼³Á¤
+            // updateOnStateMachineì´ trueì¼ ë•Œ ìŠ¤í…Œì´íŠ¸ ë¨¸ì‹  ì¢…ë£Œ ì‹œ bool ê°’ì„ valueOnExitìœ¼ë¡œ ì„¤ì •
             animator.SetBool(boolName, valueOnExit);
     }
 }

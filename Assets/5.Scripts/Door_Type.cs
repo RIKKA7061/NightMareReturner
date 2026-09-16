@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,10 +10,10 @@ public class Door_Type : MonoBehaviour
 }
 
 
-public enum DoorType // ¹® µéÀÇ ÁıÇÕ ex. Ã¼·Â¹®, °ø°İÁõÁø¹® µîµî
+public enum DoorType // ë¬¸ ë“¤ì˜ ì§‘í•© ex. ì²´ë ¥ë¬¸, ê³µê²©ì¦ì§„ë¬¸ ë“±ë“±
 {
-    hpUP,            // ÃÖ´ë Ã¼·Â ÁõÁø ¹®
-    atkUP,           // °ø°İ·Â ÁõÁø ¹®
-    EmotionRound,    // °¨Á¤ ±¸½½ È¹µæ ¹®
-    MoneyUp          // ÀçÈ­ È¹µæ ¹®
+    hpUP,            // ìµœëŒ€ ì²´ë ¥ ì¦ì§„ ë¬¸
+    atkUP,           // ê³µê²©ë ¥ ì¦ì§„ ë¬¸
+    EmotionRound,    // ê°ì • êµ¬ìŠ¬ íšë“ ë¬¸
+    MoneyUp          // ì¬í™” íšë“ ë¬¸
 }

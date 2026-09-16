@@ -1,47 +1,47 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MonsterAI : MonoBehaviour
 {
     public Transform player;
-    public float chaseSpeed; // ÀÌ¼Ó
+    public float chaseSpeed; // ì´ì†
 
-    [Header("±âº»°ø°İ")]
-    public float basicAttackCooldown = 5f; // ±âº» °ø°İ ÄğÅ¸ÀÓ
-    public float attackPreparationTime = 0.5f; // °ø°İ ÁØºñ ½Ã°£
-                                               //public int damage = 10; // °ø°İ µ¥¹ÌÁö
-    public GameObject attackProjectile; // °ø°İ Åõ»çÃ¼
-    public float projectileSpeed = 25f; // Åõ»çÃ¼ ¼Óµµ
+    [Header("ê¸°ë³¸ê³µê²©")]
+    public float basicAttackCooldown = 5f; // ê¸°ë³¸ ê³µê²© ì¿¨íƒ€ì„
+    public float attackPreparationTime = 0.5f; // ê³µê²© ì¤€ë¹„ ì‹œê°„
+                                               //public int damage = 10; // ê³µê²© ë°ë¯¸ì§€
+    public GameObject attackProjectile; // ê³µê²© íˆ¬ì‚¬ì²´
+    public float projectileSpeed = 25f; // íˆ¬ì‚¬ì²´ ì†ë„
 
-    private bool isAttacking = false; // ÇöÀç °ø°İ ÁßÀÎÁö È®ÀÎ
-    private bool playerInRange = false; // ÇÃ·¹ÀÌ¾î°¡ ¹üÀ§ ³»¿¡ ÀÖ´ÂÁö È®ÀÎ
-    private bool isPreparingAttack = false; // °ø°İ ÁØºñ ÁßÀÎÁö È®ÀÎ
-    private bool isPerformingAction = false; // ÇöÀç Çàµ¿(±âº» °ø°İ/ÆĞÅÏ µî) ÁßÀÎÁö È®ÀÎ
+    private bool isAttacking = false; // í˜„ì¬ ê³µê²© ì¤‘ì¸ì§€ í™•ì¸
+    private bool playerInRange = false; // í”Œë ˆì´ì–´ê°€ ë²”ìœ„ ë‚´ì— ìˆëŠ”ì§€ í™•ì¸
+    private bool isPreparingAttack = false; // ê³µê²© ì¤€ë¹„ ì¤‘ì¸ì§€ í™•ì¸
+    private bool isPerformingAction = false; // í˜„ì¬ í–‰ë™(ê¸°ë³¸ ê³µê²©/íŒ¨í„´ ë“±) ì¤‘ì¸ì§€ í™•ì¸
 
-    private Vector2 lockedAttackDirection; // °ø°İ ÁØºñ ½Ã °íÁ¤µÈ °ø°İ ¹æÇâ
-    private bool canMove = true; // ¸ó½ºÅÍ°¡ ¿òÁ÷ÀÏ ¼ö ÀÖ´ÂÁö ¿©ºÎ
+    private Vector2 lockedAttackDirection; // ê³µê²© ì¤€ë¹„ ì‹œ ê³ ì •ëœ ê³µê²© ë°©í–¥
+    private bool canMove = true; // ëª¬ìŠ¤í„°ê°€ ì›€ì§ì¼ ìˆ˜ ìˆëŠ”ì§€ ì—¬ë¶€
 
-    [Header("ÆĞÅÏ1")]
-    public float pattern1Cooldown = 25f; // ÆĞÅÏ 1 ÄğÅ¸ÀÓ
-    public GameObject blastProjectile; // ºê·¹½º °ø°İ Åõ»çÃ¼
-    public float blastSpeed = 15f; // Åõ»çÃ¼ ¼Óµµ
+    [Header("íŒ¨í„´1")]
+    public float pattern1Cooldown = 25f; // íŒ¨í„´ 1 ì¿¨íƒ€ì„
+    public GameObject blastProjectile; // ë¸Œë ˆìŠ¤ ê³µê²© íˆ¬ì‚¬ì²´
+    public float blastSpeed = 15f; // íˆ¬ì‚¬ì²´ ì†ë„
 
-    [Header("ÆĞÅÏ2")]
-    public GameObject attackRadiusPrefab; // °ø°İ ¹üÀ§¸¦ ³ªÅ¸³¾ ÇÁ¸®ÆÕ
-    public float pattern2PreparationTime = 0.7f; // °ø°İ ÁØºñ ½Ã°£
-    public float pattern2Cooldown = 60f; // ÆĞÅÏ 2 ÄğÅ¸ÀÓ
-    public int pattern2Damage = 110; // ÆĞÅÏ 2 µ¥¹ÌÁö
+    [Header("íŒ¨í„´2")]
+    public GameObject attackRadiusPrefab; // ê³µê²© ë²”ìœ„ë¥¼ ë‚˜íƒ€ë‚¼ í”„ë¦¬íŒ¹
+    public float pattern2PreparationTime = 0.7f; // ê³µê²© ì¤€ë¹„ ì‹œê°„
+    public float pattern2Cooldown = 60f; // íŒ¨í„´ 2 ì¿¨íƒ€ì„
+    public int pattern2Damage = 110; // íŒ¨í„´ 2 ë°ë¯¸ì§€
 
-    private bool isPattern1Active = false; // ÆĞÅÏ 1 È°¼ºÈ­ »óÅÂ
-    private bool isPattern2Active = false; // ÆĞÅÏ 2 È°¼ºÈ­ »óÅÂ
+    private bool isPattern1Active = false; // íŒ¨í„´ 1 í™œì„±í™” ìƒíƒœ
+    private bool isPattern2Active = false; // íŒ¨í„´ 2 í™œì„±í™” ìƒíƒœ
 
-    private float nextBasicAttackTime = 2f; // ´ÙÀ½ ±âº» °ø°İ °¡´É ½Ã°£
-    private float nextPattern1Time = 12f; // ´ÙÀ½ ÆĞÅÏ1 °¡´É ½Ã°£
-    private float nextPattern2Time = 25f; // ´ÙÀ½ ÆĞÅÏ2 °¡´É ½Ã°£
+    private float nextBasicAttackTime = 2f; // ë‹¤ìŒ ê¸°ë³¸ ê³µê²© ê°€ëŠ¥ ì‹œê°„
+    private float nextPattern1Time = 12f; // ë‹¤ìŒ íŒ¨í„´1 ê°€ëŠ¥ ì‹œê°„
+    private float nextPattern2Time = 25f; // ë‹¤ìŒ íŒ¨í„´2 ê°€ëŠ¥ ì‹œê°„
 
-    private enum MonsterState { Idle, BasicAttack, Pattern1, Pattern2 } // ¸ó½ºÅÍ »óÅÂ
-    private MonsterState currentState = MonsterState.Idle; // ÇöÀç »óÅÂ
+    private enum MonsterState { Idle, BasicAttack, Pattern1, Pattern2 } // ëª¬ìŠ¤í„° ìƒíƒœ
+    private MonsterState currentState = MonsterState.Idle; // í˜„ì¬ ìƒíƒœ
 
     private Animator animator;
 
@@ -50,23 +50,23 @@ public class MonsterAI : MonoBehaviour
         animator = GetComponent<Animator>();
         if (animator == null)
         {
-            Debug.LogError("¾Ö´Ï¸ŞÀÌÅÍ ½ÇÇà ¾ÈµÊ");
+            Debug.LogError("ì• ë‹ˆë©”ì´í„° ì‹¤í–‰ ì•ˆë¨");
         }
     }
 
     private void Awake()
     {
-        player = FindObjectOfType<Player>().transform;    // ¹«Á¶°Ç ÇØÁà¾ßµÊ (ÃÊ±âÈ­)
+        player = FindObjectOfType<Player>().transform;    // ë¬´ì¡°ê±´ í•´ì¤˜ì•¼ë¨ (ì´ˆê¸°í™”)
     }
 
     void Update()
     {
         if (isPerformingAction || player == null) return;
 
-        // ÁÂ¿ì ¹İÀü Ã³¸®
+        // ì¢Œìš° ë°˜ì „ ì²˜ë¦¬
         FlipTowardsPlayer();
 
-        // ÆĞÅÏ 1 ¶Ç´Â ÆĞÅÏ 2 ½ÇÇà ¿ì¼±
+        // íŒ¨í„´ 1 ë˜ëŠ” íŒ¨í„´ 2 ì‹¤í–‰ ìš°ì„ 
         if (Time.time >= nextPattern2Time)
         {
             StartCoroutine(Pattern2_CircularAttack());
@@ -75,29 +75,29 @@ public class MonsterAI : MonoBehaviour
         {
             StartCoroutine(Pattern1_BlastAttack());
         }
-        // ±âº» °ø°İÀº ÆĞÅÏ ÁßÀÌ ¾Æ´Ò ¶§¸¸ ½ÇÇà
+        // ê¸°ë³¸ ê³µê²©ì€ íŒ¨í„´ ì¤‘ì´ ì•„ë‹ ë•Œë§Œ ì‹¤í–‰
         else if (playerInRange && Time.time >= nextBasicAttackTime && currentState == MonsterState.Idle)
         {
             StartCoroutine(BasicAttack());
         }
         else if (playerInRange)
         {
-            ChasePlayer(); // ÇÃ·¹ÀÌ¾î ÃßÀû
+            ChasePlayer(); // í”Œë ˆì´ì–´ ì¶”ì 
         }
         else
         {
-            animator.SetBool("IsWalking", false); // Idle »óÅÂ À¯Áö
+            animator.SetBool("IsWalking", false); // Idle ìƒíƒœ ìœ ì§€
         }
     }
 
     void ChasePlayer()
     {
-        // ÇÃ·¹ÀÌ¾î ¹æÇâÀ¸·Î ÀÌµ¿
+        // í”Œë ˆì´ì–´ ë°©í–¥ìœ¼ë¡œ ì´ë™
         Vector2 direction = (player.position - transform.position).normalized;
         transform.position = Vector2.MoveTowards(transform.position, player.position, chaseSpeed * Time.deltaTime);
 
 
-        // °È±â ¾Ö´Ï¸ŞÀÌ¼Ç È°¼ºÈ­
+        // ê±·ê¸° ì• ë‹ˆë©”ì´ì…˜ í™œì„±í™”
         animator.SetBool("IsWalking", true);
     }
 
@@ -106,18 +106,18 @@ public class MonsterAI : MonoBehaviour
         isPerformingAction = true;
         currentState = MonsterState.BasicAttack;
 
-        nextBasicAttackTime = Time.time + basicAttackCooldown; // ´ÙÀ½ ±âº» °ø°İ ½Ã°£ ¼³Á¤
-        Debug.Log($"´ÙÀ½ ±âº»°ø°İ ½Ã°£: {nextBasicAttackTime}, ÇöÀç ³²Àº½Ã°£: {Time.time}");
+        nextBasicAttackTime = Time.time + basicAttackCooldown; // ë‹¤ìŒ ê¸°ë³¸ ê³µê²© ì‹œê°„ ì„¤ì •
+        Debug.Log($"ë‹¤ìŒ ê¸°ë³¸ê³µê²© ì‹œê°„: {nextBasicAttackTime}, í˜„ì¬ ë‚¨ì€ì‹œê°„: {Time.time}");
 
-        // ±âº» °ø°İ ÁØºñ ¾Ö´Ï¸ŞÀÌ¼Ç ½ÇÇà
+        // ê¸°ë³¸ ê³µê²© ì¤€ë¹„ ì• ë‹ˆë©”ì´ì…˜ ì‹¤í–‰
         animator.SetTrigger("PrepareAttack");
         yield return new WaitForSeconds(attackPreparationTime);
 
-        // ±âº» °ø°İ ½ÇÇà
+        // ê¸°ë³¸ ê³µê²© ì‹¤í–‰
         animator.SetTrigger("Attack");
         LaunchAttack();
 
-        yield return new WaitForSeconds(0.3f); // ±âº» °ø°İ ÈÄ ´ë±â ½Ã°£
+        yield return new WaitForSeconds(0.3f); // ê¸°ë³¸ ê³µê²© í›„ ëŒ€ê¸° ì‹œê°„
 
         isPerformingAction = false;
         currentState = MonsterState.Idle;
@@ -127,7 +127,7 @@ public class MonsterAI : MonoBehaviour
     {
         if (attackProjectile != null)
         {
-            // Åõ»çÃ¼ »ı¼º ¹× °íÁ¤µÈ ¹æÇâÀ¸·Î ¹ß»ç
+            // íˆ¬ì‚¬ì²´ ìƒì„± ë° ê³ ì •ëœ ë°©í–¥ìœ¼ë¡œ ë°œì‚¬
             GameObject projectile = Instantiate(attackProjectile, transform.position, Quaternion.identity);
 
             Vector2 attackDirection = (player.position - transform.position).normalized;
@@ -140,8 +140,8 @@ public class MonsterAI : MonoBehaviour
                 rb.velocity = lockedAttackDirection * projectileSpeed;
             }
 
-            Debug.Log("(ÃÖÁ¾º¸½º)È÷È÷ Åõ»çÃ¼ ¹ß»ç!");
-            Destroy(projectile, 0.5f); // nÃÊ ÈÄ Åõ»çÃ¼ ÆÄ±«
+            Debug.Log("(ìµœì¢…ë³´ìŠ¤)íˆíˆ íˆ¬ì‚¬ì²´ ë°œì‚¬!");
+            Destroy(projectile, 0.5f); // nì´ˆ í›„ íˆ¬ì‚¬ì²´ íŒŒê´´
         }
     }
 
@@ -150,7 +150,7 @@ public class MonsterAI : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
-            Debug.Log("ÇÃ·¹ÀÌ¾î°¡ ¹üÀ§¾È¿¡ µé¾î¿È");
+            Debug.Log("í”Œë ˆì´ì–´ê°€ ë²”ìœ„ì•ˆì— ë“¤ì–´ì˜´");
         }
     }
 
@@ -159,29 +159,29 @@ public class MonsterAI : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
-            Debug.Log("ÇÃ·¹ÀÌ¾î ¹üÀ§ ¹ÛÀÓ");
+            Debug.Log("í”Œë ˆì´ì–´ ë²”ìœ„ ë°–ì„");
         }
     }
 
     System.Collections.IEnumerator Pattern1_BlastAttack()
     {
         isPattern1Active = true;
-        isAttacking = true; // ½ºÅ³ ½ÇÇà Áß ÇÃ·¡±× È°¼ºÈ­
+        isAttacking = true; // ìŠ¤í‚¬ ì‹¤í–‰ ì¤‘ í”Œë˜ê·¸ í™œì„±í™”
 
-        nextPattern1Time = Time.time + pattern1Cooldown; // ´ÙÀ½ ÆĞÅÏ1 ½Ã°£ ¼³Á¤
-        Debug.Log($"´ÙÀ½ ÆĞÅÏ1 ½Ã°£: {pattern1Cooldown}, ÇöÀç ³²Àº½Ã°£: {Time.time}");
+        nextPattern1Time = Time.time + pattern1Cooldown; // ë‹¤ìŒ íŒ¨í„´1 ì‹œê°„ ì„¤ì •
+        Debug.Log($"ë‹¤ìŒ íŒ¨í„´1 ì‹œê°„: {pattern1Cooldown}, í˜„ì¬ ë‚¨ì€ì‹œê°„: {Time.time}");
 
-        // °ø°İ ÆĞÅÏ 1
+        // ê³µê²© íŒ¨í„´ 1
         animator.SetTrigger("Pattern1");
 
-        // ÇÃ·¹ÀÌ¾î À§Ä¡ ±â¹İÀ¸·Î ¹æÇâ °è»ê
+        // í”Œë ˆì´ì–´ ìœ„ì¹˜ ê¸°ë°˜ìœ¼ë¡œ ë°©í–¥ ê³„ì‚°
         Vector2 playerDirection = (player.position - transform.position).normalized;
 
-        // ÁÂ/¿ì ÆÇ´Ü (x Ãà¸¸ ±âÁØ)
-        string direction = playerDirection.x > 0 ? "¿À¸¥ÂÊ" : "¿ŞÂÊ";
-        Debug.Log($"ºê·¹½º °ø°İ ÁØºñ {direction} À¸·Î");
+        // ì¢Œ/ìš° íŒë‹¨ (x ì¶•ë§Œ ê¸°ì¤€)
+        string direction = playerDirection.x > 0 ? "ì˜¤ë¥¸ìª½" : "ì™¼ìª½";
+        Debug.Log($"ë¸Œë ˆìŠ¤ ê³µê²© ì¤€ë¹„ {direction} ìœ¼ë¡œ");
 
-        // 0.5ÃÊ ´ë±â (ÁØºñ ½Ã°£)
+        // 0.5ì´ˆ ëŒ€ê¸° (ì¤€ë¹„ ì‹œê°„)
         yield return new WaitForSeconds(0.5f);
 
         if (blastProjectile != null)
@@ -191,18 +191,18 @@ public class MonsterAI : MonoBehaviour
 
             if (rb != null)
             {
-                rb.velocity = new Vector2(playerDirection.x, 0).normalized * blastSpeed; // xÃàÀ¸·Î¸¸ ¹ß»ç
+                rb.velocity = new Vector2(playerDirection.x, 0).normalized * blastSpeed; // xì¶•ìœ¼ë¡œë§Œ ë°œì‚¬
             }
 
-            Debug.Log($"ºê·¹½º ¹ß»ç! {direction} ¹æÇâÀ¸·Î!");
-            Destroy(blast, 1f); // nÃÊ ÈÄ Åõ»çÃ¼ ÆÄ±«
+            Debug.Log($"ë¸Œë ˆìŠ¤ ë°œì‚¬! {direction} ë°©í–¥ìœ¼ë¡œ!");
+            Destroy(blast, 1f); // nì´ˆ í›„ íˆ¬ì‚¬ì²´ íŒŒê´´
         }
 
-        // ÄğÅ¸ÀÓ ´ë±â
+        // ì¿¨íƒ€ì„ ëŒ€ê¸°
         yield return new WaitForSeconds(pattern1Cooldown);
 
-        isPattern1Active = false; // ½ºÅ³ Á¾·á
-        isAttacking = false; // ½ºÅ³ ½ÇÇà Áß ÇÃ·¡±× ÇØÁ¦
+        isPattern1Active = false; // ìŠ¤í‚¬ ì¢…ë£Œ
+        isAttacking = false; // ìŠ¤í‚¬ ì‹¤í–‰ ì¤‘ í”Œë˜ê·¸ í•´ì œ
         isPerformingAction = false;
         currentState = MonsterState.Idle;
     }
@@ -210,39 +210,39 @@ public class MonsterAI : MonoBehaviour
     System.Collections.IEnumerator Pattern2_CircularAttack()
     {
         isPattern2Active = true;
-        canMove = false; // ÀÌµ¿ ºÒ°¡ »óÅÂ·Î ÀüÈ¯
+        canMove = false; // ì´ë™ ë¶ˆê°€ ìƒíƒœë¡œ ì „í™˜
 
-        nextPattern2Time = Time.time + pattern2Cooldown; // ´ÙÀ½ ÆĞÅÏ2 ½Ã°£ ¼³Á¤
-        Debug.Log($"´ÙÀ½ ÆĞÅÏ2 ½Ã°£: {pattern2Cooldown}, ÇöÀç ³²Àº½Ã°£: {Time.time}");
+        nextPattern2Time = Time.time + pattern2Cooldown; // ë‹¤ìŒ íŒ¨í„´2 ì‹œê°„ ì„¤ì •
+        Debug.Log($"ë‹¤ìŒ íŒ¨í„´2 ì‹œê°„: {pattern2Cooldown}, í˜„ì¬ ë‚¨ì€ì‹œê°„: {Time.time}");
 
-        // °ø°İ ÆĞÅÏ 2
+        // ê³µê²© íŒ¨í„´ 2
         animator.SetTrigger("Pattern2");
 
-        // °ø°İ ¹üÀ§ »ı¼º
+        // ê³µê²© ë²”ìœ„ ìƒì„±
         GameObject attackRadius = Instantiate(attackRadiusPrefab, transform.position, Quaternion.identity);
-        attackRadius.transform.localScale = new Vector3(2, 2, 1); // Å©±â Á¶Á¤ (ÇÊ¿ä¿¡ µû¶ó ¼öÁ¤)
+        attackRadius.transform.localScale = new Vector3(2, 2, 1); // í¬ê¸° ì¡°ì • (í•„ìš”ì— ë”°ë¼ ìˆ˜ì •)
 
-        // ¹üÀ§ ½ºÅ©¸³Æ®¿¡ µ¥¹ÌÁö ¼³Á¤
+        // ë²”ìœ„ ìŠ¤í¬ë¦½íŠ¸ì— ë°ë¯¸ì§€ ì„¤ì •
         AttackRadius attackScript = attackRadius.GetComponent<AttackRadius>();
         if (attackScript != null)
         {
-            attackScript.damage = pattern2Damage; // ÆĞÅÏ µ¥¹ÌÁö Àü´Ş
+            attackScript.damage = pattern2Damage; // íŒ¨í„´ ë°ë¯¸ì§€ ì „ë‹¬
         }
 
-        Debug.Log("¿øÇü °ø°İ ÁØºñ Áß!");
+        Debug.Log("ì›í˜• ê³µê²© ì¤€ë¹„ ì¤‘!");
 
-        // ÁØºñ ½Ã°£ ´ë±â
+        // ì¤€ë¹„ ì‹œê°„ ëŒ€ê¸°
         yield return new WaitForSeconds(pattern2PreparationTime);
 
-        // ¹üÀ§ Á¦°Å
+        // ë²”ìœ„ ì œê±°
         Destroy(attackRadius);
 
-        Debug.Log("¿øÇü °ø°İ ¿Ï·á!");
+        Debug.Log("ì›í˜• ê³µê²© ì™„ë£Œ!");
 
-        // ÄğÅ¸ÀÓ ´ë±â
+        // ì¿¨íƒ€ì„ ëŒ€ê¸°
         yield return new WaitForSeconds(pattern2Cooldown);
 
-        canMove = true; // ÀÌµ¿ °¡´É »óÅÂ·Î º¹±¸
+        canMove = true; // ì´ë™ ê°€ëŠ¥ ìƒíƒœë¡œ ë³µêµ¬
         isPattern2Active = false;
         isPerformingAction = false;
         currentState = MonsterState.Idle;
@@ -250,20 +250,20 @@ public class MonsterAI : MonoBehaviour
 
     void FlipTowardsPlayer()
     {
-        // ÇöÀç ¸ó½ºÅÍÀÇ localScaleÀ» °¡Á®¿È
+        // í˜„ì¬ ëª¬ìŠ¤í„°ì˜ localScaleì„ ê°€ì ¸ì˜´
         Vector3 scale = transform.localScale;
 
-        // ÇÃ·¹ÀÌ¾î°¡ ¿ŞÂÊ¿¡ ÀÖÀ¸¸é xÃà ¹İÀü
+        // í”Œë ˆì´ì–´ê°€ ì™¼ìª½ì— ìˆìœ¼ë©´ xì¶• ë°˜ì „
         if (player.position.x < transform.position.x)
         {
-            scale.x = Mathf.Abs(scale.x) * -1; // xÃàÀ» À½¼ö·Î ¼³Á¤
+            scale.x = Mathf.Abs(scale.x) * -1; // xì¶•ì„ ìŒìˆ˜ë¡œ ì„¤ì •
         }
         else
         {
-            scale.x = Mathf.Abs(scale.x); // xÃàÀ» ¾ç¼ö·Î ¼³Á¤
+            scale.x = Mathf.Abs(scale.x); // xì¶•ì„ ì–‘ìˆ˜ë¡œ ì„¤ì •
         }
 
-        transform.localScale = scale; // ¼öÁ¤µÈ Scale °ª Àû¿ë
+        transform.localScale = scale; // ìˆ˜ì •ëœ Scale ê°’ ì ìš©
     }
 }
 

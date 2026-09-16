@@ -1,9 +1,9 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TeleportClick : MonoBehaviour
 {
-    [Header("ÁÂÇ¥")]
-    public Transform Pos; //  ÁÂÇ¥
+    [Header("ì¢Œí‘œ")]
+    public Transform Pos; //  ì¢Œí‘œ
 }

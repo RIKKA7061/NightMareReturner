@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +11,7 @@ public class DestroyAnySec : MonoBehaviour
 
 	IEnumerator DestroySelf()
 	{
-		// NÃÊ ±â´Ù¸° µÚ »èÁ¦
+		// Nì´ˆ ê¸°ë‹¤ë¦° ë’¤ ì‚­ì œ
 		yield return new WaitForSeconds(0.2f);
 		Destroy(gameObject);
 	}

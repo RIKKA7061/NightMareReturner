@@ -1,21 +1,21 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class Enemy3 : MonoBehaviour
 {
-	public float speed;//¼Óµµ
-	private Rigidbody2D rb;//Áß·Â
-	private Player player;//ÇÃ·¹ÀÌ¾î
+	public float speed;//ì†ë„
+	private Rigidbody2D rb;//ì¤‘ë ¥
+	private Player player;//í”Œë ˆì´ì–´
 
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
-		// Scene¿¡¼­ Player ÅÂ±×¸¦ °¡Áø ¿ÀºêÁ§Æ®¸¦ Ã£½À´Ï´Ù.
+		// Sceneì—ì„œ Player íƒœê·¸ë¥¼ ê°€ì§„ ì˜¤ë¸Œì íŠ¸ë¥¼ ì°¾ìŠµë‹ˆë‹¤.
 		player = FindObjectOfType<Player>();
 	}
 
 	void FixedUpdate()
 	{
-		// ÇÃ·¹ÀÌ¾î ¹æÇâÀ¸·Î µû¶ó°©´Ï´Ù.
+		// í”Œë ˆì´ì–´ ë°©í–¥ìœ¼ë¡œ ë”°ë¼ê°‘ë‹ˆë‹¤.
 		Vector2 direction = player.transform.position - transform.position;
 		rb.velocity = direction.normalized * speed;
 	}

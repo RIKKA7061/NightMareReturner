@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -11,94 +11,94 @@ using Unity.VisualScripting;
 
 public class PlayerAction : MonoBehaviour
 {
-    [Header("ÀÌ³ğÀÌ °Å¸®¿¡ ÀÖ´Â ÇÃ·¹ÀÌ¾î¾ß?")]
+    [Header("ì´ë†ˆì´ ê±°ë¦¬ì— ìˆëŠ” í”Œë ˆì´ì–´ì•¼?")]
     public bool isGeoRiPlayer;
 
-    [Header("PlayerAction ½ºÅ©¸³Æ®")]
+    [Header("PlayerAction ìŠ¤í¬ë¦½íŠ¸")]
     public Player playerScript;
 
-    public float walkSpeed;              // °È±â ¼Óµµ
-    public TextMeshProUGUI speed_ui;          // ÀÌµ¿¼Óµµ º¸¿©ÁÖ±â 
-    public TextMeshProUGUI As_ui;             // °ø°İ¼Óµµ º¸¿©ÁÖ±â
+    public float walkSpeed;              // ê±·ê¸° ì†ë„
+    public TextMeshProUGUI speed_ui;          // ì´ë™ì†ë„ ë³´ì—¬ì£¼ê¸° 
+    public TextMeshProUGUI As_ui;             // ê³µê²©ì†ë„ ë³´ì—¬ì£¼ê¸°
 
-    public float defaultSpeed;           // ±âº» ¼Óµµ(°È±â ¼Óµµ¿Í µ¿ÀÏÇØ¾ß ÇÔ)
-    public float slideSpeed;            // ½½¶óÀÌµå ¼Óµµ
-    public float slideDuration = 0.3f;        // ½½¶óÀÌµå Áö¼Ó ½Ã°£ (0.3ÃÊ)
-    public float slideCooldown = 1f;          // ½½¶óÀÌµå ÈÄ ÄğÅ¸ÀÓ (1ÃÊ)
-    private float slideTime = 0f;             // ³²Àº ½½¶óÀÌµå ½Ã°£
-    private float cooldownTime = 0f;          // ³²Àº ÄğÅ¸ÀÓ ½Ã°£
-    public float skillAttackCooldown = 2f;    // Ã¹ ¹øÂ° ½ºÅ³ ÄğÅ¸ÀÓ 2ÃÊ
-    public float skillAttack2Cooldown = 3f;   // µÎ ¹øÂ° ½ºÅ³ ÄğÅ¸ÀÓ 3ÃÊ
-    private float skillAttackTime = 0f;       // Ã¹ ¹øÂ° ½ºÅ³ »ç¿ë °¡´É ½Ã°£
-    private float skillAttack2Time = 0f;      // µÎ ¹øÂ° ½ºÅ³ »ç¿ë °¡´É ½Ã°£
+    public float defaultSpeed;           // ê¸°ë³¸ ì†ë„(ê±·ê¸° ì†ë„ì™€ ë™ì¼í•´ì•¼ í•¨)
+    public float slideSpeed;            // ìŠ¬ë¼ì´ë“œ ì†ë„
+    public float slideDuration = 0.3f;        // ìŠ¬ë¼ì´ë“œ ì§€ì† ì‹œê°„ (0.3ì´ˆ)
+    public float slideCooldown = 1f;          // ìŠ¬ë¼ì´ë“œ í›„ ì¿¨íƒ€ì„ (1ì´ˆ)
+    private float slideTime = 0f;             // ë‚¨ì€ ìŠ¬ë¼ì´ë“œ ì‹œê°„
+    private float cooldownTime = 0f;          // ë‚¨ì€ ì¿¨íƒ€ì„ ì‹œê°„
+    public float skillAttackCooldown = 2f;    // ì²« ë²ˆì§¸ ìŠ¤í‚¬ ì¿¨íƒ€ì„ 2ì´ˆ
+    public float skillAttack2Cooldown = 3f;   // ë‘ ë²ˆì§¸ ìŠ¤í‚¬ ì¿¨íƒ€ì„ 3ì´ˆ
+    private float skillAttackTime = 0f;       // ì²« ë²ˆì§¸ ìŠ¤í‚¬ ì‚¬ìš© ê°€ëŠ¥ ì‹œê°„
+    private float skillAttack2Time = 0f;      // ë‘ ë²ˆì§¸ ìŠ¤í‚¬ ì‚¬ìš© ê°€ëŠ¥ ì‹œê°„
 
     public Collider2D playerCollider2D;
 
-    Vector2 moveInput;  // ÇÃ·¹ÀÌ¾îÀÇ ÀÔ·ÂÀ» ÀúÀåÇÏ´Â º¯¼ö
-    Vector3 dirVec;     // ÇÃ·¹ÀÌ¾îÀÇ ¹æÇâÀ» ÀúÀåÇÏ´Â º¯¼ö
+    Vector2 moveInput;  // í”Œë ˆì´ì–´ì˜ ì…ë ¥ì„ ì €ì¥í•˜ëŠ” ë³€ìˆ˜
+    Vector3 dirVec;     // í”Œë ˆì´ì–´ì˜ ë°©í–¥ì„ ì €ì¥í•˜ëŠ” ë³€ìˆ˜
 
-    [Header("½Ç¼± ÃßÀû±â")]
-    public float Length = 0.7f;  // °¨ÁöÇÒ °Å¸®
+    [Header("ì‹¤ì„  ì¶”ì ê¸°")]
+    public float Length = 0.7f;  // ê°ì§€í•  ê±°ë¦¬
 
-    [Header("°ø°İ ¹üÀ§")]
-    public BoxCollider2D left;      // ¿ŞÂÊ °ø°İ ¹üÀ§ Äİ¶óÀÌ´õ
-    public BoxCollider2D right;     // ¿À¸¥ÂÊ °ø°İ ¹üÀ§ Äİ¶óÀÌ´õ
-    public BoxCollider2D LargeLeft; // ´õ ³ĞÀº ¿µ¿ªÀ» Áö´Ñ ¿ŞÂÊ °ø°İ ¹üÀ§ Äİ¶óÀÌ´õ
-    public BoxCollider2D LargeRight; // ´õ ³ĞÀº ¿µ¿ªÀ» Áö´Ñ ¿ŞÂÊ °ø°İ ¹üÀ§ Äİ¶óÀÌ´õ
+    [Header("ê³µê²© ë²”ìœ„")]
+    public BoxCollider2D left;      // ì™¼ìª½ ê³µê²© ë²”ìœ„ ì½œë¼ì´ë”
+    public BoxCollider2D right;     // ì˜¤ë¥¸ìª½ ê³µê²© ë²”ìœ„ ì½œë¼ì´ë”
+    public BoxCollider2D LargeLeft; // ë” ë„“ì€ ì˜ì—­ì„ ì§€ë‹Œ ì™¼ìª½ ê³µê²© ë²”ìœ„ ì½œë¼ì´ë”
+    public BoxCollider2D LargeRight; // ë” ë„“ì€ ì˜ì—­ì„ ì§€ë‹Œ ì™¼ìª½ ê³µê²© ë²”ìœ„ ì½œë¼ì´ë”
 
-	[Header("´ëÈ­Ã¢")]
+	[Header("ëŒ€í™”ì°½")]
     //public TextMeshProUGUI Dialog_UI_text;
     //private string dialog_text;
-    public TalkManager talkManager;  // ´ëÈ­ ¸Å´ÏÀú ÂüÁ¶
-    public GameObject DialogSet;     // ´ëÈ­Ã¢
+    public TalkManager talkManager;  // ëŒ€í™” ë§¤ë‹ˆì € ì°¸ì¡°
+    public GameObject DialogSet;     // ëŒ€í™”ì°½
     AudioManager audioManager;
 
-    [Header("Àì °æÁ÷ ½Ã°£")]
+    [Header("ì½ ê²½ì§ ì‹œê°„")]
     public float Jab;
 
-	[Header("½ºÅ³ °æÁ÷ ½Ã°£")]
+	[Header("ìŠ¤í‚¬ ê²½ì§ ì‹œê°„")]
 	public float Skill;
 
-	[Header("±Ã±Ø±â °æÁ÷ ½Ã°£")]
+	[Header("ê¶ê·¹ê¸° ê²½ì§ ì‹œê°„")]
 	public float Ultimite;
 
-	[Header("Áö±İ °ø°İÁß ¿©ºÎ")]
+	[Header("ì§€ê¸ˆ ê³µê²©ì¤‘ ì—¬ë¶€")]
 	public bool isAtking = false;
 
-	Rigidbody2D rigid;               // Rigidbody2D ÄÄÆ÷³ÍÆ® ÂüÁ¶
-    Animator animator;               // Animator ÄÄÆ÷³ÍÆ® ÂüÁ¶
-    SpriteRenderer sp;               // SpriteRenderer ÄÄÆ÷³ÍÆ® ÂüÁ¶
+	Rigidbody2D rigid;               // Rigidbody2D ì»´í¬ë„ŒíŠ¸ ì°¸ì¡°
+    Animator animator;               // Animator ì»´í¬ë„ŒíŠ¸ ì°¸ì¡°
+    SpriteRenderer sp;               // SpriteRenderer ì»´í¬ë„ŒíŠ¸ ì°¸ì¡°
 
-    private GameObject scanObject;   // °¨ÁöµÈ ¿ÀºêÁ§Æ®
+    private GameObject scanObject;   // ê°ì§€ëœ ì˜¤ë¸Œì íŠ¸
 
-    private GameObject scanTP_Object;  // °¨ÁöµÈ TP ¿ÀºêÁ§Æ®
+    private GameObject scanTP_Object;  // ê°ì§€ëœ TP ì˜¤ë¸Œì íŠ¸
 
-    private Collider2D playerCollider; // ÇÃ·¹ÀÌ¾îÀÇ Äİ¶óÀÌ´õ
+    private Collider2D playerCollider; // í”Œë ˆì´ì–´ì˜ ì½œë¼ì´ë”
 
 	public Transform player;
 
-    [Header("ÅÚÆ÷µé")]
-    public Collider2D[] myItemColliders; // Å¬¸¯ÇØ¼­ ³Ñ¾î°¡´Â ¿ë
+    [Header("í…”í¬ë“¤")]
+    public Collider2D[] myItemColliders; // í´ë¦­í•´ì„œ ë„˜ì–´ê°€ëŠ” ìš©
 
-	[Header("¸ŞÀÎ Ä«¸Ş¶ó")]
-	public Camera mainCamera; // ¸ŞÀÎ Ä«¸Ş¶ó (È­¸é ÁÂÇ¥ º¯È¯¿ë)
+	[Header("ë©”ì¸ ì¹´ë©”ë¼")]
+	public Camera mainCamera; // ë©”ì¸ ì¹´ë©”ë¼ (í™”ë©´ ì¢Œí‘œ ë³€í™˜ìš©)
 
-    [Header("Áö±İ ÇöÀç ½ºÅ³or±Ã±Ø±â¸¦ »ç¿ë ÁßÀÎ°¡?")]
+    [Header("ì§€ê¸ˆ í˜„ì¬ ìŠ¤í‚¬orê¶ê·¹ê¸°ë¥¼ ì‚¬ìš© ì¤‘ì¸ê°€?")]
     public bool isUsingSkillorUltimate;
 
-	// ¾Ö´Ï¸ŞÀÌÅÍ ¿À¹ö¶óÀÌµå
+	// ì• ë‹ˆë©”ì´í„° ì˜¤ë²„ë¼ì´ë“œ
 	//public AnimatorController animatorController;
 	public AnimatorOverrideController overrideController;
 	public AnimatorOverrideController overrideController2;
 	public bool isRoundUP;
 
-	public int originalLayerID = 6; // ±âº» ·¹ÀÌ¾î ID (Default´Â 0)
-    public int shiftedLayerID = 10; // Shift Å°¸¦ ´­·¶À» ¶§ Àû¿ëÇÒ ·¹ÀÌ¾î ID
+	public int originalLayerID = 6; // ê¸°ë³¸ ë ˆì´ì–´ ID (DefaultëŠ” 0)
+    public int shiftedLayerID = 10; // Shift í‚¤ë¥¼ ëˆŒë €ì„ ë•Œ ì ìš©í•  ë ˆì´ì–´ ID
 
     private SpriteRenderer spriteRenderer;
     private Coroutine revertLayerCoroutine;
 
-    // ÀÌµ¿ »óÅÂ È®ÀÎ º¯¼ö (¾Ö´Ï¸ŞÀÌÅÍ¿Í ¿¬µ¿)
+    // ì´ë™ ìƒíƒœ í™•ì¸ ë³€ìˆ˜ (ì• ë‹ˆë©”ì´í„°ì™€ ì—°ë™)
     [SerializeField]
     private bool _isMoving = false;
     public bool IsMoving
@@ -110,10 +110,10 @@ public class PlayerAction : MonoBehaviour
         private set
         {
             _isMoving = value;
-            animator.SetBool(AnimationStrings.isMoving, value);  // ¾Ö´Ï¸ŞÀÌ¼Ç »óÅÂ º¯°æ
+            animator.SetBool(AnimationStrings.isMoving, value);  // ì• ë‹ˆë©”ì´ì…˜ ìƒíƒœ ë³€ê²½
         }
     }
-	// ½½¶óÀÌµù »óÅÂ È®ÀÎ º¯¼ö (¾Ö´Ï¸ŞÀÌÅÍ¿Í ¿¬µ¿)
+	// ìŠ¬ë¼ì´ë”© ìƒíƒœ í™•ì¸ ë³€ìˆ˜ (ì• ë‹ˆë©”ì´í„°ì™€ ì—°ë™)
 	[SerializeField]
     private bool _isSliding = false;
     public bool IsSliding
@@ -125,15 +125,15 @@ public class PlayerAction : MonoBehaviour
         private set
         {
             _isSliding = value;
-            animator.SetBool(AnimationStrings.isSliding, value);  // ¾Ö´Ï¸ŞÀÌ¼Ç »óÅÂ º¯°æ
+            animator.SetBool(AnimationStrings.isSliding, value);  // ì• ë‹ˆë©”ì´ì…˜ ìƒíƒœ ë³€ê²½
         }
     }
-    private bool isCooldown = false;  // ½½¶óÀÌµå ÄğÅ¸ÀÓ ÁßÀÎÁö ¿©ºÎ
-    public bool _isFacingRight = true;// Ä³¸¯ÅÍ°¡ ¿À¸¥ÂÊÀ» º¸°í ÀÖ´ÂÁö È®ÀÎÇÏ´Â º¯¼ö
+    private bool isCooldown = false;  // ìŠ¬ë¼ì´ë“œ ì¿¨íƒ€ì„ ì¤‘ì¸ì§€ ì—¬ë¶€
+    public bool _isFacingRight = true;// ìºë¦­í„°ê°€ ì˜¤ë¥¸ìª½ì„ ë³´ê³  ìˆëŠ”ì§€ í™•ì¸í•˜ëŠ” ë³€ìˆ˜
 
     public Transform playerPos;
 
-    public ItemManager itemManager;     // ¾ÆÀÌÅÛ ¸Å´ÏÀú ½ºÅ©¸³Æ®
+    public ItemManager itemManager;     // ì•„ì´í…œ ë§¤ë‹ˆì € ìŠ¤í¬ë¦½íŠ¸
 
 	
 
@@ -145,14 +145,14 @@ public class PlayerAction : MonoBehaviour
         {
             if (_isFacingRight != value)
             {
-                transform.localScale *= new Vector2(-1, 1); // Ä³¸¯ÅÍÀÇ ¹æÇâÀ» µÚÁıÀ½
+                transform.localScale *= new Vector2(-1, 1); // ìºë¦­í„°ì˜ ë°©í–¥ì„ ë’¤ì§‘ìŒ
             }
 
             _isFacingRight = value;
         }
     }
 
-    // canMove: ÇÃ·¹ÀÌ¾î°¡ ÀÌµ¿ÇÒ ¼ö ÀÖ´ÂÁö ¿©ºÎ¸¦ ³ªÅ¸³¿
+    // canMove: í”Œë ˆì´ì–´ê°€ ì´ë™í•  ìˆ˜ ìˆëŠ”ì§€ ì—¬ë¶€ë¥¼ ë‚˜íƒ€ëƒ„
     public bool canMove
     {
         get
@@ -161,17 +161,17 @@ public class PlayerAction : MonoBehaviour
         }
         set
         {
-			animator.SetBool(AnimationStrings.canMove, value); // ¾Ö´Ï¸ŞÀÌÅÍ¿Í ¿¬µ¿ÇÏ¿© canMove °ªÀ» ¼³Á¤
+			animator.SetBool(AnimationStrings.canMove, value); // ì• ë‹ˆë©”ì´í„°ì™€ ì—°ë™í•˜ì—¬ canMove ê°’ì„ ì„¤ì •
 		}
 	}
 
     void Awake()
     {
-        // ÇÊ¿äÇÑ ÄÄÆ÷³ÍÆ®µéÀ» °¡Á®¿È
+        // í•„ìš”í•œ ì»´í¬ë„ŒíŠ¸ë“¤ì„ ê°€ì ¸ì˜´
         rigid = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         sp = GetComponent<SpriteRenderer>();
-        playerCollider = GetComponent<Collider2D>(); // ÇÃ·¹ÀÌ¾îÀÇ Äİ¶óÀÌ´õ °¡Á®¿À±â
+        playerCollider = GetComponent<Collider2D>(); // í”Œë ˆì´ì–´ì˜ ì½œë¼ì´ë” ê°€ì ¸ì˜¤ê¸°
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
@@ -188,7 +188,7 @@ public class PlayerAction : MonoBehaviour
 
 	void Update()
     {
-		// ±¸½½º¯¼ö°¡ false ÀÏ½Ã && ÇÃ·¹ÀÌ¾îÀÇ ±¸½½ÀÌ 1ÀÌ»ó ÀÏ½Ã
+		// êµ¬ìŠ¬ë³€ìˆ˜ê°€ false ì¼ì‹œ && í”Œë ˆì´ì–´ì˜ êµ¬ìŠ¬ì´ 1ì´ìƒ ì¼ì‹œ
 		if (isRoundUP == false && Player.round >= 1)
 		{
 			GetComponent<Animator>().runtimeAnimatorController = overrideController;
@@ -200,7 +200,7 @@ public class PlayerAction : MonoBehaviour
             cooldownTime -= Time.deltaTime;
             if (cooldownTime <= 0)
             {
-                isCooldown = false;  // ÄğÅ¸ÀÓ Á¾·á
+                isCooldown = false;  // ì¿¨íƒ€ì„ ì¢…ë£Œ
             }
         }
 
@@ -209,11 +209,11 @@ public class PlayerAction : MonoBehaviour
             slideTime -= Time.deltaTime;
             if (slideTime <= 0)
             {
-                StopSliding();  // ½½¶óÀÌµå°¡ ³¡³ª¸é ½½¶óÀÌµù Á¾·á
+                StopSliding();  // ìŠ¬ë¼ì´ë“œê°€ ëë‚˜ë©´ ìŠ¬ë¼ì´ë”© ì¢…ë£Œ
             }
         }
 
-        // ½ºÅ³ ÄğÅ¸ÀÓ °¨¼Ò
+        // ìŠ¤í‚¬ ì¿¨íƒ€ì„ ê°ì†Œ
         if (skillAttackTime > 0)
         {
             skillAttackTime -= Time.deltaTime;
@@ -224,13 +224,13 @@ public class PlayerAction : MonoBehaviour
             skillAttack2Time -= Time.deltaTime;
         }
     }
-    public bool RealStop = false; // ¸ØÃß´Â °Í Update ÇÔ¼ö¿¡ ³ÖÀ½
-	public void OnInteract(InputAction.CallbackContext context)// ´ëÈ­Ã¢ EÅ°
+    public bool RealStop = false; // ë©ˆì¶”ëŠ” ê²ƒ Update í•¨ìˆ˜ì— ë„£ìŒ
+	public void OnInteract(InputAction.CallbackContext context)// ëŒ€í™”ì°½ Eí‚¤
 	{
         if (context.started)
         {
-            // ´ëÈ­ ´ë»ó Ã£À» ½Ã
-            if (scanObject != null)// ´ë»óÀ» Ã£¾ÒÀ» ¶§ÀÇ ´ë»ç
+            // ëŒ€í™” ëŒ€ìƒ ì°¾ì„ ì‹œ
+            if (scanObject != null)// ëŒ€ìƒì„ ì°¾ì•˜ì„ ë•Œì˜ ëŒ€ì‚¬
 			{
                 TicTocDealyTime = 5f;
 
@@ -244,47 +244,47 @@ public class PlayerAction : MonoBehaviour
 
     public Transform tempPlayerPos;
 
-    public float tempTime = 1.0f; // ½Ã°£ ÅÒ
-	IEnumerator DisableCollider(BoxCollider2D collider, int AtkStyle)// ½ÇÁúÀûÀÎ °ø°İ
+    public float tempTime = 1.0f; // ì‹œê°„ í…€
+	IEnumerator DisableCollider(BoxCollider2D collider, int AtkStyle)// ì‹¤ì§ˆì ì¸ ê³µê²©
 	{
         isAtking = true;
 		canMove = false;
 		PleaseStopPlayer();
-		if (AtkStyle == 0 && Time.time > tempTime && !isGeoRiPlayer) // ±âº»°ø°İ
+		if (AtkStyle == 0 && Time.time > tempTime && !isGeoRiPlayer) // ê¸°ë³¸ê³µê²©
         {
-		    animator.SetTrigger(AnimationStrings.attackTrigger);  // °ø°İ ¾Ö´Ï¸ŞÀÌ¼Ç ½ÇÇà
+		    animator.SetTrigger(AnimationStrings.attackTrigger);  // ê³µê²© ì• ë‹ˆë©”ì´ì…˜ ì‹¤í–‰
             audioManager.PlayerSFX(audioManager.audio[1]);
             tempTime = Time.time + 0.15f;
-			collider.enabled = true;                              // ¿ŞÂÊ ¶Ç´Â ¿À¸¥ÂÊ °ø°İ ÄÑ±â
-			yield return new WaitForSeconds(0.1f);                // Äİ¶óÀÌ´õ¸¦ 0.1ÃÊ µ¿¾È È°¼ºÈ­
-			collider.enabled = false;                             // ¿ŞÂÊ ¶Ç´Â ¿À¸¥ÂÊ °ø°İ ²ô±â
+			collider.enabled = true;                              // ì™¼ìª½ ë˜ëŠ” ì˜¤ë¥¸ìª½ ê³µê²© ì¼œê¸°
+			yield return new WaitForSeconds(0.1f);                // ì½œë¼ì´ë”ë¥¼ 0.1ì´ˆ ë™ì•ˆ í™œì„±í™”
+			collider.enabled = false;                             // ì™¼ìª½ ë˜ëŠ” ì˜¤ë¥¸ìª½ ê³µê²© ë„ê¸°
             canMove = true;
 		}
-        else if(AtkStyle == 1 && !isGeoRiPlayer) // ½ºÅ³
+        else if(AtkStyle == 1 && !isGeoRiPlayer) // ìŠ¤í‚¬
         {
-			isUsingSkillorUltimate = true;              // Áö±İÀº ½ºÅ³ »ç¿ëÇÏ°í ÀÖ´Ù.
-			yield return new WaitForSeconds(0.6f);      // ¾Ö´Ï¸ŞÀÌ¼Ç Å¸°İÇÒ ¶§±îÁö ±â´Ù¸®´Â Áß
-			playerScript.Atk *= playerScript.SkillAtk;  // °ø°İ·Â µÎ¹è Áõ°¡
-			collider.enabled = true;                    // °ø°İ Äİ¶óÀÌ´õ È°¼ºÈ­
-			yield return new WaitForSeconds(0.1f);      // Äİ¶óÀÌ´õ¸¦ 0.1ÃÊ µ¿¾È È°¼ºÈ­
-			collider.enabled = false;                   // °ø°İ Äİ¶óÀÌ´õ ºñÈ°¼ºÈ­
-			playerScript.Atk /= playerScript.SkillAtk;  // °ø°İ·Â ÃÊ±âÈ­
-			isUsingSkillorUltimate = false;             // Áö±İÀº ½ºÅ³ »ç¿ëÇÏ°í ÀÖÁö ¾Ê´Ù.
+			isUsingSkillorUltimate = true;              // ì§€ê¸ˆì€ ìŠ¤í‚¬ ì‚¬ìš©í•˜ê³  ìˆë‹¤.
+			yield return new WaitForSeconds(0.6f);      // ì• ë‹ˆë©”ì´ì…˜ íƒ€ê²©í•  ë•Œê¹Œì§€ ê¸°ë‹¤ë¦¬ëŠ” ì¤‘
+			playerScript.Atk *= playerScript.SkillAtk;  // ê³µê²©ë ¥ ë‘ë°° ì¦ê°€
+			collider.enabled = true;                    // ê³µê²© ì½œë¼ì´ë” í™œì„±í™”
+			yield return new WaitForSeconds(0.1f);      // ì½œë¼ì´ë”ë¥¼ 0.1ì´ˆ ë™ì•ˆ í™œì„±í™”
+			collider.enabled = false;                   // ê³µê²© ì½œë¼ì´ë” ë¹„í™œì„±í™”
+			playerScript.Atk /= playerScript.SkillAtk;  // ê³µê²©ë ¥ ì´ˆê¸°í™”
+			isUsingSkillorUltimate = false;             // ì§€ê¸ˆì€ ìŠ¤í‚¬ ì‚¬ìš©í•˜ê³  ìˆì§€ ì•Šë‹¤.
 			canMove = true;
 		}
-		else if (AtkStyle == 2 && !isGeoRiPlayer) // ±Ã±Ø±â
+		else if (AtkStyle == 2 && !isGeoRiPlayer) // ê¶ê·¹ê¸°
 		{
             
-			isUsingSkillorUltimate = true;                  // Áö±İÀº ½ºÅ³ »ç¿ëÇÏ°í ÀÖ´Ù.
-			yield return new WaitForSeconds(0.9f);          // ¾Ö´Ï¸ŞÀÌ¼Ç Å¸°İÇÒ ¶§±îÁö ±â´Ù¸®´Â Áß
-			playerScript.Atk *= playerScript.UltimitAtk;    // ÇÃ·¹ÀÌ¾î °ø°İ·Â Áõ°¡
-            itemManager.HammerBuff();                       // ÇØ¸Ó °ø°İ·Â »ó½Â (´Ü, ¹öÇÁÁß ÀÏ¶§)
-			collider.enabled = true;                        // °ø°İ Äİ¶óÀÌ´õ È°¼ºÈ­
-			yield return new WaitForSeconds(0.1f);          // Äİ¶óÀÌ´õ¸¦ 0.1ÃÊ µ¿¾È È°¼ºÈ­
-			collider.enabled = false;                       // °ø°İ Äİ¶óÀÌ´õ ºñÈ°¼ºÈ­
-            itemManager.HammerDeBuff();                     // ÇØ¸Ó °ø°İ·Â ÇÏ¶ô (´Ü, ¹öÇÁÁß ÀÏ¶§)
-			playerScript.Atk /= playerScript.UltimitAtk;    // °ø°İ·Â ÃÊ±âÈ­
-			isUsingSkillorUltimate = false;                 // Áö±İÀº ½ºÅ³ »ç¿ëÇÏ°í ÀÖÁö ¾Ê´Ù.
+			isUsingSkillorUltimate = true;                  // ì§€ê¸ˆì€ ìŠ¤í‚¬ ì‚¬ìš©í•˜ê³  ìˆë‹¤.
+			yield return new WaitForSeconds(0.9f);          // ì• ë‹ˆë©”ì´ì…˜ íƒ€ê²©í•  ë•Œê¹Œì§€ ê¸°ë‹¤ë¦¬ëŠ” ì¤‘
+			playerScript.Atk *= playerScript.UltimitAtk;    // í”Œë ˆì´ì–´ ê³µê²©ë ¥ ì¦ê°€
+            itemManager.HammerBuff();                       // í•´ë¨¸ ê³µê²©ë ¥ ìƒìŠ¹ (ë‹¨, ë²„í”„ì¤‘ ì¼ë•Œ)
+			collider.enabled = true;                        // ê³µê²© ì½œë¼ì´ë” í™œì„±í™”
+			yield return new WaitForSeconds(0.1f);          // ì½œë¼ì´ë”ë¥¼ 0.1ì´ˆ ë™ì•ˆ í™œì„±í™”
+			collider.enabled = false;                       // ê³µê²© ì½œë¼ì´ë” ë¹„í™œì„±í™”
+            itemManager.HammerDeBuff();                     // í•´ë¨¸ ê³µê²©ë ¥ í•˜ë½ (ë‹¨, ë²„í”„ì¤‘ ì¼ë•Œ)
+			playerScript.Atk /= playerScript.UltimitAtk;    // ê³µê²©ë ¥ ì´ˆê¸°í™”
+			isUsingSkillorUltimate = false;                 // ì§€ê¸ˆì€ ìŠ¤í‚¬ ì‚¬ìš©í•˜ê³  ìˆì§€ ì•Šë‹¤.
 			canMove = true;
 		}
 		canMove = true;
@@ -294,9 +294,9 @@ public class PlayerAction : MonoBehaviour
     public float TicTocDealyTime;
     IEnumerator TicToc()
     {
-        IsMoving = false;                       // ¿òÁ÷ÀÌ°í ÀÖ´Â ¿©ºÎ ²ô±â
-        //canMove = false;                        // ¿òÁ÷ÀÏ¼ö ÀÖ´Â ¿©ºÎ ²ô±â
-		//moveInput.x = 0;                        // input °ª¿¡ 0 
+        IsMoving = false;                       // ì›€ì§ì´ê³  ìˆëŠ” ì—¬ë¶€ ë„ê¸°
+        //canMove = false;                        // ì›€ì§ì¼ìˆ˜ ìˆëŠ” ì—¬ë¶€ ë„ê¸°
+		//moveInput.x = 0;                        // input ê°’ì— 0 
 		//moveInput.y = 0;
 		playerPos = tempPlayerPos;
 		timeStopu = true;
@@ -305,107 +305,107 @@ public class PlayerAction : MonoBehaviour
         //canMove = true;
 	}
 
-	// ÇÃ·¹ÀÌ¾î ÀÌµ¿
+	// í”Œë ˆì´ì–´ ì´ë™
 	void FixedUpdate()
 	{
-        //canMove´Â true,
-        //isDialoging(´ëÈ­Ã¢ ¿­¸° ¿©ºÎ)°¡ false ÀÏ¶§ ¿òÁ÷ÀÏ¼ö ÀÖÀ½ && Å¸ÀÓ½ºÅäÇª°¡ falseÀÏ¶§¸¸
+        //canMoveëŠ” true,
+        //isDialoging(ëŒ€í™”ì°½ ì—´ë¦° ì—¬ë¶€)ê°€ false ì¼ë•Œ ì›€ì§ì¼ìˆ˜ ìˆìŒ && íƒ€ì„ìŠ¤í† í‘¸ê°€ falseì¼ë•Œë§Œ
         if (canMove == true && talkManager.isDialoging == false && timeStopu == false)
         {
-			rigid.velocity = new Vector2(moveInput.x * walkSpeed, moveInput.y * walkSpeed);  // ÀÌµ¿ Ã³¸®
+			rigid.velocity = new Vector2(moveInput.x * walkSpeed, moveInput.y * walkSpeed);  // ì´ë™ ì²˜ë¦¬
         }
         else if (IsMoving == false)
         {
             StartCoroutine(TicToc());
 		}
-		// °ø°İÀÌ ³¡³ª°í °è¼Ó ¹æÇâÅ° ÀÔ·ÂÀ» ¹ŞÀ¸¸é ÀÌµ¿ÇÏµµ·Ï ¼³Á¤
+		// ê³µê²©ì´ ëë‚˜ê³  ê³„ì† ë°©í–¥í‚¤ ì…ë ¥ì„ ë°›ìœ¼ë©´ ì´ë™í•˜ë„ë¡ ì„¤ì •
 		if (canMove && !IsSliding && !isUsingSkillorUltimate)
 		{
-			IsMoving = moveInput != Vector2.zero;  // °è¼Ó ÀÌµ¿ÇÒ ¼ö ÀÖµµ·Ï »óÅÂ ¾÷µ¥ÀÌÆ®
-			SetFacingDirection(moveInput);  // ÀÌµ¿ ¹æÇâ ¼³Á¤
+			IsMoving = moveInput != Vector2.zero;  // ê³„ì† ì´ë™í•  ìˆ˜ ìˆë„ë¡ ìƒíƒœ ì—…ë°ì´íŠ¸
+			SetFacingDirection(moveInput);  // ì´ë™ ë°©í–¥ ì„¤ì •
 		}
         if (IsMoving == true && moveInput.x == 0 && moveInput.y == 0)
         {
             TicToc();
         }
 
-		// ÇÃ·¹ÀÌ¾î ÁÖÀ§ÀÇ ¾ãÀº ¼±À¸·Î °¨Áö
+		// í”Œë ˆì´ì–´ ì£¼ìœ„ì˜ ì–‡ì€ ì„ ìœ¼ë¡œ ê°ì§€
 		Debug.DrawRay(rigid.position, dirVec * Length, new Color(0, 1, 0));
         RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, dirVec, Length, LayerMask.GetMask("Object"));
 
-        // ¹«¾ğ°¡ °¨ÁöµÊ!
+        // ë¬´ì–¸ê°€ ê°ì§€ë¨!
         if (rayHit.collider != null) scanObject = rayHit.collider.gameObject;
         else scanObject = null;
 
-        // ¿ŞÂÊ È­»ìÇ¥ = -1, ¿À¸¥ÂÊ È­»ìÇ¥ = 1
+        // ì™¼ìª½ í™”ì‚´í‘œ = -1, ì˜¤ë¥¸ìª½ í™”ì‚´í‘œ = 1
         // Debug.Log(moveInput.x);
 
-        speed_ui.text = walkSpeed.ToString(); // ÀÌµ¿¼Óµµ
-        As_ui.text = (3/jabCooldown).ToString("F2");           // °ø°İ¼Óµµ
+        speed_ui.text = walkSpeed.ToString(); // ì´ë™ì†ë„
+        As_ui.text = (3/jabCooldown).ToString("F2");           // ê³µê²©ì†ë„
     }
 
-    public void OnMove(InputAction.CallbackContext context)// ÀÌµ¿ ÀÔ·Â Ã³¸®
+    public void OnMove(InputAction.CallbackContext context)// ì´ë™ ì…ë ¥ ì²˜ë¦¬
 	{
         if (canMove)
         {
             moveInput = context.ReadValue<Vector2>();
 
-            IsMoving = moveInput != Vector2.zero;  // ¿òÁ÷ÀÓ ¿©ºÎ È®ÀÎ
+            IsMoving = moveInput != Vector2.zero;  // ì›€ì§ì„ ì—¬ë¶€ í™•ì¸
 
-            SetFacingDirection(moveInput);  // ¹æÇâ ¼³Á¤
+            SetFacingDirection(moveInput);  // ë°©í–¥ ì„¤ì •
         }
     }
 
     
 
-    void SetFacingDirection(Vector2 moveInput)// ÀÌµ¿ ¹æÇâ ¼³Á¤
+    void SetFacingDirection(Vector2 moveInput)// ì´ë™ ë°©í–¥ ì„¤ì •
 	{
-        //x°ªÀÌ 0º¸´Ù Å­ && ¿À¸¥ÂÊ ¾È¹Ù¶óº½ && ´ëÈ­°¡ ³¡³²
+        //xê°’ì´ 0ë³´ë‹¤ í¼ && ì˜¤ë¥¸ìª½ ì•ˆë°”ë¼ë´„ && ëŒ€í™”ê°€ ëë‚¨
         if (moveInput.x > 0 && talkManager.isDialoging == false)
         {
             //IsFacingRight = true;
-            dirVec = Vector3.right;  // ¿À¸¥ÂÊ ¹æÇâ ¼³Á¤
-            sp.flipX = false; // Ä³¸¯ÅÍ¸¦ ¿À¸¥ÂÊÀ¸·Î ¹Ù¶óº¸°Ô ¼³Á¤
+            dirVec = Vector3.right;  // ì˜¤ë¥¸ìª½ ë°©í–¥ ì„¤ì •
+            sp.flipX = false; // ìºë¦­í„°ë¥¼ ì˜¤ë¥¸ìª½ìœ¼ë¡œ ë°”ë¼ë³´ê²Œ ì„¤ì •
         }
-		//x°ªÀÌ 0º¸´Ù Å­ && ¿À¸¥ÂÊ ¹Ù¶óº½ && ´ëÈ­°¡ ³¡³²
+		//xê°’ì´ 0ë³´ë‹¤ í¼ && ì˜¤ë¥¸ìª½ ë°”ë¼ë´„ && ëŒ€í™”ê°€ ëë‚¨
 		else if (moveInput.x < 0 && talkManager.isDialoging == false)
         {
             //IsFacingRight = false;
-            dirVec = Vector3.left;  // ¿ŞÂÊ ¹æÇâ ¼³Á¤
-            sp.flipX = true; // Ä³¸¯ÅÍ¸¦ ¿ŞÂÊÀ¸·Î ¹Ù¶óº¸°Ô ¼³Á¤
+            dirVec = Vector3.left;  // ì™¼ìª½ ë°©í–¥ ì„¤ì •
+            sp.flipX = true; // ìºë¦­í„°ë¥¼ ì™¼ìª½ìœ¼ë¡œ ë°”ë¼ë³´ê²Œ ì„¤ì •
         }
     }
 
-    public void OnSlide(InputAction.CallbackContext context) // ½½¶óÀÌµù ÀÔ·Â Ã³¸®
+    public void OnSlide(InputAction.CallbackContext context) // ìŠ¬ë¼ì´ë”© ì…ë ¥ ì²˜ë¦¬
     {
         if (context.started && !isCooldown && !IsSliding)
         {
             if (_isMoving)
             {
-                StartSliding(); // ½½¶óÀÌµù ½ÃÀÛ
+                StartSliding(); // ìŠ¬ë¼ì´ë”© ì‹œì‘
             }
         }
     }
 
-    private void StartSliding() // ½½¶óÀÌµù ½ÃÀÛ
+    private void StartSliding() // ìŠ¬ë¼ì´ë”© ì‹œì‘
     {
         IsSliding = true;
-        slideTime = slideDuration; // ½½¶óÀÌµå Áö¼Ó ½Ã°£ ¼³Á¤
-        walkSpeed = slideSpeed;    // ½½¶óÀÌµå ¼Óµµ Àû¿ë
+        slideTime = slideDuration; // ìŠ¬ë¼ì´ë“œ ì§€ì† ì‹œê°„ ì„¤ì •
+        walkSpeed = slideSpeed;    // ìŠ¬ë¼ì´ë“œ ì†ë„ ì ìš©
         gameObject.layer = shiftedLayerID;
-        // ½½¶óÀÌµùÀÌ ³¡³ª¸é ÀÚµ¿À¸·Î Á¾·á Ã³¸®
-        Invoke(nameof(StopSliding), slideDuration); // slideDuration¸¸Å­ ´ë±â ÈÄ StopSliding È£Ãâ
+        // ìŠ¬ë¼ì´ë”©ì´ ëë‚˜ë©´ ìë™ìœ¼ë¡œ ì¢…ë£Œ ì²˜ë¦¬
+        Invoke(nameof(StopSliding), slideDuration); // slideDurationë§Œí¼ ëŒ€ê¸° í›„ StopSliding í˜¸ì¶œ
         revertLayerCoroutine = StartCoroutine(RevertLayerAfterDelay(0.5f));
     }
 
-    private void StopSliding() // ½½¶óÀÌµù Á¾·á
+    private void StopSliding() // ìŠ¬ë¼ì´ë”© ì¢…ë£Œ
     {
         IsSliding = false;
-        walkSpeed = defaultSpeed; // ±âº» ¼Óµµ·Î º¹±Í
+        walkSpeed = defaultSpeed; // ê¸°ë³¸ ì†ë„ë¡œ ë³µê·€
         isCooldown = true;
-        cooldownTime = slideCooldown; // ½½¶óÀÌµå ÄğÅ¸ÀÓ Àû¿ë
+        cooldownTime = slideCooldown; // ìŠ¬ë¼ì´ë“œ ì¿¨íƒ€ì„ ì ìš©
 
-        // ÄğÅ¸ÀÓ Å¸ÀÌ¸Ó¸¦ ¾÷µ¥ÀÌÆ®ÇÏ´Â ÄÚ·çÆ¾ µîÀ» »ç¿ëÇÒ ¼öµµ ÀÖÀ½
+        // ì¿¨íƒ€ì„ íƒ€ì´ë¨¸ë¥¼ ì—…ë°ì´íŠ¸í•˜ëŠ” ì½”ë£¨í‹´ ë“±ì„ ì‚¬ìš©í•  ìˆ˜ë„ ìˆìŒ
     }
 
     void SetLayer(int layerID)
@@ -425,56 +425,56 @@ public class PlayerAction : MonoBehaviour
         audioManager.PlayerSFX(audioManager.audio[3]);                     // Play the sound
     }
 
-    public float jabCooldown = 0.3f;  // Àì °ø°İ ÄğÅ¸ÀÓ (°ø¼ÓÀ» ÀÇ¹Ì)
-	private float lastAttackTime = 0f;  // ¸¶Áö¸· °ø°İ ½Ã°£ÀÌ ÀúÀåµÉ º¯¼ö
+    public float jabCooldown = 0.3f;  // ì½ ê³µê²© ì¿¨íƒ€ì„ (ê³µì†ì„ ì˜ë¯¸)
+	private float lastAttackTime = 0f;  // ë§ˆì§€ë§‰ ê³µê²© ì‹œê°„ì´ ì €ì¥ë  ë³€ìˆ˜
 
 
-	public void OnAttack(InputAction.CallbackContext context)// ÀÏ¹İ °ø°İ (Àì)
+	public void OnAttack(InputAction.CallbackContext context)// ì¼ë°˜ ê³µê²© (ì½)
 	{
 		if (jabCooldown <= 0.2f)
         {
             jabCooldown = 0.2f;
         }
-		// ¸¶¿ì½º Å¬¸¯À» ½ÃÀÛ ÇÒ¶§ && ½ºÅ³ÀÌ³ª ±Ã±Ø±â¸¦ »ç¿ëÇÏ°í ÀÖÁö ¾ÊÀ»½Ã ÀìÀ» ½ÇÇà
+		// ë§ˆìš°ìŠ¤ í´ë¦­ì„ ì‹œì‘ í• ë•Œ && ìŠ¤í‚¬ì´ë‚˜ ê¶ê·¹ê¸°ë¥¼ ì‚¬ìš©í•˜ê³  ìˆì§€ ì•Šì„ì‹œ ì½ì„ ì‹¤í–‰
 		if (context.started && isUsingSkillorUltimate == false && isAtking == false && Time.time >= lastAttackTime + jabCooldown)
         {
-            Vector2 mousePosition = Mouse.current.position.ReadValue();           // ¸¶¿ì½º À§Ä¡ °¡Á®¿À±â
-            Vector3 worldPosition = mainCamera.ScreenToWorldPoint(mousePosition); // È­¸é ÁÂÇ¥ -> ¿ùµå ÁÂÇ¥ º¯È¯
-            float playerPositionX = transform.position.x;                         // ÇÃ·¹ÀÌ¾îÀÇ ÇöÀç x ÁÂÇ¥
-            worldPosition.z = 0f; // Ä«¸Ş¶óÀÇ z°ªÀ» 0À¸·Î ¼³Á¤ (2D °ø°£¿¡¼­ÀÇ ÁÂÇ¥)
+            Vector2 mousePosition = Mouse.current.position.ReadValue();           // ë§ˆìš°ìŠ¤ ìœ„ì¹˜ ê°€ì ¸ì˜¤ê¸°
+            Vector3 worldPosition = mainCamera.ScreenToWorldPoint(mousePosition); // í™”ë©´ ì¢Œí‘œ -> ì›”ë“œ ì¢Œí‘œ ë³€í™˜
+            float playerPositionX = transform.position.x;                         // í”Œë ˆì´ì–´ì˜ í˜„ì¬ x ì¢Œí‘œ
+            worldPosition.z = 0f; // ì¹´ë©”ë¼ì˜ zê°’ì„ 0ìœ¼ë¡œ ì„¤ì • (2D ê³µê°„ì—ì„œì˜ ì¢Œí‘œ)
 
-            int atkStyle = 0; // ±âº» °ø°İ ½ºÅ¸ÀÏ
+            int atkStyle = 0; // ê¸°ë³¸ ê³µê²© ìŠ¤íƒ€ì¼
 
-			TicTocDealyTime = Jab;                               // ¸îÃÊµ¿¾È °æÁ÷µÇ¾î ÀÖÀ»·¡?
+			TicTocDealyTime = Jab;                               // ëª‡ì´ˆë™ì•ˆ ê²½ì§ë˜ì–´ ìˆì„ë˜?
 
-			// È­¸é ±âÁØÀ¸·Î ¿ŞÂÊ Å¬¸¯ ½Ã
+			// í™”ë©´ ê¸°ì¤€ìœ¼ë¡œ ì™¼ìª½ í´ë¦­ ì‹œ
 			if (worldPosition.x < playerPositionX)
 			{
-                sp.flipX = true; // Ä³¸¯ÅÍ¸¦ ¿ŞÂÊÀ¸·Î ¹Ù¶óº¸°Ô ¼³Á¤
-                StartCoroutine(DisableCollider(left, atkStyle)); // ¿ŞÂÊ °ø°İ È°¼ºÈ­
+                sp.flipX = true; // ìºë¦­í„°ë¥¼ ì™¼ìª½ìœ¼ë¡œ ë°”ë¼ë³´ê²Œ ì„¤ì •
+                StartCoroutine(DisableCollider(left, atkStyle)); // ì™¼ìª½ ê³µê²© í™œì„±í™”
             }
-			// È­¸é ±âÁØÀ¸·Î ¿À¸¥ÂÊ Å¬¸¯ ½Ã
+			// í™”ë©´ ê¸°ì¤€ìœ¼ë¡œ ì˜¤ë¥¸ìª½ í´ë¦­ ì‹œ
 			else
 			{
-                sp.flipX = false; // Ä³¸¯ÅÍ¸¦ ¿À¸¥ÂÊÀ¸·Î ¹Ù¶óº¸°Ô ¼³Á¤
-                StartCoroutine(DisableCollider(right, atkStyle)); // ¿À¸¥ÂÊ °ø°İ È°¼ºÈ­
+                sp.flipX = false; // ìºë¦­í„°ë¥¼ ì˜¤ë¥¸ìª½ìœ¼ë¡œ ë°”ë¼ë³´ê²Œ ì„¤ì •
+                StartCoroutine(DisableCollider(right, atkStyle)); // ì˜¤ë¥¸ìª½ ê³µê²© í™œì„±í™”
             }
 
-			lastAttackTime = Time.time;  // ¸¶Áö¸· °ø°İ ½Ã°£ °»½Å
+			lastAttackTime = Time.time;  // ë§ˆì§€ë§‰ ê³µê²© ì‹œê°„ ê°±ì‹ 
 
 
-			// ¾ÆÀÌÅÛÀÌ ÀÖ´Â Äİ¶óÀÌ´õ °´Ã¼ (¿¹½Ã·Î myItemCollider¸¦ »ç¿ë)
+			// ì•„ì´í…œì´ ìˆëŠ” ì½œë¼ì´ë” ê°ì²´ (ì˜ˆì‹œë¡œ myItemColliderë¥¼ ì‚¬ìš©)
 
 			foreach (var item in myItemColliders)
             {
-				if (item.bounds.Contains(worldPosition)) // Å¬¸¯ÇÑ À§Ä¡°¡ ¾ÆÀÌÅÛ Äİ¶óÀÌ´õ ¹üÀ§ ¾È¿¡ ÀÖÀ» ¶§
+				if (item.bounds.Contains(worldPosition)) // í´ë¦­í•œ ìœ„ì¹˜ê°€ ì•„ì´í…œ ì½œë¼ì´ë” ë²”ìœ„ ì•ˆì— ìˆì„ ë•Œ
 				{
 					teleport teleport = item.GetComponent<teleport>();
 					SceneChangeOnCollision sceneChangeOnCollision = item.GetComponent<SceneChangeOnCollision>();
 					if (teleport != null)
 					{
                         audioManager.PlayerSFX(audioManager.audio[6]);
-                        teleport.MovePlayer(playerCollider2D); // ¾ÆÀÌÅÛÀÇ OnItemClicked ÇÔ¼ö ½ÇÇà
+                        teleport.MovePlayer(playerCollider2D); // ì•„ì´í…œì˜ OnItemClicked í•¨ìˆ˜ ì‹¤í–‰
 					}
                     else if (teleport == null)
                     {
@@ -485,74 +485,74 @@ public class PlayerAction : MonoBehaviour
         }
     }
 
-    public void OnSkillAttack(InputAction.CallbackContext context)// ½ºÅ³
+    public void OnSkillAttack(InputAction.CallbackContext context)// ìŠ¤í‚¬
 	{
-		if (context.started)  // ÄğÅ¸ÀÓÀÌ 0ÀÏ ¶§¸¸ ½ºÅ³ ¹ßµ¿
+		if (context.started)  // ì¿¨íƒ€ì„ì´ 0ì¼ ë•Œë§Œ ìŠ¤í‚¬ ë°œë™
         {
-            Vector2 mousePosition = Mouse.current.position.ReadValue(); // ¸¶¿ì½º À§Ä¡ °¡Á®¿À±â
-            Vector3 worldPosition = mainCamera.ScreenToWorldPoint(mousePosition); // È­¸é ÁÂÇ¥ -> ¿ùµå ÁÂÇ¥ º¯È¯
-            float playerPositionX = transform.position.x; // ÇÃ·¹ÀÌ¾îÀÇ ÇöÀç x ÁÂÇ¥
+            Vector2 mousePosition = Mouse.current.position.ReadValue(); // ë§ˆìš°ìŠ¤ ìœ„ì¹˜ ê°€ì ¸ì˜¤ê¸°
+            Vector3 worldPosition = mainCamera.ScreenToWorldPoint(mousePosition); // í™”ë©´ ì¢Œí‘œ -> ì›”ë“œ ì¢Œí‘œ ë³€í™˜
+            float playerPositionX = transform.position.x; // í”Œë ˆì´ì–´ì˜ í˜„ì¬ x ì¢Œí‘œ
 
             if (skillAttackTime <= 0)
             {
-                // °Å¸® Ãâ½Å ÇÃ·¹ÀÌ¾î°¡ ¾Æ´Ò ¶§
+                // ê±°ë¦¬ ì¶œì‹  í”Œë ˆì´ì–´ê°€ ì•„ë‹ ë•Œ
                 if (!isGeoRiPlayer)
                 {
-                    animator.SetTrigger(AnimationStrings.skillAttackTrigger);  // ½ºÅ³ ¾Ö´Ï¸ŞÀÌ¼Ç ½ÇÇà
+                    animator.SetTrigger(AnimationStrings.skillAttackTrigger);  // ìŠ¤í‚¬ ì• ë‹ˆë©”ì´ì…˜ ì‹¤í–‰
                 }
-                skillAttackTime = skillAttackCooldown;  // ÄğÅ¸ÀÓ Àû¿ë
+                skillAttackTime = skillAttackCooldown;  // ì¿¨íƒ€ì„ ì ìš©
 
 
-				int atkStyle = 1; // ½ºÅ³ °ø°İ ½ºÅ¸ÀÏ
+				int atkStyle = 1; // ìŠ¤í‚¬ ê³µê²© ìŠ¤íƒ€ì¼
 
-				TicTocDealyTime = Skill;                     // ¸îÃÊµ¿¾È °æÁ÷µÇ¾î ÀÖÀ»·¡?
+				TicTocDealyTime = Skill;                     // ëª‡ì´ˆë™ì•ˆ ê²½ì§ë˜ì–´ ìˆì„ë˜?
 
 				if (worldPosition.x < playerPositionX)
                 {
-                    sp.flipX = true; // Ä³¸¯ÅÍ¸¦ ¿ŞÂÊÀ¸·Î ¹Ù¶óº¸°Ô ¼³Á¤
-                    StartCoroutine(DisableCollider(LargeLeft, atkStyle)); // ¿ŞÂÊ °ø°İ È°¼ºÈ­
+                    sp.flipX = true; // ìºë¦­í„°ë¥¼ ì™¼ìª½ìœ¼ë¡œ ë°”ë¼ë³´ê²Œ ì„¤ì •
+                    StartCoroutine(DisableCollider(LargeLeft, atkStyle)); // ì™¼ìª½ ê³µê²© í™œì„±í™”
 
                 }
                 else
                 {
-                    sp.flipX = false; // Ä³¸¯ÅÍ¸¦ ¿À¸¥ÂÊÀ¸·Î ¹Ù¶óº¸°Ô ¼³Á¤
-                    StartCoroutine(DisableCollider(LargeRight, atkStyle)); // ¿À¸¥ÂÊ °ø°İ È°¼ºÈ­
+                    sp.flipX = false; // ìºë¦­í„°ë¥¼ ì˜¤ë¥¸ìª½ìœ¼ë¡œ ë°”ë¼ë³´ê²Œ ì„¤ì •
+                    StartCoroutine(DisableCollider(LargeRight, atkStyle)); // ì˜¤ë¥¸ìª½ ê³µê²© í™œì„±í™”
                 }
 			}
 		}
     }
 
-    public void OnSkillAttack2(InputAction.CallbackContext context)// ±Ã±Ø±â
+    public void OnSkillAttack2(InputAction.CallbackContext context)// ê¶ê·¹ê¸°
 	{
-		if (context.started)  // ÄğÅ¸ÀÓÀÌ 0ÀÏ ¶§¸¸ ½ºÅ³ ¹ßµ¿
+		if (context.started)  // ì¿¨íƒ€ì„ì´ 0ì¼ ë•Œë§Œ ìŠ¤í‚¬ ë°œë™
         {
             if (skillAttack2Time <= 0)
             {
-                // °Å¸® Ãâ½Å ÇÃ·¹ÀÌ¾î°¡ ¾Æ´Ò½Ã
+                // ê±°ë¦¬ ì¶œì‹  í”Œë ˆì´ì–´ê°€ ì•„ë‹ì‹œ
                 if (!isGeoRiPlayer)
                 {
-                    animator.SetTrigger(AnimationStrings.skillAttackTrigger2);  // ½ºÅ³ ¾Ö´Ï¸ŞÀÌ¼Ç ½ÇÇà
+                    animator.SetTrigger(AnimationStrings.skillAttackTrigger2);  // ìŠ¤í‚¬ ì• ë‹ˆë©”ì´ì…˜ ì‹¤í–‰
                     StartCoroutine(PlaySoundWithDelay());
                 }
 
-                skillAttack2Time = skillAttack2Cooldown;  // ÄğÅ¸ÀÓ Àû¿ë
+                skillAttack2Time = skillAttack2Cooldown;  // ì¿¨íƒ€ì„ ì ìš©
 
-				int atkStyle = 2;      // ±Ã±Ø±â °ø°İ ÆĞÅÏ
-									   // ¹æÇâ¿¡ µû¶ó ÀûÀıÇÑ BoxCollider2D È°¼ºÈ­
-				TicTocDealyTime = Ultimite;                      // ¸îÃÊµ¿¾È °æÁ÷µÇ¾î ÀÖÀ»·¡?
+				int atkStyle = 2;      // ê¶ê·¹ê¸° ê³µê²© íŒ¨í„´
+									   // ë°©í–¥ì— ë”°ë¼ ì ì ˆí•œ BoxCollider2D í™œì„±í™”
+				TicTocDealyTime = Ultimite;                      // ëª‡ì´ˆë™ì•ˆ ê²½ì§ë˜ì–´ ìˆì„ë˜?
 				if (sp.flipX)
 				{
-					StartCoroutine(DisableCollider(LargeLeft, atkStyle));  // ¿ŞÂÊ °ø°İ È°¼ºÈ­
+					StartCoroutine(DisableCollider(LargeLeft, atkStyle));  // ì™¼ìª½ ê³µê²© í™œì„±í™”
 				}
 				else
 				{
-					StartCoroutine(DisableCollider(LargeRight, atkStyle));  // ¿À¸¥ÂÊ °ø°İ È°¼ºÈ­
+					StartCoroutine(DisableCollider(LargeRight, atkStyle));  // ì˜¤ë¥¸ìª½ ê³µê²© í™œì„±í™”
 				}
 			}
 		}
     }
 
-    // °æÁ÷ ÇÔ¼ö Like Á¸¾ß
+    // ê²½ì§ í•¨ìˆ˜ Like ì¡´ì•¼
     void PleaseStopPlayer()
     {
 		rigid.velocity = Vector2.zero;

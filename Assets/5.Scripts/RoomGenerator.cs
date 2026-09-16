@@ -1,54 +1,54 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class RoomGenerator : MonoBehaviour
 {
-	/* ¹® ¼±¾ğ */
-	public GameObject hpUpDoor;         // Ã¼·Â Áõ°¡ ¹®
-	public GameObject atkUpDoor;        // °ø°İ·Â Áõ°¡ ¹®
-	public GameObject emotionRoundDoor; // °¨Á¤ ±¸½½ È¹µæ ¹®
-	public GameObject MoneyUpDoor;      // ÀçÈ­ È¹µæ ¹®
+	/* ë¬¸ ì„ ì–¸ */
+	public GameObject hpUpDoor;         // ì²´ë ¥ ì¦ê°€ ë¬¸
+	public GameObject atkUpDoor;        // ê³µê²©ë ¥ ì¦ê°€ ë¬¸
+	public GameObject emotionRoundDoor; // ê°ì • êµ¬ìŠ¬ íšë“ ë¬¸
+	public GameObject MoneyUpDoor;      // ì¬í™” íšë“ ë¬¸
 
-	/* ¹®ÀÌ »ı¼ºµÉ ÁÂÇ¥ À§Ä¡ */
-	[Header("¹®ÀÌ »ı¼ºµÉ ÁÂÇ¥ À§Ä¡")]
+	/* ë¬¸ì´ ìƒì„±ë  ì¢Œí‘œ ìœ„ì¹˜ */
+	[Header("ë¬¸ì´ ìƒì„±ë  ì¢Œí‘œ ìœ„ì¹˜")]
 	public Transform[] Pos;
 
-	private List<DoorType> doorType;    // ¹® µéÀÇ Å¸ÀÔÇü ¸®½ºÆ®
+	private List<DoorType> doorType;    // ë¬¸ ë“¤ì˜ íƒ€ì…í˜• ë¦¬ìŠ¤íŠ¸
 
-	// »ı¼ºµÈ ¹®µéÀÇ ÂüÁ¶¸¦ ÀúÀåÇÒ ¸®½ºÆ®
+	// ìƒì„±ëœ ë¬¸ë“¤ì˜ ì°¸ì¡°ë¥¼ ì €ì¥í•  ë¦¬ìŠ¤íŠ¸
 	private List<GameObject> generatedDoors = new List<GameObject>();
 
 	void Start()
 	{
-		//RandomDoorGenerate(); // ·£´ı ¹® »ı¼º
+		//RandomDoorGenerate(); // ëœë¤ ë¬¸ ìƒì„±
 	}
 
-	// key 0¹ø : ±âº» ½ÃÀÛ ¹æ
-	// key 1¹ø : Ã¼·Â¹æ
-	// key 2¹ø : °ø°İ¹æ
-	// key 3¹ø : ÀçÈ­¹æ
-	// key 4¹ø : ±¸½½¹æ
-	public void RandomDoorGenerate(int key) // ·£´ı ¹® »ı¼º
+	// key 0ë²ˆ : ê¸°ë³¸ ì‹œì‘ ë°©
+	// key 1ë²ˆ : ì²´ë ¥ë°©
+	// key 2ë²ˆ : ê³µê²©ë°©
+	// key 3ë²ˆ : ì¬í™”ë°©
+	// key 4ë²ˆ : êµ¬ìŠ¬ë°©
+	public void RandomDoorGenerate(int key) // ëœë¤ ë¬¸ ìƒì„±
 	{
-		// ¹® Å¸ÀÔµéÀ» ¸®½ºÆ®¿¡ Ãß°¡
+		// ë¬¸ íƒ€ì…ë“¤ì„ ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€
 		doorType = new List<DoorType> { DoorType.hpUP, DoorType.atkUP, DoorType.MoneyUp, DoorType.EmotionRound };
 
-		// ¹® 2°³¸¦ ·£´ıÀ¸·Î »Ì±âÀ» ½Ã 2°³ ¹®µéÀ» ´ãÀ» ¸®½ºÆ®
+		// ë¬¸ 2ê°œë¥¼ ëœë¤ìœ¼ë¡œ ë½‘ê¸°ì„ ì‹œ 2ê°œ ë¬¸ë“¤ì„ ë‹´ì„ ë¦¬ìŠ¤íŠ¸
 		List<DoorType> selectedDoors = new List<DoorType>();
 
-		// ¹® 2°³¸¦ ·£´ıÀ¸·Î »Ì±â
+		// ë¬¸ 2ê°œë¥¼ ëœë¤ìœ¼ë¡œ ë½‘ê¸°
 		for (int i = 0; i < 2; i++)
 		{
-			// ¾ÆÁ÷ ¼±ÅÃ µÇÁö ¾ÊÀº ¹®µé Áß¿¡¼­ ÇÏ³ª¸¦ ¼±ÅÃ
-			int RandomNumber = Random.Range(0, doorType.Count); // 0 ~ (¹®µéÀÇ Å¸ÀÔ °³¼ö) ±îÁö ·£´ı ¼ıÀÚ »ı¼º
-			selectedDoors.Add(doorType[RandomNumber]);            // ·£´ıÇÑ ¹®ÀÇ Å¸ÀÔÀ» ¼±ÅÃµÈ ¸®½ºÆ®¿¡ Ãß°¡
-			doorType.RemoveAt(RandomNumber);                    // ¸®½ºÆ®¿¡ Ãß°¡µÈ ¹®Àº ±âÁ¸ ¸®½ºÆ®¿¡¼­ Á¦°Å
+			// ì•„ì§ ì„ íƒ ë˜ì§€ ì•Šì€ ë¬¸ë“¤ ì¤‘ì—ì„œ í•˜ë‚˜ë¥¼ ì„ íƒ
+			int RandomNumber = Random.Range(0, doorType.Count); // 0 ~ (ë¬¸ë“¤ì˜ íƒ€ì… ê°œìˆ˜) ê¹Œì§€ ëœë¤ ìˆ«ì ìƒì„±
+			selectedDoors.Add(doorType[RandomNumber]);            // ëœë¤í•œ ë¬¸ì˜ íƒ€ì…ì„ ì„ íƒëœ ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€
+			doorType.RemoveAt(RandomNumber);                    // ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€ëœ ë¬¸ì€ ê¸°ì¡´ ë¦¬ìŠ¤íŠ¸ì—ì„œ ì œê±°
 		}
 
 		key = key * 4;
 
-		// ¼±ÅÃÇÑ ¹æÀ» »ı¼º
+		// ì„ íƒí•œ ë°©ì„ ìƒì„±
 		foreach (var door in selectedDoors)
 		{
 			GameObject createdDoor = null;
@@ -69,18 +69,18 @@ public class RoomGenerator : MonoBehaviour
 			}
 			if (createdDoor != null)
 			{
-				generatedDoors.Add(createdDoor); // »ı¼ºµÈ ¹® ÂüÁ¶¸¦ ¸®½ºÆ®¿¡ ÀúÀå
+				generatedDoors.Add(createdDoor); // ìƒì„±ëœ ë¬¸ ì°¸ì¡°ë¥¼ ë¦¬ìŠ¤íŠ¸ì— ì €ì¥
 			}
 		}
 	}
 
-	// ¹® ÃÊ±âÈ­ (»èÁ¦¿ë)
+	// ë¬¸ ì´ˆê¸°í™” (ì‚­ì œìš©)
 	public void DestroyDoor()
 	{
 		foreach (GameObject door in generatedDoors)
 		{
-			Destroy(door); // »ı¼ºµÈ ¹® »èÁ¦
+			Destroy(door); // ìƒì„±ëœ ë¬¸ ì‚­ì œ
 		}
-		generatedDoors.Clear(); // ÂüÁ¶ ¸®½ºÆ® ÃÊ±âÈ­
+		generatedDoors.Clear(); // ì°¸ì¡° ë¦¬ìŠ¤íŠ¸ ì´ˆê¸°í™”
 	}
 }

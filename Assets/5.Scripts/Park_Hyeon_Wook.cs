@@ -1,12 +1,12 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Park_Hyeon_Wook : MonoBehaviour
 {
-    //À¯´ÏÆ¼¿¡¼­ ½ÃÀÛ ÀÌÈÄ ÇÑ¹ø¸¸ ½ÇÇà
+    //ìœ ë‹ˆí‹°ì—ì„œ ì‹œì‘ ì´í›„ í•œë²ˆë§Œ ì‹¤í–‰
     void Start()
     {
-        Debug.Log("¹ÚÇö¿í¹Ùº¸");
+        Debug.Log("ë°•í˜„ìš±ë°”ë³´");
     }
 }

@@ -1,19 +1,19 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//ÆÄ¾Å
+//íŒŒì”½
 using UnityEngine.Networking;
 
 public class ParsingManager : MonoBehaviour
 {
-	public GameObject DialogSet; // ´ëÈ­Ã¢
+	public GameObject DialogSet; // ëŒ€í™”ì°½
 
 	const string URL = "https://docs.google.com/spreadsheets/d/1tEMmdWn9jWmPBLcppi0xkukl86hoj3C0Jo3x9Y8utwU/export?format=tsv&range=I2:J1000";
 	string SHEET;
 
-	//ÆÄ¾Å ½ºÅ¸Æ®
+	//íŒŒì”½ ìŠ¤íƒ€íŠ¸
 	IEnumerator Start()
 	{
 		using (UnityWebRequest online_sheet = UnityWebRequest.Get(URL))
@@ -25,73 +25,73 @@ public class ParsingManager : MonoBehaviour
 				SHEET = online_sheet.downloadHandler.text;
 			}
 		}
-		//Å×½ºÆ® ¸Ş¼Òµå
+		//í…ŒìŠ¤íŠ¸ ë©”ì†Œë“œ
 		Add();
 		//AddDialogs();
 	}
-	//´ëÈ­¹øÈ£, (´ëÈ­ÁÖÃ¼:´ëÈ­) ¼¼Æ®ÀÎ µñ¼Å³Ê¸® »ı¼º
+	//ëŒ€í™”ë²ˆí˜¸, (ëŒ€í™”ì£¼ì²´:ëŒ€í™”) ì„¸íŠ¸ì¸ ë”•ì…”ë„ˆë¦¬ ìƒì„±
 	Dictionary<int, string> dialog = new Dictionary<int, string>();
 
 
-	//¿¢¼¿ÀÇ Á¤º¸¸¦ µñ¼Å³Ê¸® º¯¼ö¿¡ Ãß°¡
+	//ì—‘ì…€ì˜ ì •ë³´ë¥¼ ë”•ì…”ë„ˆë¦¬ ë³€ìˆ˜ì— ì¶”ê°€
 	void Add()
 	{
-		//¿¢¼¿¿¡ ÀÖ´Â °ªÀ» Çà±âÁØ(ÁÙ°£°İ)("\n")À¸·Î ºĞ¸®
+		//ì—‘ì…€ì— ìˆëŠ” ê°’ì„ í–‰ê¸°ì¤€(ì¤„ê°„ê²©)("\n")ìœ¼ë¡œ ë¶„ë¦¬
 		string[] sheet = SHEET.Split('\n');
 
-		//Çà ±æÀÌ
+		//í–‰ ê¸¸ì´
 		int rowCount = Mathf.Min(1000, sheet.Length - 1);
 
-		//1ºÎÅÍ ½ÃÀÛÇÏ´Â ÀÌÀ¯: ¿­ÀÇ Á¤º¸´Â ¹«½ÃÇÑ´Ù~
+		//1ë¶€í„° ì‹œì‘í•˜ëŠ” ì´ìœ : ì—´ì˜ ì •ë³´ëŠ” ë¬´ì‹œí•œë‹¤~
 		for (int i = 1; i <= rowCount; i++)
 		{
-			//ºó ÇàÀÌ ÀÖ´Â °æ¿ì¸¦ Ã³¸® °Ç³Ê¶Ù±â
+			//ë¹ˆ í–‰ì´ ìˆëŠ” ê²½ìš°ë¥¼ ì²˜ë¦¬ ê±´ë„ˆë›°ê¸°
 			if (string.IsNullOrWhiteSpace(sheet[i]))
 			{
 				continue;
 			}
 
-			//¿¢¼¿¿¡ ÀÖ´Â °ªÀ» ÅÇ(¼¿)("\t")À¸·Î ºĞ¸®
+			//ì—‘ì…€ì— ìˆëŠ” ê°’ì„ íƒ­(ì…€)("\t")ìœ¼ë¡œ ë¶„ë¦¬
 			string[] hang = sheet[i].Split('\t');
 
-			//´ëÈ­ ³Ñ¹ö¿Í ´ëÈ­ ÁÖÃ¼ÀÚ°¡ ¸ğµÎ ÀÖ¾î¾ß ÀÛµ¿µÊ
+			//ëŒ€í™” ë„˜ë²„ì™€ ëŒ€í™” ì£¼ì²´ìê°€ ëª¨ë‘ ìˆì–´ì•¼ ì‘ë™ë¨
 			if (hang.Length < 2)
 			{
-				Debug.LogError($"¿Ã¹Ù¸£Áö ¾ÊÀº µ¥ÀÌÅÍ: {sheet[i]}");
+				Debug.LogError($"ì˜¬ë°”ë¥´ì§€ ì•Šì€ ë°ì´í„°: {sheet[i]}");
 				continue;
 			}
 
-			//´ëÈ­¹øÈ£ 
+			//ëŒ€í™”ë²ˆí˜¸ 
 			int talkNum;
 
-			//´ëÈ­¹øÈ£°¡ ¼ıÀÚÀÎÁö ÆÇº°
+			//ëŒ€í™”ë²ˆí˜¸ê°€ ìˆ«ìì¸ì§€ íŒë³„
 			if (int.TryParse(hang[0], out talkNum))
 			{
-				//´ëÈ­:ÁÖÃ¼ÀÚ
+				//ëŒ€í™”:ì£¼ì²´ì
 				string dialogAndTalker = hang[1];
 
-				//Áßº¹ Å° ¹æÁö
+				//ì¤‘ë³µ í‚¤ ë°©ì§€
 				if (!dialog.ContainsKey(talkNum))
 				{
 					dialog.Add(talkNum, dialogAndTalker);
 				}
 				else
 				{
-					Debug.LogError($"Áßº¹µÈ Å°: {talkNum}");
+					Debug.LogError($"ì¤‘ë³µëœ í‚¤: {talkNum}");
 				}
 			}
 			else
 			{
-				//½ÇÆĞ½Ã ¾Ë¸®¹Ì
-				Debug.LogError($"´ëÈ­ ³Ñ¹ö º¯È¯ ½ÇÆĞ: {hang[0]}");
+				//ì‹¤íŒ¨ì‹œ ì•Œë¦¬ë¯¸
+				Debug.LogError($"ëŒ€í™” ë„˜ë²„ ë³€í™˜ ì‹¤íŒ¨: {hang[0]}");
 			}
 		}
-		//// ´øÀü µ¹ÀÔ½Ã µ¶¹é »óÈ² Ãß°¡
-		//dialog.Add(40000, "¸¹°í ¸¹Àº »ç¶÷Áß¿¡~ ³»°¡ Á¦ÀÏ Àß ³ª°¡Áö!:Áø¿ì");
-		//dialog.Add(40001, "¿ÀÄÉÀÌ ÇØº¸ÀÚ:Áø¿ì");
-		//dialog.Add(40002, "ÈÄ..:Áø¿ì");
-		//dialog.Add(40003, "³­ ÇÒ¼ö ÀÖ´Ù!:Áø¿ì");
-		//dialog.Add(40004, "¶Ç ½ÃÀÛÇØº¼±î..:Áø¿ì");
+		//// ë˜ì „ ëŒì…ì‹œ ë…ë°± ìƒí™© ì¶”ê°€
+		//dialog.Add(40000, "ë§ê³  ë§ì€ ì‚¬ëŒì¤‘ì—~ ë‚´ê°€ ì œì¼ ì˜ ë‚˜ê°€ì§€!:ì§„ìš°");
+		//dialog.Add(40001, "ì˜¤ì¼€ì´ í•´ë³´ì:ì§„ìš°");
+		//dialog.Add(40002, "í›„..:ì§„ìš°");
+		//dialog.Add(40003, "ë‚œ í• ìˆ˜ ìˆë‹¤!:ì§„ìš°");
+		//dialog.Add(40004, "ë˜ ì‹œì‘í•´ë³¼ê¹Œ..:ì§„ìš°");
 	}
 
 	public TalkManager talkManager;
@@ -103,30 +103,30 @@ public class ParsingManager : MonoBehaviour
 
 	//void AddDialogs()
 	//{
-	//	//Á×À½ È¸Â÷
+	//	//ì£½ìŒ íšŒì°¨
 
-	//	//1È¸Â÷
-	//	dialog.Add(10000 + 100 + 0, "ÀÌºÁ:Áø¿ì");
-	//	dialog.Add(10000 + 100 + 1, "¾ß¿Ë:°í¾çÀÌ");
-	//	dialog.Add(10000 + 100 + 2, "³Ê ´©±¸³Ä:Áø¿ì");
-	//	dialog.Add(10000 + 100 + 3, "¾ß¿Ë¾ß¿Ë:°í¾çÀÌ");
-	//	dialog.Add(10000 + 100 + 4, "¾î..:Áø¿ì");
-	//	dialog.Add(10000 + 100 + 5, "±×·¸±¸³ª:Áø¿ì");
+	//	//1íšŒì°¨
+	//	dialog.Add(10000 + 100 + 0, "ì´ë´:ì§„ìš°");
+	//	dialog.Add(10000 + 100 + 1, "ì•¼ì˜¹:ê³ ì–‘ì´");
+	//	dialog.Add(10000 + 100 + 2, "ë„ˆ ëˆ„êµ¬ëƒ:ì§„ìš°");
+	//	dialog.Add(10000 + 100 + 3, "ì•¼ì˜¹ì•¼ì˜¹:ê³ ì–‘ì´");
+	//	dialog.Add(10000 + 100 + 4, "ì–´..:ì§„ìš°");
+	//	dialog.Add(10000 + 100 + 5, "ê·¸ë ‡êµ¬ë‚˜:ì§„ìš°");
 
-	//	dialog.Add(10000 + 200 + 0, "¾ÆÀú¾¾´Â ´©±¸¿¡¿ä?:Áø¿ì");
-	//	dialog.Add(10000 + 200 + 1, "¾Ë¾Æ¼­ ¹¹ÇØ:¾ÆÀú¾¾");
+	//	dialog.Add(10000 + 200 + 0, "ì•„ì €ì”¨ëŠ” ëˆ„êµ¬ì—ìš”?:ì§„ìš°");
+	//	dialog.Add(10000 + 200 + 1, "ì•Œì•„ì„œ ë­í•´:ì•„ì €ì”¨");
 
-	//	//2È¸Â÷
-	//	dialog.Add(20000 + 100 + 0, "¿À´Ã Àú³á ¹¹¸ÔÁö?:Áø¿ì");
-	//	dialog.Add(20000 + 100 + 1, "¾ß¾Æ¾Æ¿Ë:°í¾çÀÌ");
-	//	dialog.Add(20000 + 100 + 2, "±× ±×·¡..:Áø¿ì");
+	//	//2íšŒì°¨
+	//	dialog.Add(20000 + 100 + 0, "ì˜¤ëŠ˜ ì €ë… ë­ë¨¹ì§€?:ì§„ìš°");
+	//	dialog.Add(20000 + 100 + 1, "ì•¼ì•„ì•„ì˜¹:ê³ ì–‘ì´");
+	//	dialog.Add(20000 + 100 + 2, "ê·¸ ê·¸ë˜..:ì§„ìš°");
 
-	//	dialog.Add(20000 + 200 + 0, "¾îÀÌ ÀÚ³×:¾ÆÀú¾¾");
-	//	dialog.Add(20000 + 200 + 1, "³×:Áø¿ì");
-	//	dialog.Add(20000 + 200 + 2, "È¤½Ã Àü¼³À» ¹Ï³ª?:¾ÆÀú¾¾");
-	//	dialog.Add(20000 + 200 + 3, "¾Æ´Ï¿ä:Áø¿ì");
-	//	dialog.Add(20000 + 200 + 4, "±Ùµ¥ ¿Ö ¹°¾îºÃ¾î?:¾ÆÀú¾¾");
-	//	dialog.Add(20000 + 200 + 5, "?:Áø¿ì");
+	//	dialog.Add(20000 + 200 + 0, "ì–´ì´ ìë„¤:ì•„ì €ì”¨");
+	//	dialog.Add(20000 + 200 + 1, "ë„¤:ì§„ìš°");
+	//	dialog.Add(20000 + 200 + 2, "í˜¹ì‹œ ì „ì„¤ì„ ë¯¿ë‚˜?:ì•„ì €ì”¨");
+	//	dialog.Add(20000 + 200 + 3, "ì•„ë‹ˆìš”:ì§„ìš°");
+	//	dialog.Add(20000 + 200 + 4, "ê·¼ë° ì™œ ë¬¼ì–´ë´¤ì–´?:ì•„ì €ì”¨");
+	//	dialog.Add(20000 + 200 + 5, "?:ì§„ìš°");
 	//}
 
 	public string[] GetDialogPlz(int DialogNum,_Object obj)
@@ -152,7 +152,7 @@ public class ParsingManager : MonoBehaviour
 		}
 	}
 
-	//µ¶¹é
+	//ë…ë°±
 	public string[] GetSoloDialogPlz(int DialogNum)
     {
 		if (dialog.ContainsKey(DialogNum))

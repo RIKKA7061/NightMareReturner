@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +9,7 @@ public class StoneManager : MonoBehaviour
 
     public float timer = 1f;
 
-    void Update()// ƒIƒuƒWƒFƒNƒg‚ğ–Ú•W“_‚Ü‚ÅˆÚ“®‚³‚¹‚é
+    void Update()// ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç›®æ¨™ç‚¹ã¾ã§ç§»å‹•ã•ã›ã‚‹
     {
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         Destroy(gameObject, timer);

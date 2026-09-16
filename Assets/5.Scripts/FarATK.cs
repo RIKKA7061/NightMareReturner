@@ -1,17 +1,17 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class FarATK : MonoBehaviour
 {
-    [Header("¿©±â¼­ ¸»°í Àû ÇÁ¸®ÆéÀÇ ÀÚ½Ä¿ÀºêÁ§Æ®¿¡¼­ Á¶ÀıÇÏ¼À")]
+    [Header("ì—¬ê¸°ì„œ ë§ê³  ì  í”„ë¦¬í©ì˜ ìì‹ì˜¤ë¸Œì íŠ¸ì—ì„œ ì¡°ì ˆí•˜ì…ˆ")]
     public int damage;
     public int per;
 
-    [Header("ÀÌ°Ç µÊ, Åº¼Ó")]
+    [Header("ì´ê±´ ë¨, íƒ„ì†")]
     public float speed = 1f;
 
-    [Header("ÀÌ°Ç µÊ, ¸î ÃÊÈÄ »ç¶óÁü")]
+    [Header("ì´ê±´ ë¨, ëª‡ ì´ˆí›„ ì‚¬ë¼ì§")]
     public float disappearTime = 5f;
 
     Rigidbody2D rigid;
@@ -23,22 +23,22 @@ public class FarATK : MonoBehaviour
 
     public void Init(int damage, int per, Vector3 dir)
     {
-        Debug.Log("È÷È÷ ¹ß»ç~");
+        Debug.Log("íˆíˆ ë°œì‚¬~");
         this.damage = damage;
         this.per = per;
         if(rigid != null)
         {
 			if (per > -1)
 			{
-				rigid.velocity = dir * speed; //°ø°İÀÌ ÂÑ¾Æ¿À´Â ¼Óµµ
+				rigid.velocity = dir * speed; //ê³µê²©ì´ ì«“ì•„ì˜¤ëŠ” ì†ë„
 			}
 		}
 
-		// 10ÃÊ ÈÄ¿¡ ¿ÀºêÁ§Æ®¸¦ ºñÈ°¼ºÈ­
+		// 10ì´ˆ í›„ì— ì˜¤ë¸Œì íŠ¸ë¥¼ ë¹„í™œì„±í™”
 		Invoke("DestroyAfterTime", disappearTime);
 	}
 
-	// NÃÊ°¡ Áö³ª¸é ¿ÀºêÁ§Æ®¸¦ ºñÈ°¼ºÈ­ÇÏ´Â ÇÔ¼ö
+	// Nì´ˆê°€ ì§€ë‚˜ë©´ ì˜¤ë¸Œì íŠ¸ë¥¼ ë¹„í™œì„±í™”í•˜ëŠ” í•¨ìˆ˜
 	void DestroyAfterTime()
 	{
         if (rigid != null)
@@ -50,7 +50,7 @@ public class FarATK : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D collision)
     {
-        // ºÎµúÈù °ÍÀÌ ÇÃ·¹ÀÌ¾î¿Í º®ÀÌ ¾Æ´Ï¸é °Ç³Ê¶Ù±â
+        // ë¶€ë”ªíŒ ê²ƒì´ í”Œë ˆì´ì–´ì™€ ë²½ì´ ì•„ë‹ˆë©´ ê±´ë„ˆë›°ê¸°
         if (!collision.CompareTag("Player") && !collision.CompareTag("Wall") || per == -1)
             return;
 
