@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 // ============================================================================
-// TAB 현황 창: 현황(목표/능력치/아이템/기록) · 증강 · 계층 지도 · 스토리
+// TAB 스테이터스 창: 능력치(목표/능력치/아이템/기록) · 증강 · 계층 지도 · 스토리
 // ============================================================================
 public class NRStatusWindow : NRModal
 {
@@ -31,12 +31,12 @@ public class NRStatusWindow : NRModal
 		var panel = NRUI.Panel(root, "Panel");
 		NRUI.Place(panel.rectTransform, new Vector2(0.5f, 0.5f), new Vector2(0, -10), new Vector2(1560, 900));
 
-		var title = NRUI.Label(panel.transform, "현황", 48, NRPalette.Text, TextAlignmentOptions.MidlineLeft, NRTextFx.OutlineShadow);
+		var title = NRUI.Label(panel.transform, "스테이터스", 48, NRPalette.Text, TextAlignmentOptions.MidlineLeft, NRTextFx.OutlineShadow);
 		NRUI.Place(title.rectTransform, new Vector2(0, 1), new Vector2(40, -20), new Vector2(300, 70), new Vector2(0, 1));
 		var hint = NRUI.Label(panel.transform, "TAB / ESC 닫기", 24, NRPalette.TextMute, TextAlignmentOptions.MidlineRight);
 		NRUI.Place(hint.rectTransform, new Vector2(1, 1), new Vector2(-40, -36), new Vector2(300, 40), new Vector2(1, 1));
 
-		string[] names = { "현황", "증강", "계층", "스토리" };
+		string[] names = { "능력치", "증강", "계층", "스토리" };
 		for (int i = 0; i < names.Length; i++)
 		{
 			int idx = i;
@@ -99,8 +99,8 @@ public class NRStatusWindow : NRModal
 		sb.AppendLine();
 		if (player != null)
 		{
-			sb.AppendLine(Line("체력", player.nowHP + " / " + player.maxHP));
-			sb.AppendLine(Line("공격력", player.Atk.ToString()));
+			sb.AppendLine(Line("체력", player.nowHP + " / " + player.maxHP + Bonus(player.maxHP, player.DefaultMaxHP)));
+			sb.AppendLine(Line("공격력", player.Atk + Bonus(player.Atk, player.DefaultAtk)));
 			sb.AppendLine(Line("방어력", player.AR + "  " + C(NRPalette.TextMute) + "(받는 피해 " + Mathf.RoundToInt(100f / (1f + player.AR * 0.01f)) + "%)</color>"));
 			if (action != null)
 			{
@@ -114,7 +114,8 @@ public class NRStatusWindow : NRModal
 		}
 		sb.AppendLine();
 		sb.AppendLine(C(NRPalette.Pink) + "각성한 감정</color>");
-		sb.AppendLine(Player.round >= 1 ? "Class 감정 「의지」 — 기본 공격 25 · 특수 공격 ×2 · 궁극기 ×4" : C(NRPalette.TextMute) + "아직 각성하지 않았습니다. (1계층 각성의 방)</color>");
+		sb.AppendLine(Player.round >= 1 ? NRHero.Name(NRHero.Current) + " — Class 감정 「의지」 각성" : C(NRPalette.TextMute) + "아직 각성하지 않았습니다. (1계층 각성의 방)</color>");
+		sb.AppendLine(C(NRPalette.Gold) + "패시브 · " + NRHero.PassiveName + "</color>  " + C(NRPalette.TextDim) + NRHero.PassiveDesc.Replace("\n", " ") + "</color>");
 		var st = NRUI.Label(stats.transform, sb.ToString(), 28, NRPalette.Text, TextAlignmentOptions.TopLeft);
 		NRUI.Stretch(st.rectTransform, 30, 30, 22, 16);
 
@@ -144,6 +145,16 @@ public class NRStatusWindow : NRModal
 		rb.AppendLine(Line("처치한 적", NRSave.Data.enemyKills.ToString()));
 		var rt = NRUI.Label(right.transform, rb.ToString(), 28, NRPalette.Text, TextAlignmentOptions.TopLeft);
 		NRUI.Stretch(rt.rectTransform, 30, 30, 22, 16);
+	}
+
+	/// <summary>기본값 대비 증감 표시: (기본 500 +50)</summary>
+	static string Bonus(int now, int baseValue)
+	{
+		if (baseValue <= 0) return "";
+		int d = now - baseValue;
+		string head = "  " + C(NRPalette.TextMute) + "(기본 " + baseValue;
+		if (d == 0) return head + ")</color>";
+		return head + " </color>" + C(d > 0 ? NRPalette.Green : NRPalette.Hp) + (d > 0 ? "+" : "") + d + "</color>" + C(NRPalette.TextMute) + ")</color>";
 	}
 
 	static string Line(string label, string value) => C(NRPalette.TextDim) + label + "</color>   " + value;

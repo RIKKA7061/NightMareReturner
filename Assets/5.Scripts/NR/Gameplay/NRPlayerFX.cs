@@ -28,7 +28,7 @@ public class NRPlayerFX : MonoBehaviour
 		aura.transform.localPosition = new Vector3(0, 0.1f, 0);
 		shieldAura = aura.AddComponent<SpriteRenderer>();
 		shieldAura.sprite = NRSprites.Glow;
-		shieldAura.sortingOrder = (sr != null ? sr.sortingOrder : 0) + 1;
+		NRSort.Set(shieldAura, NRSort.Player, (sr != null ? sr.sortingOrder : 0) + 5);
 		shieldAura.color = Color.clear;
 		ScaleWorld(aura.transform, 1.8f);
 
@@ -37,7 +37,7 @@ public class NRPlayerFX : MonoBehaviour
 		shadow.transform.localPosition = new Vector3(0, -0.45f, 0);
 		footShadow = shadow.AddComponent<SpriteRenderer>();
 		footShadow.sprite = NRSprites.Glow;
-		footShadow.sortingOrder = (sr != null ? sr.sortingOrder : 0) - 1;
+		NRSort.Set(footShadow, NRSort.Floor, 10);
 		footShadow.color = NRPalette.Cyan.WithAlpha(0.12f);
 		ScaleWorld(shadow.transform, 1.2f, 0.5f);
 	}

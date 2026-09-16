@@ -14,7 +14,7 @@ public class MonsterATK : MonoBehaviour
         if (other.CompareTag("Player") && !other.isTrigger)
         {
             var act = other.GetComponent<PlayerAction>();
-            if (NRStats.DashInvuln && act != null && act.IsSliding) return;
+            if (act != null && act.DashInvulnerable) return; // 구르기 중에는 투사체가 통과
             NRCombatFX.Sparks(transform.position, NRPalette.Crimson, 6);
             Destroy(gameObject, 0.01f);
         }

@@ -317,6 +317,38 @@ public static class NRSprites
 		return s;
 	}
 
+	/// <summary>초승달 모양 베기 궤적 (오른쪽을 향함)</summary>
+	public static Sprite Slash
+	{
+		get
+		{
+			if (cache.TryGetValue("slash", out var s) && s != null) return s;
+			const int w = 40, h = 40;
+			var tex = NewTex(w, h, FilterMode.Point);
+			var px = new Color[w * h];
+			Vector2 c1 = new Vector2(12, 20), c2 = new Vector2(6, 20);
+			for (int y = 0; y < h; y++)
+				for (int x = 0; x < w; x++)
+				{
+					float d1 = Vector2.Distance(new Vector2(x, y), c1);
+					float d2 = Vector2.Distance(new Vector2(x, y), c2);
+					Color col = Color.clear;
+					if (d1 < 19f && d2 > 19f && x > 10)
+					{
+						float edge = Mathf.Clamp01((19f - d1) / 6f);
+						float tip = 1f - Mathf.Abs(y - 20f) / 20f;
+						col = new Color(1, 1, 1, Mathf.Clamp01(tip * 1.6f) * (edge > 0.5f ? 1f : 0.55f));
+					}
+					px[y * w + x] = col;
+				}
+			tex.SetPixels(px);
+			tex.Apply();
+			s = Sprite.Create(tex, new Rect(0, 0, w, h), new Vector2(0.3f, 0.5f), 32f, 0, SpriteMeshType.FullRect);
+			cache["slash"] = s;
+			return s;
+		}
+	}
+
 	// ---- DARK 팩 스킬 아이콘 시트 (24x24, 6x6) ----
 	static Sprite[] icons;
 	public static Sprite Icon(int index)

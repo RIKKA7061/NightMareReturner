@@ -242,15 +242,10 @@ public static class NRAudio
 		return src;
 	}
 
-	/// <summary>UI 효과음: 기존 AudioManager의 UI 클립(4번)을 우선 사용</summary>
+	/// <summary>UI 효과음 (메인 메뉴 등 AudioManager가 없는 씬에서도 재생)</summary>
 	public static void PlayUI()
 	{
-		var am = FindManager();
-		if (am != null && am.audio != null && am.audio.Length > 4 && am.audio[4] != null)
-		{
-			am.PlayerSFX(am.audio[4]);
-			return;
-		}
+		PlaySfx("ui_click", 0.8f);
 	}
 
 	public static void PlaySfx(string resourceName, float volume = 1f)
@@ -405,5 +400,26 @@ public static class NRUtil
 		char last = word[word.Length - 1];
 		if (last < 0xAC00 || last > 0xD7A3) return withoutBatchim;
 		return ((last - 0xAC00) % 28) > 0 ? withBatchim : withoutBatchim;
+	}
+}
+
+// ---------------------------------------------------------------------------
+// 정렬 레이어 (프로젝트 순서: InvisibleWall < Shadow < Default < Ground < BorderLine
+//  < Wall < wall2 < wall3 < Deco < Attack < Enemy < Object < MalPuengSeon < Player < gate < car)
+// ---------------------------------------------------------------------------
+public static class NRSort
+{
+	public const string Floor = "Attack";     // 바닥 위 표시 (예고 범위, 발밑 빛) — 벽/장식보다 위, 캐릭터보다 아래
+	public const string Enemy = "Enemy";
+	public const string Player = "Player";
+	public const string Top = "car";          // 가장 위 (이름표, 피해 숫자, 체력바, 파편)
+
+	public static void Set(Renderer r, string layer, int order)
+	{
+		if (r == null) return;
+		int id = SortingLayer.NameToID(layer);
+		if (id == 0 && layer != "Default" && !SortingLayer.IsValid(id)) id = 0;
+		r.sortingLayerID = id;
+		r.sortingOrder = order;
 	}
 }

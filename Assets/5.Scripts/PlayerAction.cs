@@ -9,8 +9,9 @@ using UnityEngine.InputSystem;
 //  - 대화(E) 후 최대 5초 이동이 막히던 문제: 매 FixedUpdate마다 TicToc 코루틴이 쌓이던 구조를 시간값 방식으로 교체
 //  - UI를 클릭할 때 공격/문 이동이 같이 일어나던 문제 차단 (메뉴/증강 선택 중 입력 차단)
 //  - 증강/영구 강화 배율(이동 속도, 공격 속도, 재사용 대기) 적용
-//  - 구르기 연출(잔상) 및 구르기 증강(충격파, 보호막) 연결
-//  - 체력바/쿨타임 HUD용 공개 값 추가
+//  - 구르기: 멈춰 있어도 마우스 방향으로 구르기, 구르는 동안 모든 적 공격 회피, 연출/증강 연결
+//  - 조작 방식 2종 (기본 / LoL식 — NRControls가 입력을 넣어줌), 근접 3타 콤보, 원거리 캐릭터 사격
+//  - 대화 넘기기(E/좌클릭/Space), NPC 클릭 대화
 public class PlayerAction : MonoBehaviour
 {
     [Header("이놈이 거리에 있는 플레이어야?")]
@@ -71,8 +72,6 @@ public class PlayerAction : MonoBehaviour
 
     private GameObject scanObject;   // 스캔한 오브젝트
 
-    private GameObject scanTP_Object;  // 스캔한 TP 오브젝트
-
     private Collider2D playerCollider; // 플레이어의 콜라이더
 
 	public Transform player;
@@ -87,7 +86,6 @@ public class PlayerAction : MonoBehaviour
     public bool isUsingSkillorUltimate;
 
 	// 애니메이터 오버라이드
-	//public AnimatorController animatorController;
 	public AnimatorOverrideController overrideController;
 	public AnimatorOverrideController overrideController2;
 	public bool isRoundUP;
@@ -95,7 +93,6 @@ public class PlayerAction : MonoBehaviour
 	public int originalLayerID = 6; // 기본 레이어 ID (Default는 0)
     public int shiftedLayerID = 10; // Shift 키를 눌렀을 때 변경할 레이어 ID
 
-    private SpriteRenderer spriteRenderer;
     private Coroutine revertLayerCoroutine;
 
     // 이동 여부 확인 변수 (애니메이터와 연동)
@@ -139,18 +136,32 @@ public class PlayerAction : MonoBehaviour
     public int CurrentAttackStyle { get; private set; }
     public int SwingId { get; private set; }
 
-    // [NR] HUD 표시용 재사용 대기 비율 (0 = 사용 가능, 1 = 방금 사용)
+    // [NR] 콤보 (근접)
+    public const float ComboWindow = 0.75f;
+    public int ComboStep { get; private set; }
+    public float ComboDamageMultiplier { get; private set; } = 1f;
+    int rangedShotCount;
+
+    // [NR] 구르기
+    Vector2 slideDir = Vector2.right;
+    float dashIFrameUntil;
+    public bool DashInvulnerable => IsSliding || Time.time < dashIFrameUntil;
+
+    // [NR] HUD 표시용 재사용 대기
     float lastSkillDuration = 1f, lastUltDuration = 1f, lastSlideCooldown = 1f;
     public float SkillCooldownRatio => skillAttackTime > 0 ? Mathf.Clamp01(skillAttackTime / Mathf.Max(0.01f, lastSkillDuration)) : 0f;
     public float UltCooldownRatio => skillAttack2Time > 0 ? Mathf.Clamp01(skillAttack2Time / Mathf.Max(0.01f, lastUltDuration)) : 0f;
     public float SlideCooldownRatio => IsSliding ? 1f : isCooldown ? Mathf.Clamp01(cooldownTime / Mathf.Max(0.01f, lastSlideCooldown)) : 0f;
+    public float SkillCooldownRemain => Mathf.Max(0f, skillAttackTime);
+    public float UltCooldownRemain => Mathf.Max(0f, skillAttack2Time);
+    public float SlideCooldownRemain => isCooldown ? Mathf.Max(0f, cooldownTime) : 0f;
+    float AttackInterval => Mathf.Max(0.2f, jabCooldown) * NRStats.AttackIntervalMultiplier * (NRHero.IsRanged ? 1.15f : 1f);
     public float JabCooldownRatio
     {
         get
         {
-            float interval = Mathf.Max(0.2f, jabCooldown) * NRStats.AttackIntervalMultiplier;
-            float remain = (lastAttackTime + interval) - Time.time;
-            return remain > 0 ? Mathf.Clamp01(remain / interval) : 0f;
+            float remain = (lastAttackTime + AttackInterval) - Time.time;
+            return remain > 0 ? Mathf.Clamp01(remain / AttackInterval) : 0f;
         }
     }
 
@@ -180,6 +191,8 @@ public class PlayerAction : MonoBehaviour
 			animator.SetBool(AnimationStrings.canMove, value); // 애니메이터와 연동하여 canMove 상태 설정
 		}
 	}
+
+    bool Dialoging => talkManager != null && talkManager.isDialoging;
 
     void Awake()
     {
@@ -240,6 +253,9 @@ public class PlayerAction : MonoBehaviour
         {
             skillAttack2Time -= Time.deltaTime;
         }
+
+        // 콤보 시간이 지나면 초기화
+        if (ComboStep > 0 && Time.time - lastAttackTime > ComboWindow + 0.1f) ComboStep = 0;
     }
 
     // [NR] 입력을 받아도 되는지 (메뉴/증강 선택/크레딧/UI 클릭 중에는 무시)
@@ -250,25 +266,255 @@ public class PlayerAction : MonoBehaviour
         return false;
     }
 
+    Vector3 MouseWorld()
+    {
+        var cam = mainCamera != null ? mainCamera : Camera.main;
+        if (cam == null) return transform.position + Vector3.right;
+        Vector3 w = cam.ScreenToWorldPoint(NRInput.MousePosition);
+        w.z = 0f;
+        return w;
+    }
+
+    Vector2 AimDirection()
+    {
+        Vector2 d = (Vector2)(MouseWorld() - (transform.position + Vector3.up * 0.3f));
+        if (d.sqrMagnitude < 0.0001f) d = sp.flipX ? Vector2.left : Vector2.right;
+        return d.normalized;
+    }
+
+    // =====================================================================
+    // Input System 콜백 (기본 조작 방식일 때만 사용. LoL식은 NRControls가 Try*를 직접 호출)
+    // =====================================================================
     public bool RealStop = false; // 멈추는 거 Update 함수에 적용
 	public void OnInteract(InputAction.CallbackContext context)// 대화창 E키
 	{
-        if (context.started)
+        if (context.started && NRControls.IsDefault) TryInteract();
+    }
+
+    public void OnMove(InputAction.CallbackContext context)// 이동 입력 처리
+	{
+        if (!NRControls.IsDefault) return;
+        SetMoveInput(context.ReadValue<Vector2>(), context.canceled);
+    }
+
+    public void OnSlide(InputAction.CallbackContext context) // 슬라이드 입력 처리
+    {
+        if (context.started && NRControls.IsDefault) TrySlide(false);
+    }
+
+	public void OnAttack(InputAction.CallbackContext context)// 일반 공격 (잽)
+	{
+        if (context.started && NRControls.IsDefault) TryAttack();
+    }
+
+    public void OnSkillAttack(InputAction.CallbackContext context)// 스킬
+	{
+        if (context.started && NRControls.IsDefault) TrySkill();
+    }
+
+    public void OnSkillAttack2(InputAction.CallbackContext context)// 궁극기
+	{
+        if (context.started && NRControls.IsDefault) TryUlt();
+    }
+
+    // =====================================================================
+    // 행동
+    // =====================================================================
+    public void SetMoveInput(Vector2 value, bool released = false)
+    {
+        if (canMove)
         {
-            if (InputBlocked(false)) return;
-
-            // [NR] 대사가 한 글자씩 나오는 중이면 먼저 전체 문장을 보여줌
-            if (NRDialogueSkin.TryCompleteTyping()) return;
-
-            // 대화 대상 찾을 시
-            if (scanObject != null)// 대상을 찾았을 경우 출력
-			{
-                TicTocDealyTime = 0.2f; // [NR] 5초 → 0.2초 (대화 중 이동은 isDialoging이 이미 막음)
-
-				PleaseStopPlayer();
-				talkManager.DialogAction(scanObject);
-			}
+            moveInput = value;
+            IsMoving = moveInput != Vector2.zero;  // 움직임 상태 확인
+            SetFacingDirection(moveInput);  // 방향 설정
         }
+        else if (released || value == Vector2.zero)
+        {
+            moveInput = Vector2.zero; // 경직 중 키를 뗐을 때 입력이 남아 미끄러지던 문제 방지
+        }
+    }
+
+    /// <summary>E / F / 클릭: 대화 시작·다음 대사</summary>
+    public bool TryInteract()
+    {
+        if (InputBlocked(false)) return false;
+
+        // 대사가 한 글자씩 나오는 중이면 먼저 전체 문장을 보여줌
+        if (NRDialogueSkin.TryCompleteTyping()) return true;
+
+        if (Dialoging) return TalkNext();
+
+        GameObject target = scanObject;
+        if (target == null) target = FindNearbyTalkable(1.6f);
+        if (target == null) return false;
+        StartTalkWith(target);
+        return true;
+    }
+
+    /// <summary>대화 중일 때 다음 대사 (E / 좌클릭 / Space)</summary>
+    public bool TalkNext()
+    {
+        if (!Dialoging || talkManager == null) return false;
+        if (NRDialogueSkin.TryCompleteTyping()) return true;
+        if (talkManager.ScanObject == null) return false;
+        talkManager.DialogAction(talkManager.ScanObject);
+        return true;
+    }
+
+    /// <summary>NPC를 클릭하거나 E로 말을 걸었을 때</summary>
+    public void StartTalkWith(GameObject npc)
+    {
+        if (npc == null || talkManager == null || InputBlocked(false)) return;
+        if (Dialoging) { TalkNext(); return; }
+        TicTocDealyTime = 0.2f; // [NR] 5초 → 0.2초 (대화 중 이동은 isDialoging이 이미 막음)
+        PleaseStopPlayer();
+        float dx = npc.transform.position.x - transform.position.x;
+        if (Mathf.Abs(dx) > 0.05f) { sp.flipX = dx < 0; dirVec = dx < 0 ? Vector3.left : Vector3.right; }
+        talkManager.DialogAction(npc);
+    }
+
+    GameObject FindNearbyTalkable(float radius)
+    {
+        _Object best = null;
+        float bestDist = radius;
+        foreach (var o in FindObjectsOfType<_Object>())
+        {
+            float d = Vector2.Distance(o.transform.position, transform.position);
+            if (d < bestDist) { bestDist = d; best = o; }
+        }
+        return best != null ? best.gameObject : null;
+    }
+
+    public bool TryAttack()
+    {
+		if (jabCooldown <= 0.2f) jabCooldown = 0.2f;
+        if (Dialoging) return false;
+        if (isUsingSkillorUltimate || isAtking || Time.time < lastAttackTime + AttackInterval) return false;
+        if (InputBlocked(true)) return false;
+
+        Vector3 worldPosition = MouseWorld();
+        bool leftSide = worldPosition.x < transform.position.x;
+
+        // 문/침대 클릭 (기존 기능)
+        ClickItems(worldPosition);
+
+        if (isGeoRiPlayer)
+        {
+            lastAttackTime = Time.time;
+            return false;
+        }
+
+        sp.flipX = leftSide;
+        TicTocDealyTime = Jab;
+
+        if (NRHero.IsRanged)
+        {
+            lastAttackTime = Time.time;
+            rangedShotCount++;
+            bool forceCrit = rangedShotCount % 4 == 0; // 원거리 패시브
+            StartCoroutine(RangedRoutine(0, forceCrit));
+            return true;
+        }
+
+        // 근접 3타 콤보
+        if (Time.time - lastAttackTime <= ComboWindow && ComboStep < 2) ComboStep++;
+        else ComboStep = 0;
+        ComboDamageMultiplier = ComboStep == 2 ? 1.8f : ComboStep == 1 ? 1.15f : 1f;
+        lastAttackTime = Time.time;
+
+        BoxCollider2D col = ComboStep == 2 ? (leftSide ? LargeLeft : LargeRight) : (leftSide ? left : right);
+        StartCoroutine(DisableCollider(col, 0));
+        NRCombatFX.Slash(transform.position + Vector3.up * 0.35f, leftSide, ComboStep);
+        if (ComboStep == 2)
+        {
+            lastAttackTime += 0.2f; // 마무리 후 짧은 후딜
+            NRAudio.PlaySfx("combo_finisher", 0.8f);
+            NRCombatFX.Shake(0.1f, 0.07f);
+        }
+        return true;
+    }
+
+    void ClickItems(Vector3 worldPosition)
+    {
+        if (myItemColliders == null) return;
+		foreach (var item in myItemColliders)
+        {
+			if (item == null) continue;
+			if (item.bounds.Contains(worldPosition)) // 클릭한 위치가 아이템 콜라이더 범위 안에 있을 때
+			{
+				teleport teleport = item.GetComponent<teleport>();
+				SceneChangeOnCollision sceneChangeOnCollision = item.GetComponent<SceneChangeOnCollision>();
+				if (teleport != null)
+				{
+                    PlaySfx(6);
+                    teleport.MovePlayer(playerCollider2D); // 아이템의 OnItemClicked 함수 실행
+				}
+                else if (sceneChangeOnCollision != null)
+                {
+                    sceneChangeOnCollision.SceneChangeHamSu();
+				}
+			}
+		}
+    }
+
+    public bool TrySkill()
+    {
+        if (Dialoging || InputBlocked(true)) return false;
+        if (skillAttackTime > 0 || isUsingSkillorUltimate) return false;
+        if (isGeoRiPlayer) return false;
+
+        bool leftSide = MouseWorld().x < transform.position.x;
+        lastSkillDuration = skillAttackCooldown * NRStats.SkillCooldownMultiplier;
+        skillAttackTime = lastSkillDuration;  // 쿨타임 시작
+        TicTocDealyTime = Skill;
+        sp.flipX = leftSide;
+
+        if (NRHero.IsRanged)
+        {
+            StartCoroutine(RangedRoutine(1, false));
+            return true;
+        }
+
+        animator.SetTrigger(AnimationStrings.skillAttackTrigger);  // 스킬 애니메이션 실행
+        StartCoroutine(DisableCollider(leftSide ? LargeLeft : LargeRight, 1));
+        return true;
+    }
+
+    public bool TryUlt()
+    {
+        if (Dialoging || InputBlocked(false)) return false;
+        if (skillAttack2Time > 0 || isUsingSkillorUltimate) return false;
+        if (isGeoRiPlayer) return false;
+
+        lastUltDuration = skillAttack2Cooldown * NRStats.UltCooldownMultiplier;
+        skillAttack2Time = lastUltDuration;  // 쿨타임 시작
+        TicTocDealyTime = Ultimite;
+
+        if (NRHero.IsRanged)
+        {
+            sp.flipX = MouseWorld().x < transform.position.x;
+            StartCoroutine(RangedRoutine(2, false));
+            return true;
+        }
+
+        animator.SetTrigger(AnimationStrings.skillAttackTrigger2);  // 스킬 애니메이션 실행
+        StartCoroutine(PlaySoundWithDelay());
+        StartCoroutine(DisableCollider(sp.flipX ? LargeLeft : LargeRight, 2));
+        return true;
+    }
+
+    /// <param name="towardMouse">LoL식: 항상 마우스 방향</param>
+    public bool TrySlide(bool towardMouse)
+    {
+        if (isCooldown || IsSliding || Dialoging) return false;
+        if (InputBlocked(false)) return false;
+
+        Vector2 dir = (!towardMouse && moveInput.sqrMagnitude > 0.01f) ? moveInput.normalized : AimDirection();
+        if (dir.sqrMagnitude < 0.01f) dir = sp.flipX ? Vector2.left : Vector2.right;
+        slideDir = dir;
+        if (Mathf.Abs(dir.x) > 0.05f) sp.flipX = dir.x < 0;
+        StartSliding(); // 슬라이드 시작
+        return true;
     }
 
     public bool timeStopu = false;
@@ -307,7 +553,6 @@ public class PlayerAction : MonoBehaviour
 		}
 		else if (AtkStyle == 2 && !isGeoRiPlayer) // 궁극기
 		{
-
 			isUsingSkillorUltimate = true;                  // 지금은 스킬 사용하고 있다.
 			yield return new WaitForSeconds(0.9f);          // 애니메이션 타임이 끝나기 기다리는 중
 			playerScript.Atk *= playerScript.UltimitAtk;    // 플레이어 공격력 증가
@@ -325,6 +570,59 @@ public class PlayerAction : MonoBehaviour
         isAtking = false;
 	}
 
+    // [NR] 원거리 캐릭터 공격
+    IEnumerator RangedRoutine(int style, bool forceCrit)
+    {
+        CurrentAttackStyle = style;
+        Vector2 origin = (Vector2)transform.position + Vector2.up * 0.35f;
+        var p = playerScript;
+        if (style == 0)
+        {
+            PleaseStopPlayer();
+            Vector2 dir = AimDirection();
+            NRRangedAvatar.NotifyShoot(p);
+            NRPlayerProjectile.Fire(origin + dir * 0.35f, dir, 17f, NRHero.RangedRange, 0, NRHero.RangedDamageMul, 0, NRPalette.Cyan, 1f, forceCrit);
+            PlaySfx(1);
+            yield break;
+        }
+
+        isUsingSkillorUltimate = true;
+        canMove = false;
+        PleaseStopPlayer();
+        if (style == 1)
+        {
+            Vector2 dir = AimDirection();
+            var tg = NRTelegraph.Line(origin, dir, 10f, 0.12f, 0.25f, NRPalette.Rage);
+            yield return new WaitForSeconds(0.25f);
+            dir = AimDirection();
+            NRRangedAvatar.NotifyShoot(p);
+            NRPlayerProjectile.Fire(origin + dir * 0.35f, dir, 24f, 10f, 1, 2f, 6, NRPalette.Rage, 1.8f);
+            NRCombatFX.Shake(0.1f, 0.06f);
+            PlaySfx(3);
+        }
+        else
+        {
+            yield return new WaitForSeconds(0.25f);
+            itemManager.HammerBuff();
+            for (int volley = 0; volley < 3; volley++)
+            {
+                Vector2 dir = AimDirection();
+                NRRangedAvatar.NotifyShoot(p);
+                for (int i = -2; i <= 2; i++)
+                {
+                    Vector2 d = Quaternion.Euler(0, 0, i * 12f + (volley % 2 == 0 ? 0 : 6f)) * dir;
+                    NRPlayerProjectile.Fire(origin + d * 0.35f, d, 19f, NRHero.RangedRange + 1f, 2, 0.9f, 1, NRPalette.Gold, 1.2f);
+                }
+                NRCombatFX.Shake(0.08f, 0.05f);
+                PlaySfx(1);
+                yield return new WaitForSeconds(0.14f);
+            }
+            itemManager.HammerDeBuff();
+        }
+        isUsingSkillorUltimate = false;
+        canMove = true;
+    }
+
     public float TicTocDealyTime;
     float stopUntil = 0f; // [NR] 정지 종료 시각
 
@@ -340,14 +638,16 @@ public class PlayerAction : MonoBehaviour
         // [NR] 공격/상호작용 직후 잠깐 멈추는 연출은 유지하되, 코루틴을 매 프레임 쌓지 않음
         timeStopu = Time.time < stopUntil;
 
-        //canMove가 true,
-        //isDialoging(대화창 열림 여부)가 false 일때 움직일수 있음 && 타임스톱우가 false일때만
-        bool dialoging = talkManager != null && talkManager.isDialoging;
-        if (canMove == true && dialoging == false && timeStopu == false)
+        if (IsSliding)
+        {
+            // 구르기는 공격 경직보다 우선 (공격 캔슬)
+            rigid.velocity = slideDir * slideSpeed * NRStats.MoveSpeedMultiplier;
+        }
+        else if (canMove == true && Dialoging == false && timeStopu == false)
         {
 			rigid.velocity = new Vector2(moveInput.x, moveInput.y) * walkSpeed * NRStats.MoveSpeedMultiplier;  // 이동 처리
         }
-        else if (!IsSliding)
+        else
         {
             rigid.velocity = Vector2.zero;
         }
@@ -359,7 +659,6 @@ public class PlayerAction : MonoBehaviour
 		}
 
 		// 플레이어 방향을 따라 레이저 쏘기
-		Debug.DrawRay(rigid.position, dirVec * Length, new Color(0, 1, 0));
         RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, dirVec, Length, LayerMask.GetMask("Object"));
 
         // 레이 맞으면!
@@ -367,58 +666,25 @@ public class PlayerAction : MonoBehaviour
         else scanObject = null;
 
         if (speed_ui != null) speed_ui.text = (walkSpeed * NRStats.MoveSpeedMultiplier).ToString("0.#"); // 이동속도
-        if (As_ui != null) As_ui.text = (3 / (Mathf.Max(0.2f, jabCooldown) * NRStats.AttackIntervalMultiplier)).ToString("F2");           // 공격속도
+        if (As_ui != null) As_ui.text = (1f / AttackInterval).ToString("F2");           // 공격속도
     }
 
     /// <summary>[NR] 대화 대상이 앞에 있는지 (E 안내 표시용)</summary>
     public GameObject ScannedObject => scanObject;
 
-    public void OnMove(InputAction.CallbackContext context)// 이동 입력 처리
-	{
-        if (canMove)
-        {
-            moveInput = context.ReadValue<Vector2>();
-
-            IsMoving = moveInput != Vector2.zero;  // 움직임 상태 확인
-
-            SetFacingDirection(moveInput);  // 방향 설정
-        }
-        else if (context.canceled)
-        {
-            moveInput = Vector2.zero; // [NR] 경직 중 키를 뗐을 때 입력이 남아 미끄러지던 문제 방지
-        }
-    }
-
-
-
     void SetFacingDirection(Vector2 moveInput)// 이동 방향 설정
 	{
-        bool dialoging = talkManager != null && talkManager.isDialoging;
         //x값이 0보다 큼 && 오른쪽 안바라봄 && 대화중 아님
-        if (moveInput.x > 0 && dialoging == false)
+        if (moveInput.x > 0 && Dialoging == false)
         {
-            //IsFacingRight = true;
             dirVec = Vector3.right;  // 오른쪽 방향 설정
             sp.flipX = false; // 캐릭터를 오른쪽으로 바라보게 설정
         }
 		//x값이 0보다 큼 && 오른쪽 바라봄 && 대화중 아님
-		else if (moveInput.x < 0 && dialoging == false)
+		else if (moveInput.x < 0 && Dialoging == false)
         {
-            //IsFacingRight = false;
             dirVec = Vector3.left;  // 왼쪽 방향 설정
             sp.flipX = true; // 캐릭터를 왼쪽으로 바라보게 설정
-        }
-    }
-
-    public void OnSlide(InputAction.CallbackContext context) // 슬라이드 입력 처리
-    {
-        if (context.started && !isCooldown && !IsSliding)
-        {
-            if (InputBlocked(false)) return;
-            if (_isMoving)
-            {
-                StartSliding(); // 슬라이드 시작
-            }
         }
     }
 
@@ -430,11 +696,18 @@ public class PlayerAction : MonoBehaviour
         gameObject.layer = shiftedLayerID;
         // 슬라이드가 끝나면 자동으로 종료 처리
         Invoke(nameof(StopSliding), slideDuration); // slideDuration만큼 대기 후 StopSliding 호출
+        if (revertLayerCoroutine != null) StopCoroutine(revertLayerCoroutine);
         revertLayerCoroutine = StartCoroutine(RevertLayerAfterDelay(0.5f));
 
         // [NR] 구르기 연출 + 증강
-        NRCombatFX.Afterimage(sp, NRStats.DashInvuln ? NRPalette.Anxiety.WithAlpha(0.55f) : NRPalette.Cyan.WithAlpha(0.45f), 4, 0.06f);
+        NRCombatFX.Afterimage(NRRangedAvatar.VisualOf(playerScript), NRStats.DashInvuln ? NRPalette.Anxiety.WithAlpha(0.55f) : NRPalette.Cyan.WithAlpha(0.45f), 4, 0.06f);
         if (NRStats.DashShield > 0f) NRStats.AddShield(NRStats.DashShield);
+        if (!NRSave.Data.seenDashTip && !isGeoRiPlayer)
+        {
+            NRSave.Data.seenDashTip = true;
+            NRSave.MarkDirty();
+            NRUIRoot.ToastMsg("구르는 동안에는 적의 투사체와 공격을 피할 수 있습니다", NRPalette.Anxiety, 3f);
+        }
     }
 
     private void StopSliding() // 슬라이드 종료
@@ -445,6 +718,7 @@ public class PlayerAction : MonoBehaviour
         isCooldown = true;
         lastSlideCooldown = slideCooldown * NRStats.DashCooldownMultiplier;
         cooldownTime = lastSlideCooldown; // 슬라이드 쿨타임 설정
+        dashIFrameUntil = Time.time + (NRStats.DashInvuln ? 0.3f : 0.08f);
 
         // [NR] 잔상 증강: 구르기 끝 지점 충격파
         if (NRStats.DashShockDmg > 0f && !isGeoRiPlayer)
@@ -479,140 +753,7 @@ public class PlayerAction : MonoBehaviour
     }
 
     public float jabCooldown = 0.3f;  // 잽 공격 쿨타임 (공속을 의미)
-	private float lastAttackTime = 0f;  // 마지막 공격 시간을 기록할 변수
-
-
-	public void OnAttack(InputAction.CallbackContext context)// 일반 공격 (잽)
-	{
-		if (jabCooldown <= 0.2f)
-        {
-            jabCooldown = 0.2f;
-        }
-		// 마우스 클릭을 시작 할때 && 스킬이나 궁극기를 사용하고 있지 않을때 공격 가능
-		if (context.started && isUsingSkillorUltimate == false && isAtking == false && Time.time >= lastAttackTime + jabCooldown * NRStats.AttackIntervalMultiplier)
-        {
-            if (InputBlocked(true)) return;
-
-            Vector2 mousePosition = Mouse.current.position.ReadValue();           // 마우스 위치 가져오기
-            Vector3 worldPosition = mainCamera.ScreenToWorldPoint(mousePosition); // 화면 좌표 -> 월드 좌표 변환
-            float playerPositionX = transform.position.x;                         // 플레이어의 현재 x 좌표
-            worldPosition.z = 0f; // 카메라의 z축을 0으로 설정 (2D 게임에서의 좌표)
-
-            int atkStyle = 0; // 기본 공격 스타일
-
-			TicTocDealyTime = Jab;                               // 몇초동안 경직되어 있을래?
-
-			// 화면 기준으로 왼쪽 클릭 시
-			if (worldPosition.x < playerPositionX)
-			{
-                sp.flipX = true; // 캐릭터를 왼쪽으로 바라보게 설정
-                StartCoroutine(DisableCollider(left, atkStyle)); // 왼쪽 공격 활성화
-            }
-			// 화면 기준으로 오른쪽 클릭 시
-			else
-			{
-                sp.flipX = false; // 캐릭터를 오른쪽으로 바라보게 설정
-                StartCoroutine(DisableCollider(right, atkStyle)); // 오른쪽 공격 활성화
-            }
-
-			lastAttackTime = Time.time;  // 마지막 공격 시간 갱신
-
-
-			// 아이템이 있는 콜라이더 객체 (예시로 myItemCollider를 사용)
-
-			foreach (var item in myItemColliders)
-            {
-				if (item == null) continue;
-				if (item.bounds.Contains(worldPosition)) // 클릭한 위치가 아이템 콜라이더 범위 안에 있을 때
-				{
-					teleport teleport = item.GetComponent<teleport>();
-					SceneChangeOnCollision sceneChangeOnCollision = item.GetComponent<SceneChangeOnCollision>();
-					if (teleport != null)
-					{
-                        PlaySfx(6);
-                        teleport.MovePlayer(playerCollider2D); // 아이템의 OnItemClicked 함수 실행
-					}
-                    else if (sceneChangeOnCollision != null)
-                    {
-                        sceneChangeOnCollision.SceneChangeHamSu();
-					}
-				}
-			}
-        }
-    }
-
-    public void OnSkillAttack(InputAction.CallbackContext context)// 스킬
-	{
-		if (context.started)  // 쿨타임이 0일 때만 스킬 발동
-        {
-            if (InputBlocked(true)) return;
-
-            Vector2 mousePosition = Mouse.current.position.ReadValue(); // 마우스 위치 가져오기
-            Vector3 worldPosition = mainCamera.ScreenToWorldPoint(mousePosition); // 화면 좌표 -> 월드 좌표 변환
-            float playerPositionX = transform.position.x; // 플레이어의 현재 x 좌표
-
-            if (skillAttackTime <= 0)
-            {
-                // 거리 출신 플레이어가 아닐 때
-                if (!isGeoRiPlayer)
-                {
-                    animator.SetTrigger(AnimationStrings.skillAttackTrigger);  // 스킬 애니메이션 실행
-                }
-                lastSkillDuration = skillAttackCooldown * NRStats.SkillCooldownMultiplier;
-                skillAttackTime = lastSkillDuration;  // 쿨타임 시작
-
-
-				int atkStyle = 1; // 스킬 공격 스타일
-
-				TicTocDealyTime = Skill;                     // 몇초동안 경직되어 있을래?
-
-				if (worldPosition.x < playerPositionX)
-                {
-                    sp.flipX = true; // 캐릭터를 왼쪽으로 바라보게 설정
-                    StartCoroutine(DisableCollider(LargeLeft, atkStyle)); // 왼쪽 공격 활성화
-
-                }
-                else
-                {
-                    sp.flipX = false; // 캐릭터를 오른쪽으로 바라보게 설정
-                    StartCoroutine(DisableCollider(LargeRight, atkStyle)); // 오른쪽 공격 활성화
-                }
-			}
-		}
-    }
-
-    public void OnSkillAttack2(InputAction.CallbackContext context)// 궁극기
-	{
-		if (context.started)  // 쿨타임이 0일 때만 스킬 발동
-        {
-            if (InputBlocked(false)) return;
-
-            if (skillAttack2Time <= 0)
-            {
-                // 거리 출신 플레이어가 아닐시
-                if (!isGeoRiPlayer)
-                {
-                    animator.SetTrigger(AnimationStrings.skillAttackTrigger2);  // 스킬 애니메이션 실행
-                    StartCoroutine(PlaySoundWithDelay());
-                }
-
-                lastUltDuration = skillAttack2Cooldown * NRStats.UltCooldownMultiplier;
-                skillAttack2Time = lastUltDuration;  // 쿨타임 시작
-
-				int atkStyle = 2;      // 궁극기 공격 설정
-									   // 방향에 따라 적절한 BoxCollider2D 활성화
-				TicTocDealyTime = Ultimite;                      // 몇초동안 경직되어 있을래?
-				if (sp.flipX)
-				{
-					StartCoroutine(DisableCollider(LargeLeft, atkStyle));  // 왼쪽 공격 활성화
-				}
-				else
-				{
-					StartCoroutine(DisableCollider(LargeRight, atkStyle));  // 오른쪽 공격 활성화
-				}
-			}
-		}
-    }
+	private float lastAttackTime = -10f;  // 마지막 공격 시간을 기록할 변수
 
     // 정지 함수 Like 스톱
     void PleaseStopPlayer()

@@ -5,7 +5,7 @@ using UnityEngine;
 
 // ============================================================================
 // 방 전투 웨이브: 계층/방 번호에 따라 적 조합 결정, 스폰 예고, 방 클리어 판정
-//  - 기존 적(Enemy2, 단검 버섯)은 항상 섞여 원래 게임의 느낌을 유지
+//  - 기존 기본 적(Enemy2)은 사용하지 않음 → 거미 떼 / 파수꾼 등 신규 적으로 구성
 //  - 기존 스폰 위치 규칙(EnemySpawnPos[room*5+i])을 그대로 사용
 // ============================================================================
 public static class NRWaves
@@ -37,10 +37,12 @@ public static class NRWaves
 		if (e.legacy) return 1f;
 		switch (e.kind)
 		{
+			case NREnemyKind.Spider: return 0.5f;
 			case NREnemyKind.Bomber: return 1.25f;
 			case NREnemyKind.Archer: return 1.5f;
 			case NREnemyKind.Assassin: return 1.75f;
 			case NREnemyKind.Mage: return 2f;
+			case NREnemyKind.Warden: return 2.5f;
 			default: return 2.5f;
 		}
 	}
@@ -69,40 +71,60 @@ public static class NRWaves
 		float budget = 4f + floor * 1.5f + roomNumber * 0.75f;
 		int waveCount = floor == 1 ? (roomNumber >= 3 ? 2 : 1) : floor == 2 ? 2 : (roomNumber >= 3 ? 3 : 2);
 
-		var unlocked = new List<NREnemyKind> { NREnemyKind.Archer };
-		if (floor >= 2 || roomNumber >= 2) unlocked.Add(NREnemyKind.Bomber);
+		// 방 번호가 오를수록 새 적이 합류 (기존 기본 적은 사용하지 않음)
+		var unlocked = new List<NREnemyKind> { NREnemyKind.Archer, NREnemyKind.Spider };
+		if (floor >= 2 || roomNumber >= 2) { unlocked.Add(NREnemyKind.Bomber); unlocked.Add(NREnemyKind.Warden); }
 		if (floor >= 2 || roomNumber >= 3) unlocked.Add(NREnemyKind.Guardian);
 		if (floor >= 2) { unlocked.Add(NREnemyKind.Assassin); unlocked.Add(NREnemyKind.Mage); }
-		int maxGuardians = floor >= 3 ? 2 : 1;
+		int maxHeavy = floor >= 3 ? 2 : 1;   // 수호자 + 파수꾼 합계
 
 		var all = new List<Entry>();
-		// 기존 적 최소 2마리 유지
-		all.Add(new Entry { legacy = true });
-		all.Add(new Entry { legacy = true });
-		float remaining = budget - 2f;
-		int guard = 0;
+		// 첫 방은 거미 떼 + 궁수로 가볍게 시작
+		AddSpiders(all);
+		float remaining = budget - Cost(new Entry { kind = NREnemyKind.Spider }) * 3;
+		int heavy = 0;
 		int safety = 50;
-		while (remaining >= 1f && safety-- > 0)
+		while (remaining >= 0.75f && safety-- > 0)
 		{
-			Entry e;
-			if (Random.value < (floor == 1 ? 0.45f : 0.25f)) e = new Entry { legacy = true };
+			var kind = unlocked[Random.Range(0, unlocked.Count)];
+			bool isHeavy = kind == NREnemyKind.Guardian || kind == NREnemyKind.Warden;
+			if (isHeavy && heavy >= maxHeavy) kind = NREnemyKind.Archer;
+			var e = new Entry { kind = kind };
+			float c = kind == NREnemyKind.Spider ? Cost(e) * 3 : Cost(e);
+			if (c > remaining + 0.3f)
+			{
+				kind = NREnemyKind.Spider;
+				e = new Entry { kind = kind };
+				c = Cost(e) * 3;
+			}
+			if (kind == NREnemyKind.Spider) AddSpiders(all);
 			else
 			{
-				var kind = unlocked[Random.Range(0, unlocked.Count)];
-				if (kind == NREnemyKind.Guardian && guard >= maxGuardians) kind = NREnemyKind.Archer;
-				e = new Entry { kind = kind };
-				if (kind == NREnemyKind.Guardian) guard++;
+				all.Add(e);
+				if (kind == NREnemyKind.Guardian || kind == NREnemyKind.Warden) heavy++;
 			}
-			float c = Cost(e);
-			if (c > remaining + 0.3f) { e = new Entry { legacy = true }; c = 1f; }
-			all.Add(e);
 			remaining -= c;
 		}
 
-		// 섞어서 웨이브로 분배 (첫 웨이브가 약간 더 많게)
-		all = all.OrderBy(_ => Random.value).ToList();
+		// 섞어서 웨이브로 분배 (거미 떼는 같은 웨이브에 몰리도록 묶음 단위로 섞음)
+		var groups = new List<List<Entry>>();
+		for (int i = 0; i < all.Count; i++)
+		{
+			if (all[i].kind == NREnemyKind.Spider && i + 2 < all.Count && all[i + 1].kind == NREnemyKind.Spider && all[i + 2].kind == NREnemyKind.Spider)
+			{
+				groups.Add(new List<Entry> { all[i], all[i + 1], all[i + 2] });
+				i += 2;
+			}
+			else groups.Add(new List<Entry> { all[i] });
+		}
+		groups = groups.OrderBy(_ => Random.value).ToList();
 		for (int i = 0; i < waveCount; i++) waves.Add(new List<Entry>());
-		for (int i = 0; i < all.Count; i++) waves[i % waveCount].Add(all[i]);
+		for (int i = 0; i < groups.Count; i++) waves[i % waveCount].AddRange(groups[i]);
+	}
+
+	static void AddSpiders(List<Entry> list)
+	{
+		for (int i = 0; i < 3; i++) list.Add(new Entry { kind = NREnemyKind.Spider });
 	}
 
 	static IEnumerator RoomRoutine(int gen)

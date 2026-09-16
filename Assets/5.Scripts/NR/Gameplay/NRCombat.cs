@@ -130,6 +130,9 @@ public static class NRStats
 		}
 		if (Shield > 0f) mult += RequiemPct;
 
+		var act = Action;
+		if (style == 0 && act != null && !NRHero.IsRanged) mult *= act.ComboDamageMultiplier;
+
 		crit = Random.value < CritChance;
 		if (crit) mult *= FrenzyCrit ? 2.5f : 2f;
 
@@ -156,6 +159,27 @@ public static class NRStats
 		target.ReceiveDamage(dmg, crit, NRDamageKind.Direct);
 		LastCombatTime = Time.time;
 
+		// 근접 패시브: 3타 마무리 적중 시 보호막
+		if (style == 0 && act != null && act.ComboStep == 2 && !NRHero.IsRanged) AddShieldSilent(8f);
+		AfterHit(target, targetComponent, dmg, crit);
+	}
+
+	/// <summary>원거리 탄환 등 공격 판정 없이 직접 피해 (배율 적용)</summary>
+	public static void PlayerHitEnemyWith(INRDamageable target, Component targetComponent, int style, float damageMul, bool forceCrit)
+	{
+		if (target == null || target.IsDead) return;
+		var p = Player;
+		if (p == null) return;
+		int dmg = ComputeOutgoing(Mathf.Max(1, Mathf.RoundToInt(p.Atk * damageMul)), style, target, out bool crit);
+		if (forceCrit && !crit) { crit = true; dmg = Mathf.RoundToInt(dmg * (FrenzyCrit ? 2.5f : 2f)); }
+		target.ReceiveDamage(dmg, crit, NRDamageKind.Direct);
+		LastCombatTime = Time.time;
+		AfterHit(target, targetComponent, dmg, crit);
+	}
+
+	static void AfterHit(INRDamageable target, Component targetComponent, int dmg, bool crit)
+	{
+
 		if (targetComponent != null)
 		{
 			if (BurnDps > 0f || (crit && FrenzyCrit))
@@ -178,6 +202,8 @@ public static class NRStats
 		NRSave.Data.enemyKills++;
 		NRSave.MarkDirty();
 		if (HealOnKill > 0f) HealPlayer(HealOnKill, true);
+		if (!boss) HealPlayer(NRHero.KillHeal, false); // 캐릭터 패시브
+		if (Random.value < 0.75f) NRPickup.DropCoins(position, boss ? 25 : Random.Range(1, 3));
 		NRCombatFX.DeathBurst(position, boss ? NRPalette.Gold : NRPalette.Pink, boss ? 40 : 14);
 	}
 
@@ -189,6 +215,11 @@ public static class NRStats
 		p.nowHP = Mathf.Min(p.maxHP, p.nowHP + Mathf.Max(1, Mathf.RoundToInt(amount)));
 		int healed = p.nowHP - before;
 		if (showNumber && healed > 0) NRCombatFX.Number(p.transform.position + Vector3.up * 0.9f, "+" + healed, NRPalette.Green, 0.9f);
+	}
+
+	public static void AddShieldSilent(float amount)
+	{
+		if (amount > 0f) Shield = Mathf.Max(Shield, amount);
 	}
 
 	public static void AddShield(float amount)
@@ -208,7 +239,7 @@ public static class NRStats
 		if (NRCredits.IsPlaying) return false;
 		if (Time.time < InvulnUntil) return false;
 		var act = p.GetComponent<PlayerAction>();
-		if (fromDashable && DashInvuln && act != null && act.IsSliding) return false;
+		if (fromDashable && act != null && act.DashInvulnerable) return false; // 구르기 중에는 모든 공격 회피
 
 		float dmg = raw;
 		if (useArmor)
@@ -342,7 +373,7 @@ public class NREnemyStatus : MonoBehaviour
 			var sr = burnFx.AddComponent<SpriteRenderer>();
 			sr.sprite = NRSprites.Glow;
 			sr.color = NRPalette.Rage.WithAlpha(0.45f);
-			sr.sortingOrder = 40;
+			NRSort.Set(sr, NRSort.Enemy, 40);
 			float s = 1f / Mathf.Max(0.01f, Mathf.Abs(transform.lossyScale.x));
 			burnFx.transform.localScale = Vector3.one * s * 1.2f;
 		}

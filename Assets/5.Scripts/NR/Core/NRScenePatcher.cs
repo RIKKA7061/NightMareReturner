@@ -67,7 +67,21 @@ public static class NRScenePatcher
 
 		NRInteractableScanner.Install(false);
 		SyncNpcTalkProgress();
-		NRPlayerFX.Attach(Object.FindObjectOfType<Player>());
+		var player = Object.FindObjectOfType<Player>();
+		NRPlayerFX.Attach(player);
+		NRControls.Attach(player);
+		DisablePropColliders(scene);
+
+		// 집의 책상 = 캐릭터 / 조작 방식 변경
+		var desk = NRUtil.FindInScene(scene, "desk");
+		if (desk != null)
+		{
+			var dit = NRInteractable.Attach(desk.gameObject, "책상", "캐릭터 · 조작 방식 변경", NRPalette.Gold, "클릭 / E");
+			dit.onInteract = () => NRSetupWizard.Show(false, null);
+			dit.requireHome = true;
+			dit.showRadius = 3.5f;
+			dit.interactRadius = 2.2f;
+		}
 
 		// 집의 책장 = 영구 강화
 		var shelf = NRUtil.FindInScene(scene, "bookShelf");
@@ -95,11 +109,15 @@ public static class NRScenePatcher
 			Hide(c, "SettingBtn");
 			Hide(c, "TipBg_Img");
 			Hide(c, "TempTxt");
+			Hide(c, "TalkCount");            // 좌상단 디버그 '회차별 대화 횟수'
+			Hide(c, "DeadCount_Text");       // 좌상단 디버그 '죽은 횟수' → 스테이터스 창
 			NRDialogueSkin.Apply(NRUtil.FindDeep(c, "DialogSet"));
 		}
 		NRInteractableScanner.Install(true);
 		SyncNpcTalkProgress();
-		NRPlayerFX.Attach(Object.FindObjectOfType<Player>());
+		var townPlayer = Object.FindObjectOfType<Player>();
+		NRPlayerFX.Attach(townPlayer);
+		NRControls.Attach(townPlayer);
 		QuestManager.Town();
 
 		// 기존 화살표 스프라이트는 은은하게 움직이도록
@@ -124,6 +142,22 @@ public static class NRScenePatcher
 			int idx = npc.id / 100;
 			if (idx >= 0 && idx < saved.Length && saved[idx] > npc.EachTalkCount)
 				npc.EachTalkCount = saved[idx];
+		}
+	}
+
+	/// <summary>
+	/// 항아리·꽃·고양이 기둥·촛대 같은 장식 타일(Deco / Daco2)은 길을 막지 않도록 충돌 해제.
+	/// 벽(Wall / Wall2 / wall3 / InvisibleWall)만 이동을 막는다.
+	/// </summary>
+	static void DisablePropColliders(Scene scene)
+	{
+		foreach (var name in new[] { "Deco", "Daco2" })
+		{
+			var t = NRUtil.FindInScene(scene, name);
+			if (t == null) continue;
+			foreach (var col in t.GetComponentsInChildren<Collider2D>(true)) col.enabled = false;
+			var rb = t.GetComponent<Rigidbody2D>();
+			if (rb != null) rb.simulated = false;
 		}
 	}
 

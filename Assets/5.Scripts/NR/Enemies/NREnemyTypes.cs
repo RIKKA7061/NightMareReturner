@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 // ============================================================================
-// 신규 적 5종 — 각각 다른 대응을 요구하도록 설계
+// 신규 적 7종 — 각각 다른 대응을 요구하도록 설계 (거미 떼 / 파수꾼 포함)
 //  신전 수호자: 느리지만 강한 예고 베기/돌진 → 공격 후 빈틈을 노려라
 //  폭탄 드로이드: 달려와 자폭 → 멀리서 처치하거나 구르기로 이탈
 //  오브 마법사: 거리를 벌리며 유도 구체/바닥 룬 → 계속 움직이며 접근
@@ -19,6 +19,8 @@ public static class NREnemyFactory
 			case NREnemyKind.Bomber: return "폭탄 드로이드";
 			case NREnemyKind.Mage: return "오브 마법사";
 			case NREnemyKind.Assassin: return "암살자";
+			case NREnemyKind.Spider: return "악몽 거미";
+			case NREnemyKind.Warden: return "침묵의 파수꾼";
 			default: return "궁수";
 		}
 	}
@@ -34,6 +36,8 @@ public static class NREnemyFactory
 			case NREnemyKind.Bomber: e = go.AddComponent<NRBomber>(); break;
 			case NREnemyKind.Mage: e = go.AddComponent<NRMage>(); break;
 			case NREnemyKind.Assassin: e = go.AddComponent<NRAssassin>(); break;
+			case NREnemyKind.Spider: e = go.AddComponent<NRSpider>(); break;
+			case NREnemyKind.Warden: e = go.AddComponent<NRWarden>(); break;
 			default: e = go.AddComponent<NRArcher>(); break;
 		}
 		e.displayName = KindName(kind);
@@ -77,7 +81,7 @@ public class NRGuardian : NREnemy
 			if (!PlayerAlive) { Stop(); yield return null; continue; }
 			float dist = DistToPlayer;
 
-			if (Time.time > nextSpecial && dist > 2.2f && dist < 6.5f && HasLineOfSight(Center, PlayerPos))
+			if (Time.time > nextSpecial && dist > 2.2f && dist < 4.8f && HasLineOfSight(Center, PlayerPos))
 			{
 				yield return ChargeSlash();
 				nextSpecial = Time.time + Random.Range(6f, 9f);
@@ -116,14 +120,14 @@ public class NRGuardian : NREnemy
 		Stop();
 		FacePlayer();
 		Vector2 dir = ToPlayer.normalized;
-		var tg = NRTelegraph.Line(Center, dir, 6.5f, 0.9f, 0.8f, NRPalette.Crimson);
+		var tg = NRTelegraph.Line(Center, dir, 4.8f, 0.9f, 0.8f, NRPalette.Crimson);
 		anim.Play(special, true, null, 0.3f);
 		yield return new WaitForSeconds(0.8f);
 		if (IsDead) yield break;
 		anim.Play(special, true, null, 1.6f);
 		var hb = SpawnHitbox(Center, new Vector2(1.2f, 1.2f), damage * 1.2f, 0.45f);
 		float t = 0f;
-		while (t < 0.42f && !IsDead)
+		while (t < 0.32f && !IsDead)
 		{
 			t += Time.fixedDeltaTime;
 			rb.velocity = dir * 14f;
@@ -255,18 +259,18 @@ public class NRMage : NREnemy
 				yield return Blink();
 				continue;
 			}
-			if (Time.time > nextCast && dist < 9f)
+			if (Time.time > nextCast && dist < 6.5f)
 			{
 				yield return Random.value < 0.55f ? CastOrbs() : CastRune();
 				nextCast = Time.time + Random.Range(2.6f, 3.6f);
 				continue;
 			}
 
-			// 4~6 거리 유지
+			// 3~5 거리 유지
 			Vector2 dir = ToPlayer.normalized;
-			Vector2 desire = dist < 4f ? -dir : dist > 6f ? dir : new Vector2(-dir.y, dir.x) * Mathf.Sign(Mathf.Sin(Time.time * 0.7f + GetInstanceID()));
+			Vector2 desire = dist < 3f ? -dir : dist > 5f ? dir : new Vector2(-dir.y, dir.x) * Mathf.Sign(Mathf.Sin(Time.time * 0.7f + GetInstanceID()));
 			anim.Play(move);
-			MoveDir(desire, dist < 4f ? 1.2f : 0.8f);
+			MoveDir(desire, dist < 3f ? 1.2f : 0.8f);
 			FacePlayer();
 			yield return new WaitForFixedUpdate();
 		}
@@ -284,7 +288,7 @@ public class NRMage : NREnemy
 		for (int i = -1; i <= 1; i++)
 		{
 			Vector2 d = Quaternion.Euler(0, 0, i * 22f) * baseDir;
-			var p = SpawnProjectile(Center + Vector2.up * 0.4f, d * 3.3f, damage, NRPalette.Anxiety, 0.4f, 4.5f);
+			var p = SpawnProjectile(Center + Vector2.up * 0.4f, d * 3.3f, damage, NRPalette.Anxiety, 0.4f, 2.4f);
 			p.homingTarget = player != null ? player.transform : null;
 			p.turnRate = 70f;
 		}
@@ -362,7 +366,7 @@ public class NRAssassin : NREnemy
 		{
 			if (!PlayerAlive) { Stop(); anim.Play(idle); yield return null; continue; }
 			float dist = DistToPlayer;
-			if (Time.time > nextDash && dist < 6f && HasLineOfSight(Center, PlayerPos))
+			if (Time.time > nextDash && dist < 4.5f && HasLineOfSight(Center, PlayerPos))
 			{
 				yield return Dash();
 				nextDash = Time.time + Random.Range(2.4f, 3.4f);
@@ -384,7 +388,7 @@ public class NRAssassin : NREnemy
 		Stop();
 		FacePlayer();
 		Vector2 dir = ToPlayer.normalized;
-		var tg = NRTelegraph.Line(Center, dir, 5.5f, 0.55f, 0.45f, NRPalette.Pink);
+		var tg = NRTelegraph.Line(Center, dir, 4.2f, 0.55f, 0.45f, NRPalette.Pink);
 		float t = 0f;
 		while (t < 0.45f && !IsDead)
 		{
@@ -398,7 +402,7 @@ public class NRAssassin : NREnemy
 		var hb = SpawnHitbox(Center, new Vector2(0.9f, 0.9f), damage, 0.32f);
 		NRCombatFX.Afterimage(sr, NRPalette.Pink.WithAlpha(0.5f), 5, 0.05f);
 		t = 0f;
-		while (t < 0.3f && !IsDead)
+		while (t < 0.24f && !IsDead)
 		{
 			t += Time.fixedDeltaTime;
 			rb.velocity = dir * 17f;
@@ -446,16 +450,16 @@ public class NRArcher : NREnemy
 			float dist = DistToPlayer;
 			bool los = HasLineOfSight(Center, PlayerPos);
 
-			if (Time.time > nextShot && dist < 10f && los)
+			if (Time.time > nextShot && dist < 7f && los)
 			{
 				yield return AimAndShoot();
 				nextShot = Time.time + Random.Range(2.2f, 3.0f);
 				continue;
 			}
 			Vector2 dir = ToPlayer.normalized;
-			Vector2 desire = dist < 4.5f ? -dir : dist > 7f || !los ? dir : new Vector2(-dir.y, dir.x);
+			Vector2 desire = dist < 3.5f ? -dir : dist > 5.5f || !los ? dir : new Vector2(-dir.y, dir.x);
 			anim.Play(run);
-			MoveDir(desire, dist < 4.5f ? 1.1f : 0.8f);
+			MoveDir(desire, dist < 3.5f ? 1.1f : 0.8f);
 			yield return new WaitForFixedUpdate();
 		}
 	}
@@ -465,7 +469,7 @@ public class NRArcher : NREnemy
 		Stop();
 		FacePlayer();
 		anim.Play(idle);
-		var tg = NRTelegraph.Line(Center, ToPlayer.normalized, 12f, 0.08f, 1.05f, NRPalette.Green);
+		var tg = NRTelegraph.Line(Center, ToPlayer.normalized, 7.5f, 0.08f, 1.05f, NRPalette.Green);
 		float t = 0f;
 		Vector2 dir = ToPlayer.normalized;
 		while (t < 0.8f && !IsDead)            // 조준 추적
@@ -480,7 +484,175 @@ public class NRArcher : NREnemy
 		yield return new WaitForSeconds(0.25f);  // 조준 고정 (피할 타이밍)
 		if (IsDead) yield break;
 		anim.Play(attack, true, null, 1.5f);
-		SpawnProjectile(Center + dir * 0.4f, dir * 14f, damage, NRPalette.Green, 0.3f, 2.5f, true);
+		SpawnProjectile(Center + dir * 0.4f, dir * 12f, damage, NRPalette.Green, 0.3f, 0.65f, true);
 		yield return new WaitForSeconds(0.45f);
+	}
+}
+
+// ---------------------------------------------------------------------------
+// 악몽 거미: 약하고 빠른 떼 몬스터. 3마리씩 등장해 짧게 도약하며 문다
+//  → 광역 공격(콤보 마무리/궁극기)으로 한꺼번에 정리
+// ---------------------------------------------------------------------------
+public class NRSpider : NREnemy
+{
+	const string Sheet = "NR/Sprites/Enemies/Spider/sheet";
+	NRClip idle, walk, attack, death;
+	float nextLeap;
+	protected override float BodyHeight => 0.35f;
+	protected override NRClip DeathClip => death;
+
+	protected override void Awake()
+	{
+		maxHP = 38; moveSpeed = 2.9f; damage = 12f; knockbackResist = 0f; staggerTime = 0.25f;
+		accent = NRPalette.Sorrow;
+		base.Awake();
+	}
+
+	protected override void ConfigureVisual()
+	{
+		idle = NRSpriteSheet.LoadGridRow(Sheet, 43, 19, 0, 1, 6, true);
+		walk = NRSpriteSheet.LoadGridRow(Sheet, 43, 19, 1, 1, 14, true);
+		attack = NRSpriteSheet.LoadGridRow(Sheet, 43, 19, 2, 1, 16, false);
+		death = NRSpriteSheet.LoadGridRow(Sheet, 43, 19, 3, 1, 12, false);
+		SetBodyScale(3.2f, new Vector2(0.55f, 0.35f), 0.15f);
+		anim.Play(walk.Length > 0 ? walk : idle);
+		nextLeap = Time.time + Random.Range(0.8f, 1.8f);
+	}
+
+	protected override IEnumerator Brain()
+	{
+		yield return new WaitForSeconds(Random.Range(0.2f, 0.5f));
+		while (!IsDead)
+		{
+			if (!PlayerAlive) { Stop(); anim.Play(idle); yield return null; continue; }
+			float dist = DistToPlayer;
+			if (Time.time > nextLeap && dist < 2.6f && HasLineOfSight(Center, PlayerPos))
+			{
+				yield return Leap();
+				nextLeap = Time.time + Random.Range(1.4f, 2.2f);
+				continue;
+			}
+			Vector2 dir = ToPlayer.normalized;
+			// 떼가 한 줄로 겹치지 않도록 좌우로 흩어지며 접근
+			Vector2 side = new Vector2(-dir.y, dir.x) * Mathf.Sin(Time.time * 4f + GetInstanceID() * 0.37f) * 0.6f;
+			anim.Play(walk);
+			MoveDir(dir + side);
+			yield return new WaitForFixedUpdate();
+		}
+	}
+
+	IEnumerator Leap()
+	{
+		Stop();
+		FacePlayer();
+		Vector2 dir = ToPlayer.normalized;
+		NRTelegraph.Line(Center, dir, 2.4f, 0.35f, 0.4f, NRPalette.Sorrow);
+		anim.Play(idle);
+		yield return new WaitForSeconds(0.4f);
+		if (IsDead) yield break;
+		anim.Play(attack, true);
+		var hb = SpawnHitbox(Center, new Vector2(0.55f, 0.45f), damage, 0.22f);
+		float t = 0f;
+		while (t < 0.2f && !IsDead)
+		{
+			t += Time.fixedDeltaTime;
+			rb.velocity = dir * 11f;
+			if (hb != null) hb.transform.position = Center;
+			yield return new WaitForFixedUpdate();
+		}
+		Stop();
+		yield return new WaitForSeconds(0.5f);
+	}
+}
+
+// ---------------------------------------------------------------------------
+// 침묵의 파수꾼: 체력이 매우 높고 공격력은 낮은 탱커. 밀리지 않고 느리게 압박하며
+// 주변을 짓누르는 작은 충격파 → 다른 적을 처리할 동안 길을 막는 역할
+// ---------------------------------------------------------------------------
+public class NRWarden : NREnemy
+{
+	const string Sheet = "NR/Sprites/Enemies/Warden/sheet";
+	NRClip walk, slam, swing, death;
+	float nextSlam;
+	protected override float BodyHeight => 1.1f;
+	protected override NRClip DeathClip => death;
+
+	protected override void Awake()
+	{
+		maxHP = 560; moveSpeed = 1.05f; damage = 14f; knockbackResist = 1f; staggerTime = 0f;
+		accent = NRPalette.TextDim;
+		base.Awake();
+		rb.mass = 30f;
+	}
+
+	protected override void ConfigureVisual()
+	{
+		walk = NRSpriteSheet.LoadGridRow(Sheet, 97, 32, 0, 0, 8, true);
+		slam = NRSpriteSheet.LoadGridRow(Sheet, 97, 32, 1, 0, 12, false);
+		swing = NRSpriteSheet.LoadGridRow(Sheet, 97, 32, 2, 0, 14, false, 100f, 12);
+		death = NRSpriteSheet.LoadGridRow(Sheet, 97, 32, 1, 0, 8, false);
+		SetBodyScale(4.2f, new Vector2(0.75f, 1.05f), 0.5f);
+		anim.Play(walk);
+		nextSlam = Time.time + Random.Range(2.5f, 4f);
+	}
+
+	protected override IEnumerator Brain()
+	{
+		yield return new WaitForSeconds(0.5f);
+		while (!IsDead)
+		{
+			if (!PlayerAlive) { Stop(); yield return null; continue; }
+			float dist = DistToPlayer;
+			if (dist < 1.9f && Time.time > nextSlam)
+			{
+				yield return Slam();
+				nextSlam = Time.time + Random.Range(2.8f, 3.8f);
+				continue;
+			}
+			if (dist < 1.5f)
+			{
+				yield return Swing();
+				continue;
+			}
+			anim.Play(walk);
+			MoveDir(ToPlayer.normalized);
+			yield return new WaitForFixedUpdate();
+		}
+	}
+
+	IEnumerator Swing()
+	{
+		Stop();
+		FacePlayer();
+		Vector2 dir = facingRight ? Vector2.right : Vector2.left;
+		Vector2 hit = Center + dir * 0.9f;
+		NRTelegraph.Circle(hit, 0.8f, 0.55f, NRPalette.TextDim);
+		anim.Play(swing, true, null, 0.5f);
+		yield return new WaitForSeconds(0.55f);
+		if (IsDead) yield break;
+		anim.Play(swing, true, null, 1.5f);
+		SpawnHitbox(hit, new Vector2(1.5f, 1.1f), damage, 0.15f);
+		yield return new WaitForSeconds(0.9f);
+	}
+
+	IEnumerator Slam()
+	{
+		Stop();
+		const float radius = 2.1f;
+		NRTelegraph.Circle(transform.position, radius, 0.9f, NRPalette.Crimson, transform);
+		anim.Play(slam, true, null, 0.8f);
+		yield return new WaitForSeconds(0.9f);
+		if (IsDead) yield break;
+		NRCombatFX.Shake(0.18f, 0.15f);
+		NRCombatFX.DeathBurst(transform.position, NRPalette.TextDim, 18);
+		if (player != null && Vector2.Distance(player.transform.position, transform.position) <= radius + 0.1f)
+			NRStats.DamagePlayer(player, damage * 1.3f, true);
+		yield return new WaitForSeconds(1.0f);
+	}
+
+	protected override void OnHurt()
+	{
+		// 맞아도 밀리지 않음
+		rb.velocity = Vector2.zero;
 	}
 }

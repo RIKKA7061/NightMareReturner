@@ -4,27 +4,28 @@ NIGHTMARE RETURNER
 
 
 ## 개발
-악몽 회귀자 팀
-
-## 참여 (GitHub 기여자 — 실명/역할로 수정해 주세요)
-SIWOO0909
-GoldMan
-RIKKA7061
-NEWJEANS-kanghaerin
-isr-28
-dbgusdnr0
-dbsdlfehd
+팀 DUJ
 
 
 
-## 사용한 에셋
-DARK Series Mega Pack 1 — Penusbmic
-Isometric Elf (Free) — 원작자 표기 필요
-폰트 Neo둥근모 — Eunbin Jeong (Dalgona.), SIL Open Font License 1.1
-효과음·배경음 — 출처 확인 후 기재 (일부 Pixabay)
+## PD · 프로그래밍
+사이버트럭
+
+## PM · 디자인
+임세령
+
+## 아트
+유현욱
+
+## 프로그래밍
+윤일동
+성시우
+홍성준
+
+
 
 ## 엔진
-Unity · Cinemachine · TextMeshPro
+Unity
 
 
 

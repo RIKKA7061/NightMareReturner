@@ -220,7 +220,7 @@ public class NRAugmentSelect : NRModal
 		if (!NRSave.Data.seenAugmentTip)
 		{
 			NRSave.Data.seenAugmentTip = true;
-			NRUIRoot.ToastMsg("보유 증강은 화면 왼쪽 아래 아이콘이나 TAB 현황에서 확인할 수 있습니다", NRPalette.TextDim, 4f);
+			NRUIRoot.ToastMsg("보유 증강은 화면 왼쪽 아래 아이콘이나 TAB 스테이터스에서 확인할 수 있습니다", NRPalette.TextDim, 4f);
 		}
 		var player = NRStats.Player;
 		if (player != null) NRCombatFX.DeathBurst(player.transform.position + Vector3.up * 0.5f, NRAugments.FamilyColor(offer.def.family), 24);

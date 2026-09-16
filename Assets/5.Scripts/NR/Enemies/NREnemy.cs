@@ -8,7 +8,7 @@ using UnityEngine;
 //  - 플레이어 공격 판정: 기존 방식과 동일 (Player 태그 + isAtking)
 //  - 공격: 태그 weapon + 레이어 EnemyAttack2 + NRDamageSource
 // ============================================================================
-public enum NREnemyKind { Guardian, Bomber, Mage, Assassin, Archer }
+public enum NREnemyKind { Guardian, Bomber, Mage, Assassin, Archer, Spider, Warden }
 
 public abstract class NREnemy : MonoBehaviour, INRDamageable
 {
@@ -86,7 +86,7 @@ public abstract class NREnemy : MonoBehaviour, INRDamageable
 		glowGo.transform.localPosition = new Vector3(0, 0.05f, 0);
 		shadowGlow = glowGo.AddComponent<SpriteRenderer>();
 		shadowGlow.sprite = NRSprites.Glow;
-		shadowGlow.sortingOrder = 1;
+		NRSort.Set(shadowGlow, NRSort.Floor, 20);
 
 		BuildHpBar();
 	}
@@ -279,7 +279,7 @@ public abstract class NREnemy : MonoBehaviour, INRDamageable
 		bg.sprite = NRSprites.White;
 		bg.color = new Color(0.05f, 0.03f, 0.08f, 0.9f);
 		bg.transform.localScale = new Vector3(0.9f, 0.12f, 1f);
-		bg.sortingOrder = 300;
+		NRSort.Set(bg, NRSort.Top, 300);
 		var fillPivot = new GameObject("FillPivot").transform;
 		fillPivot.SetParent(hpBarRoot, false);
 		fillPivot.localPosition = new Vector3(-0.42f, 0, 0);
@@ -290,7 +290,7 @@ public abstract class NREnemy : MonoBehaviour, INRDamageable
 		fill.color = NRPalette.Hp;
 		fill.transform.localPosition = new Vector3(0.42f, 0, 0);
 		fill.transform.localScale = new Vector3(0.84f, 0.07f, 1f);
-		fill.sortingOrder = 301;
+		NRSort.Set(fill, NRSort.Top, 301);
 		root.SetActive(false);
 	}
 }
@@ -330,7 +330,7 @@ public class NRProjectile : MonoBehaviour
 		p.glow = glowGo.AddComponent<SpriteRenderer>();
 		p.glow.sprite = NRSprites.Glow;
 		p.glow.color = color.WithAlpha(0.6f);
-		p.glow.sortingOrder = 60;
+		NRSort.Set(p.glow, NRSort.Enemy, 60);
 		glowGo.transform.localScale = Vector3.one * size * 2.4f;
 
 		var coreGo = new GameObject("Core");
@@ -338,7 +338,7 @@ public class NRProjectile : MonoBehaviour
 		p.core = coreGo.AddComponent<SpriteRenderer>();
 		p.core.sprite = NRSprites.White;
 		p.core.color = Color.Lerp(color, Color.white, 0.55f);
-		p.core.sortingOrder = 61;
+		NRSort.Set(p.core, NRSort.Enemy, 61);
 		coreGo.transform.localScale = arrow ? new Vector3(0.55f, 0.07f, 1f) : Vector3.one * size * 0.5f;
 
 		p.bornAt = Time.time;
@@ -369,7 +369,7 @@ public class NRProjectile : MonoBehaviour
 		if (other.CompareTag("Player") && !other.isTrigger)
 		{
 			var act = other.GetComponent<PlayerAction>();
-			if (NRStats.DashInvuln && act != null && act.IsSliding) return;
+			if (act != null && act.DashInvulnerable) return; // 구르기 중에는 투사체가 통과
 			NRCombatFX.Sparks(transform.position, core != null ? core.color : Color.white, 6);
 			Destroy(gameObject, 0.01f);
 			return;

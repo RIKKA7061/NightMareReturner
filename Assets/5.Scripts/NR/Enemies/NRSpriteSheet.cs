@@ -57,6 +57,65 @@ public static class NRSpriteSheet
 		return clip;
 	}
 
+	/// <summary>
+	/// 격자형 시트(가로 프레임, 여러 줄)에서 한 줄을 클립으로 읽음. 빈 칸은 자동으로 건너뜀.
+	/// resourcePath 예: "NR/Sprites/Enemies/Spider/sheet"
+	/// </summary>
+	public static NRClip LoadGridRow(string resourcePath, int frameW, int frameH, int row, int pivotRow, float fps, bool loop, float ppu = 100f, int maxFrames = 99)
+	{
+		string key = resourcePath + "#" + row + "#" + ppu;
+		if (cache.TryGetValue(key, out var clip)) return clip;
+		clip = new NRClip { fps = fps, loop = loop, frames = new Sprite[0], silhouettes = new Sprite[0] };
+		cache[key] = clip;
+		var tex = Resources.Load<Texture2D>(resourcePath);
+		if (tex == null || !tex.isReadable) { Debug.LogWarning("[NRSpriteSheet] 시트 없음/읽기 불가: " + resourcePath); return clip; }
+		tex.filterMode = FilterMode.Point;
+		var px = tex.GetPixels32();
+		int cols = tex.width / frameW;
+		int rows = tex.height / frameH;
+		if (row >= rows) return clip;
+
+		// 피벗: 기준 줄의 그림 영역 발밑 중앙
+		string pkey = resourcePath + "#pivot" + pivotRow;
+		if (!pivotCache.TryGetValue(pkey, out var pivot))
+		{
+			int minX = frameW, maxX = -1, minY = frameH;
+			for (int c = 0; c < cols; c++)
+			{
+				int x0 = c * frameW, y0 = tex.height - (pivotRow + 1) * frameH;
+				for (int y = 0; y < frameH; y++)
+					for (int x = 0; x < frameW; x++)
+					{
+						if (px[(y0 + y) * tex.width + x0 + x].a < 20) continue;
+						if (x < minX) minX = x;
+						if (x > maxX) maxX = x;
+						if (y < minY) minY = y;
+					}
+			}
+			pivot = maxX >= minX ? new Vector2(((minX + maxX + 1) * 0.5f) / frameW, (float)minY / frameH) : new Vector2(0.5f, 0f);
+			pivotCache[pkey] = pivot;
+		}
+
+		Texture2D sil = MakeSilhouette(tex);
+		var frames = new List<Sprite>();
+		var sils = new List<Sprite>();
+		for (int c = 0; c < cols && frames.Count < maxFrames; c++)
+		{
+			int x0 = c * frameW, y0 = tex.height - (row + 1) * frameH;
+			bool empty = true;
+			for (int y = 0; y < frameH && empty; y++)
+				for (int x = 0; x < frameW; x++)
+					if (px[(y0 + y) * tex.width + x0 + x].a >= 20) { empty = false; break; }
+			if (empty) continue;
+			var rect = new Rect(x0, y0, frameW, frameH);
+			frames.Add(Sprite.Create(tex, rect, pivot, ppu, 0, SpriteMeshType.FullRect));
+			sils.Add(sil != null ? Sprite.Create(sil, rect, pivot, ppu, 0, SpriteMeshType.FullRect) : frames[frames.Count - 1]);
+		}
+		clip.frames = frames.ToArray();
+		clip.silhouettes = sils.ToArray();
+		return clip;
+	}
+
 	/// <summary>기준 동작의 모든 프레임에서 실제 그림 영역을 찾아 발밑 중앙을 피벗으로 사용</summary>
 	static Vector2 GetPivot(string kind, string pivotAnim, int frameHeight)
 	{
@@ -93,9 +152,12 @@ public static class NRSpriteSheet
 		return p;
 	}
 
+	static readonly Dictionary<Texture2D, Texture2D> silhouetteCache = new Dictionary<Texture2D, Texture2D>();
+
 	static Texture2D MakeSilhouette(Texture2D src)
 	{
 		if (!src.isReadable) return null;
+		if (silhouetteCache.TryGetValue(src, out var cachedSil) && cachedSil != null) return cachedSil;
 		try
 		{
 			var px = src.GetPixels32();
@@ -109,6 +171,7 @@ public static class NRSpriteSheet
 			t.wrapMode = TextureWrapMode.Clamp;
 			t.SetPixels32(px);
 			t.Apply();
+			silhouetteCache[src] = t;
 			return t;
 		}
 		catch { return null; }
@@ -138,20 +201,20 @@ public class NRSpriteAnimator : MonoBehaviour
 	{
 		body = sr;
 		outlineColor = outlineCol;
-		body.sortingOrder = sortingOrder;
+		NRSort.Set(body, NRSort.Enemy, sortingOrder);
 		outline = new SpriteRenderer[4];
 		for (int i = 0; i < 4; i++)
 		{
 			var go = new GameObject("Outline" + i);
 			go.transform.SetParent(transform, false);
 			outline[i] = go.AddComponent<SpriteRenderer>();
-			outline[i].sortingOrder = sortingOrder - 1;
+			NRSort.Set(outline[i], NRSort.Enemy, sortingOrder - 1);
 			outline[i].color = outlineCol.WithAlpha(0.9f);
 		}
 		var fgo = new GameObject("Flash");
 		fgo.transform.SetParent(transform, false);
 		flash = fgo.AddComponent<SpriteRenderer>();
-		flash.sortingOrder = sortingOrder + 1;
+		NRSort.Set(flash, NRSort.Enemy, sortingOrder + 1);
 		flash.enabled = false;
 	}
 

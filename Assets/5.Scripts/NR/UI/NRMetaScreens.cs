@@ -125,6 +125,10 @@ public class NRDeathScreen : MonoBehaviour
 {
 	static NRDeathScreen instance;
 	CanvasGroup group;
+	bool ready;
+
+	/// <summary>사망 화면이 완전히 뜬 뒤에만 부활 가능 (쓰러지는 모션을 끝까지 보여줌)</summary>
+	public static bool ReadyToRespawn => instance != null && instance.ready;
 
 	public static void Show(Player p)
 	{
@@ -161,9 +165,12 @@ public class NRDeathScreen : MonoBehaviour
 			34, NRPalette.Text, TextAlignmentOptions.Center);
 		NRUI.Place(info.rectTransform, new Vector2(0.5f, 0.5f), new Vector2(0, -40), new Vector2(1500, 360));
 
-		var prompt = NRUI.Label(root, "[Space]  집에서 깨어나기", 40, NRPalette.Text, TextAlignmentOptions.Center, NRTextFx.OutlineShadow);
-		NRUI.Place(prompt.rectTransform, new Vector2(0.5f, 0), new Vector2(0, 110), new Vector2(1000, 60), new Vector2(0.5f, 0));
+		var prompt = NRUI.Label(root, "Space 또는 버튼", 28, NRPalette.TextDim, TextAlignmentOptions.Center, NRTextFx.OutlineShadow);
+		NRUI.Place(prompt.rectTransform, new Vector2(0.5f, 0), new Vector2(0, 70), new Vector2(1000, 44), new Vector2(0.5f, 0));
 		prompt.gameObject.SetActive(false);
+		var homeBtn = NRUI.Button(root, "집으로 돌아가기", () => { var pl = FindObjectOfType<Player>(); if (pl != null && pl.isDead && ready) pl.RespawnPlayer(); }, new Vector2(420, 84), 38);
+		NRUI.Place(homeBtn.Rect, new Vector2(0.5f, 0), new Vector2(0, 124), new Vector2(420, 84), new Vector2(0.5f, 0));
+		homeBtn.gameObject.SetActive(false);
 
 		yield return new WaitForSecondsRealtime(1.2f); // 쓰러지는 애니메이션을 먼저 보여줌
 		float t = 0f;
@@ -176,6 +183,9 @@ public class NRDeathScreen : MonoBehaviour
 		}
 		yield return new WaitForSecondsRealtime(1.7f);
 		prompt.gameObject.SetActive(true);
+		homeBtn.gameObject.SetActive(true);
+		NRUI.Select(homeBtn.button);
+		ready = true;
 		while (true)
 		{
 			prompt.color = Color.white.WithAlpha(0.55f + 0.45f * Mathf.Sin(Time.unscaledTime * 3f));

@@ -68,7 +68,7 @@ public class NRPauseMenu : NRModal
 
 		var left = NRUI.Panel(root, "Nav");
 		NRUI.Place(left.rectTransform, new Vector2(0.5f, 0.5f), new Vector2(-560, 0), new Vector2(420, 760));
-		NRModalHost.Header(left.transform, "일시정지", new Vector2(0, -28), 380, 52);
+		NRModalHost.Header(left.transform, "메뉴 · 일시정지", new Vector2(0, -28), 380, 52);
 
 		var col = NRUI.Rect(left.transform, "Buttons");
 		NRUI.Place(col, new Vector2(0.5f, 1), new Vector2(0, -140), new Vector2(340, 560), new Vector2(0.5f, 1));
@@ -142,7 +142,7 @@ public class NRPauseMenu : NRModal
 		var scroll = NRUI.ScrollView(summaryPage.transform, "Scroll", out var contentRt);
 		NRUI.Place((RectTransform)scroll.transform, new Vector2(0.5f, 1), new Vector2(0, -120), new Vector2(960, 600), new Vector2(0.5f, 1));
 		NRUI.LayoutText(contentRt, sb.ToString(), 30, NRPalette.Text);
-		NRUI.LayoutText(contentRt, "\n<color=#" + NRPalette.ToHex(NRPalette.TextMute) + ">TAB 현황 창에서 증강·계층·스토리를 자세히 볼 수 있습니다.</color>", 24, NRPalette.Text);
+		NRUI.LayoutText(contentRt, "\n<color=#" + NRPalette.ToHex(NRPalette.TextMute) + ">TAB 스테이터스 창에서 증강·계층·스토리를 자세히 볼 수 있습니다.</color>", 24, NRPalette.Text);
 	}
 }
 
@@ -180,6 +180,7 @@ public static class NRSettingsPanel
 		Row(content, NRUI.Slider(content, "효과음", NRAudio.SfxVolume, NRAudio.SetSfxVolume, 880));
 
 		Section(content, "게임");
+		Row(content, NRUI.Selector(content, "조작 방식", NRSettings.ControlSchemeNames, NRSettings.ControlScheme, i => { NRSettings.ControlScheme = i; NRControlsPanel.RefreshAll(); }, 880));
 		Row(content, NRUI.Selector(content, "화면 흔들림", new[] { "끄기", "켜기" }, NRSettings.ScreenShake ? 1 : 0, i => NRSettings.ScreenShake = i == 1, 880));
 		Row(content, NRUI.Selector(content, "피해 숫자 표시", new[] { "끄기", "켜기" }, NRSettings.DamageNumbers ? 1 : 0, i => NRSettings.DamageNumbers = i == 1, 880));
 		Row(content, NRUI.Selector(content, "상호작용 안내", new[] { "끄기", "켜기" }, NRSettings.InteractHints ? 1 : 0, i => NRSettings.InteractHints = i == 1, 880));
@@ -215,40 +216,76 @@ public static class NRSettingsPanel
 // ============================================================================
 public static class NRControlsPanel
 {
-	static readonly string[,] Keys =
+	static readonly List<Transform> lists = new List<Transform>();
+
+	static string[,] Keys()
 	{
-		{ "W A S D", "이동" },
-		{ "마우스 좌클릭", "기본 공격 (마우스 방향)" },
-		{ "마우스 우클릭", "특수 공격" },
-		{ "R", "궁극기" },
-		{ "Space", "구르기 (적의 몸을 통과)" },
-		{ "E", "대화 / 다음 대사" },
-		{ "좌클릭 또는 접촉", "문·침대·회오리로 이동" },
-		{ "TAB", "현황 창 (증강·계층·스토리)" },
-		{ "ESC", "일시정지 메뉴" },
-		{ "1 / 2 / 3", "증강 선택" },
-	};
+		var k = NRControls.Keys;
+		if (NRControls.IsDefault)
+			return new string[,]
+			{
+				{ "W A S D", "이동" },
+				{ "마우스 좌클릭", "기본 공격 (연속 3타 콤보)" },
+				{ "마우스 우클릭", "특수 공격" },
+				{ "R", "궁극기" },
+				{ "방향키 + Space", "구르기 (적의 몸·투사체를 통과)" },
+				{ "E / 좌클릭", "대화 · 다음 대사" },
+				{ "좌클릭 / 접촉", "문·침대·포탈로 이동" },
+				{ "TAB", "스테이터스 창" },
+				{ "ESC", "메뉴 · 일시정지" },
+				{ "1 / 2 / 3", "증강 선택" },
+			};
+		return new string[,]
+		{
+			{ "마우스 우클릭", "이동 (누르고 있으면 계속)" },
+			{ "Q", "기본 공격 (마우스 방향)" },
+			{ "W", "특수 공격" },
+			{ "E", "구르기 (마우스 방향)" },
+			{ "R", "궁극기" },
+			{ "S", "정지" },
+			{ "F / 좌클릭", "대화 · 다음 대사 / 문·포탈" },
+			{ "TAB", "스테이터스 창" },
+			{ "ESC", "메뉴 · 일시정지" },
+			{ "1 / 2 / 3", "증강 선택" },
+		};
+	}
 
 	public static void Build(Transform parent)
 	{
 		NRModalHost.Header(parent, "조작법", new Vector2(0, -28), 900, 48);
 		var list = NRUI.Rect(parent, "List");
-		NRUI.Place(list, new Vector2(0.5f, 1), new Vector2(0, -130), new Vector2(900, 600), new Vector2(0.5f, 1));
+		NRUI.Place(list, new Vector2(0.5f, 1), new Vector2(0, -120), new Vector2(900, 620), new Vector2(0.5f, 1));
 		var v = list.gameObject.AddComponent<VerticalLayoutGroup>();
 		v.spacing = 8;
 		v.childControlHeight = true;
 		v.childControlWidth = true;
 		v.childForceExpandHeight = false;
+		lists.RemoveAll(t => t == null);
+		lists.Add(list);
+		Fill(list);
+	}
 
-		for (int i = 0; i < Keys.GetLength(0); i++)
+	public static void RefreshAll()
+	{
+		lists.RemoveAll(t => t == null);
+		foreach (var l in lists) Fill(l);
+	}
+
+	static void Fill(Transform list)
+	{
+		foreach (Transform c in list) UnityEngine.Object.Destroy(c.gameObject);
+		var scheme = NRUI.Label(list, "현재 조작 방식: " + NRSettings.ControlSchemeNames[NRSettings.ControlScheme] + "  <size=22><color=#" + NRPalette.ToHex(NRPalette.TextMute) + ">(설정에서 변경)</color></size>", 26, NRPalette.Gold, TextAlignmentOptions.MidlineLeft);
+		scheme.gameObject.AddComponent<LayoutElement>().preferredHeight = 44;
+		var keys = Keys();
+		for (int i = 0; i < keys.GetLength(0); i++)
 		{
-			var row = NRUI.HRow(list, "Row", 50, 24);
+			var row = NRUI.HRow(list, "Row", 48, 24);
 			var keyBg = NRUI.Image(row.transform, "Key", NRSprites.ButtonFrame, Color.white);
 			var le = keyBg.gameObject.AddComponent<LayoutElement>();
 			le.preferredWidth = 300;
-			var k = NRUI.Label(keyBg.transform, Keys[i, 0], 26, NRPalette.Cyan, TextAlignmentOptions.Center);
+			var k = NRUI.Label(keyBg.transform, keys[i, 0], 26, NRPalette.Cyan, TextAlignmentOptions.Center);
 			NRUI.Stretch(k.rectTransform);
-			var d = NRUI.Label(row.transform, Keys[i, 1], 28, NRPalette.Text, TextAlignmentOptions.MidlineLeft);
+			var d = NRUI.Label(row.transform, keys[i, 1], 28, NRPalette.Text, TextAlignmentOptions.MidlineLeft);
 			d.gameObject.AddComponent<LayoutElement>().flexibleWidth = 1;
 		}
 	}

@@ -63,6 +63,7 @@ public class MonsterAI : MonoBehaviour
         var p = FindObjectOfType<Player>();
         if (p != null) { player = p.transform; playerScript = p; }
         rb = GetComponent<Rigidbody2D>();
+        if (rb != null) { rb.mass = 1000f; rb.freezeRotation = true; } // [NR] 플레이어가 보스를 밀 수 없도록
         hp = GetComponent<MonsterHP>();
         sr = GetComponent<SpriteRenderer>();
     }

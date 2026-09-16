@@ -40,6 +40,15 @@ public class NRSaveData
 	// 튜토리얼 안내 1회 표시용
 	public bool seenMirrorTip;
 	public bool seenAugmentTip;
+	public bool seenDashTip;
+	public bool seenTownTip;
+
+	// 첫 실행 설정 (조작 방식 / 캐릭터)
+	public bool setupDone;
+	public int hero;              // 0 근접, 1 원거리
+
+	// NPC별로 현재 대화 세트를 끝까지 본 시점의 죽은 횟수 (-1 = 아직 다 안 봄)
+	public int[] talkSeenAtDeath = new int[] { -1, -1, -1, -1 };
 }
 
 public static class NRSave
@@ -89,6 +98,12 @@ public static class NRSave
 			Data.talkSaveNums = arr;
 		}
 		if (Data.upgrades == null) Data.upgrades = new List<NRUpgradeLevel>();
+		if (Data.talkSeenAtDeath == null || Data.talkSeenAtDeath.Length < 4)
+		{
+			var arr = new int[] { -1, -1, -1, -1 };
+			if (Data.talkSeenAtDeath != null) System.Array.Copy(Data.talkSeenAtDeath, arr, Data.talkSeenAtDeath.Length);
+			Data.talkSeenAtDeath = arr;
+		}
 		Data.deadCount = Mathf.Max(0, Data.deadCount);
 		Data.crystals = Mathf.Max(0, Data.crystals);
 	}
@@ -166,7 +181,11 @@ public static class NRSave
 
 	public static void ResetProgress()
 	{
+		bool setup = Data.setupDone;
+		int hero = Data.hero;
 		Data = new NRSaveData();
+		Data.setupDone = setup;
+		Data.hero = hero;
 		Sanitize();
 		PushToGame();
 		Save();

@@ -15,6 +15,15 @@ public static class NRSettings
 	const string KeyShake = "nr.shake";
 	const string KeyDmgNum = "nr.dmgnum";
 	const string KeyHints = "nr.hints";
+	const string KeyControls = "nr.controls";
+
+	/// <summary>0: 기본(WASD/좌클릭/우클릭/Space/R/E)  1: LoL식(우클릭 이동/Q/W/E/R/F)</summary>
+	public static int ControlScheme
+	{
+		get => Mathf.Clamp(PlayerPrefs.GetInt(KeyControls, 0), 0, 1);
+		set { PlayerPrefs.SetInt(KeyControls, Mathf.Clamp(value, 0, 1)); PlayerPrefs.Save(); }
+	}
+	public static readonly string[] ControlSchemeNames = { "기본 (WASD + 마우스)", "LoL식 (우클릭 이동 + QWER)" };
 
 	public static readonly string[] ModeNames = { "전체 화면", "테두리 없는 창", "창 모드" };
 	public static readonly int[] FpsOptions = { 30, 60, 120, 144, 240, -1 };

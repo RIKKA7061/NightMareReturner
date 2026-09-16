@@ -144,6 +144,10 @@ public class ParsingManager : MonoBehaviour
 
 	public TalkManager talkManager;
 
+	/// <summary>[NR] 해당 대화 번호가 있는지</summary>
+	public bool HasDialog(int num) => dialog.ContainsKey(num);
+	public bool IsLoaded => dialog.Count > 0;
+
 	public string[] GetDialogPlz(int DialogNum,_Object obj)
 	{
 		if (dialog.ContainsKey(DialogNum))

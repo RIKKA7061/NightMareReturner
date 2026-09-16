@@ -60,7 +60,7 @@ public class NRCombatFX : MonoBehaviour
 			t.alignment = TextAlignmentOptions.Center;
 			t.enableWordWrapping = false;
 			t.rectTransform.sizeDelta = new Vector2(6, 2);
-			t.sortingOrder = 500;
+			NRSort.Set(t.GetComponent<MeshRenderer>(), NRSort.Top, 500);
 		}
 		t.gameObject.SetActive(true);
 		t.text = s;
@@ -176,7 +176,7 @@ public class NRCombatFX : MonoBehaviour
 				go.transform.SetParent(transform, false);
 				sr = go.AddComponent<SpriteRenderer>();
 				sr.sprite = NRSprites.White;
-				sr.sortingOrder = 450;
+				NRSort.Set(sr, NRSort.Top, 450);
 			}
 			sr.gameObject.SetActive(true);
 			sr.color = i % 3 == 0 ? Color.white : color;
@@ -240,6 +240,35 @@ public class NRCombatFX : MonoBehaviour
 			flashCounts.Remove(sr);
 			originalColors.Remove(sr);
 		}
+	}
+
+	// ---- 근접 콤보 베기 궤적 ----
+	public static void Slash(Vector3 pos, bool left, int comboStep)
+	{
+		Inst.StartCoroutine(Inst.SlashRoutine(pos, left, comboStep));
+	}
+
+	IEnumerator SlashRoutine(Vector3 pos, bool left, int step)
+	{
+		var go = new GameObject("NR Slash");
+		var sr = go.AddComponent<SpriteRenderer>();
+		sr.sprite = NRSprites.Slash;
+		Color col = step == 2 ? NRPalette.Gold : step == 1 ? NRPalette.Pink : NRPalette.Cyan;
+		NRSort.Set(sr, NRSort.Player, 30);
+		float dir = left ? -1f : 1f;
+		float size = step == 2 ? 1.7f : 1.05f;
+		go.transform.position = pos + new Vector3(dir * 0.35f, 0, 0);
+		go.transform.localScale = new Vector3(dir * size, size * (step == 1 ? -1f : 1f), 1f);
+		float t = 0f, dur = step == 2 ? 0.22f : 0.14f;
+		while (t < dur)
+		{
+			t += Time.unscaledDeltaTime;
+			float k = t / dur;
+			sr.color = col.WithAlpha(1f - k);
+			go.transform.rotation = Quaternion.Euler(0, 0, dir * Mathf.Lerp(25f, -25f, k));
+			yield return null;
+		}
+		Destroy(go);
 	}
 
 	// ---- 구르기 잔상 ----
@@ -307,7 +336,7 @@ public class NRTelegraph : MonoBehaviour
 		tg.edge = go.AddComponent<SpriteRenderer>();
 		tg.edge.sprite = NRSprites.Disc;
 		tg.edge.color = color.WithAlpha(0.55f);
-		tg.edge.sortingOrder = 30;
+		NRSort.Set(tg.edge, NRSort.Floor, 30);
 		go.transform.localScale = Vector3.one * radius * 2f;
 
 		var inner = new GameObject("Fill");
@@ -315,7 +344,7 @@ public class NRTelegraph : MonoBehaviour
 		tg.fill = inner.AddComponent<SpriteRenderer>();
 		tg.fill.sprite = NRSprites.Disc;
 		tg.fill.color = color.WithAlpha(0.5f);
-		tg.fill.sortingOrder = 31;
+		NRSort.Set(tg.fill, NRSort.Floor, 31);
 		inner.transform.localScale = Vector3.zero;
 		return tg;
 	}
@@ -338,7 +367,7 @@ public class NRTelegraph : MonoBehaviour
 		tg.edge = edgeGo.AddComponent<SpriteRenderer>();
 		tg.edge.sprite = NRSprites.White;
 		tg.edge.color = color.WithAlpha(0.22f);
-		tg.edge.sortingOrder = 30;
+		NRSort.Set(tg.edge, NRSort.Floor, 30);
 
 		var fillGo = new GameObject("Fill");
 		fillGo.transform.SetParent(go.transform, false);
@@ -347,7 +376,7 @@ public class NRTelegraph : MonoBehaviour
 		tg.fill = fillGo.AddComponent<SpriteRenderer>();
 		tg.fill.sprite = NRSprites.White;
 		tg.fill.color = color.WithAlpha(0.45f);
-		tg.fill.sortingOrder = 31;
+		NRSort.Set(tg.fill, NRSort.Floor, 31);
 		tg.lineLength = length;
 		tg.lineWidth = width;
 		return tg;

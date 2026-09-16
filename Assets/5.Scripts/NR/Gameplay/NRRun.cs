@@ -65,7 +65,9 @@ public static class NRRun
 		Transitioning = false;
 		NRAugments.ResetRun();
 		NRStats.ResetRun(p);
+		NRHero.ApplyRunStats(p);
 		NRWaves.Cancel();
+		NRFloorMap.Restore();
 		RestockShop();
 		originalTilemapColors.Clear();
 		lastAppliedTintFloor = -1;
@@ -100,6 +102,8 @@ public static class NRRun
 		NRSave.MarkDirty();
 		if (NRMeta.StartMoney > 0) Player.Money += NRMeta.StartMoney;
 		ShowFloorBanner();
+		if (!NRSave.Data.seenDashTip)
+			NRUIRoot.ToastMsg(NRControls.IsDefault ? "구르기: 방향키(WASD)를 누른 채 Space — 구르는 동안 공격을 피합니다" : "구르기: E (마우스 방향) — 구르는 동안 공격을 피합니다", NRPalette.Anxiety, 5f);
 	}
 
 	public static void ShowFloorBanner()
@@ -214,6 +218,8 @@ public static class NRRun
 		Floor = Mathf.Min(MaxFloor, Floor + 1);
 		if (NRStats.LastStandPct > 0f) NRStats.LastStandLeft = 1;
 
+		NRFloorMap.Enter(Floor); // 2·3계층 전용 맵으로 방 좌표 이동
+
 		if (player != null)
 		{
 			NRStats.HealPlayer(player.maxHP * NRMeta.FloorHealPct, true);
@@ -264,6 +270,7 @@ public static class NRRun
 		Color tint = inDungeon ? Current.tint : Color.white;
 		foreach (var tm in Object.FindObjectsOfType<Tilemap>())
 		{
+			if (NRFloorMap.IsGenerated(tm)) continue; // 전용 맵은 자체 색 유지
 			if (!originalTilemapColors.ContainsKey(tm)) originalTilemapColors[tm] = tm.color;
 			var o = originalTilemapColors[tm];
 			tm.color = new Color(o.r * tint.r, o.g * tint.g, o.b * tint.b, o.a);
@@ -271,8 +278,23 @@ public static class NRRun
 		NRHud.SetVignette(inDungeon ? Current.vignette : new Color(0.1f, 0.05f, 0.2f, 0.3f));
 	}
 
+	/// <summary>2계층 이상: 방 정리 보상으로 증강 선택</summary>
+	public static void RoomAugmentReward()
+	{
+		NRGame.Run(RoomAugmentRoutine());
+	}
+
+	static IEnumerator RoomAugmentRoutine()
+	{
+		yield return new WaitForSecondsRealtime(1.0f);
+		var p = NRStats.Player;
+		if (p == null || p.isDead || Transitioning) yield break;
+		NRAugmentSelect.Show(null, false, "방 정리 보상", null);
+	}
+
 	public static void RestockShop()
 	{
+		NRShop.Restock();
 		foreach (var shop in Object.FindObjectsOfType<ShopManager>(true)) shop.Restock();
 	}
 

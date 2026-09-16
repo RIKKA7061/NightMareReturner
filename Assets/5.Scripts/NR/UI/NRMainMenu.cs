@@ -73,7 +73,12 @@ public class NRMainMenu : MonoBehaviour
 		v.childAlignment = TextAnchor.LowerCenter;
 
 		string startLabel = NRSave.HasProgress ? "악몽으로 돌아가기" : "게임 시작";
-		startButton = NRUI.Button(panel, startLabel, () => NRSceneFlow.LoadScene(NRGame.SceneDungeon), new Vector2(460, 84), 38);
+		startButton = NRUI.Button(panel, startLabel, () =>
+		{
+			// 첫 실행: 조작 방식 + 캐릭터 선택 후 시작
+			if (!NRSave.Data.setupDone) NRSetupWizard.Show(true, () => NRSceneFlow.LoadScene(NRGame.SceneDungeon));
+			else NRSceneFlow.LoadScene(NRGame.SceneDungeon);
+		}, new Vector2(460, 84), 38);
 		NRUI.Button(panel, "설정", () => settingsRoot.gameObject.SetActive(true), new Vector2(460, 72), 32);
 		NRUI.Button(panel, "크레딧", () => NRCredits.Play(false, () => NRUIRoot.Instance.Fade(0f, 0.6f)), new Vector2(460, 72), 32);
 		NRUI.Button(panel, "게임 종료", NRSceneFlow.Quit, new Vector2(460, 72), 32);

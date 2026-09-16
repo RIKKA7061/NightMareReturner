@@ -241,7 +241,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         // 죽은 상태에서 스페이스바를 누르면 부활 처리 // #####################
-        if (isDead && Input.GetKeyDown(KeyCode.Space))
+        if (isDead && NRDeathScreen.ReadyToRespawn && Input.GetKeyDown(KeyCode.Space)) // [NR] 사망 화면이 뜬 뒤에만
         {
             RespawnPlayer();
             Debug.Log("스페이스 바 누름");

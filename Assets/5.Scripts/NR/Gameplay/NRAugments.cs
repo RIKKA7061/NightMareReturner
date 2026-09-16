@@ -156,7 +156,7 @@ public static class NRAugments
 		new NRAugmentDef { id = "a_speed", name = "초조한 발걸음", family = NRFamily.Anxiety, icon = 12,
 			format = "이동 속도 +{0}%", baseValue = 12, perLevel = 5, cap = 60, aggregate = v => NRStats.MoveSpeedPct += v / 100f },
 		new NRAugmentDef { id = "a_dash", name = "공황 질주", family = NRFamily.Anxiety, icon = 13,
-			format = "구르기 재사용 대기 -{0}%, 구르는 동안 무적", baseValue = 25, perLevel = 8, cap = 70,
+			format = "구르기 재사용 대기 -{0}%, 구르기 후 무적 시간 증가", baseValue = 25, perLevel = 8, cap = 70,
 			aggregate = v => { NRStats.DashCdPct += v / 100f; NRStats.DashInvuln = true; } },
 		new NRAugmentDef { id = "a_crit", name = "신경과민", family = NRFamily.Anxiety, icon = 14,
 			format = "치명타 확률 +{0}% (치명타 피해 2배)", baseValue = 10, perLevel = 4, cap = 60, aggregate = v => NRStats.CritChance += v / 100f },
