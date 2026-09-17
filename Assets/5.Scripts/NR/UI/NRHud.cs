@@ -253,7 +253,8 @@ public class NRHud : MonoBehaviour
 		NRUI.Place(objectiveBody.rectTransform, new Vector2(0, 1), new Vector2(24, -52), new Vector2(712, 90), new Vector2(0, 1));
 		objectiveNew = NRUI.Label(objectiveCard, "새 목표", 22, NRPalette.Bg0, TextAlignmentOptions.Center, NRTextFx.None);
 		var newBg = NRUI.Image(objectiveCard, "NewTag", NRSprites.Frame(NRPalette.Pink, NRPalette.Pink, Color.white.WithAlpha(0.6f), NRPalette.Bg0), Color.white);
-		NRUI.Place(newBg.rectTransform, new Vector2(0, 1), new Vector2(-10, 14), new Vector2(110, 38), new Vector2(0, 1));
+		// 카드 바깥 위쪽으로 완전히 빼서 제목·본문을 가리지 않게
+		NRUI.Place(newBg.rectTransform, new Vector2(0, 1), new Vector2(-10, 46), new Vector2(110, 38), new Vector2(0, 1));
 		objectiveNew.transform.SetParent(newBg.transform, false);
 		NRUI.Stretch(objectiveNew.rectTransform);
 		newBg.gameObject.SetActive(false);
