@@ -156,10 +156,9 @@ public class NRRangedAvatar : MonoBehaviour
 		if (baseRenderer != null && sr != null)
 		{
 			// 발 위치: 그림 경계는 아래 여백이 커서(128px 중 32px) 한참 아래로 내려간다.
-			// 클릭 지점(기준점) 바로 아래, 발밑 빛과 같은 높이에 발을 둔다.
-			var ls = transform.lossyScale;
-			sr.transform.localScale = new Vector3(1f / Mathf.Max(0.001f, Mathf.Abs(ls.x)), 1f / Mathf.Max(0.001f, Mathf.Abs(ls.y)), 1f);
-			sr.transform.localPosition = new Vector3(0, NRPlayerFX.GroundOffset / Mathf.Max(0.001f, Mathf.Abs(ls.y)), 0);
+			// 발밑 빛과 같은 높이에 발을 둔다. 거리 씬은 플레이어가 1.69배라 크기·높이 모두 부모를 따라간다.
+			sr.transform.localScale = Vector3.one;
+			sr.transform.localPosition = new Vector3(0, NRPlayerFX.GroundOffset, 0);
 			baseRenderer.color = baseRenderer.color.WithAlpha(0f);
 			sr.enabled = true;
 		}
