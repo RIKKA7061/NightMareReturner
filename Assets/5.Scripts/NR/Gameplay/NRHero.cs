@@ -155,12 +155,13 @@ public class NRRangedAvatar : MonoBehaviour
 	{
 		if (baseRenderer != null && sr != null)
 		{
-			// 발 위치 맞추기
-			float feet = baseRenderer.bounds.min.y;
+			// 발 위치 맞추기. 기존 플레이어 그림은 프레임 아래쪽 여백이 커서(128px 중 32px)
+			// 그림 경계를 기준으로 삼으면 한 몸 가까이 아래로 내려간다 → 몸 콜라이더 바닥을 기준으로.
+			float feet = BodyBottom();
 			var ls = transform.lossyScale;
 			sr.transform.localScale = new Vector3(1f / Mathf.Max(0.001f, Mathf.Abs(ls.x)), 1f / Mathf.Max(0.001f, Mathf.Abs(ls.y)), 1f);
 			float offset = feet - transform.position.y;
-			if (baseRenderer.sprite != null && Mathf.Abs(offset) < 3f)
+			if (Mathf.Abs(offset) < 3f)
 				sr.transform.localPosition = new Vector3(0, offset / Mathf.Max(0.001f, ls.y), 0);
 			baseRenderer.color = baseRenderer.color.WithAlpha(0f);
 			sr.enabled = true;
@@ -172,6 +173,14 @@ public class NRRangedAvatar : MonoBehaviour
 	{
 		if (baseRenderer != null) baseRenderer.color = baseRenderer.color.WithAlpha(1f);
 		if (sr != null) sr.enabled = false;
+	}
+
+	/// <summary>몸 콜라이더(트리거 제외) 바닥 = 실제로 서 있는 높이</summary>
+	float BodyBottom()
+	{
+		foreach (var c in GetComponents<Collider2D>())
+			if (!c.isTrigger) return c.bounds.min.y;
+		return baseRenderer != null ? baseRenderer.bounds.min.y : transform.position.y;
 	}
 
 	void LateUpdate()
