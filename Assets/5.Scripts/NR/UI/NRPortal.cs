@@ -196,11 +196,13 @@ public class NRWaypoint
 	public string label;
 	public Color color;
 	public System.Func<bool> active;
+	/// <summary>클수록 먼저 화살표를 받는다. 1 이상은 거리 제한도 받지 않음 (상점·보스)</summary>
+	public int priority;
 
-	public static NRWaypoint Add(Transform target, string label, Color color, System.Func<bool> active = null)
+	public static NRWaypoint Add(Transform target, string label, Color color, System.Func<bool> active = null, int priority = 0)
 	{
 		All.RemoveAll(w => w.target == null || w.target == target);
-		var w = new NRWaypoint { target = target, label = label, color = color, active = active };
+		var w = new NRWaypoint { target = target, label = label, color = color, active = active, priority = priority };
 		All.Add(w);
 		return w;
 	}

@@ -382,7 +382,9 @@ public class NRInteractableScanner : MonoBehaviour
 		it.showRadius = 6f;
 		it.Attention(3f);
 		int over = OverRoom;
-		if (bossTp) NRWaypoint.Add(tp.transform, label, color, () => Player.gameRound == over + 1);
+		bool store = n.Contains("store");
+		if (bossTp) NRWaypoint.Add(tp.transform, label, color, () => Player.gameRound == over + 1, 2);
+		else if (store) NRWaypoint.Add(tp.transform, label, color, null, 2);
 		else if (classPortal) NRWaypoint.Add(tp.transform, label, color, () => Player.gameRound == 1 && Player.round >= 1);
 		else NRWaypoint.Add(tp.transform, label, color);
 	}

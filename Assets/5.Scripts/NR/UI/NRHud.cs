@@ -96,6 +96,7 @@ public class NRHud : MonoBehaviour
 	readonly List<Image> arrows = new List<Image>();
 	class Waymark { public RectTransform root; public Image arrow; public TextMeshProUGUI label; }
 	readonly List<Waymark> waymarks = new List<Waymark>();
+	readonly List<NRWaypoint> waypointOrder = new List<NRWaypoint>();
 
 	public static void Create(bool dungeonScene)
 	{
@@ -622,11 +623,20 @@ public class NRHud : MonoBehaviour
 			// 목적지 (문/포탈/구슬/상인) — 전투 중이 아닐 때
 			if (!NRWaves.RoomActive)
 			{
-				foreach (var w in NRWaypoint.All)
+				// 표시 자리가 6개뿐이라 중요한 것(상점·보스) 먼저, 그다음 가까운 순
+				waypointOrder.Clear();
+				foreach (var w in NRWaypoint.All) if (w.IsActive) waypointOrder.Add(w);
+				Vector2 from = player.transform.position;
+				waypointOrder.Sort((a, b) =>
+				{
+					int p = b.priority.CompareTo(a.priority);
+					if (p != 0) return p;
+					return Vector2.Distance(a.target.position, from).CompareTo(Vector2.Distance(b.target.position, from));
+				});
+				foreach (var w in waypointOrder)
 				{
 					if (usedMarks >= waymarks.Count) break;
-					if (!w.IsActive) continue;
-					if (Vector2.Distance(w.target.position, player.transform.position) > 45f) continue;
+					if (w.priority == 0 && Vector2.Distance(w.target.position, from) > 45f) continue;
 					if (!EdgePosition(cam, w.target.position, out var pos, out var ang)) continue;
 					var m = waymarks[usedMarks++];
 					m.root.gameObject.SetActive(true);
