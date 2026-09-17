@@ -118,6 +118,7 @@ public abstract class NREnemy : MonoBehaviour, INRDamageable
 
 	protected virtual void Update()
 	{
+		RescueIfStranded();
 		if (IsDead) return;
 		if (player != null && player.EnmeyDown)
 		{
@@ -142,6 +143,28 @@ public abstract class NREnemy : MonoBehaviour, INRDamageable
 		Vector2 moved = AvoidWalls(dir);
 		rb.velocity = moved * moveSpeed * speedScale * SpeedMul;
 		if (Mathf.Abs(dir.x) > 0.05f) Face(dir.x);
+	}
+
+	// ---- 벽 밖에 갇힌 적 구조 ----
+	float strandedSince;
+	Vector2 strandedFrom;
+
+	/// <summary>벽 너머에 나와 때릴 수도, 다가올 수도 없는 적은 방이 끝나지 않으므로 플레이어 근처로 옮긴다.</summary>
+	void RescueIfStranded()
+	{
+		if (IsDead || player == null || !NRWaves.RoomActive) return;
+		if (HasLineOfSight(Center, PlayerPos)) { strandedSince = 0f; return; }
+		if (strandedSince == 0f) { strandedSince = Time.time; strandedFrom = Center; return; }
+		if (Time.time - strandedSince < 6f) return;
+
+		// 6초 동안 벽에 막힌 채 거의 움직이지도 못했다면 갇힌 것으로 본다 (모퉁이 추격과 구분)
+		if (Vector2.Distance(Center, strandedFrom) > 1.5f) { strandedSince = 0f; return; }
+		strandedSince = 0f;
+		Vector2 spot = NRWaves.FreeSpotNearPlayer(Center);
+		if (spot == Center) return;
+		NRTelegraph.Circle(spot, 0.7f, 0.35f, accent);
+		transform.position = spot + (Vector2)(transform.position - (Vector3)Center);
+		rb.velocity = Vector2.zero;
 	}
 
 	// ---- 벽 피하기 ----

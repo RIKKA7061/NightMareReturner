@@ -186,13 +186,44 @@ public static class NRWaves
 			int idx = Mathf.Clamp(baseIndex + (i % 5), 0, spawner.EnemySpawnPos.Length - 1);
 			if (spawner.EnemySpawnPos[idx] != null) basePos = spawner.EnemySpawnPos[idx].position + new Vector3(spawner.spawnOffset, 0, 0);
 		}
-		if (i < 5 && IsFree(basePos)) return basePos;
+		if (i < 5 && IsFree(basePos) && Reachable(basePos)) return basePos;
+		// 벽 너머에 나오면 때릴 수 없어 방이 안 끝나므로, 플레이어와 벽으로 막히지 않은 자리를 먼저 찾는다
+		for (int attempt = 0; attempt < 12; attempt++)
+		{
+			Vector3 cand = basePos + (Vector3)(Random.insideUnitCircle * 1.6f);
+			if (IsFree(cand) && Reachable(cand)) return cand;
+		}
 		for (int attempt = 0; attempt < 12; attempt++)
 		{
 			Vector3 cand = basePos + (Vector3)(Random.insideUnitCircle * 1.6f);
 			if (IsFree(cand)) return cand;
 		}
 		return basePos;
+	}
+
+	/// <summary>플레이어와 벽으로 막혀 있지 않은 자리인지</summary>
+	public static bool Reachable(Vector2 pos)
+	{
+		var p = Object.FindObjectOfType<Player>();
+		if (p == null) return true;
+		var hit = Physics2D.Linecast(pos, p.transform.position, LayerMask.GetMask("Default"));
+		return hit.collider == null || hit.collider.isTrigger;
+	}
+
+	/// <summary>플레이어 근처에서 벽에 막히지 않은 빈 자리 (벽 밖에 갇힌 적 구조용)</summary>
+	public static Vector2 FreeSpotNearPlayer(Vector2 fallback)
+	{
+		var p = Object.FindObjectOfType<Player>();
+		if (p == null) return fallback;
+		Vector2 center = p.transform.position;
+		for (int attempt = 0; attempt < 24; attempt++)
+		{
+			float angle = Random.value * Mathf.PI * 2f;
+			float dist = Random.Range(2.5f, 5f);
+			Vector2 cand = center + new Vector2(Mathf.Cos(angle), Mathf.Sin(angle) * 0.6f) * dist;
+			if (IsFree(cand) && Reachable(cand)) return cand;
+		}
+		return fallback;
 	}
 
 	/// <summary>벽(비트리거 콜라이더)과 겹치지 않는 위치인지</summary>
