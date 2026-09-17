@@ -5,6 +5,9 @@ using UnityEngine;
 // ============================================================================
 public class NRPlayerFX : MonoBehaviour
 {
+	/// <summary>플레이어 기준점에서 발이 닿는 높이 (발밑 빛 · 원거리 캐릭터 그림이 공유)</summary>
+	public const float GroundOffset = -0.45f;
+
 	Player player;
 	SpriteRenderer sr;
 	SpriteRenderer shieldAura;
@@ -34,7 +37,7 @@ public class NRPlayerFX : MonoBehaviour
 
 		var shadow = new GameObject("NR Foot Glow");
 		shadow.transform.SetParent(transform, false);
-		shadow.transform.localPosition = new Vector3(0, -0.45f, 0);
+		shadow.transform.localPosition = new Vector3(0, GroundOffset, 0);
 		footShadow = shadow.AddComponent<SpriteRenderer>();
 		footShadow.sprite = NRSprites.Glow;
 		NRSort.Set(footShadow, NRSort.Floor, 10);
