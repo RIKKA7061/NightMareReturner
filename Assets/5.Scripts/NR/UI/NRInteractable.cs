@@ -307,11 +307,8 @@ public class NRInteractableScanner : MonoBehaviour
 	{
 		string raw = tp.gameObject.name;
 		string n = raw.ToLowerInvariant();
-		bool generatedDoor = raw.StartsWith("NRDoor_");
-		bool storeClone = n.Contains("store") && n.Contains("(clone)");
 		bool bossTp = raw == "ToTheBossRoomTP" || tp.isBossTP;
 		bool classPortal = raw == "portal";
-		if (!(generatedDoor || storeClone || bossTp || classPortal)) return;
 
 		NRPortalVisual.Attach(tp.gameObject, NRPortalVisual.RewardFromName(n, tp.isBossTP), color);
 		it.showRadius = 6f;

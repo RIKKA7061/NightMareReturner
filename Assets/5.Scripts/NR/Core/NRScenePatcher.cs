@@ -76,7 +76,7 @@ public static class NRScenePatcher
 		var desk = NRUtil.FindInScene(scene, "desk");
 		if (desk != null)
 		{
-			var dit = NRInteractable.Attach(desk.gameObject, "책상", "캐릭터 · 조작 방식 변경", NRPalette.Gold, "클릭 / E");
+			var dit = NRInteractable.Attach(desk.gameObject, "책상", "변경", NRPalette.Gold, "클릭 / E");
 			dit.onInteract = () => NRSetupWizard.Show(false, null);
 			dit.requireHome = true;
 			dit.showRadius = 3.5f;
@@ -87,7 +87,7 @@ public static class NRScenePatcher
 		var shelf = NRUtil.FindInScene(scene, "bookShelf");
 		if (shelf != null)
 		{
-			var it = NRInteractable.Attach(shelf.gameObject, "기억의 책장", "악몽 결정으로 영구 강화", NRPalette.Cyan, "클릭 / E");
+			var it = NRInteractable.Attach(shelf.gameObject, "기억의 책장", "영구 강화", NRPalette.Cyan, "클릭 / E");
 			it.onInteract = NRMirror.Show;
 			it.requireHome = true;
 			it.showRadius = 3.5f;
@@ -155,7 +155,11 @@ public static class NRScenePatcher
 		{
 			var t = NRUtil.FindInScene(scene, name);
 			if (t == null) continue;
-			foreach (var col in t.GetComponentsInChildren<Collider2D>(true)) col.enabled = false;
+			foreach (var col in t.GetComponentsInChildren<Collider2D>(true))
+			{
+				if (col is TilemapCollider2D tc) tc.usedByComposite = false;
+				col.enabled = false;
+			}
 			var rb = t.GetComponent<Rigidbody2D>();
 			if (rb != null) rb.simulated = false;
 		}
