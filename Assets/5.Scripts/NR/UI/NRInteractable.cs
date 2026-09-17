@@ -283,8 +283,10 @@ public class NRInteractableScanner : MonoBehaviour
 		{
 			if (tp.GetComponent<NRInteractable>() != null || tp.isCarTP) continue;
 			Describe(tp, out string label, out string sub, out Color color);
-			var it = NRInteractable.Attach(tp.gameObject, label, sub, color, "이동");
-			DecoratePortal(tp, it, label, color);
+			bool bed = tp.gameObject.name.ToLowerInvariant().Contains("bed");
+			var it = NRInteractable.Attach(tp.gameObject, label, sub, color, bed ? "클릭 / E" : "이동");
+			if (bed) MakeBedClickable(tp, it);
+			else DecoratePortal(tp, it, label, color);
 		}
 		foreach (var sc in FindObjectsOfType<SceneChangeOnCollision>())
 		{
@@ -352,6 +354,21 @@ public class NRInteractableScanner : MonoBehaviour
 		}
 		var act = player.GetComponent<PlayerAction>();
 		if (act != null) act.StartTalkWith(npc);
+	}
+
+	/// <summary>집 침대: 그림은 그대로 두고, 부딪혀서가 아니라 클릭(또는 E)으로만 악몽에 들어간다.</summary>
+	static void MakeBedClickable(teleport tp, NRInteractable it)
+	{
+		foreach (var col in tp.GetComponents<Collider2D>()) col.enabled = false;
+		it.showRadius = 5f;
+		it.interactRadius = 2f;
+		it.onInteract = () =>
+		{
+			var p = FindObjectOfType<Player>();
+			var pc = p != null ? p.GetComponent<Collider2D>() : null;
+			if (pc != null) tp.MovePlayer(pc);
+		};
+		NRWaypoint.Add(tp.transform, "침대", NRPalette.Anxiety);
 	}
 
 	static void DecoratePortal(teleport tp, NRInteractable it, string label, Color color)

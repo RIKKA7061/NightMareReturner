@@ -35,7 +35,7 @@ public class QuestManager : MonoBehaviour
 		// 거리 씬에서도 Player.Start가 House()를 호출하므로 거리 목표로 대체
 		if (NRGame.Instance != null && NRGame.Instance.CurrentScene == NRGame.SceneTown) { Town(); return; }
 		Show("꿈속으로",
-			"포탈을 향해 이동하면 악몽 속 결투가 시작됩니다.\n현관문을 클릭하면 거리로 나갈 수 있습니다.\n책장에서 악몽 결정으로 영구 강화를 할 수 있습니다.\n책상에서 조작 방식과 캐릭터를 바꿀 수 있습니다.",
+			"침대를 클릭하면 악몽 속 결투가 시작됩니다.\n현관문을 클릭하면 거리로 나갈 수 있습니다.\n책장에서 악몽 결정으로 영구 강화를 할 수 있습니다.\n책상에서 조작 방식과 캐릭터를 바꿀 수 있습니다.",
 			"꿈속 결투: 침대에 다가가세요.\n밖에서의 대화: 문을 클릭하시오.");
 	}
 	public void UpdtTxt(string s)
