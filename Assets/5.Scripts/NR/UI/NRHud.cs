@@ -647,8 +647,9 @@ public class NRHud : MonoBehaviour
 					m.arrow.color = w.color.WithAlpha(pulse);
 					m.label.text = w.label;
 					m.label.color = w.color;
-					// 이름표는 화면 안쪽으로
-					Vector2 inward = -pos.normalized * 56f;
+					// 이름표는 화면 안쪽으로. 화살표(40x66)를 가리지 않게 방향별로 충분히 띄운다
+					Vector2 dir = pos.normalized;
+					Vector2 inward = -dir * (Mathf.Abs(dir.x) > Mathf.Abs(dir.y) ? 150f : 70f);
 					m.label.rectTransform.anchoredPosition = inward;
 				}
 			}

@@ -89,6 +89,8 @@ public class NRRangedAvatar : MonoBehaviour
 {
 	const string Sheet = "NR/Sprites/Hero/gunslinger";
 	const float Ppu = 23f;
+	/// <summary>기준점에서 발이 닿는 높이 (기존 근접 캐릭터 그림의 발 위치와 같게)</summary>
+	const float FeetOffset = -0.9f;
 
 	Player player;
 	PlayerAction action;
@@ -158,7 +160,7 @@ public class NRRangedAvatar : MonoBehaviour
 			// 발 위치: 그림 경계는 아래 여백이 커서(128px 중 32px) 한참 아래로 내려간다.
 			// 발밑 빛과 같은 높이에 발을 둔다. 거리 씬은 플레이어가 1.69배라 크기·높이 모두 부모를 따라간다.
 			sr.transform.localScale = Vector3.one;
-			sr.transform.localPosition = new Vector3(0, NRPlayerFX.GroundOffset, 0);
+			sr.transform.localPosition = new Vector3(0, FeetOffset, 0);
 			baseRenderer.color = baseRenderer.color.WithAlpha(0f);
 			sr.enabled = true;
 		}
