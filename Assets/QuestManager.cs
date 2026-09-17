@@ -45,7 +45,7 @@ public class QuestManager : MonoBehaviour
 	public static void ReadyRoomZero()
 	{
 		Show("감정의 각성",
-			"클래스 구슬에 다가가 각성하세요.\n그다음 보라색 회오리 문으로 이동합니다.",
+			"감정 구슬 4개 중 하나를 골라 각성하세요. (클릭 또는 가까이서 E)\n그다음 보라색 회오리 문으로 이동합니다.",
 			"클래스 구슬에 다가가서 각성하시오.\n그다음, 보라색 회오리가 있는 문을 향해 다가거나 클릭하세요.");
 	}
 

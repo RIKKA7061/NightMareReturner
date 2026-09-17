@@ -303,11 +303,11 @@ public class NRInteractableScanner : MonoBehaviour
 		}
 		foreach (var item in FindObjectsOfType<TouchItems>())
 		{
+			if (item.isClass) { NRAwakening.Setup(item); continue; } // 각성 구슬 4개로 교체
 			if (item.GetComponent<NRInteractable>() != null) continue;
 			string label, sub = "";
 			Color color = NRPalette.Cyan;
-			if (item.isClass) { label = "클래스 구슬"; sub = "다가가서 먹으면 각성합니다"; color = NRPalette.Will; }
-			else if (item.Round > 0) { label = "감정의 구슬"; sub = "증강 선택"; color = NRPalette.Anxiety; }
+			if (item.Round > 0) { label = "감정의 구슬"; sub = "증강 선택"; color = NRPalette.Anxiety; }
 			else if (item.AddAtk > 0) { label = "공격력 +" + item.AddAtk; color = NRPalette.Rage; }
 			else if (item.AddHp > 0) { label = "최대 체력 +" + item.AddHp; color = NRPalette.Crimson; }
 			else if (item.Heal > 0) { label = "체력 회복 +" + item.Heal; color = NRPalette.Green; }
@@ -316,16 +316,7 @@ public class NRInteractableScanner : MonoBehaviour
 			var it = NRInteractable.Attach(item.gameObject, label, sub, color, "획득");
 			it.showRadius = 6f;
 			NRPickupVisual.Attach(item, color);
-			if (item.isClass)
-			{
-				it.showRadius = 30f; // 각성의 방에서는 항상 표시
-				it.Attention(6f);
-				NRWaypoint.Add(item.transform, "클래스 구슬", NRPalette.Will, () => Player.gameRound == 1);
-			}
-			else
-			{
-				NRWaypoint.Add(item.transform, "보상", color);
-			}
+			NRWaypoint.Add(item.transform, "보상", color);
 		}
 		foreach (var npc in FindObjectsOfType<_Object>())
 		{
