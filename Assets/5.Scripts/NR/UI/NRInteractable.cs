@@ -24,6 +24,8 @@ public class NRInteractable : MonoBehaviour
 	public bool clickOnly;            // E 키로는 반응하지 않음 (NPC: PlayerAction이 E를 처리)
 	public bool useColliderBounds;    // 그림 대신 콜라이더 크기 기준 (말풍선 등 큰 자식 그림 무시)
 
+	static readonly List<NRInteractable> active = new List<NRInteractable>();
+
 	Transform visualRoot;
 	SpriteRenderer glow;
 	SpriteRenderer arrow;
@@ -49,6 +51,7 @@ public class NRInteractable : MonoBehaviour
 	{
 		born = Time.time;
 		player = FindObjectOfType<Player>();
+		active.Add(this);
 		ComputeBounds();
 
 		visualRoot = new GameObject("NR Interact FX").transform;
@@ -122,6 +125,23 @@ public class NRInteractable : MonoBehaviour
 		attentionUntil = Time.time + seconds;
 	}
 
+	/// <summary>플레이어에게 가장 가까운 이름표 하나를 고른다 (거리가 같으면 ID가 작은 쪽).</summary>
+	NRInteractable Closest(Vector3 myCenter)
+	{
+		if (player == null) return this;
+		Vector2 p = player.transform.position;
+		var best = this;
+		float bestDist = Vector2.Distance(p, myCenter);
+		foreach (var o in active)
+		{
+			if (o == null || o == this || !o.isActiveAndEnabled) continue;
+			if (o.visualRoot == null || !o.visualRoot.gameObject.activeSelf) continue;
+			float d = Vector2.Distance(p, o.bounds.center);
+			if (d < bestDist || (d == bestDist && o.GetInstanceID() < best.GetInstanceID())) { bestDist = d; best = o; }
+		}
+		return best;
+	}
+
 	void OnDisable()
 	{
 		if (visualRoot != null) visualRoot.gameObject.SetActive(false);
@@ -134,6 +154,7 @@ public class NRInteractable : MonoBehaviour
 
 	void OnDestroy()
 	{
+		active.Remove(this);
 		if (visualRoot != null) Destroy(visualRoot.gameObject);
 	}
 
@@ -184,10 +205,18 @@ public class NRInteractable : MonoBehaviour
 		text.transform.position = homeInside
 			? new Vector3(center.x, center.y - 0.15f, 0)
 			: new Vector3(center.x, bounds.max.y + 0.55f, 0);
-		text.fontSize = homeInside ? 2.6f : 3.2f;
-		string main = string.IsNullOrEmpty(hint) ? label : "<color=#" + NRPalette.ToHex(NRPalette.Cyan) + ">[" + hint + "]</color> " + label;
-		text.text = string.IsNullOrEmpty(sublabel) ? main : main + "\n<size=" + (homeInside ? "2" : "2.4") + "><color=#" + NRPalette.ToHex(NRPalette.TextDim) + ">" + sublabel + "</color></size>";
-		text.alpha = hints ? show : 0f;
+		// 집 안은 오브젝트가 붙어 있어 이름표가 겹치므로 한 줄·작은 글씨로 줄이고 가장 가까운 하나만 보여준다
+		text.fontSize = homeInside ? 2f : 3.2f;
+		if (homeInside)
+		{
+			text.text = label;
+		}
+		else
+		{
+			string main = string.IsNullOrEmpty(hint) ? label : "<color=#" + NRPalette.ToHex(NRPalette.Cyan) + ">[" + hint + "]</color> " + label;
+			text.text = string.IsNullOrEmpty(sublabel) ? main : main + "\n<size=2.4><color=#" + NRPalette.ToHex(NRPalette.TextDim) + ">" + sublabel + "</color></size>";
+		}
+		text.alpha = hints && (!homeInside || hover || Closest(center) == this) ? show : 0f;
 
 		// 직접 상호작용 (책장, NPC 클릭 등)
 		if (onInteract != null && !NRUIState.IsGameplayBlocked)

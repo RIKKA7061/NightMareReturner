@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
 // ============================================================================
@@ -76,7 +77,7 @@ public static class NRScenePatcher
 		var desk = NRUtil.FindInScene(scene, "desk");
 		if (desk != null)
 		{
-			var dit = NRInteractable.Attach(desk.gameObject, "책상", "변경", NRPalette.Gold, "클릭 / E");
+			var dit = NRInteractable.Attach(desk.gameObject, "책상", "캐릭터 · 조작 방식 변경", NRPalette.Gold, "클릭 / E");
 			dit.onInteract = () => NRSetupWizard.Show(false, null);
 			dit.requireHome = true;
 			dit.showRadius = 3.5f;
@@ -87,7 +88,7 @@ public static class NRScenePatcher
 		var shelf = NRUtil.FindInScene(scene, "bookShelf");
 		if (shelf != null)
 		{
-			var it = NRInteractable.Attach(shelf.gameObject, "기억의 책장", "영구 강화", NRPalette.Cyan, "클릭 / E");
+			var it = NRInteractable.Attach(shelf.gameObject, "기억의 책장", "악몽 결정으로 영구 강화", NRPalette.Cyan, "클릭 / E");
 			it.onInteract = NRMirror.Show;
 			it.requireHome = true;
 			it.showRadius = 3.5f;
@@ -146,8 +147,8 @@ public static class NRScenePatcher
 	}
 
 	/// <summary>
-	/// 항아리·꽃·고양이 기둥·촛대 같은 장식 타일(Deco / Daco2)은 길을 막지 않도록 충돌 해제.
-	/// 벽(Wall / Wall2 / wall3 / InvisibleWall)만 이동을 막는다.
+	/// 항아리·그루터기·기둥·촛대 같은 장식은 길을 막지 않도록 충돌 해제.
+	/// Deco / Daco2는 통째로 끄고, 장식이 벽 타일맵(Wall / Wall2)에 섞여 있는 칸은 타일 단위로 해제한다.
 	/// </summary>
 	static void DisablePropColliders(Scene scene)
 	{
@@ -155,14 +156,35 @@ public static class NRScenePatcher
 		{
 			var t = NRUtil.FindInScene(scene, name);
 			if (t == null) continue;
-			foreach (var col in t.GetComponentsInChildren<Collider2D>(true))
-			{
-				if (col is TilemapCollider2D tc) tc.usedByComposite = false;
-				col.enabled = false;
-			}
+			foreach (var col in t.GetComponentsInChildren<Collider2D>(true)) col.enabled = false;
 			var rb = t.GetComponent<Rigidbody2D>();
 			if (rb != null) rb.simulated = false;
 		}
+
+		foreach (var name in new[] { "Wall", "Wall2" })
+		{
+			var t = NRUtil.FindInScene(scene, name);
+			var map = t != null ? t.GetComponent<Tilemap>() : null;
+			if (map == null) continue;
+			int cleared = 0;
+			foreach (var cell in map.cellBounds.allPositionsWithin)
+			{
+				var tile = map.GetTile(cell);
+				if (tile == null || !IsPropTile(tile.name)) continue;
+				if (map.GetColliderType(cell) == Tile.ColliderType.None) continue;
+				map.SetColliderType(cell, Tile.ColliderType.None);
+				cleared++;
+			}
+			if (cleared == 0) continue;
+			var comp = t.GetComponent<CompositeCollider2D>();
+			if (comp != null) comp.GenerateGeometry();
+		}
+	}
+
+	/// <summary>벽 타일맵에 섞여 있는 장식 타일(항아리 prop004_*, 그루터기 prop005_*, 기둥 prop007_*, 촛대 prop006).</summary>
+	static bool IsPropTile(string n)
+	{
+		return n == "prop006" || n.StartsWith("prop004_") || n.StartsWith("prop005_") || n.StartsWith("prop007");
 	}
 
 	static void Hide(Transform root, string name)
