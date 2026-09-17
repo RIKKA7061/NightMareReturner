@@ -139,8 +139,55 @@ public abstract class NREnemy : MonoBehaviour, INRDamageable
 	{
 		if (Time.time < stunnedUntil) return; // 경직 중에는 넉백이 감속되도록 속도를 덮어쓰지 않음
 		if (dir.sqrMagnitude > 1f) dir.Normalize();
-		rb.velocity = dir * moveSpeed * speedScale * SpeedMul;
+		Vector2 moved = AvoidWalls(dir);
+		rb.velocity = moved * moveSpeed * speedScale * SpeedMul;
 		if (Mathf.Abs(dir.x) > 0.05f) Face(dir.x);
+	}
+
+	// ---- 벽 피하기 ----
+	static readonly RaycastHit2D[] steerHits = new RaycastHit2D[4];
+	int steerSide;
+	float steerUntil;
+
+	/// <summary>벽에 정면으로 밀착한 채 멈추지 않도록, 막히면 벽을 따라 비껴 간다.</summary>
+	Vector2 AvoidWalls(Vector2 dir)
+	{
+		if (dir.sqrMagnitude < 0.0001f || body == null) return dir;
+		float probe = Mathf.Max(0.5f, moveSpeed * 0.3f);
+		if (IsClear(dir, probe)) return dir;
+
+		if (steerSide == 0 || Time.time > steerUntil) steerSide = UnityEngine.Random.value < 0.5f ? 1 : -1;
+		for (int i = 0; i < 2; i++)
+		{
+			int side = i == 0 ? steerSide : -steerSide;
+			for (float angle = 30f; angle <= 120f; angle += 30f)
+			{
+				Vector2 candidate = Rotate(dir, angle * side);
+				if (!IsClear(candidate, probe)) continue;
+				steerSide = side;
+				steerUntil = Time.time + 0.7f; // 같은 방향으로 돌아 좌우로 떠는 것을 막음
+				return candidate;
+			}
+		}
+		return dir;
+	}
+
+	bool IsClear(Vector2 dir, float distance)
+	{
+		float radius = Mathf.Max(0.05f, body.bounds.extents.x * 0.85f);
+		int n = Physics2D.CircleCastNonAlloc(rb.position, radius, dir.normalized, steerHits, distance, LayerMask.GetMask("Default"));
+		for (int i = 0; i < n; i++)
+		{
+			var c = steerHits[i].collider;
+			if (c != null && !c.isTrigger) return false;
+		}
+		return true;
+	}
+
+	static Vector2 Rotate(Vector2 v, float degrees)
+	{
+		float r = degrees * Mathf.Deg2Rad, cos = Mathf.Cos(r), sin = Mathf.Sin(r);
+		return new Vector2(v.x * cos - v.y * sin, v.x * sin + v.y * cos);
 	}
 
 	protected void Stop() { rb.velocity = Vector2.zero; }
