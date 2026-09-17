@@ -8,8 +8,8 @@ using UnityEngine;
 // ============================================================================
 public static class NRAwakening
 {
-	public const float AutoPickRadius = 1.3f;   // 이보다 가까워지면 자동 획득 (가장 가까운 구슬 하나만)
-	public const float KeyPickRadius = 2.8f;    // E 키 인식 범위 (클릭은 화면에서 바로)
+	public const float AutoPickRadius = 0.9f;   // 이보다 가까워지면 자동 획득 (가장 가까운 구슬 하나만)
+	public const float KeyPickRadius = 2.2f;    // E 키 인식 범위 (클릭은 화면에서 바로)
 
 	public static readonly List<NRAugmentDef> Choices = new List<NRAugmentDef>
 	{
@@ -30,7 +30,14 @@ public static class NRAwakening
 
 	static readonly List<NRAwakeningOrb> spawned = new List<NRAwakeningOrb>();
 
-	const float Spacing = 2.4f;
+	/// <summary>원래 단상을 가운데로 두고 2x2로 모아 둔다 (한 줄로 늘어놓으면 방 밖으로 나가 잘린다)</summary>
+	static readonly Vector3[] Slots =
+	{
+		new Vector3(-1.3f, 0.65f, 0f),
+		new Vector3(1.3f, 0.65f, 0f),
+		new Vector3(-1.3f, -0.65f, 0f),
+		new Vector3(1.3f, -0.65f, 0f),
+	};
 
 	/// <summary>씬의 클래스 구슬을 감정 구슬 4개로 교체 (단상도 같이 놓는다)</summary>
 	public static void Setup(TouchItems classOrb)
@@ -48,8 +55,7 @@ public static class NRAwakening
 		Vector3 baseFoot = pedestal != null ? pedestal.position : center;
 		for (int i = 0; i < Choices.Count; i++)
 		{
-			float t = i - (Choices.Count - 1) * 0.5f;
-			Vector3 foot = baseFoot + new Vector3(t * Spacing, 0, 0);
+			Vector3 foot = baseFoot + Slots[i];
 			if (pedestal != null)
 			{
 				if (i == 0) pedestal.position = foot;       // 원래 단상을 첫 자리로
