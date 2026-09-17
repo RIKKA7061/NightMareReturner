@@ -80,8 +80,8 @@ public static class NRScenePatcher
 			var dit = NRInteractable.Attach(desk.gameObject, "책상", "캐릭터 · 조작 방식 변경", NRPalette.Gold, "클릭 / E");
 			dit.onInteract = () => NRSetupWizard.Show(false, null);
 			dit.requireHome = true;
-			dit.showRadius = 2f;
-			dit.interactRadius = 1.3f;
+			dit.showRadius = 1.6f;
+			dit.interactRadius = 1.1f;
 		}
 
 		// 집의 책장 = 영구 강화

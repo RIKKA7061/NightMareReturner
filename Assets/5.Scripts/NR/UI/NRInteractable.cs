@@ -125,6 +125,29 @@ public class NRInteractable : MonoBehaviour
 		attentionUntil = Time.time + seconds;
 	}
 
+	bool Contains(Vector3 mouseWorld)
+	{
+		var b = bounds;
+		b.Expand(new Vector3(0.3f, 0.3f, 100f));
+		return b.Contains(new Vector3(mouseWorld.x, mouseWorld.y, bounds.center.z));
+	}
+
+	/// <summary>마우스를 품고 있는 대상 중 마우스에 가장 가까운 하나 (거리가 같으면 ID가 작은 쪽).</summary>
+	NRInteractable ClosestHovered(Vector3 mouseWorld)
+	{
+		var best = this;
+		float bestDist = Vector2.Distance(mouseWorld, bounds.center);
+		foreach (var o in active)
+		{
+			if (o == null || o == this || !o.isActiveAndEnabled) continue;
+			if (o.visualRoot == null || !o.visualRoot.gameObject.activeSelf) continue;
+			if (!o.Contains(mouseWorld)) continue;
+			float d = Vector2.Distance(mouseWorld, o.bounds.center);
+			if (d < bestDist || (d == bestDist && o.GetInstanceID() < best.GetInstanceID())) { bestDist = d; best = o; }
+		}
+		return best;
+	}
+
 	/// <summary>플레이어에게 가장 가까운 이름표 하나를 고른다 (거리가 같으면 ID가 작은 쪽).</summary>
 	NRInteractable Closest(Vector3 myCenter)
 	{
@@ -178,9 +201,8 @@ public class NRInteractable : MonoBehaviour
 		if (cam != null)
 		{
 			Vector3 m = cam.ScreenToWorldPoint(NRInput.MousePosition);
-			var b = bounds;
-			b.Expand(new Vector3(0.3f, 0.3f, 100f));
-			hover = b.Contains(new Vector3(m.x, m.y, center.z));
+			// 클릭 영역이 겹치면 마우스에 더 가까운 쪽만 반응한다 (집 책상 ↔ 현관문)
+			hover = Contains(m) && ClosestHovered(m) == this;
 		}
 
 		bool near = dist < showRadius;
