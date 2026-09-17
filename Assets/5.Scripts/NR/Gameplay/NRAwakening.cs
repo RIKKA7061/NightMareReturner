@@ -30,21 +30,53 @@ public static class NRAwakening
 
 	static readonly List<NRAwakeningOrb> spawned = new List<NRAwakeningOrb>();
 
-	/// <summary>씬의 클래스 구슬을 감정 구슬 4개로 교체</summary>
+	const float Spacing = 2.4f;
+
+	/// <summary>씬의 클래스 구슬을 감정 구슬 4개로 교체 (단상도 같이 놓는다)</summary>
 	public static void Setup(TouchItems classOrb)
 	{
 		if (classOrb == null) return;
 		Clear();
 		Vector3 center = classOrb.transform.position;
 		var portal = classOrb.portal;
+		var orbArt = classOrb.GetComponentInChildren<SpriteRenderer>();
+		Transform pedestal = FindPedestal(classOrb.transform);
+		Vector3 orbLift = pedestal != null ? center - pedestal.position : Vector3.zero;
+
 		classOrb.gameObject.SetActive(false);
 
+		Vector3 baseFoot = pedestal != null ? pedestal.position : center;
 		for (int i = 0; i < Choices.Count; i++)
 		{
 			float t = i - (Choices.Count - 1) * 0.5f;
-			Vector3 pos = center + new Vector3(t * 3.2f, Mathf.Abs(t) * 0.4f, 0);
-			spawned.Add(NRAwakeningOrb.Create(Choices[i], pos, portal));
+			Vector3 foot = baseFoot + new Vector3(t * Spacing, 0, 0);
+			if (pedestal != null)
+			{
+				if (i == 0) pedestal.position = foot;       // 원래 단상을 첫 자리로
+				else spawned.Add(ClonePedestal(pedestal, foot));
+			}
+			spawned.Add(NRAwakeningOrb.Create(Choices[i], foot + orbLift, portal, orbArt));
 		}
+	}
+
+	/// <summary>구슬이 놓여 있던 단상(기둥 프리팹)</summary>
+	static Transform FindPedestal(Transform orb)
+	{
+		var parent = orb.parent;
+		if (parent == null) return null;
+		foreach (Transform c in parent)
+			if (c != orb && c.name.StartsWith("prop007")) return c;
+		return null;
+	}
+
+	static NRAwakeningOrb ClonePedestal(Transform pedestal, Vector3 pos)
+	{
+		var copy = Object.Instantiate(pedestal.gameObject, pos, pedestal.rotation, pedestal.parent);
+		copy.name = "NR Awakening Pedestal";
+		foreach (var col in copy.GetComponentsInChildren<Collider2D>(true)) col.enabled = false;
+		var holder = copy.AddComponent<NRAwakeningOrb>();
+		holder.pedestalOnly = true;
+		return holder;
 	}
 
 	/// <summary>실수로 옆 구슬을 먹지 않도록, 자동 획득은 가장 가까운 하나만</summary>
@@ -54,17 +86,22 @@ public static class NRAwakening
 		float bestDist = float.MaxValue;
 		foreach (var o in spawned)
 		{
-			if (o == null) continue;
+			if (o == null || o.pedestalOnly) continue;
 			float d = Vector2.Distance(from, o.transform.position);
 			if (d < bestDist) { bestDist = d; best = o; }
 		}
 		return best;
 	}
 
-	public static void Clear()
+	public static void Clear(bool pedestalsToo = true)
 	{
-		foreach (var o in spawned) if (o != null) Object.Destroy(o.gameObject);
-		spawned.Clear();
+		for (int i = spawned.Count - 1; i >= 0; i--)
+		{
+			var o = spawned[i];
+			if (o != null && o.pedestalOnly && !pedestalsToo) continue; // 단상은 장식으로 남긴다
+			if (o != null) Object.Destroy(o.gameObject);
+			spawned.RemoveAt(i);
+		}
 	}
 
 	/// <summary>하나를 고르면 나머지는 사라진다</summary>
@@ -78,7 +115,7 @@ public static class NRAwakening
 		NRCombatFX.DeathBurst(chosen.transform.position, NRAugments.FamilyColor(chosen.def.family), 20);
 		NRAudio.PlaySfx("crystal", 0.6f);
 
-		Clear();
+		Clear(false);
 		NRClassAwakening.Show(() => NRAugmentSelect.Show(null, false, "첫 번째 감정", null));
 	}
 }
@@ -86,13 +123,14 @@ public static class NRAwakening
 public class NRAwakeningOrb : MonoBehaviour
 {
 	public NRAugmentDef def;
+	public bool pedestalOnly;
 	GameObject portal;
 	Player player;
 	Transform art;
 	float born;
 	bool taken;
 
-	public static NRAwakeningOrb Create(NRAugmentDef def, Vector3 pos, GameObject portal)
+	public static NRAwakeningOrb Create(NRAugmentDef def, Vector3 pos, GameObject portal, SpriteRenderer source)
 	{
 		var go = new GameObject("NR Awakening Orb - " + def.id);
 		go.transform.position = pos;
@@ -112,12 +150,23 @@ public class NRAwakeningOrb : MonoBehaviour
 		glow.transform.localScale = new Vector3(2.4f, 1.8f, 1f);
 		NRSort.Set(glow, NRSort.Floor, 45);
 
+		// 기존 클래스 구슬 그림 그대로 사용 (없으면 기본 구슬)
 		var body = new GameObject("Orb").AddComponent<SpriteRenderer>();
 		body.transform.SetParent(artGo.transform, false);
-		body.sprite = NRSprites.Orb;
-		body.color = color;
-		body.transform.localScale = Vector3.one * 1.3f;
-		NRSort.Set(body, NRSort.Top, 60);
+		if (source != null && source.sprite != null)
+		{
+			body.sprite = source.sprite;
+			body.color = source.color;
+			body.transform.localScale = source.transform.lossyScale;
+			NRSort.Set(body, SortingLayer.IDToName(source.sortingLayerID), source.sortingOrder + 1);
+		}
+		else
+		{
+			body.sprite = NRSprites.Orb;
+			body.color = color;
+			body.transform.localScale = Vector3.one * 1.3f;
+			NRSort.Set(body, NRSort.Top, 60);
+		}
 
 		var icon = new GameObject("Icon").AddComponent<SpriteRenderer>();
 		icon.transform.SetParent(artGo.transform, false);
@@ -144,6 +193,7 @@ public class NRAwakeningOrb : MonoBehaviour
 
 	void Update()
 	{
+		if (pedestalOnly) return;
 		if (art != null) art.localPosition = new Vector3(0, 0.35f + Mathf.Sin((Time.time - born) * 2.2f) * 0.18f, 0);
 		if (taken || NRUIState.IsGameplayBlocked) return;
 		if (player == null) player = FindObjectOfType<Player>();
