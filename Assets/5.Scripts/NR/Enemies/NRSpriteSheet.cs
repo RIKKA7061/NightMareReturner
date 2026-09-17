@@ -20,6 +20,12 @@ public static class NRSpriteSheet
 	static readonly Dictionary<string, NRClip> cache = new Dictionary<string, NRClip>();
 	static readonly Dictionary<string, Vector2> pivotCache = new Dictionary<string, Vector2>();
 
+	/// <summary>도메인 리로드 없이 플레이를 다시 시작하면 static 캐시는 남고 스프라이트만 파괴된다.</summary>
+	static bool IsAlive(NRClip clip)
+	{
+		return clip != null && clip.frames != null && (clip.frames.Length == 0 || clip.frames[0] != null);
+	}
+
 	/// <param name="kind">폴더 이름</param>
 	/// <param name="anim">파일 이름</param>
 	/// <param name="frameHeight">프레임 높이(px)</param>
@@ -27,7 +33,7 @@ public static class NRSpriteSheet
 	public static NRClip Load(string kind, string anim, int frameHeight, string pivotAnim, float fps, bool loop, float ppu = 100f)
 	{
 		string key = kind + "/" + anim;
-		if (cache.TryGetValue(key, out var clip)) return clip;
+		if (cache.TryGetValue(key, out var clip) && IsAlive(clip)) return clip;
 
 		var tex = Resources.Load<Texture2D>("NR/Sprites/Enemies/" + key);
 		clip = new NRClip { fps = fps, loop = loop };
@@ -64,7 +70,7 @@ public static class NRSpriteSheet
 	public static NRClip LoadGridRow(string resourcePath, int frameW, int frameH, int row, int pivotRow, float fps, bool loop, float ppu = 100f, int maxFrames = 99)
 	{
 		string key = resourcePath + "#" + row + "#" + ppu;
-		if (cache.TryGetValue(key, out var clip)) return clip;
+		if (cache.TryGetValue(key, out var clip) && IsAlive(clip)) return clip;
 		clip = new NRClip { fps = fps, loop = loop, frames = new Sprite[0], silhouettes = new Sprite[0] };
 		cache[key] = clip;
 		var tex = Resources.Load<Texture2D>(resourcePath);

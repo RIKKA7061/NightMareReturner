@@ -26,7 +26,7 @@ public static class NRFont
 
 	public static void Init()
 	{
-		if (initialized) return;
+		if (initialized && Asset != null) return;
 		initialized = true;
 
 		Legacy = Resources.Load<Font>(TtfPath);

@@ -353,6 +353,8 @@ public static class NRSprites
 	static Sprite[] icons;
 	public static Sprite Icon(int index)
 	{
+		// 도메인 리로드 없이 플레이를 다시 시작하면 static은 남고 스프라이트만 파괴되므로 다시 만든다
+		if (icons != null && icons[0] == null) icons = null;
 		if (icons == null)
 		{
 			icons = new Sprite[36];
